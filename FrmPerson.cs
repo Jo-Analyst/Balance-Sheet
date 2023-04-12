@@ -19,11 +19,9 @@ namespace CourseManagement
             LoadDataStudent();
         }
 
-        Student student = new Student();
-
         private void FrmStudent_Load(object sender, EventArgs e)
         {
-            LoadDataStudent();
+            //LoadDataStudent();
         }
 
         private void LoadDataStudent()
