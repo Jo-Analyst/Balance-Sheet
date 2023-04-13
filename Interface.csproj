@@ -46,11 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmCourseManagementt.cs">
+    <Compile Include="FrmBackupAndRestore.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmCourseManagementt.designer.cs">
-      <DependentUpon>FrmCourseManagementt.cs</DependentUpon>
+    <Compile Include="FrmBackupAndRestore.designer.cs">
+      <DependentUpon>FrmBackupAndRestore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBalancetSheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBalancetSheet.designer.cs">
+      <DependentUpon>FrmBalancetSheet.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmPerson.cs">
       <SubType>Form</SubType>
@@ -66,9 +72,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ValidateCPF.cs" />
-    <EmbeddedResource Include="FrmCourseManagementt.resx">
-      <DependentUpon>FrmCourseManagementt.cs</DependentUpon>
+    <Compile Include="Utils\FormatterFields.cs" />
+    <Compile Include="Utils\ValidateCPF.cs" />
+    <EmbeddedResource Include="FrmBackupAndRestore.resx">
+      <DependentUpon>FrmBackupAndRestore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBalancetSheet.resx">
+      <DependentUpon>FrmBalancetSheet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPerson.resx">
       <DependentUpon>FrmPerson.cs</DependentUpon>

@@ -45,11 +45,11 @@ namespace DataBase
                         command.Transaction = transaction;
 
                         BenefitsReceived benefitsReceived = new BenefitsReceived();
+                        benefitsReceived.person_id = Convert.ToInt32(command.ExecuteScalar());
                         foreach (DataRow rowBenefitsReceived in dtBenefitsReceived.Rows)
                         {
                             benefitsReceived.description = rowBenefitsReceived["description"].ToString();
                             benefitsReceived.dateBenefits = Convert.ToDateTime(rowBenefitsReceived["date_benefits"]);
-                            benefitsReceived.person_id = Convert.ToInt32(command.ExecuteScalar());
                             benefitsReceived.Save(transaction);
                         }
 
@@ -96,7 +96,7 @@ namespace DataBase
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
-                    string sql = $"SELECT persons.name, persons.CPF, persons.RG, persons.address, persons.phone, persons.income, persons.help, persons.number_of_members, Benefits_Received.description FROM Persons INNER JOIN Benefits_Received ON Benefits_Received.person_id = Persons.id WHERE Persons.id = {id}";
+                    string sql = $"SELECT * FROM Persons WHERE Persons.id = {id}";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();
@@ -116,7 +116,27 @@ namespace DataBase
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
-                    string sql = "SELECT persons.name, persons.CPF, persons.RG, persons.address, persons.phone, persons.income, persons.help, persons.number_of_members, Benefits_Received.description FROM Persons INNER JOIN Benefits_Received ON Benefits_Received.person_id = Persons.id";
+                    string sql = "SELECT * FROM Persons";
+                    var adapter = new SqlDataAdapter(sql, connection);
+                    adapter.SelectCommand.CommandText = sql;
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        
+        public DataTable FindByAddress(string address)
+        {
+            try
+            {
+                using (var connection = new SqlConnection(DbConnectionString.connectionString))
+                {
+                    string sql = $"SELECT * FROM Persons WHERE address LIKE '%{address}%'";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSavePerson));
             this.btnsave = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -75,7 +76,6 @@
             this.btnsave.Name = "btnsave";
             this.btnsave.Size = new System.Drawing.Size(156, 46);
             this.btnsave.TabIndex = 2;
-            this.btnsave.TabStop = false;
             this.btnsave.Text = "Salvar";
             this.btnsave.UseVisualStyleBackColor = true;
             this.btnsave.Click += new System.EventHandler(this.btnSave_Click);
@@ -113,8 +113,9 @@
             this.ndNumberOfMembers.Location = new System.Drawing.Point(318, 219);
             this.ndNumberOfMembers.Name = "ndNumberOfMembers";
             this.ndNumberOfMembers.Size = new System.Drawing.Size(127, 26);
-            this.ndNumberOfMembers.TabIndex = 36;
+            this.ndNumberOfMembers.TabIndex = 8;
             this.ndNumberOfMembers.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ndNumberOfMembers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ndNumberOfMembers_KeyPress);
             // 
             // label9
             // 
@@ -134,7 +135,8 @@
             this.txtHelp.MaxLength = 100;
             this.txtHelp.Name = "txtHelp";
             this.txtHelp.Size = new System.Drawing.Size(143, 26);
-            this.txtHelp.TabIndex = 34;
+            this.txtHelp.TabIndex = 7;
+            this.txtHelp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHelp_KeyPress);
             // 
             // label8
             // 
@@ -154,7 +156,8 @@
             this.txtIncome.MaxLength = 100;
             this.txtIncome.Name = "txtIncome";
             this.txtIncome.Size = new System.Drawing.Size(143, 26);
-            this.txtIncome.TabIndex = 32;
+            this.txtIncome.TabIndex = 6;
+            this.txtIncome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIncome_KeyPress);
             // 
             // label7
             // 
@@ -173,7 +176,7 @@
             this.mkPhone.Mask = "(00) 0 0000-0000";
             this.mkPhone.Name = "mkPhone";
             this.mkPhone.Size = new System.Drawing.Size(132, 26);
-            this.mkPhone.TabIndex = 30;
+            this.mkPhone.TabIndex = 3;
             // 
             // label6
             // 
@@ -193,7 +196,7 @@
             this.txtNumberAddress.MaxLength = 100;
             this.txtNumberAddress.Name = "txtNumberAddress";
             this.txtNumberAddress.Size = new System.Drawing.Size(143, 26);
-            this.txtNumberAddress.TabIndex = 28;
+            this.txtNumberAddress.TabIndex = 5;
             // 
             // label5
             // 
@@ -210,10 +213,10 @@
             // 
             this.txtAddress.Location = new System.Drawing.Point(17, 156);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(4);
-            this.txtAddress.MaxLength = 100;
+            this.txtAddress.MaxLength = 200;
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(277, 26);
-            this.txtAddress.TabIndex = 25;
+            this.txtAddress.TabIndex = 4;
             // 
             // label4
             // 
@@ -230,10 +233,10 @@
             // 
             this.txtRG.Location = new System.Drawing.Point(149, 103);
             this.txtRG.Margin = new System.Windows.Forms.Padding(4);
-            this.txtRG.MaxLength = 100;
+            this.txtRG.MaxLength = 14;
             this.txtRG.Name = "txtRG";
             this.txtRG.Size = new System.Drawing.Size(155, 26);
-            this.txtRG.TabIndex = 23;
+            this.txtRG.TabIndex = 2;
             // 
             // label3
             // 
@@ -252,7 +255,7 @@
             this.mkCPF.Mask = "000,000,000-00";
             this.mkCPF.Name = "mkCPF";
             this.mkCPF.Size = new System.Drawing.Size(120, 26);
-            this.mkCPF.TabIndex = 22;
+            this.mkCPF.TabIndex = 1;
             // 
             // label2
             // 
@@ -269,10 +272,11 @@
             // 
             this.txtName.Location = new System.Drawing.Point(17, 48);
             this.txtName.Margin = new System.Windows.Forms.Padding(4);
-            this.txtName.MaxLength = 100;
+            this.txtName.MaxLength = 200;
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(428, 26);
-            this.txtName.TabIndex = 20;
+            this.txtName.TabIndex = 0;
+            this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
             // 
             // label1
             // 
@@ -308,12 +312,11 @@
             this.btnADD.Enabled = false;
             this.btnADD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnADD.ForeColor = System.Drawing.Color.White;
-            this.btnADD.Location = new System.Drawing.Point(319, 131);
+            this.btnADD.Location = new System.Drawing.Point(319, 136);
             this.btnADD.Margin = new System.Windows.Forms.Padding(4);
             this.btnADD.Name = "btnADD";
             this.btnADD.Size = new System.Drawing.Size(138, 46);
             this.btnADD.TabIndex = 6;
-            this.btnADD.TabStop = false;
             this.btnADD.Text = "Adicionar";
             this.btnADD.UseVisualStyleBackColor = true;
             this.btnADD.Click += new System.EventHandler(this.btnADD_Click);
@@ -325,7 +328,7 @@
             this.dtDateBenefits.Location = new System.Drawing.Point(22, 156);
             this.dtDateBenefits.Name = "dtDateBenefits";
             this.dtDateBenefits.Size = new System.Drawing.Size(103, 26);
-            this.dtDateBenefits.TabIndex = 34;
+            this.dtDateBenefits.TabIndex = 10;
             // 
             // label11
             // 
@@ -357,7 +360,7 @@
             this.rtDescription.Location = new System.Drawing.Point(22, 46);
             this.rtDescription.Name = "rtDescription";
             this.rtDescription.Size = new System.Drawing.Size(435, 78);
-            this.rtDescription.TabIndex = 0;
+            this.rtDescription.TabIndex = 9;
             this.rtDescription.Text = "";
             this.rtDescription.TextChanged += new System.EventHandler(this.rtDescription_TextChanged);
             // 
@@ -368,6 +371,14 @@
             this.dgvBenefitsReceived.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBenefitsReceived.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvBenefitsReceived.ColumnHeadersHeight = 40;
             this.dgvBenefitsReceived.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvBenefitsReceived.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -386,6 +397,7 @@
             this.ColumnID.HeaderText = "ID";
             this.ColumnID.Name = "ColumnID";
             this.ColumnID.ReadOnly = true;
+            this.ColumnID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.ColumnID.Visible = false;
             // 
             // Colescripition
@@ -394,6 +406,7 @@
             this.Colescripition.HeaderText = "Descrição";
             this.Colescripition.Name = "Colescripition";
             this.Colescripition.ReadOnly = true;
+            this.Colescripition.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // ColDate
             // 
@@ -401,7 +414,8 @@
             this.ColDate.HeaderText = "Data do recebimento";
             this.ColDate.Name = "ColDate";
             this.ColDate.ReadOnly = true;
-            this.ColDate.Width = 183;
+            this.ColDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColDate.Width = 164;
             // 
             // FrmSavePerson
             // 
@@ -460,10 +474,10 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.RichTextBox rtDescription;
         private System.Windows.Forms.DataGridView dgvBenefitsReceived;
+        private System.Windows.Forms.NumericUpDown ndNumberOfMembers;
+        private System.Windows.Forms.Button btnADD;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Colescripition;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDate;
-        private System.Windows.Forms.NumericUpDown ndNumberOfMembers;
-        private System.Windows.Forms.Button btnADD;
     }
 }

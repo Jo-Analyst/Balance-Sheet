@@ -25,4 +25,6 @@ CREATE TABLE [dbo].[Benefits_Received]
     FOREIGN KEY ([person_id]) REFERENCES [dbo].[persons](id) ON DELETE CASCADE
 )
 
-SELECT persons.name, persons.CPF, persons.RG, persons.address, persons.phone, persons.income, persons.help, persons.number_of_members, Benefits_Received.description FROM Persons INNER JOIN Benefits_Received ON Benefits_Received.person_id = Persons.id
+SELECT persons.name, persons.CPF, persons.RG, persons.address, persons.phone, persons.income, persons.help, persons.number_of_members, Benefits_Received.description, Benefits_Received.date_benefits FROM Persons INNER JOIN Benefits_Received ON Benefits_Received.person_id = Persons.id
+
+select * from 

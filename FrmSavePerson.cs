@@ -42,10 +42,10 @@ namespace CourseManagement
 
             if (string.IsNullOrWhiteSpace(txtName.Text))
             {
-                MessageBox.Show("Preencha o nome do(a) aluno(a)", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Preencha o nome do(a) responsável!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else if (mkCPF.MaskCompleted && !ValidateCPF.validate(mkCPF.Text)) 
-                MessageBox.Show("CPF inválido.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("CPF inválido!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             else
                 validated = true;
 
@@ -108,6 +108,54 @@ namespace CourseManagement
         private void rtDescription_TextChanged(object sender, EventArgs e)
         {
             btnADD.Enabled = !string.IsNullOrEmpty(rtDescription.Text);
+        }
+
+        private void ndNumberOfMembers_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+
+                if (char.IsDigit(e.KeyChar) && (e.KeyChar != (char)8))
+                {
+                    e.Handled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (char.IsDigit(e.KeyChar) && (e.KeyChar != (char)8))
+                {
+                    e.Handled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Caixa Fácil", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtIncome_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                FormatterFields.formatterDecimal(e, txtIncome);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Caixa Fácil", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtHelp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            FormatterFields.formatterDecimal(e, txtHelp);
         }
 
         private void FrmSavePerson_Load(object sender, EventArgs e)

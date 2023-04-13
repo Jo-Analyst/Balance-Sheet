@@ -14,7 +14,7 @@ namespace Balance_Sheet
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmSavePerson());
+            Application.Run(new FrmBalanceSheet());
         }
     }
 }
