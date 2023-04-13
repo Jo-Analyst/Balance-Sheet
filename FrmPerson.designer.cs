@@ -44,6 +44,11 @@
             this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColRG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColHelp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColNumberOfMembers = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,11 +100,17 @@
             this.id,
             this.ColName,
             this.ColCPF,
-            this.ColRG});
+            this.ColRG,
+            this.ColAddress,
+            this.ColPhone,
+            this.ColIncome,
+            this.ColHelp,
+            this.ColNumberOfMembers});
             this.dgvStudent.EnableHeadersVisualStyles = false;
             this.dgvStudent.Location = new System.Drawing.Point(32, 180);
             this.dgvStudent.Margin = new System.Windows.Forms.Padding(4);
             this.dgvStudent.Name = "dgvStudent";
+            this.dgvStudent.ReadOnly = true;
             this.dgvStudent.RowHeadersVisible = false;
             this.dgvStudent.RowHeadersWidth = 51;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -170,9 +181,9 @@
             this.rbClass.Location = new System.Drawing.Point(268, 112);
             this.rbClass.Margin = new System.Windows.Forms.Padding(4);
             this.rbClass.Name = "rbClass";
-            this.rbClass.Size = new System.Drawing.Size(72, 24);
+            this.rbClass.Size = new System.Drawing.Size(96, 24);
             this.rbClass.TabIndex = 7;
-            this.rbClass.Text = "Turma";
+            this.rbClass.Text = "Endereço";
             this.rbClass.UseVisualStyleBackColor = true;
             this.rbClass.CheckedChanged += new System.EventHandler(this.rbClass_CheckedChanged);
             // 
@@ -185,6 +196,7 @@
             this.id.HeaderText = "ID";
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
+            this.id.ReadOnly = true;
             this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.id.Width = 32;
             // 
@@ -203,6 +215,7 @@
             this.ColCPF.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ColCPF.HeaderText = "CPF";
             this.ColCPF.Name = "ColCPF";
+            this.ColCPF.ReadOnly = true;
             this.ColCPF.Width = 65;
             // 
             // ColRG
@@ -210,7 +223,48 @@
             this.ColRG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ColRG.HeaderText = "RG";
             this.ColRG.Name = "ColRG";
+            this.ColRG.ReadOnly = true;
             this.ColRG.Width = 59;
+            // 
+            // ColAddress
+            // 
+            this.ColAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColAddress.HeaderText = "Endereço";
+            this.ColAddress.Name = "ColAddress";
+            this.ColAddress.ReadOnly = true;
+            this.ColAddress.Width = 103;
+            // 
+            // ColPhone
+            // 
+            this.ColPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColPhone.HeaderText = "Tel/Cel";
+            this.ColPhone.Name = "ColPhone";
+            this.ColPhone.ReadOnly = true;
+            this.ColPhone.Width = 82;
+            // 
+            // ColIncome
+            // 
+            this.ColIncome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColIncome.HeaderText = "Renda";
+            this.ColIncome.Name = "ColIncome";
+            this.ColIncome.ReadOnly = true;
+            this.ColIncome.Width = 82;
+            // 
+            // ColHelp
+            // 
+            this.ColHelp.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColHelp.HeaderText = "Bolsa Família";
+            this.ColHelp.Name = "ColHelp";
+            this.ColHelp.ReadOnly = true;
+            this.ColHelp.Width = 128;
+            // 
+            // ColNumberOfMembers
+            // 
+            this.ColNumberOfMembers.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColNumberOfMembers.HeaderText = "Composição Familiar";
+            this.ColNumberOfMembers.Name = "ColNumberOfMembers";
+            this.ColNumberOfMembers.ReadOnly = true;
+            this.ColNumberOfMembers.Width = 181;
             // 
             // FrmPerson
             // 
@@ -255,5 +309,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCPF;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColRG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColPhone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColIncome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColHelp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColNumberOfMembers;
     }
 }

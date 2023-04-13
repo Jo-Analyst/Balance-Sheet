@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSavePerson));
             this.btnsave = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtNumberOfMembers = new System.Windows.Forms.TextBox();
+            this.ndNumberOfMembers = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
             this.txtHelp = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -39,7 +39,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.mkPhone = new System.Windows.Forms.MaskedTextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtNumber = new System.Windows.Forms.TextBox();
+            this.txtNumberAddress = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,17 +50,19 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dtDate = new System.Windows.Forms.DateTimePicker();
+            this.btnADD = new System.Windows.Forms.Button();
+            this.dtDateBenefits = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.rtDescription = new System.Windows.Forms.RichTextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvBenefitsReceived = new System.Windows.Forms.DataGridView();
             this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Colescripition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ndNumberOfMembers)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBenefitsReceived)).BeginInit();
             this.SuspendLayout();
             // 
             // btnsave
@@ -68,10 +70,10 @@
             this.btnsave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnsave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnsave.ForeColor = System.Drawing.Color.White;
-            this.btnsave.Location = new System.Drawing.Point(667, 429);
+            this.btnsave.Location = new System.Drawing.Point(731, 429);
             this.btnsave.Margin = new System.Windows.Forms.Padding(4);
             this.btnsave.Name = "btnsave";
-            this.btnsave.Size = new System.Drawing.Size(220, 46);
+            this.btnsave.Size = new System.Drawing.Size(156, 46);
             this.btnsave.TabIndex = 2;
             this.btnsave.TabStop = false;
             this.btnsave.Text = "Salvar";
@@ -80,7 +82,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtNumberOfMembers);
+            this.groupBox1.Controls.Add(this.ndNumberOfMembers);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.txtHelp);
             this.groupBox1.Controls.Add(this.label8);
@@ -88,7 +90,7 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.mkPhone);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.txtNumber);
+            this.groupBox1.Controls.Add(this.txtNumberAddress);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtAddress);
             this.groupBox1.Controls.Add(this.label4);
@@ -106,14 +108,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados pessoais";
             // 
-            // txtNumberOfMembers
+            // ndNumberOfMembers
             // 
-            this.txtNumberOfMembers.Location = new System.Drawing.Point(319, 219);
-            this.txtNumberOfMembers.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNumberOfMembers.MaxLength = 100;
-            this.txtNumberOfMembers.Name = "txtNumberOfMembers";
-            this.txtNumberOfMembers.Size = new System.Drawing.Size(126, 26);
-            this.txtNumberOfMembers.TabIndex = 36;
+            this.ndNumberOfMembers.Location = new System.Drawing.Point(318, 219);
+            this.ndNumberOfMembers.Name = "ndNumberOfMembers";
+            this.ndNumberOfMembers.Size = new System.Drawing.Size(127, 26);
+            this.ndNumberOfMembers.TabIndex = 36;
+            this.ndNumberOfMembers.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label9
             // 
@@ -185,14 +186,14 @@
             this.label6.TabIndex = 29;
             this.label6.Text = "Tel/Cel";
             // 
-            // txtNumber
+            // txtNumberAddress
             // 
-            this.txtNumber.Location = new System.Drawing.Point(302, 156);
-            this.txtNumber.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNumber.MaxLength = 100;
-            this.txtNumber.Name = "txtNumber";
-            this.txtNumber.Size = new System.Drawing.Size(143, 26);
-            this.txtNumber.TabIndex = 28;
+            this.txtNumberAddress.Location = new System.Drawing.Point(302, 156);
+            this.txtNumberAddress.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumberAddress.MaxLength = 100;
+            this.txtNumberAddress.Name = "txtNumberAddress";
+            this.txtNumberAddress.Size = new System.Drawing.Size(143, 26);
+            this.txtNumberAddress.TabIndex = 28;
             // 
             // label5
             // 
@@ -288,7 +289,8 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox2.Controls.Add(this.dtDate);
+            this.groupBox2.Controls.Add(this.btnADD);
+            this.groupBox2.Controls.Add(this.dtDateBenefits);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.rtDescription);
@@ -300,14 +302,30 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Beneficios recebido";
             // 
-            // dtDate
+            // btnADD
             // 
-            this.dtDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.dtDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtDate.Location = new System.Drawing.Point(22, 156);
-            this.dtDate.Name = "dtDate";
-            this.dtDate.Size = new System.Drawing.Size(103, 26);
-            this.dtDate.TabIndex = 34;
+            this.btnADD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnADD.Enabled = false;
+            this.btnADD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnADD.ForeColor = System.Drawing.Color.White;
+            this.btnADD.Location = new System.Drawing.Point(319, 131);
+            this.btnADD.Margin = new System.Windows.Forms.Padding(4);
+            this.btnADD.Name = "btnADD";
+            this.btnADD.Size = new System.Drawing.Size(138, 46);
+            this.btnADD.TabIndex = 6;
+            this.btnADD.TabStop = false;
+            this.btnADD.Text = "Adicionar";
+            this.btnADD.UseVisualStyleBackColor = true;
+            this.btnADD.Click += new System.EventHandler(this.btnADD_Click);
+            // 
+            // dtDateBenefits
+            // 
+            this.dtDateBenefits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dtDateBenefits.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtDateBenefits.Location = new System.Drawing.Point(22, 156);
+            this.dtDateBenefits.Name = "dtDateBenefits";
+            this.dtDateBenefits.Size = new System.Drawing.Size(103, 26);
+            this.dtDateBenefits.TabIndex = 34;
             // 
             // label11
             // 
@@ -341,25 +359,27 @@
             this.rtDescription.Size = new System.Drawing.Size(435, 78);
             this.rtDescription.TabIndex = 0;
             this.rtDescription.Text = "";
+            this.rtDescription.TextChanged += new System.EventHandler(this.rtDescription_TextChanged);
             // 
-            // dataGridView1
+            // dgvBenefitsReceived
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvBenefitsReceived.AllowUserToAddRows = false;
+            this.dgvBenefitsReceived.AllowUserToDeleteRows = false;
+            this.dgvBenefitsReceived.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeight = 40;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvBenefitsReceived.ColumnHeadersHeight = 40;
+            this.dgvBenefitsReceived.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvBenefitsReceived.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnID,
             this.Colescripition,
             this.ColDate});
-            this.dataGridView1.Location = new System.Drawing.Point(493, 23);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(395, 399);
-            this.dataGridView1.TabIndex = 5;
+            this.dgvBenefitsReceived.Location = new System.Drawing.Point(493, 23);
+            this.dgvBenefitsReceived.Name = "dgvBenefitsReceived";
+            this.dgvBenefitsReceived.ReadOnly = true;
+            this.dgvBenefitsReceived.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvBenefitsReceived.Size = new System.Drawing.Size(395, 399);
+            this.dgvBenefitsReceived.TabIndex = 5;
             // 
             // ColumnID
             // 
@@ -389,7 +409,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(900, 484);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvBenefitsReceived);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnsave);
@@ -401,13 +421,15 @@
             this.Name = "FrmSavePerson";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro do responsável Familiar";
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmSavePerson_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmSaveStudent_KeyDown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ndNumberOfMembers)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBenefitsReceived)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -415,7 +437,6 @@
         #endregion
         private System.Windows.Forms.Button btnsave;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtNumberOfMembers;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtHelp;
         private System.Windows.Forms.Label label8;
@@ -423,7 +444,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.MaskedTextBox mkPhone;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtNumber;
+        private System.Windows.Forms.TextBox txtNumberAddress;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label label4;
@@ -434,13 +455,15 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DateTimePicker dtDate;
+        private System.Windows.Forms.DateTimePicker dtDateBenefits;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.RichTextBox rtDescription;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvBenefitsReceived;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Colescripition;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDate;
+        private System.Windows.Forms.NumericUpDown ndNumberOfMembers;
+        private System.Windows.Forms.Button btnADD;
     }
 }

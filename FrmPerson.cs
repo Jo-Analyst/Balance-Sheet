@@ -62,13 +62,13 @@ namespace CourseManagement
                 return;
             }
 
-            var saveStudent = new FrmSavePerson(int.Parse(dgvStudent.CurrentRow.Cells["id"].Value.ToString()), dgvStudent.CurrentRow.Cells["name"].Value.ToString(), dgvStudent.CurrentRow.Cells["shift"].Value.ToString(), dgvStudent.CurrentRow.Cells["classStudent"].Value.ToString(), dgvStudent.CurrentRow.Cells["gender"].Value.ToString());
-            saveStudent.ShowDialog();
+            //var saveStudent = new FrmSavePerson(int.Parse(dgvStudent.CurrentRow.Cells["id"].Value.ToString()), dgvStudent.CurrentRow.Cells["name"].Value.ToString(), dgvStudent.CurrentRow.Cells["shift"].Value.ToString(), dgvStudent.CurrentRow.Cells["classStudent"].Value.ToString(), dgvStudent.CurrentRow.Cells["gender"].Value.ToString());
+            //saveStudent.ShowDialog();
 
-            studentId = 0;
-            dgvStudent.ClearSelection();
-            if (saveStudent.studentWasSaved)
-                LoadDataStudent();
+            //studentId = 0;
+            //dgvStudent.ClearSelection();
+            //if (saveStudent.studentWasSaved)
+            //    LoadDataStudent();
         }
 
         string genderStudent, nameStudent;

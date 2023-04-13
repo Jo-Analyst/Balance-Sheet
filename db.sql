@@ -1,10 +1,15 @@
-﻿CREATE TABLE [dbo].[Persons]
+﻿CREATE DATABASE dbCRAS
+
+use dbCRAS
+
+CREATE TABLE [dbo].[Persons]
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
     [name] VARCHAR(200) NULL, 
     [CPF] VARCHAR(14) NULL, 
     [RG] VARCHAR(14) NULL, 
-    [address] VARCHAR(200) NULL, 
+    [address] VARCHAR(200) NULL,
+    [number_address] VARCHAR(MAX),
     [phone] VARCHAR(20) NULL, 
     [income] DECIMAL(18, 2) NULL, -- renda
     [help] DECIMAL(18, 2) NULL, --  auxílio
