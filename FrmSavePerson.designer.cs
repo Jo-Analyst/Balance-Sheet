@@ -31,30 +31,33 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSavePerson));
             this.btnsave = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtNumberOfMembers = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtHelp = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtIncome = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.mkPhone = new System.Windows.Forms.MaskedTextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtNumber = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtRG = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.mkCPF = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.dtDate = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label10 = new System.Windows.Forms.Label();
+            this.rtDescription = new System.Windows.Forms.RichTextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Colescripition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -62,6 +65,7 @@
             // 
             // btnsave
             // 
+            this.btnsave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnsave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnsave.ForeColor = System.Drawing.Color.White;
             this.btnsave.Location = new System.Drawing.Point(667, 429);
@@ -76,21 +80,21 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(this.txtNumberOfMembers);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.txtHelp);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.txtIncome);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.maskedTextBox2);
+            this.groupBox1.Controls.Add(this.mkPhone);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.txtNumber);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txtAddress);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtRG);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.maskedTextBox1);
+            this.groupBox1.Controls.Add(this.mkCPF);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Controls.Add(this.label1);
@@ -102,14 +106,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados pessoais";
             // 
-            // textBox6
+            // txtNumberOfMembers
             // 
-            this.textBox6.Location = new System.Drawing.Point(319, 219);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox6.MaxLength = 100;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(126, 26);
-            this.textBox6.TabIndex = 36;
+            this.txtNumberOfMembers.Location = new System.Drawing.Point(319, 219);
+            this.txtNumberOfMembers.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumberOfMembers.MaxLength = 100;
+            this.txtNumberOfMembers.Name = "txtNumberOfMembers";
+            this.txtNumberOfMembers.Size = new System.Drawing.Size(126, 26);
+            this.txtNumberOfMembers.TabIndex = 36;
             // 
             // label9
             // 
@@ -122,14 +126,14 @@
             this.label9.TabIndex = 35;
             this.label9.Text = "Composição familiar";
             // 
-            // textBox5
+            // txtHelp
             // 
-            this.textBox5.Location = new System.Drawing.Point(168, 219);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox5.MaxLength = 100;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(143, 26);
-            this.textBox5.TabIndex = 34;
+            this.txtHelp.Location = new System.Drawing.Point(168, 219);
+            this.txtHelp.Margin = new System.Windows.Forms.Padding(4);
+            this.txtHelp.MaxLength = 100;
+            this.txtHelp.Name = "txtHelp";
+            this.txtHelp.Size = new System.Drawing.Size(143, 26);
+            this.txtHelp.TabIndex = 34;
             // 
             // label8
             // 
@@ -142,14 +146,14 @@
             this.label8.TabIndex = 33;
             this.label8.Text = "Bolsa Família";
             // 
-            // textBox4
+            // txtIncome
             // 
-            this.textBox4.Location = new System.Drawing.Point(17, 219);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox4.MaxLength = 100;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(143, 26);
-            this.textBox4.TabIndex = 32;
+            this.txtIncome.Location = new System.Drawing.Point(17, 219);
+            this.txtIncome.Margin = new System.Windows.Forms.Padding(4);
+            this.txtIncome.MaxLength = 100;
+            this.txtIncome.Name = "txtIncome";
+            this.txtIncome.Size = new System.Drawing.Size(143, 26);
+            this.txtIncome.TabIndex = 32;
             // 
             // label7
             // 
@@ -162,13 +166,13 @@
             this.label7.TabIndex = 31;
             this.label7.Text = "Renda";
             // 
-            // maskedTextBox2
+            // mkPhone
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(313, 103);
-            this.maskedTextBox2.Mask = "(00) 0 0000-0000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(132, 26);
-            this.maskedTextBox2.TabIndex = 30;
+            this.mkPhone.Location = new System.Drawing.Point(313, 103);
+            this.mkPhone.Mask = "(00) 0 0000-0000";
+            this.mkPhone.Name = "mkPhone";
+            this.mkPhone.Size = new System.Drawing.Size(132, 26);
+            this.mkPhone.TabIndex = 30;
             // 
             // label6
             // 
@@ -181,14 +185,14 @@
             this.label6.TabIndex = 29;
             this.label6.Text = "Tel/Cel";
             // 
-            // textBox3
+            // txtNumber
             // 
-            this.textBox3.Location = new System.Drawing.Point(302, 156);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox3.MaxLength = 100;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(143, 26);
-            this.textBox3.TabIndex = 28;
+            this.txtNumber.Location = new System.Drawing.Point(302, 156);
+            this.txtNumber.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumber.MaxLength = 100;
+            this.txtNumber.Name = "txtNumber";
+            this.txtNumber.Size = new System.Drawing.Size(143, 26);
+            this.txtNumber.TabIndex = 28;
             // 
             // label5
             // 
@@ -201,14 +205,14 @@
             this.label5.TabIndex = 27;
             this.label5.Text = "Número";
             // 
-            // textBox2
+            // txtAddress
             // 
-            this.textBox2.Location = new System.Drawing.Point(17, 156);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.MaxLength = 100;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(277, 26);
-            this.textBox2.TabIndex = 25;
+            this.txtAddress.Location = new System.Drawing.Point(17, 156);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAddress.MaxLength = 100;
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(277, 26);
+            this.txtAddress.TabIndex = 25;
             // 
             // label4
             // 
@@ -221,14 +225,14 @@
             this.label4.TabIndex = 26;
             this.label4.Text = "Endereço/Comunidade";
             // 
-            // textBox1
+            // txtRG
             // 
-            this.textBox1.Location = new System.Drawing.Point(149, 103);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.MaxLength = 100;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(155, 26);
-            this.textBox1.TabIndex = 23;
+            this.txtRG.Location = new System.Drawing.Point(149, 103);
+            this.txtRG.Margin = new System.Windows.Forms.Padding(4);
+            this.txtRG.MaxLength = 100;
+            this.txtRG.Name = "txtRG";
+            this.txtRG.Size = new System.Drawing.Size(155, 26);
+            this.txtRG.TabIndex = 23;
             // 
             // label3
             // 
@@ -241,13 +245,13 @@
             this.label3.TabIndex = 24;
             this.label3.Text = "RG";
             // 
-            // maskedTextBox1
+            // mkCPF
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(17, 103);
-            this.maskedTextBox1.Mask = "000,000,000-00";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(120, 26);
-            this.maskedTextBox1.TabIndex = 22;
+            this.mkCPF.Location = new System.Drawing.Point(17, 103);
+            this.mkCPF.Mask = "000,000,000-00";
+            this.mkCPF.Name = "mkCPF";
+            this.mkCPF.Size = new System.Drawing.Size(120, 26);
+            this.mkCPF.TabIndex = 22;
             // 
             // label2
             // 
@@ -282,10 +286,12 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dateTimePicker1);
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox2.Controls.Add(this.dtDate);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.richTextBox1);
+            this.groupBox2.Controls.Add(this.rtDescription);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(13, 281);
             this.groupBox2.Name = "groupBox2";
@@ -294,13 +300,26 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Beneficios recebido";
             // 
-            // richTextBox1
+            // dtDate
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(22, 46);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(435, 78);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.dtDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dtDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtDate.Location = new System.Drawing.Point(22, 156);
+            this.dtDate.Name = "dtDate";
+            this.dtDate.Size = new System.Drawing.Size(103, 26);
+            this.dtDate.TabIndex = 34;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(18, 132);
+            this.label11.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(158, 20);
+            this.label11.TabIndex = 33;
+            this.label11.Text = "Data do recebimento";
             // 
             // label10
             // 
@@ -313,32 +332,56 @@
             this.label10.TabIndex = 32;
             this.label10.Text = "Descrição";
             // 
-            // label11
+            // rtDescription
             // 
-            this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(18, 132);
-            this.label11.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(158, 20);
-            this.label11.TabIndex = 33;
-            this.label11.Text = "Data do recebimento";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(22, 156);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(103, 26);
-            this.dateTimePicker1.TabIndex = 34;
+            this.rtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.rtDescription.Location = new System.Drawing.Point(22, 46);
+            this.rtDescription.Name = "rtDescription";
+            this.rtDescription.Size = new System.Drawing.Size(435, 78);
+            this.rtDescription.TabIndex = 0;
+            this.rtDescription.Text = "";
             // 
             // dataGridView1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(493, 27);
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.ColumnHeadersHeight = 40;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnID,
+            this.Colescripition,
+            this.ColDate});
+            this.dataGridView1.Location = new System.Drawing.Point(493, 23);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(395, 378);
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(395, 399);
             this.dataGridView1.TabIndex = 5;
+            // 
+            // ColumnID
+            // 
+            this.ColumnID.HeaderText = "ID";
+            this.ColumnID.Name = "ColumnID";
+            this.ColumnID.ReadOnly = true;
+            this.ColumnID.Visible = false;
+            // 
+            // Colescripition
+            // 
+            this.Colescripition.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Colescripition.HeaderText = "Descrição";
+            this.Colescripition.Name = "Colescripition";
+            this.Colescripition.ReadOnly = true;
+            // 
+            // ColDate
+            // 
+            this.ColDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColDate.HeaderText = "Data do recebimento";
+            this.ColDate.Name = "ColDate";
+            this.ColDate.ReadOnly = true;
+            this.ColDate.Width = 183;
             // 
             // FrmSavePerson
             // 
@@ -372,29 +415,32 @@
         #endregion
         private System.Windows.Forms.Button btnsave;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtNumberOfMembers;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtHelp;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtIncome;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.MaskedTextBox mkPhone;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtNumber;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtRG;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox mkCPF;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtDate;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtDescription;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Colescripition;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColDate;
     }
 }

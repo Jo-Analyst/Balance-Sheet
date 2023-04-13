@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using CourseManagement;
+using System;
 using System.Windows.Forms;
 
 namespace Balance_Sheet
@@ -16,7 +14,7 @@ namespace Balance_Sheet
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new FrmSavePerson());
         }
     }
 }

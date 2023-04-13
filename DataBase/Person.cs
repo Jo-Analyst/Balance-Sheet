@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
 
 namespace DataBase
@@ -22,7 +21,7 @@ namespace DataBase
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 string sql = id == 0
-                    ? "INSERT INTO Persons (name, CPF, RG, address, phone, income, help, number_of_members,) VALUES (@name, @CPF, @RG, @address, @phone, @income, @help, @number_of_members)"
+                    ? "INSERT INTO Persons (name, CPF, RG, address, phone, income, help, number_of_members) VALUES (@name, @CPF, @RG, @address, @phone, @income, @help, @number_of_members)"
                     : "UPDATE Persons SET name = @name, CPF = @CPF, RG = @RG, address = @address, phone = @phone, income = @income, help = @help, number_of_members = @number_of_members WHERE id = @id";
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.Parameters.AddWithValue("@id", id);

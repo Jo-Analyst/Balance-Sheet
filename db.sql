@@ -15,6 +15,7 @@ CREATE TABLE [dbo].[Benefits_Received]
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
     [description] VARCHAR(MAX) NULL, 
+    [date_benefits] Date NULL,
     [person_id] INT NOT NULL,
     FOREIGN KEY ([person_id]) REFERENCES [dbo].[persons](id) ON DELETE CASCADE
 )

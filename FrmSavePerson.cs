@@ -1,5 +1,4 @@
-﻿using DataBase;
-using System;
+﻿using System;
 using System.Data;
 using System.Windows.Forms;
 
@@ -9,7 +8,7 @@ namespace CourseManagement
     {
 
         public bool studentWasSaved { get; set; }
-      
+
         public FrmSavePerson()
         {
             InitializeComponent();
@@ -19,7 +18,7 @@ namespace CourseManagement
         {
             InitializeComponent();
             txtName.Text = name;
-            
+
             LoadCbClass();
         }
 
@@ -30,11 +29,11 @@ namespace CourseManagement
                 MessageBox.Show("Preencha o nome do(a) aluno(a)", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-           
+
 
             try
             {
-                
+
 
                 this.Close();
             }
@@ -55,7 +54,7 @@ namespace CourseManagement
         DataTable dtClass;
         private void LoadCbClass()
         {
-           
+
         }
 
         private void cbShift_SelectedIndexChanged(object sender, EventArgs e)
