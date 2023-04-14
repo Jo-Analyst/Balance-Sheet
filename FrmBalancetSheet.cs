@@ -15,7 +15,7 @@ namespace Balance_Sheet
 
         private void btnPerson_Click(object sender, EventArgs e)
         {
-            var saveStudent = new FrmSavePerson();
+            var savePerson = new FrmSavePerson();
 
             if (person.FindAll().Rows.Count > 0)
             {
@@ -23,8 +23,8 @@ namespace Balance_Sheet
                 return;
             }
 
-            saveStudent.ShowDialog();
-            if (saveStudent.wasDataSaved)
+            savePerson.ShowDialog();
+            if (savePerson.wasDataSaved)
             {
                 new FrmPerson().ShowDialog();
             }

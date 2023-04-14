@@ -110,8 +110,9 @@ namespace Balance_Sheet
                 if (dgvPerson.CurrentCell.ColumnIndex == 0)
                     EditPerson();
                 else if (dgvPerson.CurrentCell.ColumnIndex == 1)
-                    DeletePerson();
-
+                {
+                    DeletePerson();                    
+                }
             }
         }
 

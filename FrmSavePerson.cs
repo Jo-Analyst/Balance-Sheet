@@ -12,12 +12,13 @@ namespace Balance_Sheet
         Person person = new Person();
         BenefitsReceived benefitsReceived = new BenefitsReceived();
         int person_id, benefits_id;
+        bool isEditicion;
 
         public FrmSavePerson()
         {
             InitializeComponent();
         }
-        public FrmSavePerson(int id, string name, string CPF, string RG, string address, string number_adress, string phone, decimal income, decimal help, int number_of_members)
+        public FrmSavePerson(int id, string name, string CPF, string RG, string address, string number_adress, string phone, decimal income, decimal help, int number_of_members, bool isEditicion = true)
         {
             InitializeComponent();
 
@@ -31,6 +32,7 @@ namespace Balance_Sheet
             txtIncome.Text = income.ToString();
             txtHelp.Text = help.ToString();
             ndNumberOfMembers.Value = number_of_members;
+            this.isEditicion = isEditicion;
             LoadBenefitsReceived();
             EnabledFieldBenefits();
         }
@@ -85,9 +87,18 @@ namespace Balance_Sheet
                 benefitsReceived.person_id = person_id;
                 benefitsReceived.Save();
 
-                dgvBenefitsReceived.Rows.Add(Properties.Resources.Custom_Icon_Design_Flatastic_1_Edit_24, Properties.Resources.trash_24_icon, benefitsReceived.id, rtDescription.Text.Trim(), dtDateBenefits.Value.ToShortDateString());
-                dgvBenefitsReceived.Rows[dgvBenefitsReceived.Rows.Count - 1].Height = 35;
-                dgvBenefitsReceived.ClearSelection();
+                if (benefits_id == 0)
+                {
+                    dgvBenefitsReceived.Rows.Add(Properties.Resources.Custom_Icon_Design_Flatastic_1_Edit_24, Properties.Resources.trash_24_icon, benefitsReceived.id, rtDescription.Text.Trim(), dtDateBenefits.Value.ToShortDateString());
+                    dgvBenefitsReceived.Rows[dgvBenefitsReceived.Rows.Count - 1].Height = 35;
+                    dgvBenefitsReceived.ClearSelection();
+                }
+                else
+                {
+                    dgvBenefitsReceived.Rows[indexRowPress].Cells[3].Value = rtDescription.Text.Trim();
+                    dgvBenefitsReceived.Rows[indexRowPress].Cells[4].Value = dtDateBenefits.Text.Trim();
+                }
+
                 rtDescription.Clear();
                 benefits_id = 0;
             }
@@ -150,11 +161,17 @@ namespace Balance_Sheet
             FormatterFields.FormatterDecimal(e, txtHelp);
         }
 
+        int indexRowPress;
+
         private void dgvBenefitsReceived_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             clearSelection(e);
             if (dgvBenefitsReceived.CurrentCell.ColumnIndex == 0)
+            {
                 EditBenefits();
+                btnADD.Enabled = true;
+                indexRowPress = e.RowIndex;      
+            }
             else if (dgvBenefitsReceived.CurrentCell.ColumnIndex == 1)
                 DeleteBenefits();
         }
@@ -191,8 +208,7 @@ namespace Balance_Sheet
         {
             benefits_id = int.Parse(dgvBenefitsReceived.CurrentRow.Cells[2].Value.ToString());
             rtDescription.Text = dgvBenefitsReceived.CurrentRow.Cells[3].Value.ToString();
-            dtDateBenefits.Value = Convert.ToDateTime(dgvBenefitsReceived.CurrentRow.Cells[4].Value.ToString());
-            btnADD.Enabled = true;
+            dtDateBenefits.Value = Convert.ToDateTime(dgvBenefitsReceived.CurrentRow.Cells[4].Value.ToString());            
         }
 
         private void clearSelection(DataGridViewCellEventArgs e)
@@ -245,14 +261,74 @@ namespace Balance_Sheet
 
             return isDecimal;
         }
-      
+
         private void btnsave_Click(object sender, EventArgs e)
+        {
+            if (!ValidatedFields())
+                return;
+
+            if (btnsave.Text.ToLower() == "salvar")
+            {
+                SalvePerson();
+
+                if(!isEditicion)
+                    DisabledFieldsPerson();
+            }
+            else
+            {
+                ClearFieldsPerson();
+                EnabledFieldsPerson();
+            }
+
+            btnsave.Text = btnsave.Text.ToLower() == "salvar" && !isEditicion ? "Novo" : "Salvar";
+        }
+
+        private void ClearFieldsPerson()
+        {
+            txtName.Clear();
+            mkCPF.Clear();
+            txtRG.Clear();
+            mkPhone.Clear();
+            txtAddress.Clear();
+            txtNumberAddress.Clear();
+            txtIncome.Clear();
+            txtHelp.Clear();
+            ndNumberOfMembers.Value = 0;
+            ClearFieldBenefits();
+            dgvBenefitsReceived.Rows.Clear();
+            person_id = 0;
+        }
+
+        private void EnabledFieldsPerson()
+        {
+            txtName.Enabled = true;
+            mkCPF.Enabled = true;
+            txtRG.Enabled = true;
+            mkPhone.Enabled = true;
+            txtAddress.Enabled = true;
+            txtNumberAddress.Enabled = true;
+            txtIncome.Enabled = true;
+            txtHelp.Enabled = true;
+            ndNumberOfMembers.Enabled = true;
+        }
+
+        private void DisabledFieldsPerson()
+        {
+            txtName.Enabled = false;
+            mkCPF.Enabled = false;
+            txtRG.Enabled = false;
+            mkPhone.Enabled = false;
+            txtAddress.Enabled = false;
+            txtNumberAddress.Enabled = false;
+            txtIncome.Enabled = false;
+            txtHelp.Enabled = false;
+            ndNumberOfMembers.Enabled = false;
+        }
+
+        private void SalvePerson()
         {
             try
             {
-                if (!ValidatedFields())
-                    return;
-
                 person.id = person_id;
                 person.name = txtName.Text.Trim();
                 person.CPF = mkCPF.MaskCompleted ? mkCPF.Text.Trim() : string.Empty;
