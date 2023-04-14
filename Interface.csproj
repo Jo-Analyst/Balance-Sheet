@@ -94,6 +94,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -113,6 +114,15 @@
       <Project>{0796edb6-dd52-43dd-8f18-e18372081871}</Project>
       <Name>DataBase</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\Custom-Icon-Design-Flatastic-1-Edit.24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\trash-24-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\trash-16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,12 +1,9 @@
-﻿using Balance_Sheet;
-using DataBase;
+﻿using DataBase;
 using System;
 using System.Data;
-using System.Net;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
-namespace CourseManagement
+namespace Balance_Sheet
 {
     public partial class FrmSavePerson : Form
     {
@@ -34,6 +31,21 @@ namespace CourseManagement
             txtIncome.Text = income.ToString();
             txtHelp.Text = help.ToString();
             ndNumberOfMembers.Value = number_of_members;
+            LoadBenefitsReceived();
+        }
+
+        private void LoadBenefitsReceived()
+        {
+            DataTable dtBenefitsReceived = benefitsReceived.FindByPersonId(person_id);
+            foreach (DataRow rowBenefitsReceived in dtBenefitsReceived.Rows)
+            {
+                int index = dgvBenefitsReceived.Rows.Add();
+                dgvBenefitsReceived.Rows[index].Cells[0].Value = rowBenefitsReceived["id"].ToString();
+                dgvBenefitsReceived.Rows[index].Cells[1].Value = rowBenefitsReceived["description"].ToString();
+                dgvBenefitsReceived.Rows[index].Cells[2].Value = Convert.ToDateTime(rowBenefitsReceived["date_benefits"].ToString()).ToShortDateString();
+                dgvBenefitsReceived.Rows[index].Height = 35;
+            }
+            dgvBenefitsReceived.ClearSelection();
         }
 
         public bool ValidatedFields()
@@ -44,7 +56,7 @@ namespace CourseManagement
             {
                 MessageBox.Show("Preencha o nome do(a) responsável!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else if (mkCPF.MaskCompleted && !ValidateCPF.validate(mkCPF.Text)) 
+            else if (mkCPF.MaskCompleted && !ValidateCPF.validate(mkCPF.Text))
                 MessageBox.Show("CPF inválido!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             else
                 validated = true;
@@ -61,7 +73,7 @@ namespace CourseManagement
 
                 person.id = person_id;
                 person.name = txtName.Text.Trim();
-                person.CPF = mkCPF.MaskCompleted ?  mkCPF.Text.Trim() : string.Empty;
+                person.CPF = mkCPF.MaskCompleted ? mkCPF.Text.Trim() : string.Empty;
                 person.RG = txtRG.Text.Trim();
                 person.address = txtAddress.Text.Trim();
                 person.numberOfMembers = int.Parse(ndNumberOfMembers.Value.ToString());
@@ -69,7 +81,7 @@ namespace CourseManagement
                 person.income = string.IsNullOrWhiteSpace(txtIncome.Text) ? 0 : decimal.Parse(txtIncome.Text.Trim());
                 person.help = string.IsNullOrWhiteSpace(txtHelp.Text) ? 0 : decimal.Parse(txtHelp.Text.Trim());
                 person.numberAddress = txtNumberAddress.Text.Trim();
-                
+
                 person.Save(dtBenefitsReceived);
 
 
@@ -92,10 +104,12 @@ namespace CourseManagement
         DataTable dtBenefitsReceived = new DataTable();
         private void btnADD_Click(object sender, EventArgs e)
         {
-            dtBenefitsReceived.Rows.Add("", rtDescription.Text.Trim(), dtDateBenefits.Value);
-            dgvBenefitsReceived.Rows.Add("", rtDescription.Text.Trim(), dtDateBenefits.Value.ToShortDateString());
+            dtBenefitsReceived.Rows.Add("0", rtDescription.Text.Trim(), dtDateBenefits.Value.ToString());
+            dgvBenefitsReceived.Rows.Add("0", rtDescription.Text.Trim(), dtDateBenefits.Value.ToShortDateString());
+            dgvBenefitsReceived.Rows[dgvBenefitsReceived.Rows.Count - 1].Height = 35;
             dgvBenefitsReceived.ClearSelection();
             rtDescription.Clear();
+            btnDelete.Visible = false;
         }
 
         private void CreateColumnDtBenefitsReceived()
@@ -145,7 +159,7 @@ namespace CourseManagement
         {
             try
             {
-                FormatterFields.formatterDecimal(e, txtIncome);
+                FormatterFields.FormatterDecimal(e, txtIncome);
             }
             catch (Exception ex)
             {
@@ -155,7 +169,68 @@ namespace CourseManagement
 
         private void txtHelp_KeyPress(object sender, KeyPressEventArgs e)
         {
-            FormatterFields.formatterDecimal(e, txtHelp);
+            FormatterFields.FormatterDecimal(e, txtHelp);
+        }
+
+        private void dgvBenefitsReceived_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            benefits_id = int.Parse(dgvBenefitsReceived.CurrentRow.Cells[0].Value.ToString());
+            rtDescription.Text = dgvBenefitsReceived.CurrentRow.Cells[1].Value.ToString();
+            dtDateBenefits.Value = Convert.ToDateTime(dgvBenefitsReceived.CurrentRow.Cells[2].Value.ToString());
+            btnDelete.Visible = true;
+            btnADD.Enabled = true;
+            clearSelection(e);
+        }
+
+        private void clearSelection(DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                dgvBenefitsReceived.ClearSelection();
+            }
+        }
+
+        private void dgvBenefitsReceived_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            clearSelection(e);
+        }
+
+        private void txtIncome_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!IsFieldDecimal(txtIncome))
+                    return;
+                txtIncome.Text = FormatterFields.AddDecimalPlaces(txtIncome.Text.Trim());
+            }
+            catch { }
+        }
+
+        private void txtHelp_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!IsFieldDecimal(txtHelp))
+                    return;
+
+                txtHelp.Text = FormatterFields.AddDecimalPlaces(txtHelp.Text.Trim());
+
+            }
+            catch { }
+        }
+
+        public bool IsFieldDecimal(TextBox value)
+        {
+            bool isDecimal = false;
+            if (!string.IsNullOrEmpty(value.Text) && !decimal.TryParse(value.Text, out decimal result))
+            {
+                value.Clear();
+                value.Focus();
+            }
+            else
+                isDecimal = true;
+
+            return isDecimal;
         }
 
         private void FrmSavePerson_Load(object sender, EventArgs e)

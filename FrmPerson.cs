@@ -3,16 +3,17 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 
-namespace CourseManagement
+namespace Balance_Sheet
 {
     public partial class FrmPerson : Form
     {
         int personId;
-        Person person =new Person();
+        Person person = new Person();
 
         public FrmPerson()
         {
             InitializeComponent();
+            ToFocus();
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -31,24 +32,26 @@ namespace CourseManagement
             try
             {
                 dgvPerson.Rows.Clear();
-                string option = rbName.Checked ? "nome" : "class";
+                string field = rbName.Checked ? "name" : "address";
                 DataTable dtPerson = string.IsNullOrWhiteSpace(txtField.Text)
                     ? person.FindAll()
-                    : person.FindByAddress(txtField.Text);
+                    : person.FindByNameOrAddress(txtField.Text, field);
 
                 foreach (DataRow dr in dtPerson.Rows)
                 {
                     int index = dgvPerson.Rows.Add();
-                    dgvPerson.Rows[index].Cells[0].Value = dr["id"].ToString();
-                    dgvPerson.Rows[index].Cells[1].Value = dr["name"].ToString();
-                    dgvPerson.Rows[index].Cells[2].Value = dr["CPF"].ToString();
-                    dgvPerson.Rows[index].Cells[3].Value = dr["RG"].ToString();
-                    dgvPerson.Rows[index].Cells[4].Value = dr["address"].ToString();
-                    dgvPerson.Rows[index].Cells[5].Value = dr["number_address"].ToString();
-                    dgvPerson.Rows[index].Cells[6].Value = dr["phone"].ToString();
-                    dgvPerson.Rows[index].Cells[7].Value = $"R$ {dr["income"]}";
-                    dgvPerson.Rows[index].Cells[8].Value = $"R$ {dr["help"]}";
-                    dgvPerson.Rows[index].Cells[9].Value = dr["number_of_members"].ToString();
+                    dgvPerson.Rows[index].Cells[0].Value = Properties.Resources.Custom_Icon_Design_Flatastic_1_Edit_24;
+                    dgvPerson.Rows[index].Cells[1].Value = Properties.Resources.trash_24_icon;
+                    dgvPerson.Rows[index].Cells[2].Value = dr["id"].ToString();
+                    dgvPerson.Rows[index].Cells[3].Value = dr["name"].ToString();
+                    dgvPerson.Rows[index].Cells[4].Value = dr["CPF"].ToString();
+                    dgvPerson.Rows[index].Cells[5].Value = dr["RG"].ToString();
+                    dgvPerson.Rows[index].Cells[6].Value = dr["address"].ToString();
+                    dgvPerson.Rows[index].Cells[7].Value = dr["number_address"].ToString();
+                    dgvPerson.Rows[index].Cells[8].Value = dr["phone"].ToString();
+                    dgvPerson.Rows[index].Cells[9].Value = $"R$ {dr["income"]}";
+                    dgvPerson.Rows[index].Cells[10].Value = $"R$ {dr["help"]}";
+                    dgvPerson.Rows[index].Cells[11].Value = dr["number_of_members"].ToString();
                     dgvPerson.Rows[index].Height = 35;
                 }
 
@@ -60,14 +63,13 @@ namespace CourseManagement
             }
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
+        private void Edit()
         {
-           var savePerson = new FrmSavePerson(int.Parse(dgvPerson.CurrentRow.Cells[0].Value.ToString()), dgvPerson.CurrentRow.Cells[1].Value.ToString(), dgvPerson.CurrentRow.Cells[2].Value.ToString(), dgvPerson.CurrentRow.Cells[3].Value.ToString(), dgvPerson.CurrentRow.Cells[4].Value.ToString(), dgvPerson.CurrentRow.Cells[5].Value.ToString(), dgvPerson.CurrentRow.Cells[6].Value.ToString(), decimal.Parse(dgvPerson.CurrentRow.Cells[7].Value.ToString().Substring(2)), decimal.Parse(dgvPerson.CurrentRow.Cells[8].Value.ToString().Substring(2)), int.Parse(dgvPerson.CurrentRow.Cells[9].Value.ToString()));
+            var savePerson = new FrmSavePerson(int.Parse(dgvPerson.CurrentRow.Cells[2].Value.ToString()), dgvPerson.CurrentRow.Cells[3].Value.ToString(), dgvPerson.CurrentRow.Cells[4].Value.ToString(), dgvPerson.CurrentRow.Cells[5].Value.ToString(), dgvPerson.CurrentRow.Cells[6].Value.ToString(), dgvPerson.CurrentRow.Cells[7].Value.ToString(), dgvPerson.CurrentRow.Cells[8].Value.ToString(), decimal.Parse(dgvPerson.CurrentRow.Cells[9].Value.ToString().Substring(2)), decimal.Parse(dgvPerson.CurrentRow.Cells[10].Value.ToString().Substring(2)), int.Parse(dgvPerson.CurrentRow.Cells[11].Value.ToString()));
             savePerson.ShowDialog();
 
             personId = 0;
             dgvPerson.ClearSelection();
-            DisableButtons();
             if (savePerson.studentWasSaved)
                 LoadDataPerson();
         }
@@ -80,34 +82,40 @@ namespace CourseManagement
         private void rbName_CheckedChanged(object sender, EventArgs e)
         {
             LoadDataPerson();
+            ToFocus();
         }
 
-        private void rbClass_CheckedChanged(object sender, EventArgs e)
+        private void ToFocus()
+        {
+            if (string.IsNullOrEmpty(txtField.Text))
+                txtField.Focus();
+        }
+
+        private void rbAddress_CheckedChanged(object sender, EventArgs e)
         {
             LoadDataPerson();
+            ToFocus();
         }
 
         private void dgvPerson_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
             {
-                btnDelete.Enabled = true;
-                btnEdit.Enabled = true; ;
-                personId = int.Parse(dgvPerson.CurrentRow.Cells[0].Value.ToString());
+                dgvPerson.ClearSelection();
+                personId = int.Parse(dgvPerson.CurrentRow.Cells[2].Value.ToString());
+                if (dgvPerson.CurrentCell.ColumnIndex == 0)
+                    Edit();
+                else if (dgvPerson.CurrentCell.ColumnIndex == 1)
+                    Delete();
+
             }
         }
 
-        private void DisableButtons()
-        {
-            btnDelete.Enabled = false;
-            btnEdit.Enabled = false;
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void Delete()
         {
             try
             {
-                DialogResult dr = MessageBox.Show($"Deseja mesmo excluir a(o) responsável '{dgvPerson.CurrentRow.Cells[1].Value}' da base de dados?", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dr = MessageBox.Show($"Deseja mesmo excluir a(o) responsável '{dgvPerson.CurrentRow.Cells[3].Value}' da base de dados?", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (dr == DialogResult.Yes)
                 {
@@ -115,13 +123,12 @@ namespace CourseManagement
                     person.Delete();
                     dgvPerson.Rows.Remove(dgvPerson.CurrentRow);
                 }
-                
+
                 personId = 0;
                 dgvPerson.ClearSelection();
-                DisableButtons();
 
             }
-            catch 
+            catch
             {
                 MessageBox.Show("Houve um erro ao excluir. Feche o aplicativo e tente novamente. Caso o erro persiste, entre em contato com o suporte", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

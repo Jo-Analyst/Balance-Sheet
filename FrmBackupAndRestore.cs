@@ -3,7 +3,7 @@ using System;
 using System.IO;
 using System.Windows.Forms;
 
-namespace CourseManagement
+namespace Balance_Sheet
 {
     public partial class FrmBackupAndRestore : Form
     {

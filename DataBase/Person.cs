@@ -129,14 +129,14 @@ namespace DataBase
                 throw;
             }
         }
-        
-        public DataTable FindByAddress(string address)
+
+        public DataTable FindByNameOrAddress(string data, string column)
         {
             try
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
-                    string sql = $"SELECT * FROM Persons WHERE address LIKE '%{address}%'";
+                    string sql = $"SELECT * FROM Persons WHERE {column} LIKE '%{data}%'";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();

@@ -33,6 +33,26 @@ namespace DataBase
             }
         }
 
+        public DataTable FindByPersonId(int person_id)
+        {
+            try
+            {
+                using (var connection = new SqlConnection(DbConnectionString.connectionString))
+                {
+                    string sql = $"SELECT * FROM Benefits_Received WHERE person_id = {person_id}";
+                    var adapter = new SqlDataAdapter(sql, connection);
+                    adapter.SelectCommand.CommandText = sql;
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
         public void DELETE()
         {
             using (SqlConnection connection = new SqlConnection(DbConnectionString.connectionString))

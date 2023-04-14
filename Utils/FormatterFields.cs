@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Balance_Sheet
 {
     class FormatterFields
     {
-       static public void formatterDecimal(KeyPressEventArgs e, TextBox field)
+        static public void FormatterDecimal(KeyPressEventArgs e, TextBox field)
         {
             try
             {
@@ -22,10 +18,26 @@ namespace Balance_Sheet
                             e.Handled = true;
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 throw;
             }
+        }
+
+        static public string AddDecimalPlaces(string value)
+        {
+            return string.IsNullOrWhiteSpace(value) ? string.Empty : Convert.ToDouble(value).ToString("0.00");
+        }
+
+        static public bool IsFieldDecimal(string value)
+        {
+            bool isDecimal = false;
+            if (decimal.TryParse(value, out decimal result))
+            {
+                isDecimal = true;
+            }
+
+            return isDecimal;
         }
     }
 }

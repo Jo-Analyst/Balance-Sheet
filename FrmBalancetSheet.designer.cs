@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace CourseManagement
+namespace Balance_Sheet
 {
     partial class FrmBalanceSheet
     {
@@ -35,7 +35,7 @@ namespace CourseManagement
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnBackupAndRestore = new System.Windows.Forms.Button();
-            this.btnContent = new System.Windows.Forms.Button();
+            this.btnPerson = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -62,7 +62,7 @@ namespace CourseManagement
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.btnBackupAndRestore);
-            this.panel1.Controls.Add(this.btnContent);
+            this.panel1.Controls.Add(this.btnPerson);
             this.panel1.Controls.Add(this.btnReport);
             this.panel1.Location = new System.Drawing.Point(549, 52);
             this.panel1.Margin = new System.Windows.Forms.Padding(6);
@@ -89,24 +89,26 @@ namespace CourseManagement
             this.btnBackupAndRestore.UseVisualStyleBackColor = false;
             this.btnBackupAndRestore.Click += new System.EventHandler(this.btnBackupAndRestore_Click);
             // 
-            // btnContent
+            // btnPerson
             // 
-            this.btnContent.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnContent.BackColor = System.Drawing.Color.White;
-            this.btnContent.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnContent.FlatAppearance.BorderSize = 0;
-            this.btnContent.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnContent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnContent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnContent.Image = ((System.Drawing.Image)(resources.GetObject("btnContent.Image")));
-            this.btnContent.Location = new System.Drawing.Point(45, 77);
-            this.btnContent.Margin = new System.Windows.Forms.Padding(6);
-            this.btnContent.Name = "btnContent";
-            this.btnContent.Size = new System.Drawing.Size(343, 97);
-            this.btnContent.TabIndex = 5;
-            this.toolTip1.SetToolTip(this.btnContent, "Cadastro da pessoa responsável");
-            this.btnContent.UseVisualStyleBackColor = false;
-            this.btnContent.Click += new System.EventHandler(this.btnPerson_Click);
+            this.btnPerson.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnPerson.BackColor = System.Drawing.Color.White;
+            this.btnPerson.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPerson.FlatAppearance.BorderSize = 0;
+            this.btnPerson.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnPerson.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPerson.Image = ((System.Drawing.Image)(resources.GetObject("btnPerson.Image")));
+            this.btnPerson.Location = new System.Drawing.Point(45, 57);
+            this.btnPerson.Margin = new System.Windows.Forms.Padding(6);
+            this.btnPerson.Name = "btnPerson";
+            this.btnPerson.Size = new System.Drawing.Size(343, 117);
+            this.btnPerson.TabIndex = 5;
+            this.btnPerson.Text = "Cadastro";
+            this.btnPerson.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolTip1.SetToolTip(this.btnPerson, "Cadastro");
+            this.btnPerson.UseVisualStyleBackColor = false;
+            this.btnPerson.Click += new System.EventHandler(this.btnPerson_Click);
             // 
             // btnReport
             // 
@@ -154,7 +156,7 @@ namespace CourseManagement
         private Panel panel1;
         private Button btnReport;
         private ToolTip toolTip1;
-        private Button btnContent;
+        private Button btnPerson;
         private Button btnBackupAndRestore;
     }
 }

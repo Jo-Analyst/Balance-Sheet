@@ -1,4 +1,4 @@
-﻿namespace CourseManagement
+﻿namespace Balance_Sheet
 {
     partial class FrmSavePerson
     {
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSavePerson));
             this.btnsave = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -51,6 +52,7 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.btnADD = new System.Windows.Forms.Button();
             this.dtDateBenefits = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
@@ -137,6 +139,7 @@
             this.txtHelp.Size = new System.Drawing.Size(143, 26);
             this.txtHelp.TabIndex = 7;
             this.txtHelp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHelp_KeyPress);
+            this.txtHelp.Leave += new System.EventHandler(this.txtHelp_Leave);
             // 
             // label8
             // 
@@ -158,6 +161,7 @@
             this.txtIncome.Size = new System.Drawing.Size(143, 26);
             this.txtIncome.TabIndex = 6;
             this.txtIncome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIncome_KeyPress);
+            this.txtIncome.Leave += new System.EventHandler(this.txtIncome_Leave);
             // 
             // label7
             // 
@@ -293,6 +297,7 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox2.Controls.Add(this.btnDelete);
             this.groupBox2.Controls.Add(this.btnADD);
             this.groupBox2.Controls.Add(this.dtDateBenefits);
             this.groupBox2.Controls.Add(this.label11);
@@ -306,16 +311,30 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Beneficios recebido";
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(246, 136);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(96, 46);
+            this.btnDelete.TabIndex = 34;
+            this.btnDelete.Text = "Excluir";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Visible = false;
+            // 
             // btnADD
             // 
             this.btnADD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnADD.Enabled = false;
             this.btnADD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnADD.ForeColor = System.Drawing.Color.White;
-            this.btnADD.Location = new System.Drawing.Point(319, 136);
+            this.btnADD.Location = new System.Drawing.Point(350, 136);
             this.btnADD.Margin = new System.Windows.Forms.Padding(4);
             this.btnADD.Name = "btnADD";
-            this.btnADD.Size = new System.Drawing.Size(138, 46);
+            this.btnADD.Size = new System.Drawing.Size(107, 46);
             this.btnADD.TabIndex = 6;
             this.btnADD.Text = "Adicionar";
             this.btnADD.UseVisualStyleBackColor = true;
@@ -385,12 +404,24 @@
             this.ColumnID,
             this.Colescripition,
             this.ColDate});
+            this.dgvBenefitsReceived.EnableHeadersVisualStyles = false;
             this.dgvBenefitsReceived.Location = new System.Drawing.Point(493, 23);
             this.dgvBenefitsReceived.Name = "dgvBenefitsReceived";
             this.dgvBenefitsReceived.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBenefitsReceived.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvBenefitsReceived.RowHeadersVisible = false;
             this.dgvBenefitsReceived.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBenefitsReceived.Size = new System.Drawing.Size(395, 399);
             this.dgvBenefitsReceived.TabIndex = 5;
+            this.dgvBenefitsReceived.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBenefitsReceived_CellClick);
+            this.dgvBenefitsReceived.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBenefitsReceived_CellDoubleClick);
             // 
             // ColumnID
             // 
@@ -398,7 +429,6 @@
             this.ColumnID.Name = "ColumnID";
             this.ColumnID.ReadOnly = true;
             this.ColumnID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColumnID.Visible = false;
             // 
             // Colescripition
             // 
@@ -476,6 +506,7 @@
         private System.Windows.Forms.DataGridView dgvBenefitsReceived;
         private System.Windows.Forms.NumericUpDown ndNumberOfMembers;
         private System.Windows.Forms.Button btnADD;
+        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Colescripition;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDate;

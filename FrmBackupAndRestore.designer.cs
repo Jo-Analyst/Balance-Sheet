@@ -1,4 +1,4 @@
-﻿namespace CourseManagement
+﻿namespace Balance_Sheet
 {
     partial class FrmBackupAndRestore
     {
