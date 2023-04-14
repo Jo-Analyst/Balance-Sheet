@@ -17,7 +17,7 @@ namespace DataBase
         public decimal help { get; set; }
         public int numberOfMembers { get; set; }
 
-        public void Save(DataTable dtBenefitsReceived)
+        public void Save()
         {
             try
             {
@@ -28,8 +28,7 @@ namespace DataBase
                         : "UPDATE Persons SET name = @name, CPF = @CPF, RG = @RG, address = @address, number_address = @number_address, phone = @phone, income = @income, help = @help, number_of_members = @number_of_members WHERE id = @id";
 
                     connection.Open();
-                    SqlTransaction transaction = connection.BeginTransaction();
-                    SqlCommand command = new SqlCommand(sql, connection, transaction);
+                    SqlCommand command = new SqlCommand(sql, connection);
                     command.Parameters.AddWithValue("@id", id);
                     command.Parameters.AddWithValue("@name", name);
                     command.Parameters.AddWithValue("@CPF", CPF);
@@ -42,24 +41,11 @@ namespace DataBase
                     command.Parameters.AddWithValue("@number_of_members", numberOfMembers);
                     try
                     {
-                        command.Transaction = transaction;
-
-                        BenefitsReceived benefitsReceived = new BenefitsReceived();
-                        benefitsReceived.person_id = Convert.ToInt32(command.ExecuteScalar());
-                        foreach (DataRow rowBenefitsReceived in dtBenefitsReceived.Rows)
-                        {
-                            benefitsReceived.description = rowBenefitsReceived["description"].ToString();
-                            benefitsReceived.dateBenefits = Convert.ToDateTime(rowBenefitsReceived["date_benefits"]);
-                            benefitsReceived.Save(transaction);
-                        }
-
-
-                        //command.ExecuteNonQuery();
-                        transaction.Commit();
+                        id = Convert.ToInt32(command.ExecuteScalar());
+                        command.ExecuteNonQuery();
                     }
                     catch
                     {
-                        transaction.Rollback();
                         throw;
                     }
                 }

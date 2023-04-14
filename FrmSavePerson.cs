@@ -40,9 +40,11 @@ namespace Balance_Sheet
             foreach (DataRow rowBenefitsReceived in dtBenefitsReceived.Rows)
             {
                 int index = dgvBenefitsReceived.Rows.Add();
-                dgvBenefitsReceived.Rows[index].Cells[0].Value = rowBenefitsReceived["id"].ToString();
-                dgvBenefitsReceived.Rows[index].Cells[1].Value = rowBenefitsReceived["description"].ToString();
-                dgvBenefitsReceived.Rows[index].Cells[2].Value = Convert.ToDateTime(rowBenefitsReceived["date_benefits"].ToString()).ToShortDateString();
+                dgvBenefitsReceived.Rows[index].Cells[0].Value = Properties.Resources.Custom_Icon_Design_Flatastic_1_Edit_24;
+                dgvBenefitsReceived.Rows[index].Cells[1].Value = Properties.Resources.trash_24_icon;
+                dgvBenefitsReceived.Rows[index].Cells[2].Value = rowBenefitsReceived["id"].ToString();
+                dgvBenefitsReceived.Rows[index].Cells[3].Value = rowBenefitsReceived["description"].ToString();
+                dgvBenefitsReceived.Rows[index].Cells[4].Value = Convert.ToDateTime(rowBenefitsReceived["date_benefits"].ToString()).ToShortDateString();
                 dgvBenefitsReceived.Rows[index].Height = 35;
             }
             dgvBenefitsReceived.ClearSelection();
@@ -64,59 +66,34 @@ namespace Balance_Sheet
             return validated;
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (!ValidatedFields())
-                    return;
-
-                person.id = person_id;
-                person.name = txtName.Text.Trim();
-                person.CPF = mkCPF.MaskCompleted ? mkCPF.Text.Trim() : string.Empty;
-                person.RG = txtRG.Text.Trim();
-                person.address = txtAddress.Text.Trim();
-                person.numberOfMembers = int.Parse(ndNumberOfMembers.Value.ToString());
-                person.phone = mkPhone.MaskCompleted ? mkPhone.Text.Trim() : string.Empty;
-                person.income = string.IsNullOrWhiteSpace(txtIncome.Text) ? 0 : decimal.Parse(txtIncome.Text.Trim());
-                person.help = string.IsNullOrWhiteSpace(txtHelp.Text) ? 0 : decimal.Parse(txtHelp.Text.Trim());
-                person.numberAddress = txtNumberAddress.Text.Trim();
-
-                person.Save(dtBenefitsReceived);
-
-
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void FrmSaveStudent_KeyDown(object sender, KeyEventArgs e)
+        private void FrmSavePerson_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                btnSave_Click(sender, e);
+                btnsave_Click(sender, e);
             }
         }
 
-        DataTable dtBenefitsReceived = new DataTable();
         private void btnADD_Click(object sender, EventArgs e)
         {
-            dtBenefitsReceived.Rows.Add("0", rtDescription.Text.Trim(), dtDateBenefits.Value.ToString());
-            dgvBenefitsReceived.Rows.Add("0", rtDescription.Text.Trim(), dtDateBenefits.Value.ToShortDateString());
-            dgvBenefitsReceived.Rows[dgvBenefitsReceived.Rows.Count - 1].Height = 35;
-            dgvBenefitsReceived.ClearSelection();
-            rtDescription.Clear();
-            btnDelete.Visible = false;
-        }
+            try
+            {
+                benefitsReceived.id = benefits_id;
+                benefitsReceived.description = rtDescription.Text.Trim();
+                benefitsReceived.dateBenefits = dtDateBenefits.Value;
+                benefitsReceived.person_id = person_id;
+                benefitsReceived.Save();
 
-        private void CreateColumnDtBenefitsReceived()
-        {
-            dtBenefitsReceived.Columns.Add("id", typeof(string));
-            dtBenefitsReceived.Columns.Add("description", typeof(string));
-            dtBenefitsReceived.Columns.Add("date_benefits", typeof(string));
+                dgvBenefitsReceived.Rows.Add(Properties.Resources.Custom_Icon_Design_Flatastic_1_Edit_24, Properties.Resources.trash_24_icon, benefitsReceived.id, rtDescription.Text.Trim(), dtDateBenefits.Value.ToShortDateString());
+                dgvBenefitsReceived.Rows[dgvBenefitsReceived.Rows.Count - 1].Height = 35;
+                dgvBenefitsReceived.ClearSelection();
+                rtDescription.Clear();
+                benefits_id = 0;
+            }
+            catch
+            {
+                MessageBox.Show("Houve um erro no servidor. Feche o aplicativo e tente novamente. Caso o erro persista entre em contato com o suporte", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void rtDescription_TextChanged(object sender, EventArgs e)
@@ -174,12 +151,40 @@ namespace Balance_Sheet
 
         private void dgvBenefitsReceived_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            benefits_id = int.Parse(dgvBenefitsReceived.CurrentRow.Cells[0].Value.ToString());
-            rtDescription.Text = dgvBenefitsReceived.CurrentRow.Cells[1].Value.ToString();
-            dtDateBenefits.Value = Convert.ToDateTime(dgvBenefitsReceived.CurrentRow.Cells[2].Value.ToString());
-            btnDelete.Visible = true;
-            btnADD.Enabled = true;
             clearSelection(e);
+            if (dgvBenefitsReceived.CurrentCell.ColumnIndex == 0)
+                EditBenefits();
+            else if (dgvBenefitsReceived.CurrentCell.ColumnIndex == 1)
+                DeleteBenefits();
+        }
+
+        private void DeleteBenefits()
+        {
+            try
+            {
+                DialogResult dr = MessageBox.Show($"Deseja mesmo excluir o benefício da base de dados?", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (dr == DialogResult.Yes)
+                {
+                    benefitsReceived.Delete(int.Parse(dgvBenefitsReceived.CurrentRow.Cells[2].Value.ToString()));
+                    dgvBenefitsReceived.Rows.Remove(dgvBenefitsReceived.CurrentRow);
+                }
+
+                dgvBenefitsReceived.ClearSelection();
+
+            }
+            catch
+            {
+                MessageBox.Show("Houve um erro ao excluir. Feche o aplicativo e tente novamente. Caso o erro persista entre em contato com o suporte", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void EditBenefits()
+        {
+            benefits_id = int.Parse(dgvBenefitsReceived.CurrentRow.Cells[2].Value.ToString());
+            rtDescription.Text = dgvBenefitsReceived.CurrentRow.Cells[3].Value.ToString();
+            dtDateBenefits.Value = Convert.ToDateTime(dgvBenefitsReceived.CurrentRow.Cells[4].Value.ToString());
+            btnADD.Enabled = true;
         }
 
         private void clearSelection(DataGridViewCellEventArgs e)
@@ -233,9 +238,33 @@ namespace Balance_Sheet
             return isDecimal;
         }
 
-        private void FrmSavePerson_Load(object sender, EventArgs e)
+        private void btnsave_Click(object sender, EventArgs e)
         {
-            CreateColumnDtBenefitsReceived();
+            try
+            {
+                if (!ValidatedFields())
+                    return;
+
+                person.id = person_id;
+                person.name = txtName.Text.Trim();
+                person.CPF = mkCPF.MaskCompleted ? mkCPF.Text.Trim() : string.Empty;
+                person.RG = txtRG.Text.Trim();
+                person.address = txtAddress.Text.Trim();
+                person.numberOfMembers = int.Parse(ndNumberOfMembers.Value.ToString());
+                person.phone = mkPhone.MaskCompleted ? mkPhone.Text.Trim() : string.Empty;
+                person.income = string.IsNullOrWhiteSpace(txtIncome.Text) ? 0 : decimal.Parse(txtIncome.Text.Trim());
+                person.help = string.IsNullOrWhiteSpace(txtHelp.Text) ? 0 : decimal.Parse(txtHelp.Text.Trim());
+                person.numberAddress = txtNumberAddress.Text.Trim();
+
+                person.Save();
+                person_id = person.id;
+
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

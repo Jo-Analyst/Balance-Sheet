@@ -63,7 +63,7 @@ namespace Balance_Sheet
             }
         }
 
-        private void Edit()
+        private void EditPerson()
         {
             var savePerson = new FrmSavePerson(int.Parse(dgvPerson.CurrentRow.Cells[2].Value.ToString()), dgvPerson.CurrentRow.Cells[3].Value.ToString(), dgvPerson.CurrentRow.Cells[4].Value.ToString(), dgvPerson.CurrentRow.Cells[5].Value.ToString(), dgvPerson.CurrentRow.Cells[6].Value.ToString(), dgvPerson.CurrentRow.Cells[7].Value.ToString(), dgvPerson.CurrentRow.Cells[8].Value.ToString(), decimal.Parse(dgvPerson.CurrentRow.Cells[9].Value.ToString().Substring(2)), decimal.Parse(dgvPerson.CurrentRow.Cells[10].Value.ToString().Substring(2)), int.Parse(dgvPerson.CurrentRow.Cells[11].Value.ToString()));
             savePerson.ShowDialog();
@@ -104,14 +104,14 @@ namespace Balance_Sheet
                 dgvPerson.ClearSelection();
                 personId = int.Parse(dgvPerson.CurrentRow.Cells[2].Value.ToString());
                 if (dgvPerson.CurrentCell.ColumnIndex == 0)
-                    Edit();
+                    EditPerson();
                 else if (dgvPerson.CurrentCell.ColumnIndex == 1)
-                    Delete();
+                    DeletePerson();
 
             }
         }
 
-        private void Delete()
+        private void DeletePerson()
         {
             try
             {

@@ -11,25 +11,29 @@ namespace DataBase
         public DateTime dateBenefits { get; set; }
         public int person_id { get; set; }
 
-        public void Save(SqlTransaction transaction)
+        public void Save()
         {
-            string sql = id == 0
-            ? "INSERT INTO Benefits_Received (description, date_benefits, person_id) VALUES (@description, @date_benefits, @person_id)"
-            : "UPDATE Persons SET description = @description, date_benefits = @date_benefits, person_id = @person_id WHERE id = @id";
-            SqlCommand command = new SqlCommand(sql, transaction.Connection, transaction);
-            command.Parameters.AddWithValue("@id", id);
-            command.Parameters.AddWithValue("@description", description);
-            command.Parameters.AddWithValue("@date_benefits", dateBenefits);
-            command.Parameters.AddWithValue("@person_id", person_id);
-            command.CommandText = sql;
-            try
+            using (SqlConnection connection = new SqlConnection(DbConnectionString.connectionString))
             {
-                command.Transaction = transaction;
-                command.ExecuteNonQuery();
-            }
-            catch
-            {
-                throw;
+                connection.Open();
+                string sql = id == 0
+                ? "INSERT INTO Benefits_Received (description, date_benefits, person_id) VALUES (@description, @date_benefits, @person_id); SELECT @@identity"
+                : "UPDATE Benefits_Received SET description = @description, date_benefits = @date_benefits, person_id = @person_id WHERE id = @id";
+                SqlCommand command = new SqlCommand(sql, connection);
+                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@description", description);
+                command.Parameters.AddWithValue("@date_benefits", dateBenefits);
+                command.Parameters.AddWithValue("@person_id", person_id);
+                command.CommandText = sql;
+                try
+                {
+                    id = Convert.ToInt32(command.ExecuteScalar());
+                    command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
             }
         }
 
@@ -53,11 +57,11 @@ namespace DataBase
             }
         }
 
-        public void DELETE()
+        public void Delete(int id)
         {
             using (SqlConnection connection = new SqlConnection(DbConnectionString.connectionString))
             {
-                string sql = "DELETE FROM Persons WHERE id = @id";
+                string sql = "DELETE FROM Benefits_Received WHERE id = @id";
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.Parameters.AddWithValue("@id", id);
                 command.CommandText = sql;
