@@ -18,8 +18,11 @@ namespace Balance_Sheet
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            new FrmSavePerson().ShowDialog();
-            LoadDataPerson();
+            var savePerson = new FrmSavePerson();
+            savePerson.ShowDialog();
+
+            if (savePerson.wasDataSaved)
+                LoadDataPerson();
         }
 
         private void FrmStudent_Load(object sender, EventArgs e)
@@ -70,7 +73,8 @@ namespace Balance_Sheet
 
             personId = 0;
             dgvPerson.ClearSelection();
-            if (savePerson.studentWasSaved)
+           
+            if (savePerson.wasDataSaved)
                 LoadDataPerson();
         }
 

@@ -329,6 +329,7 @@
             // dtDateBenefits
             // 
             this.dtDateBenefits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dtDateBenefits.Enabled = false;
             this.dtDateBenefits.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtDateBenefits.Location = new System.Drawing.Point(22, 175);
             this.dtDateBenefits.Name = "dtDateBenefits";
@@ -362,6 +363,7 @@
             // 
             this.rtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.rtDescription.Enabled = false;
             this.rtDescription.Location = new System.Drawing.Point(22, 46);
             this.rtDescription.Name = "rtDescription";
             this.rtDescription.Size = new System.Drawing.Size(435, 97);
@@ -392,6 +394,7 @@
             this.ColumnID,
             this.Colescripition,
             this.ColDate});
+            this.dgvBenefitsReceived.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvBenefitsReceived.EnableHeadersVisualStyles = false;
             this.dgvBenefitsReceived.Location = new System.Drawing.Point(493, 23);
             this.dgvBenefitsReceived.Name = "dgvBenefitsReceived";
@@ -466,7 +469,6 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(5);

@@ -27,8 +27,10 @@ namespace DataBase
                 command.CommandText = sql;
                 try
                 {
-                    id = Convert.ToInt32(command.ExecuteScalar());
-                    command.ExecuteNonQuery();
+                    if (id == 0)
+                        id = Convert.ToInt32(command.ExecuteScalar());
+                    else
+                        command.ExecuteNonQuery();
                 }
                 catch
                 {

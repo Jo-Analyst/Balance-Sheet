@@ -8,7 +8,7 @@ namespace Balance_Sheet
     public partial class FrmSavePerson : Form
     {
 
-        public bool studentWasSaved { get; set; }
+        public bool wasDataSaved { get; set; }
         Person person = new Person();
         BenefitsReceived benefitsReceived = new BenefitsReceived();
         int person_id, benefits_id;
@@ -21,7 +21,7 @@ namespace Balance_Sheet
         {
             InitializeComponent();
 
-            this.person_id = id;
+            person_id = id;
             txtName.Text = name;
             mkCPF.Text = CPF;
             txtRG.Text = RG;
@@ -32,6 +32,7 @@ namespace Balance_Sheet
             txtHelp.Text = help.ToString();
             ndNumberOfMembers.Value = number_of_members;
             LoadBenefitsReceived();
+            EnabledFieldBenefits();
         }
 
         private void LoadBenefitsReceived()
@@ -167,6 +168,7 @@ namespace Balance_Sheet
                 if (dr == DialogResult.Yes)
                 {
                     benefitsReceived.Delete(int.Parse(dgvBenefitsReceived.CurrentRow.Cells[2].Value.ToString()));
+                    ClearFielsBenefits();
                     dgvBenefitsReceived.Rows.Remove(dgvBenefitsReceived.CurrentRow);
                 }
 
@@ -177,6 +179,12 @@ namespace Balance_Sheet
             {
                 MessageBox.Show("Houve um erro ao excluir. Feche o aplicativo e tente novamente. Caso o erro persista entre em contato com o suporte", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void ClearFielsBenefits()
+        {
+            if (benefits_id == int.Parse(dgvBenefitsReceived.CurrentRow.Cells["ColumnID"].Value.ToString()))
+                ClearFieldBenefits();
         }
 
         private void EditBenefits()
@@ -237,7 +245,7 @@ namespace Balance_Sheet
 
             return isDecimal;
         }
-
+      
         private void btnsave_Click(object sender, EventArgs e)
         {
             try
@@ -258,13 +266,26 @@ namespace Balance_Sheet
 
                 person.Save();
                 person_id = person.id;
-
-                this.Close();
+                EnabledFieldBenefits();
+                wasDataSaved = true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void EnabledFieldBenefits()
+        {
+            rtDescription.Enabled = true;
+            dtDateBenefits.Enabled = true;
+        } 
+        
+        private void ClearFieldBenefits()
+        {
+            rtDescription.Clear();
+            dtDateBenefits.Value = DateTime.Now;
+            benefits_id = 0;
         }
     }
 }

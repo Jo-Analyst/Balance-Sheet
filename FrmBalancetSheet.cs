@@ -15,15 +15,16 @@ namespace Balance_Sheet
 
         private void btnPerson_Click(object sender, EventArgs e)
         {
+            var saveStudent = new FrmSavePerson();
+
             if (person.FindAll().Rows.Count > 0)
             {
                 new FrmPerson().ShowDialog();
                 return;
             }
 
-            var saveStudent = new FrmSavePerson();
             saveStudent.ShowDialog();
-            if (saveStudent.studentWasSaved)
+            if (saveStudent.wasDataSaved)
             {
                 new FrmPerson().ShowDialog();
             }
