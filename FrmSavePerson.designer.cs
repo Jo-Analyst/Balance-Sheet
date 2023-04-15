@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSavePerson));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.btnsave = new System.Windows.Forms.Button();
             this.ndNumberOfMembers = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
@@ -62,7 +63,7 @@
             this.ColEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.ColDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Colescripition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDescripition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ndNumberOfMembers)).BeginInit();
@@ -72,6 +73,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblStatus);
             this.groupBox1.Controls.Add(this.btnsave);
             this.groupBox1.Controls.Add(this.ndNumberOfMembers);
             this.groupBox1.Controls.Add(this.label9);
@@ -99,6 +101,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados pessoais";
             // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.ForeColor = System.Drawing.Color.White;
+            this.lblStatus.Location = new System.Drawing.Point(13, 265);
+            this.lblStatus.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(64, 20);
+            this.lblStatus.TabIndex = 37;
+            this.lblStatus.Text = "Status: ";
+            // 
             // btnsave
             // 
             this.btnsave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -119,6 +132,7 @@
             this.ndNumberOfMembers.Size = new System.Drawing.Size(127, 26);
             this.ndNumberOfMembers.TabIndex = 8;
             this.ndNumberOfMembers.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ndNumberOfMembers.ValueChanged += new System.EventHandler(this.ndNumberOfMembers_ValueChanged);
             this.ndNumberOfMembers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ndNumberOfMembers_KeyPress);
             // 
             // label9
@@ -140,6 +154,7 @@
             this.txtHelp.Name = "txtHelp";
             this.txtHelp.Size = new System.Drawing.Size(143, 26);
             this.txtHelp.TabIndex = 7;
+            this.txtHelp.TextChanged += new System.EventHandler(this.txtHelp_TextChanged);
             this.txtHelp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHelp_KeyPress);
             this.txtHelp.Leave += new System.EventHandler(this.txtHelp_Leave);
             // 
@@ -162,6 +177,7 @@
             this.txtIncome.Name = "txtIncome";
             this.txtIncome.Size = new System.Drawing.Size(143, 26);
             this.txtIncome.TabIndex = 6;
+            this.txtIncome.TextChanged += new System.EventHandler(this.txtIncome_TextChanged);
             this.txtIncome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIncome_KeyPress);
             this.txtIncome.Leave += new System.EventHandler(this.txtIncome_Leave);
             // 
@@ -183,6 +199,7 @@
             this.mkPhone.Name = "mkPhone";
             this.mkPhone.Size = new System.Drawing.Size(132, 26);
             this.mkPhone.TabIndex = 3;
+            this.mkPhone.TextChanged += new System.EventHandler(this.mkPhone_TextChanged);
             // 
             // label6
             // 
@@ -203,6 +220,7 @@
             this.txtNumberAddress.Name = "txtNumberAddress";
             this.txtNumberAddress.Size = new System.Drawing.Size(143, 26);
             this.txtNumberAddress.TabIndex = 5;
+            this.txtNumberAddress.TextChanged += new System.EventHandler(this.txtNumberAddress_TextChanged);
             // 
             // label5
             // 
@@ -223,6 +241,7 @@
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(277, 26);
             this.txtAddress.TabIndex = 4;
+            this.txtAddress.TextChanged += new System.EventHandler(this.txtAddress_TextChanged);
             // 
             // label4
             // 
@@ -243,6 +262,7 @@
             this.txtRG.Name = "txtRG";
             this.txtRG.Size = new System.Drawing.Size(155, 26);
             this.txtRG.TabIndex = 2;
+            this.txtRG.TextChanged += new System.EventHandler(this.txtRG_TextChanged);
             // 
             // label3
             // 
@@ -262,6 +282,7 @@
             this.mkCPF.Name = "mkCPF";
             this.mkCPF.Size = new System.Drawing.Size(120, 26);
             this.mkCPF.TabIndex = 1;
+            this.mkCPF.TextChanged += new System.EventHandler(this.mkCPF_TextChanged);
             // 
             // label2
             // 
@@ -282,6 +303,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(428, 26);
             this.txtName.TabIndex = 0;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
             // 
             // label1
@@ -393,7 +415,7 @@
             this.ColEdit,
             this.ColDelete,
             this.ColumnID,
-            this.Colescripition,
+            this.ColDescripition,
             this.ColDate});
             this.dgvBenefitsReceived.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvBenefitsReceived.EnableHeadersVisualStyles = false;
@@ -411,6 +433,7 @@
             this.dgvBenefitsReceived.RowHeadersVisible = false;
             this.dgvBenefitsReceived.RowHeadersWidth = 51;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
             this.dgvBenefitsReceived.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvBenefitsReceived.Size = new System.Drawing.Size(395, 497);
             this.dgvBenefitsReceived.TabIndex = 5;
@@ -444,14 +467,13 @@
             this.ColumnID.Visible = false;
             this.ColumnID.Width = 125;
             // 
-            // Colescripition
+            // ColDescripition
             // 
-            this.Colescripition.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Colescripition.HeaderText = "Descrição";
-            this.Colescripition.MinimumWidth = 6;
-            this.Colescripition.Name = "Colescripition";
-            this.Colescripition.ReadOnly = true;
-            this.Colescripition.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColDescripition.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColDescripition.HeaderText = "Descrição";
+            this.ColDescripition.MinimumWidth = 6;
+            this.ColDescripition.Name = "ColDescripition";
+            this.ColDescripition.ReadOnly = true;
             // 
             // ColDate
             // 
@@ -460,8 +482,7 @@
             this.ColDate.MinimumWidth = 6;
             this.ColDate.Name = "ColDate";
             this.ColDate.ReadOnly = true;
-            this.ColDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColDate.Width = 164;
+            this.ColDate.Width = 183;
             // 
             // FrmSavePerson
             // 
@@ -519,10 +540,11 @@
         private System.Windows.Forms.NumericUpDown ndNumberOfMembers;
         private System.Windows.Forms.Button btnADD;
         private System.Windows.Forms.Button btnsave;
+        private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.DataGridViewImageColumn ColEdit;
         private System.Windows.Forms.DataGridViewImageColumn ColDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Colescripition;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColDescripition;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDate;
     }
 }

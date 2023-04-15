@@ -63,6 +63,10 @@ namespace Balance_Sheet
             }
             else if (mkCPF.MaskCompleted && !ValidateCPF.validate(mkCPF.Text))
                 MessageBox.Show("CPF inválido!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            else if (mkCPF.MaskCompleted && person.FindByCPF(mkCPF.Text).Rows.Count == 1 && !isEditicion)
+                MessageBox.Show("Não foi possível cadastrar. O CPF já está cadastrado!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            else if (mkCPF.MaskCompleted && person.FindByCpfForPerson(mkCPF.Text, person_id).Rows.Count == 1 && isEditicion)
+                MessageBox.Show("Não foi possível editar. O CPF que está tentando editar já está cadastrado no sistema", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             else
                 validated = true;
 
@@ -95,8 +99,8 @@ namespace Balance_Sheet
                 }
                 else
                 {
-                    dgvBenefitsReceived.Rows[indexRowPress].Cells[3].Value = rtDescription.Text.Trim();
-                    dgvBenefitsReceived.Rows[indexRowPress].Cells[4].Value = dtDateBenefits.Text.Trim();
+                    dgvBenefitsReceived.Rows[indexRowPress].Cells["ColDescripition"].Value = rtDescription.Text.Trim();
+                    dgvBenefitsReceived.Rows[indexRowPress].Cells["ColDate"].Value = dtDateBenefits.Text.Trim();
                 }
 
                 rtDescription.Clear();
@@ -165,7 +169,12 @@ namespace Balance_Sheet
 
         private void dgvBenefitsReceived_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            clearSelection(e);
+            if (e.RowIndex == -1)
+            {
+                dgvBenefitsReceived.ClearSelection();
+                return;
+            }
+
             if (dgvBenefitsReceived.CurrentCell.ColumnIndex == 0)
             {
                 EditBenefits();
@@ -174,6 +183,8 @@ namespace Balance_Sheet
             }
             else if (dgvBenefitsReceived.CurrentCell.ColumnIndex == 1)
                 DeleteBenefits();
+
+            clearSelection(e);
         }
 
         private void DeleteBenefits()
@@ -278,6 +289,7 @@ namespace Balance_Sheet
             {
                 ClearFieldsPerson();
                 EnabledFieldsPerson();
+                 lblStatus.Text = "Status:";
             }
 
             btnsave.Text = btnsave.Text.ToLower() == "salvar" && !isEditicion ? "Novo" : "Salvar";
@@ -329,6 +341,7 @@ namespace Balance_Sheet
         {
             try
             {
+                lblStatus.Text = "Status: Salvando...";
                 person.id = person_id;
                 person.name = txtName.Text.Trim();
                 person.CPF = mkCPF.MaskCompleted ? mkCPF.Text.Trim() : string.Empty;
@@ -341,12 +354,14 @@ namespace Balance_Sheet
                 person.numberAddress = txtNumberAddress.Text.Trim();
 
                 person.Save();
+                lblStatus.Text = "Status: Salvo";
                 person_id = person.id;
                 EnabledFieldBenefits();
                 wasDataSaved = true;
             }
             catch (Exception ex)
             {
+                 lblStatus.Text = "Status:";
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -355,8 +370,53 @@ namespace Balance_Sheet
         {
             rtDescription.Enabled = true;
             dtDateBenefits.Enabled = true;
-        } 
-        
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+             lblStatus.Text = "Status:";
+        }
+
+        private void txtRG_TextChanged(object sender, EventArgs e)
+        {
+             lblStatus.Text = "Status:";
+        }
+
+        private void txtAddress_TextChanged(object sender, EventArgs e)
+        {
+             lblStatus.Text = "Status:";
+        }
+
+        private void txtNumberAddress_TextChanged(object sender, EventArgs e)
+        {
+             lblStatus.Text = "Status:";
+        }
+
+        private void txtIncome_TextChanged(object sender, EventArgs e)
+        {
+             lblStatus.Text = "Status:";
+        }
+
+        private void txtHelp_TextChanged(object sender, EventArgs e)
+        {
+             lblStatus.Text = "Status:";
+        }
+
+        private void ndNumberOfMembers_ValueChanged(object sender, EventArgs e)
+        {
+             lblStatus.Text = "Status:";
+        }
+
+        private void mkCPF_TextChanged(object sender, EventArgs e)
+        {
+             lblStatus.Text = "Status:";
+        }
+
+        private void mkPhone_TextChanged(object sender, EventArgs e)
+        {
+             lblStatus.Text = "Status:";
+        }
+
         private void ClearFieldBenefits()
         {
             rtDescription.Clear();

@@ -96,6 +96,46 @@ namespace DataBase
             {
                 throw;
             }
+        } 
+        
+        public DataTable FindByCPF(string CPF)
+        {
+            try
+            {
+                using (var connection = new SqlConnection(DbConnectionString.connectionString))
+                {
+                    string sql = $"SELECT * FROM Persons WHERE CPF = '{CPF}'";
+                    var adapter = new SqlDataAdapter(sql, connection);
+                    adapter.SelectCommand.CommandText = sql;
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        
+        public DataTable FindByCpfForPerson(string CPF, int person_id)
+        {
+            try
+            {
+                using (var connection = new SqlConnection(DbConnectionString.connectionString))
+                {
+                    string sql = $"SELECT * FROM Persons WHERE CPF = '{CPF}' AND id <> {person_id}";
+                    var adapter = new SqlDataAdapter(sql, connection);
+                    adapter.SelectCommand.CommandText = sql;
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
+            catch
+            {
+                throw;
+            }
         }
 
         public DataTable FindAll()

@@ -105,7 +105,6 @@ namespace Balance_Sheet
         {
             if (e.RowIndex > -1)
             {
-                dgvPerson.ClearSelection();
                 personId = int.Parse(dgvPerson.CurrentRow.Cells[2].Value.ToString());
                 if (dgvPerson.CurrentCell.ColumnIndex == 0)
                     EditPerson();
@@ -114,6 +113,8 @@ namespace Balance_Sheet
                     DeletePerson();                    
                 }
             }
+            
+            dgvPerson.ClearSelection();
         }
 
         private void DeletePerson()
@@ -127,6 +128,21 @@ namespace Balance_Sheet
                     person.id = personId;
                     person.Delete();
                     dgvPerson.Rows.Remove(dgvPerson.CurrentRow);
+                    if(dgvPerson.Rows.Count == 0)
+                    {
+                        this.Visible = false;
+                        FrmSavePerson savePerson = new FrmSavePerson();
+                        savePerson.ShowDialog();
+
+                        if (savePerson.wasDataSaved)
+                        {
+                            this.Visible = true;
+                            LoadDataPerson();
+                        }
+                        else
+                            this.Close();
+                    }
+
                 }
 
                 personId = 0;
