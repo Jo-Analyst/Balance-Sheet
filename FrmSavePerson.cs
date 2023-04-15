@@ -35,6 +35,8 @@ namespace Balance_Sheet
             this.isEditicion = isEditicion;
             LoadBenefitsReceived();
             EnabledFieldBenefits();
+            if (dgvBenefitsReceived.Rows.Count > 0)
+                btnPrint.Enabled = true;
         }
 
         private void LoadBenefitsReceived()
@@ -75,12 +77,16 @@ namespace Balance_Sheet
 
         private void FrmSavePerson_KeyDown(object sender, KeyEventArgs e)
         {
-            if (rtDescription.Focused) return;
-
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.F1)
             {
                 btnsave_Click(sender, e);
             }
+
+            if (btnADD.Enabled && e.KeyCode == Keys.F2)
+                btnADD_Click(sender, e);
+
+            if (btnPrint.Enabled && Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.P)
+                btnPrint_Click(sender, e);
         }
 
         private void btnADD_Click(object sender, EventArgs e)
@@ -107,6 +113,7 @@ namespace Balance_Sheet
 
                 rtDescription.Clear();
                 benefits_id = 0;
+                btnPrint.Enabled = true;
             }
             catch
             {
@@ -200,6 +207,9 @@ namespace Balance_Sheet
                     benefitsReceived.Delete(int.Parse(dgvBenefitsReceived.CurrentRow.Cells[2].Value.ToString()));
                     ClearFielsBenefits();
                     dgvBenefitsReceived.Rows.Remove(dgvBenefitsReceived.CurrentRow);
+
+                    if(dgvBenefitsReceived.Rows.Count == 0)
+                        btnPrint.Enabled = false;
                 }
 
                 dgvBenefitsReceived.ClearSelection();
@@ -280,7 +290,7 @@ namespace Balance_Sheet
             if (!ValidatedFields())
                 return;
 
-            if (btnsave.Text.ToLower() == "salvar")
+            if (btnsave.Text.ToLower() == "salvar - [f1]")
             {
                 SalvePerson();
 
@@ -295,7 +305,8 @@ namespace Balance_Sheet
                  lblStatus.Text = "Status:";
             }
 
-            btnsave.Text = btnsave.Text.ToLower() == "salvar" && !isEditicion ? "Novo" : "Salvar";
+            btnsave.Text = btnsave.Text.ToLower() == "salvar - [f1]" && !isEditicion ? "Novo - [F1]" : "Salvar - [F1]";
+            
         }
 
         private void ClearFieldsPerson()
@@ -419,6 +430,11 @@ namespace Balance_Sheet
         private void mkPhone_TextChanged(object sender, EventArgs e)
         {
              lblStatus.Text = "Status:";
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            new FrmReportPerson(person_id).ShowDialog();
         }
 
         private void ClearFieldBenefits()

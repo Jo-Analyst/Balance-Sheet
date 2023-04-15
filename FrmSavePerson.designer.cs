@@ -65,6 +65,7 @@
             this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDescripition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ndNumberOfMembers)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -116,12 +117,12 @@
             // 
             this.btnsave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnsave.ForeColor = System.Drawing.Color.White;
-            this.btnsave.Location = new System.Drawing.Point(313, 252);
+            this.btnsave.Location = new System.Drawing.Point(262, 252);
             this.btnsave.Margin = new System.Windows.Forms.Padding(4);
             this.btnsave.Name = "btnsave";
-            this.btnsave.Size = new System.Drawing.Size(132, 47);
+            this.btnsave.Size = new System.Drawing.Size(183, 47);
             this.btnsave.TabIndex = 36;
-            this.btnsave.Text = "Salvar";
+            this.btnsave.Text = "Salvar - [F1]";
             this.btnsave.UseVisualStyleBackColor = true;
             this.btnsave.Click += new System.EventHandler(this.btnsave_Click);
             // 
@@ -345,7 +346,7 @@
             this.btnADD.Name = "btnADD";
             this.btnADD.Size = new System.Drawing.Size(132, 50);
             this.btnADD.TabIndex = 6;
-            this.btnADD.Text = "Adicionar";
+            this.btnADD.Text = "Adicionar - [F2]";
             this.btnADD.UseVisualStyleBackColor = true;
             this.btnADD.Click += new System.EventHandler(this.btnADD_Click);
             // 
@@ -435,7 +436,7 @@
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
             this.dgvBenefitsReceived.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvBenefitsReceived.Size = new System.Drawing.Size(395, 497);
+            this.dgvBenefitsReceived.Size = new System.Drawing.Size(395, 445);
             this.dgvBenefitsReceived.TabIndex = 5;
             this.dgvBenefitsReceived.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBenefitsReceived_CellClick);
             this.dgvBenefitsReceived.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBenefitsReceived_CellDoubleClick);
@@ -484,12 +485,28 @@
             this.ColDate.ReadOnly = true;
             this.ColDate.Width = 183;
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrint.Enabled = false;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.ForeColor = System.Drawing.Color.White;
+            this.btnPrint.Location = new System.Drawing.Point(737, 475);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(150, 50);
+            this.btnPrint.TabIndex = 34;
+            this.btnPrint.Text = "Imprimir";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // FrmSavePerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(900, 532);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.dgvBenefitsReceived);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -546,5 +563,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDescripition;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDate;
+        private System.Windows.Forms.Button btnPrint;
     }
 }

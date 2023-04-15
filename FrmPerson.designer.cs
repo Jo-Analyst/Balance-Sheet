@@ -37,9 +37,6 @@
             this.btnNew = new System.Windows.Forms.Button();
             this.txtField = new System.Windows.Forms.TextBox();
             this.dgvPerson = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.rbName = new System.Windows.Forms.RadioButton();
-            this.rbAddress = new System.Windows.Forms.RadioButton();
             this.ColEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.ColTrash = new System.Windows.Forms.DataGridViewImageColumn();
             this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,6 +49,9 @@
             this.ColIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColHelp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNumberOfMembers = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.rbName = new System.Windows.Forms.RadioButton();
+            this.rbAddress = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPerson)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,7 +64,7 @@
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(149, 55);
             this.btnNew.TabIndex = 0;
-            this.btnNew.Text = "Novo";
+            this.btnNew.Text = "Novo - [F1]";
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
@@ -126,45 +126,6 @@
             this.dgvPerson.Size = new System.Drawing.Size(1028, 337);
             this.dgvPerson.TabIndex = 2;
             this.dgvPerson.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPerson_CellClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(29, 112);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 20);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Procurar por: ";
-            // 
-            // rbName
-            // 
-            this.rbName.AutoSize = true;
-            this.rbName.Checked = true;
-            this.rbName.ForeColor = System.Drawing.Color.White;
-            this.rbName.Location = new System.Drawing.Point(172, 112);
-            this.rbName.Margin = new System.Windows.Forms.Padding(4);
-            this.rbName.Name = "rbName";
-            this.rbName.Size = new System.Drawing.Size(69, 24);
-            this.rbName.TabIndex = 6;
-            this.rbName.TabStop = true;
-            this.rbName.Text = "Nome";
-            this.rbName.UseVisualStyleBackColor = true;
-            this.rbName.CheckedChanged += new System.EventHandler(this.rbName_CheckedChanged);
-            // 
-            // rbAddress
-            // 
-            this.rbAddress.AutoSize = true;
-            this.rbAddress.ForeColor = System.Drawing.Color.White;
-            this.rbAddress.Location = new System.Drawing.Point(268, 112);
-            this.rbAddress.Margin = new System.Windows.Forms.Padding(4);
-            this.rbAddress.Name = "rbAddress";
-            this.rbAddress.Size = new System.Drawing.Size(96, 24);
-            this.rbAddress.TabIndex = 7;
-            this.rbAddress.Text = "Endereço";
-            this.rbAddress.UseVisualStyleBackColor = true;
-            this.rbAddress.CheckedChanged += new System.EventHandler(this.rbAddress_CheckedChanged);
             // 
             // ColEdit
             // 
@@ -282,6 +243,45 @@
             this.ColNumberOfMembers.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.ColNumberOfMembers.Width = 162;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(29, 112);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(104, 20);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Procurar por: ";
+            // 
+            // rbName
+            // 
+            this.rbName.AutoSize = true;
+            this.rbName.Checked = true;
+            this.rbName.ForeColor = System.Drawing.Color.White;
+            this.rbName.Location = new System.Drawing.Point(172, 112);
+            this.rbName.Margin = new System.Windows.Forms.Padding(4);
+            this.rbName.Name = "rbName";
+            this.rbName.Size = new System.Drawing.Size(69, 24);
+            this.rbName.TabIndex = 6;
+            this.rbName.TabStop = true;
+            this.rbName.Text = "Nome";
+            this.rbName.UseVisualStyleBackColor = true;
+            this.rbName.CheckedChanged += new System.EventHandler(this.rbName_CheckedChanged);
+            // 
+            // rbAddress
+            // 
+            this.rbAddress.AutoSize = true;
+            this.rbAddress.ForeColor = System.Drawing.Color.White;
+            this.rbAddress.Location = new System.Drawing.Point(268, 112);
+            this.rbAddress.Margin = new System.Windows.Forms.Padding(4);
+            this.rbAddress.Name = "rbAddress";
+            this.rbAddress.Size = new System.Drawing.Size(96, 24);
+            this.rbAddress.TabIndex = 7;
+            this.rbAddress.Text = "Endereço";
+            this.rbAddress.UseVisualStyleBackColor = true;
+            this.rbAddress.CheckedChanged += new System.EventHandler(this.rbAddress_CheckedChanged);
+            // 
             // FrmPerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -296,12 +296,14 @@
             this.Controls.Add(this.btnNew);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "FrmPerson";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Responsável Familiar";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmStudent_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmPerson_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPerson)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

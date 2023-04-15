@@ -154,5 +154,13 @@ namespace Balance_Sheet
                 MessageBox.Show("Houve um erro ao excluir. Feche o aplicativo e tente novamente. Caso o erro persiste, entre em contato com o suporte", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void FrmPerson_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(Keys.F1 == e.KeyCode)
+            {
+                btnNew_Click(sender, e);
+            }
+        }
     }
 }
