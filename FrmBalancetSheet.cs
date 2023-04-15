@@ -39,5 +39,10 @@ namespace Balance_Sheet
         {
             new FrmBackupAndRestore().ShowDialog();
         }
+
+        private void FrmBalanceSheet_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

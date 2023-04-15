@@ -13,7 +13,7 @@ namespace Balance_Sheet
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmBalanceSheet());
+            Application.Run(new FrmLoading());
         }
     }
 }

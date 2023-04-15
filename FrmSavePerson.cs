@@ -75,6 +75,8 @@ namespace Balance_Sheet
 
         private void FrmSavePerson_KeyDown(object sender, KeyEventArgs e)
         {
+            if (rtDescription.Focused) return;
+
             if (e.KeyCode == Keys.Enter)
             {
                 btnsave_Click(sender, e);
@@ -114,7 +116,7 @@ namespace Balance_Sheet
 
         private void rtDescription_TextChanged(object sender, EventArgs e)
         {
-            btnADD.Enabled = !string.IsNullOrEmpty(rtDescription.Text);
+            btnADD.Enabled = !string.IsNullOrWhiteSpace(rtDescription.Text);
         }
 
         private void ndNumberOfMembers_KeyPress(object sender, KeyPressEventArgs e)
@@ -284,6 +286,7 @@ namespace Balance_Sheet
 
                 if(!isEditicion)
                     DisabledFieldsPerson();
+
             }
             else
             {
@@ -354,6 +357,7 @@ namespace Balance_Sheet
                 person.numberAddress = txtNumberAddress.Text.Trim();
 
                 person.Save();
+                mkCPF.Text = person.CPF;
                 lblStatus.Text = "Status: Salvo";
                 person_id = person.id;
                 EnabledFieldBenefits();

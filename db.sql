@@ -11,8 +11,8 @@ CREATE TABLE [dbo].[Persons]
     [address] VARCHAR(200) NULL,
     [number_address] VARCHAR(MAX),
     [phone] VARCHAR(20) NULL, 
-    [income] DECIMAL(18, 2) NULL, -- renda
-    [help] DECIMAL(18, 2) NULL, --  auxílio
+    [income] DECIMAL(18, 2) DEFAULT 0 NULL, -- renda
+    [help] DECIMAL(18, 2)  DEFAULT 0 NULL, --  auxílio
     [number_of_members] INT NULL -- Número de membros
 )
 
