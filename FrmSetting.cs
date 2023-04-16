@@ -1,12 +1,5 @@
 ﻿using Balance_Sheet.Properties;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Balance_Sheet
@@ -31,7 +24,7 @@ namespace Balance_Sheet
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
-            if(DialogResult.OK == folderBrowserDialog.ShowDialog())
+            if (DialogResult.OK == folderBrowserDialog.ShowDialog())
             {
                 txtDirectoryBackup.Text = folderBrowserDialog.SelectedPath;
             }
@@ -44,7 +37,7 @@ namespace Balance_Sheet
 
         private void FrmSetting_KeyDown(object sender, KeyEventArgs e)
         {
-            if(Keys.Enter == e.KeyCode)
+            if (Keys.Enter == e.KeyCode)
                 btnConfirm_Click((object)sender, e);
         }
     }

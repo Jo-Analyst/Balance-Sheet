@@ -124,7 +124,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Utils\FormatterFields.cs" />
+    <Compile Include="Utils\PrintLocalReport.cs" />
     <Compile Include="Utils\PrintRDLC.cs" />
+    <Compile Include="Utils\ReportParameters.cs" />
     <Compile Include="Utils\ValidateCPF.cs" />
     <EmbeddedResource Include="FrmSetting.resx">
       <DependentUpon>FrmSetting.cs</DependentUpon>

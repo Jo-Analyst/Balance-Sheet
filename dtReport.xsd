@@ -12,7 +12,7 @@
               <DbSource ConnectionRef="jo-analyst\las.dbCRAS.dbo" DbObjectName="dbCras.dbo.Benefits_Received" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        description, date_benefits
+                    <CommandText>SELECT        description, date_benefit
 FROM            Benefits_Received
 WHERE        (person_id = @id)</CommandText>
                     <Parameters>
@@ -24,7 +24,7 @@ WHERE        (person_id = @id)</CommandText>
             </MainSource>
             <Mappings>
               <Mapping SourceColumn="description" DataSetColumn="description" />
-              <Mapping SourceColumn="date_benefits" DataSetColumn="date_benefits" />
+              <Mapping SourceColumn="date_benefit" DataSetColumn="date_benefit" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -46,7 +46,7 @@ WHERE        (person_id = @id)</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="date_benefits" msprop:Generator_ColumnPropNameInRow="date_benefits" msprop:Generator_ColumnPropNameInTable="date_benefitsColumn" msprop:Generator_ColumnVarNameInTable="columndate_benefits" msprop:Generator_UserColumnName="date_benefits" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="date_benefit" msprop:Generator_ColumnPropNameInRow="date_benefit" msprop:Generator_ColumnPropNameInTable="date_benefitColumn" msprop:Generator_ColumnVarNameInTable="columndate_benefit" msprop:Generator_UserColumnName="date_benefit" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

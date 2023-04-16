@@ -1,13 +1,5 @@
-﻿using DataBase;
-using Microsoft.Reporting.WinForms;
+﻿using Microsoft.Reporting.WinForms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Balance_Sheet
@@ -19,7 +11,7 @@ namespace Balance_Sheet
             InitializeComponent();
         }
 
-        public FrmReportPerson(ReportDataSource rprtDTSource)
+        public FrmReportPerson(ReportDataSource rprtDTSource, System.Data.DataTable dtPerson)
         {
             InitializeComponent();
             //reportBenefitsTableAdapter.Fill(dtReport.ReportBenefits, person_id);            
@@ -27,6 +19,7 @@ namespace Balance_Sheet
             {
                 reportViewer1.LocalReport.DataSources.Clear();
                 reportViewer1.LocalReport.DataSources.Add(rprtDTSource);
+                reportViewer1.LocalReport.SetParameters(ReportParameters.SetParametersReport(dtPerson));
                 reportViewer1.RefreshReport();
             }
             catch

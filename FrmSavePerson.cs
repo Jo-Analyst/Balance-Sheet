@@ -3,7 +3,6 @@ using DataBase;
 using Microsoft.Reporting.WinForms;
 using System;
 using System.Data;
-using System.IO;
 using System.Windows.Forms;
 
 namespace Balance_Sheet
@@ -14,6 +13,7 @@ namespace Balance_Sheet
         public bool wasDataSaved { get; set; }
         Person person = new Person();
         BenefitsReceived benefitsReceived = new BenefitsReceived();
+
         int person_id, benefits_id;
         bool isEditicion;
 
@@ -52,7 +52,7 @@ namespace Balance_Sheet
                 dgvBenefitsReceived.Rows[index].Cells[1].Value = Properties.Resources.trash_24_icon;
                 dgvBenefitsReceived.Rows[index].Cells[2].Value = rowBenefitsReceived["id"].ToString();
                 dgvBenefitsReceived.Rows[index].Cells[3].Value = rowBenefitsReceived["description"].ToString();
-                dgvBenefitsReceived.Rows[index].Cells[4].Value = Convert.ToDateTime(rowBenefitsReceived["date_benefits"].ToString()).ToShortDateString();
+                dgvBenefitsReceived.Rows[index].Cells[4].Value = Convert.ToDateTime(rowBenefitsReceived["date_benefit"].ToString()).ToShortDateString();
                 dgvBenefitsReceived.Rows[index].Height = 35;
             }
             dgvBenefitsReceived.ClearSelection();
@@ -191,7 +191,7 @@ namespace Balance_Sheet
             {
                 EditBenefits();
                 btnADD.Enabled = true;
-                indexRowPress = e.RowIndex;      
+                indexRowPress = e.RowIndex;
             }
             else if (dgvBenefitsReceived.CurrentCell.ColumnIndex == 1)
                 DeleteBenefits();
@@ -211,7 +211,7 @@ namespace Balance_Sheet
                     ClearFielsBenefits();
                     dgvBenefitsReceived.Rows.Remove(dgvBenefitsReceived.CurrentRow);
 
-                    if(dgvBenefitsReceived.Rows.Count == 0)
+                    if (dgvBenefitsReceived.Rows.Count == 0)
                         btnPrint.Enabled = false;
                 }
 
@@ -234,7 +234,7 @@ namespace Balance_Sheet
         {
             benefits_id = int.Parse(dgvBenefitsReceived.CurrentRow.Cells[2].Value.ToString());
             rtDescription.Text = dgvBenefitsReceived.CurrentRow.Cells[3].Value.ToString();
-            dtDateBenefits.Value = Convert.ToDateTime(dgvBenefitsReceived.CurrentRow.Cells[4].Value.ToString());            
+            dtDateBenefits.Value = Convert.ToDateTime(dgvBenefitsReceived.CurrentRow.Cells[4].Value.ToString());
         }
 
         private void clearSelection(DataGridViewCellEventArgs e)
@@ -297,7 +297,7 @@ namespace Balance_Sheet
             {
                 SalvePerson();
 
-                if(!isEditicion)
+                if (!isEditicion)
                     DisabledFieldsPerson();
 
             }
@@ -305,11 +305,11 @@ namespace Balance_Sheet
             {
                 ClearFieldsPerson();
                 EnabledFieldsPerson();
-                 lblStatus.Text = "Status:";
+                lblStatus.Text = "Status:";
             }
 
             btnsave.Text = btnsave.Text.ToLower() == "salvar - [f1]" && !isEditicion ? "Novo - [F1]" : "Salvar - [F1]";
-            
+
         }
 
         private void ClearFieldsPerson()
@@ -379,7 +379,7 @@ namespace Balance_Sheet
             }
             catch (Exception ex)
             {
-                 lblStatus.Text = "Status:";
+                lblStatus.Text = "Status:";
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -392,83 +392,69 @@ namespace Balance_Sheet
 
         private void txtName_TextChanged(object sender, EventArgs e)
         {
-             lblStatus.Text = "Status:";
+            lblStatus.Text = "Status:";
         }
 
         private void txtRG_TextChanged(object sender, EventArgs e)
         {
-             lblStatus.Text = "Status:";
+            lblStatus.Text = "Status:";
         }
 
         private void txtAddress_TextChanged(object sender, EventArgs e)
         {
-             lblStatus.Text = "Status:";
+            lblStatus.Text = "Status:";
         }
 
         private void txtNumberAddress_TextChanged(object sender, EventArgs e)
         {
-             lblStatus.Text = "Status:";
+            lblStatus.Text = "Status:";
         }
 
         private void txtIncome_TextChanged(object sender, EventArgs e)
         {
-             lblStatus.Text = "Status:";
+            lblStatus.Text = "Status:";
         }
 
         private void txtHelp_TextChanged(object sender, EventArgs e)
         {
-             lblStatus.Text = "Status:";
+            lblStatus.Text = "Status:";
         }
 
         private void ndNumberOfMembers_ValueChanged(object sender, EventArgs e)
         {
-             lblStatus.Text = "Status:";
+            lblStatus.Text = "Status:";
         }
 
         private void mkCPF_TextChanged(object sender, EventArgs e)
         {
-             lblStatus.Text = "Status:";
+            lblStatus.Text = "Status:";
         }
 
         private void mkPhone_TextChanged(object sender, EventArgs e)
         {
-             lblStatus.Text = "Status:";
+            lblStatus.Text = "Status:";
         }
 
+        DataTable dtPerson;
         private void btnPrint_Click(object sender, EventArgs e)
         {
             try
             {
-                DataTable bennefits = new BenefitsReceived().FindByPersonId(person_id);
-                ReportDataSource rprtDTSource = new ReportDataSource("dtBenefits", bennefits);
+                dtPerson = new Person().FindByPersonId(person_id);
+
+                ReportDataSource rprtDTSource = new ReportDataSource("dtBenefits", dtPerson);
 
                 if (!Convert.ToBoolean(Settings.Default["print_directory_direct"]))
-                    new FrmReportPerson(rprtDTSource).ShowDialog();
+                    new FrmReportPerson(rprtDTSource, dtPerson).ShowDialog();
                 else
-                    printDirectyTheReport(rprtDTSource);
+                    PrintLocalReport.PrintReportDirectlyFromPrinter(rprtDTSource, dtPerson);
             }
-            catch 
+            catch
             {
                 MessageBox.Show("Houve um erro ao imprimir.Tente novamente. Caso o erro persista contate o suporte", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void printDirectyTheReport(ReportDataSource rprtDTSource)
-        {
-            try
-            {
-                LocalReport localReport = new LocalReport();
-                localReport.DataSources.Clear();
-                localReport.DataSources.Add(rprtDTSource);
-                //localReport.ReportPath = $"{Path.GetDirectoryName(Application.ExecutablePath)}\\ReportPerson.rdlc";
-                localReport.ReportPath = $"C:\\Users\\jojoc\\OneDrive\\Documentos\\Meus projetos\\balance-sheet\\ReportPerson.rdlc";
-                localReport.PrintToPrinter();
-            }
-            catch
-            {
-                throw;
-            }
-        }
 
         private void ClearFieldBenefits()
         {

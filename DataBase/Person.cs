@@ -96,8 +96,8 @@ namespace DataBase
             {
                 throw;
             }
-        } 
-        
+        }
+
         public DataTable FindByCPF(string CPF)
         {
             try
@@ -117,7 +117,7 @@ namespace DataBase
                 throw;
             }
         }
-        
+
         public DataTable FindByCpfForPerson(string CPF, int person_id)
         {
             try
@@ -165,6 +165,26 @@ namespace DataBase
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
                     string sql = $"SELECT * FROM Persons WHERE {column} LIKE '%{data}%'";
+                    var adapter = new SqlDataAdapter(sql, connection);
+                    adapter.SelectCommand.CommandText = sql;
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public DataTable FindByPersonId(int person_id)
+        {
+            try
+            {
+                using (var connection = new SqlConnection(DbConnectionString.connectionString))
+                {
+                    string sql = $"SELECT persons.name, Persons.CPF, Persons.RG, Persons.address, Persons.number_address, Persons.phone, Persons.income, Persons.help, Persons.number_of_members, Benefits_Received.description, Convert(VARCHAR, Benefits_Received.date_benefit, 103) AS date_benefit , Benefits_Received.person_id FROM Benefits_Received INNER JOIN Persons ON Persons.id = Benefits_Received.person_id WHERE Benefits_Received.person_id = {person_id}";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();

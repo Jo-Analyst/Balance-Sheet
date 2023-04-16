@@ -281,7 +281,7 @@ namespace Balance_Sheet {
             
             private global::System.Data.DataColumn columndescription;
             
-            private global::System.Data.DataColumn columndate_benefits;
+            private global::System.Data.DataColumn columndate_benefit;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -326,9 +326,9 @@ namespace Balance_Sheet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn date_benefitsColumn {
+            public global::System.Data.DataColumn date_benefitColumn {
                 get {
-                    return this.columndate_benefits;
+                    return this.columndate_benefit;
                 }
             }
             
@@ -369,11 +369,11 @@ namespace Balance_Sheet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ReportBenefitsRow AddReportBenefitsRow(string description, System.DateTime date_benefits) {
+            public ReportBenefitsRow AddReportBenefitsRow(string description, System.DateTime date_benefit) {
                 ReportBenefitsRow rowReportBenefitsRow = ((ReportBenefitsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         description,
-                        date_benefits};
+                        date_benefit};
                 rowReportBenefitsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowReportBenefitsRow);
                 return rowReportBenefitsRow;
@@ -397,7 +397,7 @@ namespace Balance_Sheet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
                 this.columndescription = base.Columns["description"];
-                this.columndate_benefits = base.Columns["date_benefits"];
+                this.columndate_benefit = base.Columns["date_benefit"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -405,8 +405,8 @@ namespace Balance_Sheet {
             private void InitClass() {
                 this.columndescription = new global::System.Data.DataColumn("description", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndescription);
-                this.columndate_benefits = new global::System.Data.DataColumn("date_benefits", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndate_benefits);
+                this.columndate_benefit = new global::System.Data.DataColumn("date_benefit", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndate_benefit);
                 this.columndescription.MaxLength = 2147483647;
             }
             
@@ -566,17 +566,17 @@ namespace Balance_Sheet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime date_benefits {
+            public System.DateTime date_benefit {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableReportBenefits.date_benefitsColumn]));
+                        return ((global::System.DateTime)(this[this.tableReportBenefits.date_benefitColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'date_benefits\' na tabela \'ReportBenefits\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'date_benefit\' na tabela \'ReportBenefits\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableReportBenefits.date_benefitsColumn] = value;
+                    this[this.tableReportBenefits.date_benefitColumn] = value;
                 }
             }
             
@@ -594,14 +594,14 @@ namespace Balance_Sheet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isdate_benefitsNull() {
-                return this.IsNull(this.tableReportBenefits.date_benefitsColumn);
+            public bool Isdate_benefitNull() {
+                return this.IsNull(this.tableReportBenefits.date_benefitColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setdate_benefitsNull() {
-                this[this.tableReportBenefits.date_benefitsColumn] = global::System.Convert.DBNull;
+            public void Setdate_benefitNull() {
+                this[this.tableReportBenefits.date_benefitColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -765,7 +765,7 @@ namespace Balance_Sheet.dtReportTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "ReportBenefits";
             tableMapping.ColumnMappings.Add("description", "description");
-            tableMapping.ColumnMappings.Add("date_benefits", "date_benefits");
+            tableMapping.ColumnMappings.Add("date_benefit", "date_benefit");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -782,7 +782,7 @@ namespace Balance_Sheet.dtReportTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        description, date_benefits\r\nFROM            Benefits_Received\r\nWHER" +
+            this._commandCollection[0].CommandText = "SELECT        description, date_benefit\r\nFROM            Benefits_Received\r\nWHER" +
                 "E        (person_id = @id)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "person_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

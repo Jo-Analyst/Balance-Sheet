@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.SqlClient;
 
 namespace DataBase
 {
@@ -44,18 +39,18 @@ namespace DataBase
                 "    [Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), " +
                 "    [name] VARCHAR(200) NULL, " +
                 "    [CPF] VARCHAR(14) NULL, " +
-                "    [RG] VARCHAR(14) NULL, " +
+                "    [RG] VARCHAR(20) NULL, " +
                 "    [address] VARCHAR(200) NULL," +
                 "    [number_address] VARCHAR(MAX) NULL," +
                 "    [phone] VARCHAR(20) NULL, " +
                 "    [income] DECIMAL(18, 2) DEFAULT ((0)) NULL," +
                 "    [help] DECIMAL(18, 2)  DEFAULT ((0)) NULL," +
                 "    [number_of_members] INT NULL);" +
-                
+
                 "CREATE TABLE [dbo].[Benefits_Received] (" +
                 "    [Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), " +
                 "    [description] VARCHAR(MAX) NULL, " +
-                "    [date_benefits] Date NULL," +
+                "    [date_benefit] Date NULL," +
                 "    [person_id] INT NOT NULL," +
                 "    FOREIGN KEY ([person_id]) REFERENCES [dbo].[persons](id) ON DELETE CASCADE );";
                 SqlCommand command = new SqlCommand(sql, connection);
@@ -70,8 +65,8 @@ namespace DataBase
                     throw;
                 }
             }
-        } 
-        
+        }
+
         static public void CreateDatabase()
         {
             using (SqlConnection connection = new SqlConnection(DbConnectionString.connectionStringMaster))

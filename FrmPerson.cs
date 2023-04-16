@@ -73,7 +73,7 @@ namespace Balance_Sheet
 
             personId = 0;
             dgvPerson.ClearSelection();
-           
+
             if (savePerson.wasDataSaved)
                 LoadDataPerson();
         }
@@ -110,10 +110,10 @@ namespace Balance_Sheet
                     EditPerson();
                 else if (dgvPerson.CurrentCell.ColumnIndex == 1)
                 {
-                    DeletePerson();                    
+                    DeletePerson();
                 }
             }
-            
+
             dgvPerson.ClearSelection();
         }
 
@@ -128,7 +128,7 @@ namespace Balance_Sheet
                     person.id = personId;
                     person.Delete();
                     dgvPerson.Rows.Remove(dgvPerson.CurrentRow);
-                    if(dgvPerson.Rows.Count == 0)
+                    if (dgvPerson.Rows.Count == 0)
                     {
                         this.Visible = false;
                         FrmSavePerson savePerson = new FrmSavePerson();
@@ -157,7 +157,7 @@ namespace Balance_Sheet
 
         private void FrmPerson_KeyDown(object sender, KeyEventArgs e)
         {
-            if(Keys.F1 == e.KeyCode)
+            if (Keys.F1 == e.KeyCode)
             {
                 btnNew_Click(sender, e);
             }

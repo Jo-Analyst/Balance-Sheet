@@ -17,12 +17,12 @@ namespace DataBase
             {
                 connection.Open();
                 string sql = id == 0
-                ? "INSERT INTO Benefits_Received (description, date_benefits, person_id) VALUES (@description, @date_benefits, @person_id); SELECT @@identity"
-                : "UPDATE Benefits_Received SET description = @description, date_benefits = @date_benefits, person_id = @person_id WHERE id = @id";
+                ? "INSERT INTO Benefits_Received (description, date_benefit, person_id) VALUES (@description, @date_benefit, @person_id); SELECT @@identity"
+                : "UPDATE Benefits_Received SET description = @description, date_benefit = @date_benefit, person_id = @person_id WHERE id = @id";
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.Parameters.AddWithValue("@id", id);
                 command.Parameters.AddWithValue("@description", description);
-                command.Parameters.AddWithValue("@date_benefits", dateBenefits);
+                command.Parameters.AddWithValue("@date_benefit", dateBenefits);
                 command.Parameters.AddWithValue("@person_id", person_id);
                 command.CommandText = sql;
                 try
