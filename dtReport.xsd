@@ -28,17 +28,103 @@ WHERE        (person_id = @id)</CommandText>
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="reportPersonAndBenefitsTableAdapter" GeneratorDataComponentClassName="reportPersonAndBenefitsTableAdapter" Name="reportPersonAndBenefits" UserDataComponentName="reportPersonAndBenefitsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="jo-analyst\las.dbCRAS.dbo" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT persons.name, Persons.CPF, Persons.RG, Persons.address, Persons.number_address, Persons.phone, Persons.income, Persons.help, Persons.number_of_members, Benefits_Received.description, Convert(VARCHAR, Benefits_Received.date_benefit, 103) AS date_benefit , Benefits_Received.person_id FROM Benefits_Received INNER JOIN Persons ON Persons.id = Benefits_Received.person_id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="name" DataSetColumn="name" />
+              <Mapping SourceColumn="CPF" DataSetColumn="CPF" />
+              <Mapping SourceColumn="RG" DataSetColumn="RG" />
+              <Mapping SourceColumn="address" DataSetColumn="address" />
+              <Mapping SourceColumn="number_address" DataSetColumn="number_address" />
+              <Mapping SourceColumn="phone" DataSetColumn="phone" />
+              <Mapping SourceColumn="income" DataSetColumn="income" />
+              <Mapping SourceColumn="help" DataSetColumn="help" />
+              <Mapping SourceColumn="number_of_members" DataSetColumn="number_of_members" />
+              <Mapping SourceColumn="description" DataSetColumn="description" />
+              <Mapping SourceColumn="date_benefit" DataSetColumn="date_benefit" />
+              <Mapping SourceColumn="person_id" DataSetColumn="person_id" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="dtReport" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="dtReport" msprop:Generator_DataSetName="dtReport">
+  <xs:element name="dtReport" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dtReport" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dtReport">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="ReportBenefits" msprop:Generator_RowEvHandlerName="ReportBenefitsRowChangeEventHandler" msprop:Generator_RowDeletedName="ReportBenefitsRowDeleted" msprop:Generator_RowDeletingName="ReportBenefitsRowDeleting" msprop:Generator_RowEvArgName="ReportBenefitsRowChangeEvent" msprop:Generator_TablePropName="ReportBenefits" msprop:Generator_RowChangedName="ReportBenefitsRowChanged" msprop:Generator_RowChangingName="ReportBenefitsRowChanging" msprop:Generator_TableClassName="ReportBenefitsDataTable" msprop:Generator_RowClassName="ReportBenefitsRow" msprop:Generator_TableVarName="tableReportBenefits" msprop:Generator_UserTableName="ReportBenefits">
+        <xs:element name="ReportBenefits" msprop:Generator_RowClassName="ReportBenefitsRow" msprop:Generator_RowEvHandlerName="ReportBenefitsRowChangeEventHandler" msprop:Generator_RowDeletedName="ReportBenefitsRowDeleted" msprop:Generator_RowDeletingName="ReportBenefitsRowDeleting" msprop:Generator_RowEvArgName="ReportBenefitsRowChangeEvent" msprop:Generator_TablePropName="ReportBenefits" msprop:Generator_RowChangedName="ReportBenefitsRowChanged" msprop:Generator_UserTableName="ReportBenefits" msprop:Generator_RowChangingName="ReportBenefitsRowChanging" msprop:Generator_TableClassName="ReportBenefitsDataTable" msprop:Generator_TableVarName="tableReportBenefits">
           <xs:complexType>
             <xs:sequence>
+              <xs:element name="description" msprop:Generator_UserColumnName="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnVarNameInTable="columndescription" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="date_benefit" msprop:Generator_UserColumnName="date_benefit" msprop:Generator_ColumnPropNameInTable="date_benefitColumn" msprop:Generator_ColumnPropNameInRow="date_benefit" msprop:Generator_ColumnVarNameInTable="columndate_benefit" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="reportPersonAndBenefits" msprop:Generator_RowEvHandlerName="reportPersonAndBenefitsRowChangeEventHandler" msprop:Generator_RowDeletedName="reportPersonAndBenefitsRowDeleted" msprop:Generator_RowDeletingName="reportPersonAndBenefitsRowDeleting" msprop:Generator_RowEvArgName="reportPersonAndBenefitsRowChangeEvent" msprop:Generator_TablePropName="reportPersonAndBenefits" msprop:Generator_RowChangedName="reportPersonAndBenefitsRowChanged" msprop:Generator_RowChangingName="reportPersonAndBenefitsRowChanging" msprop:Generator_TableClassName="reportPersonAndBenefitsDataTable" msprop:Generator_RowClassName="reportPersonAndBenefitsRow" msprop:Generator_TableVarName="tablereportPersonAndBenefits" msprop:Generator_UserTableName="reportPersonAndBenefits">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_UserColumnName="name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CPF" msprop:Generator_ColumnPropNameInRow="CPF" msprop:Generator_ColumnPropNameInTable="CPFColumn" msprop:Generator_ColumnVarNameInTable="columnCPF" msprop:Generator_UserColumnName="CPF" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="14" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RG" msprop:Generator_ColumnPropNameInRow="RG" msprop:Generator_ColumnPropNameInTable="RGColumn" msprop:Generator_ColumnVarNameInTable="columnRG" msprop:Generator_UserColumnName="RG" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="address" msprop:Generator_ColumnPropNameInRow="address" msprop:Generator_ColumnPropNameInTable="addressColumn" msprop:Generator_ColumnVarNameInTable="columnaddress" msprop:Generator_UserColumnName="address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="number_address" msprop:Generator_ColumnPropNameInRow="number_address" msprop:Generator_ColumnPropNameInTable="number_addressColumn" msprop:Generator_ColumnVarNameInTable="columnnumber_address" msprop:Generator_UserColumnName="number_address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="phone" msprop:Generator_ColumnPropNameInRow="phone" msprop:Generator_ColumnPropNameInTable="phoneColumn" msprop:Generator_ColumnVarNameInTable="columnphone" msprop:Generator_UserColumnName="phone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="income" msprop:Generator_ColumnPropNameInRow="income" msprop:Generator_ColumnPropNameInTable="incomeColumn" msprop:Generator_ColumnVarNameInTable="columnincome" msprop:Generator_UserColumnName="income" type="xs:decimal" minOccurs="0" />
+              <xs:element name="help" msprop:Generator_ColumnPropNameInRow="help" msprop:Generator_ColumnPropNameInTable="helpColumn" msprop:Generator_ColumnVarNameInTable="columnhelp" msprop:Generator_UserColumnName="help" type="xs:decimal" minOccurs="0" />
+              <xs:element name="number_of_members" msprop:Generator_ColumnPropNameInRow="number_of_members" msprop:Generator_ColumnPropNameInTable="number_of_membersColumn" msprop:Generator_ColumnVarNameInTable="columnnumber_of_members" msprop:Generator_UserColumnName="number_of_members" type="xs:int" minOccurs="0" />
               <xs:element name="description" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn" msprop:Generator_ColumnVarNameInTable="columndescription" msprop:Generator_UserColumnName="description" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -46,7 +132,14 @@ WHERE        (person_id = @id)</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="date_benefit" msprop:Generator_ColumnPropNameInRow="date_benefit" msprop:Generator_ColumnPropNameInTable="date_benefitColumn" msprop:Generator_ColumnVarNameInTable="columndate_benefit" msprop:Generator_UserColumnName="date_benefit" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="date_benefit" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="date_benefit" msprop:Generator_ColumnPropNameInTable="date_benefitColumn" msprop:Generator_ColumnVarNameInTable="columndate_benefit" msprop:Generator_UserColumnName="date_benefit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="person_id" msprop:Generator_ColumnPropNameInRow="person_id" msprop:Generator_ColumnPropNameInTable="person_idColumn" msprop:Generator_ColumnVarNameInTable="columnperson_id" msprop:Generator_UserColumnName="person_id" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

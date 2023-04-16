@@ -1,4 +1,5 @@
 ﻿using DataBase;
+using Microsoft.Reporting.WinForms;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -92,6 +93,20 @@ namespace Balance_Sheet
         private void txtField_TextChanged_1(object sender, EventArgs e)
         {
             LoadDataPersonAndBenefits();
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            DataTable dtPerson = new Person().FindAllPersonAndBenefits();
+
+            ReportDataSource rprtDTSource = new ReportDataSource("DataSet1", dtPerson);
+            PrintLocalReport.PrintReportDirectlyFromPrinter(rprtDTSource, dtPerson);
+        }
+
+        private void FrmReportBalancete_KeyDown(object sender, KeyEventArgs e)
+        {
+            if( e.Control && e.KeyCode == Keys.P)
+                btnPrint_Click(sender, e);
         }
     }
 }

@@ -65,11 +65,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="dbCrasDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dbCrasDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="dtReport.cs">
       <DependentUpon>dtReport.xsd</DependentUpon>
     </Compile>
@@ -168,18 +163,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ReportPersonAndBenefits.rdlc" />
     <EmbeddedResource Include="ReportPerson.rdlc" />
-    <None Include="dbCrasDataSet.xsc">
-      <DependentUpon>dbCrasDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="dbCrasDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dbCrasDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="dbCrasDataSet.xss">
-      <DependentUpon>dbCrasDataSet.xsd</DependentUpon>
-    </None>
     <None Include="dtReport.xsc">
       <DependentUpon>dtReport.xsd</DependentUpon>
     </None>

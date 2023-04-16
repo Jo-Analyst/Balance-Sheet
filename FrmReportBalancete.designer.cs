@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -50,6 +51,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtField = new System.Windows.Forms.TextBox();
             this.btnPrint = new System.Windows.Forms.Button();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPerson)).BeginInit();
             this.SuspendLayout();
             // 
@@ -268,7 +270,9 @@
             this.btnPrint.Size = new System.Drawing.Size(150, 50);
             this.btnPrint.TabIndex = 35;
             this.btnPrint.Text = "Imprimir";
+            this.toolTip.SetToolTip(this.btnPrint, "Imprimir - [CTRL + P]");
             this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // FrmReportBalancete
             // 
@@ -291,6 +295,7 @@
             this.Text = "Relatório";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmStudent_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmReportBalancete_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPerson)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -315,5 +320,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtField;
         private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }
