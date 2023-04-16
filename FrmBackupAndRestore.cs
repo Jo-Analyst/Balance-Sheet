@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using System.Windows.Forms;
+using Balance_Sheet.Properties;
 
 namespace Balance_Sheet
 {
@@ -12,7 +13,8 @@ namespace Balance_Sheet
             InitializeComponent();
         }
 
-        string path = "C://Balance-Sheet-Backup";
+        string path = Settings.Default["path_Backup"].ToString();
+
         private void CreateDirectory()
         {
             if (!Directory.Exists(path))

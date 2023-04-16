@@ -44,5 +44,10 @@ namespace Balance_Sheet
         {
             Application.Exit();
         }
+
+        private void btnSetting_Click(object sender, EventArgs e)
+        {
+            new FrmSetting().ShowDialog();
+        }
     }
 }

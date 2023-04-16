@@ -1,6 +1,9 @@
-﻿using DataBase;
+﻿using Balance_Sheet.Properties;
+using DataBase;
+using Microsoft.Reporting.WinForms;
 using System;
 using System.Data;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Balance_Sheet
@@ -434,7 +437,23 @@ namespace Balance_Sheet
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            new FrmReportPerson(person_id).ShowDialog();
+            DataTable bennefits = new BenefitsReceived().FindByPersonId(person_id);
+            ReportDataSource rprtDTSource = new ReportDataSource("dtBenefits", bennefits);
+          
+            if (!Convert.ToBoolean(Settings.Default["print_directory_direct"]))
+                new FrmReportPerson(rprtDTSource).ShowDialog();
+            else
+                printDirectyTheReport(rprtDTSource);
+        }
+
+        private void printDirectyTheReport(ReportDataSource rprtDTSource)
+        {
+            LocalReport localReport = new LocalReport();
+            localReport.DataSources.Clear();
+            localReport.DataSources.Add(rprtDTSource);
+            //localReport.ReportPath = $"{Path.GetDirectoryName(Application.ExecutablePath)}\\ReportPerson.rdlc";
+            localReport.ReportPath = $"C:\\Users\\jojoc\\OneDrive\\Documentos\\Meus projetos\\balance-sheet\\ReportPerson.rdlc";
+            localReport.PrintToPrinter();
         }
 
         private void ClearFieldBenefits()
