@@ -76,5 +76,17 @@ namespace Balance_Sheet
         private void FrmReport_Load(object sender, EventArgs e)
         {
         }
+
+        private void FrmBackupAndRestore_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.Shift && e.KeyCode == Keys.B)
+            {
+                btnBackup_Click(sender, e);
+            }
+            if(e.Control && e.Shift && e.KeyCode == Keys.R)
+            {
+                btnRestore_Click(sender, e);
+            }
+        }
     }
 }

@@ -32,7 +32,7 @@ namespace Balance_Sheet
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-            //new FrmReport().ShowDialog();
+            new FrmReportBalancete().ShowDialog();
         }
 
         private void btnBackupAndRestore_Click(object sender, EventArgs e)
@@ -48,6 +48,20 @@ namespace Balance_Sheet
         private void btnSetting_Click(object sender, EventArgs e)
         {
             new FrmSetting().ShowDialog();
+        }
+
+        private void FrmBalanceSheet_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.C)
+            {
+                btnPerson_Click((object)sender, e);
+            }
+            else if (Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.R)
+                btnReport_Click((object)sender, e);
+            else if (Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.B)
+                btnBackupAndRestore_Click((object)sender, e);
+            else if (e.Control && e.Shift && e.KeyCode == Keys.C)
+                btnSetting_Click((object)sender, e);
         }
     }
 }

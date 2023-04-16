@@ -22,7 +22,7 @@ namespace Balance_Sheet
             this.Close();
         }
 
-        private void btnOpen_Click(object sender, EventArgs e)
+        private void btnSelectFolder_Click(object sender, EventArgs e)
         {
             if (DialogResult.OK == folderBrowserDialog.ShowDialog())
             {
@@ -39,6 +39,9 @@ namespace Balance_Sheet
         {
             if (Keys.Enter == e.KeyCode)
                 btnConfirm_Click((object)sender, e);
+
+            if (e.Control && e.KeyCode == Keys.O)
+                btnSelectFolder_Click((object)sender, e);
         }
     }
 }

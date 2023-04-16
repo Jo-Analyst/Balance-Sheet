@@ -28,16 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSetting));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnOpen = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnSelectFolder = new System.Windows.Forms.Button();
             this.txtDirectoryBackup = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbPrint = new System.Windows.Forms.CheckBox();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.label2 = new System.Windows.Forms.Label();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -56,7 +58,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.btnOpen);
+            this.groupBox1.Controls.Add(this.btnSelectFolder);
             this.groupBox1.Controls.Add(this.txtDirectoryBackup);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
@@ -67,19 +69,33 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Escolha um local padrão para backup";
             // 
-            // btnOpen
+            // label2
             // 
-            this.btnOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpen.ForeColor = System.Drawing.Color.White;
-            this.btnOpen.Location = new System.Drawing.Point(468, 53);
-            this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(59, 35);
-            this.btnOpen.TabIndex = 2;
-            this.btnOpen.Text = "***";
-            this.btnOpen.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnOpen.UseVisualStyleBackColor = true;
-            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(18, 96);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(338, 17);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Escolha um diretório direto do disco. EX: C:\\Example";
+            // 
+            // btnSelectFolder
+            // 
+            this.btnSelectFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSelectFolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelectFolder.ForeColor = System.Drawing.Color.White;
+            this.btnSelectFolder.Location = new System.Drawing.Point(468, 53);
+            this.btnSelectFolder.Name = "btnSelectFolder";
+            this.btnSelectFolder.Size = new System.Drawing.Size(59, 35);
+            this.btnSelectFolder.TabIndex = 2;
+            this.btnSelectFolder.TabStop = false;
+            this.btnSelectFolder.Text = "***";
+            this.btnSelectFolder.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolTip.SetToolTip(this.btnSelectFolder, "Selecionar Pasta - [CTRL + O]");
+            this.btnSelectFolder.UseVisualStyleBackColor = true;
+            this.btnSelectFolder.Click += new System.EventHandler(this.btnSelectFolder_Click);
             // 
             // txtDirectoryBackup
             // 
@@ -118,20 +134,9 @@
             this.btnConfirm.Size = new System.Drawing.Size(169, 46);
             this.btnConfirm.TabIndex = 0;
             this.btnConfirm.Text = "OK";
+            this.toolTip.SetToolTip(this.btnConfirm, "Confirmar - [ENTER]");
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(18, 96);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(338, 17);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Escolha um diretório direto do disco. EX: C:\\Example";
             // 
             // FrmSetting
             // 
@@ -170,8 +175,9 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckBox cbPrint;
         private System.Windows.Forms.Button btnConfirm;
-        private System.Windows.Forms.Button btnOpen;
+        private System.Windows.Forms.Button btnSelectFolder;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }

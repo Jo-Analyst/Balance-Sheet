@@ -15,7 +15,7 @@ namespace Balance_Sheet
         BenefitsReceived benefitsReceived = new BenefitsReceived();
 
         int person_id, benefits_id;
-        bool isEditicion;
+        bool isEdition;
 
         public FrmSavePerson()
         {
@@ -35,7 +35,7 @@ namespace Balance_Sheet
             txtIncome.Text = income.ToString();
             txtHelp.Text = help.ToString();
             ndNumberOfMembers.Value = number_of_members;
-            this.isEditicion = isEditicion;
+            this.isEdition = isEditicion;
             LoadBenefitsReceived();
             EnabledFieldBenefits();
             if (dgvBenefitsReceived.Rows.Count > 0)
@@ -65,12 +65,13 @@ namespace Balance_Sheet
             if (string.IsNullOrWhiteSpace(txtName.Text))
             {
                 MessageBox.Show("Preencha o nome do(a) responsável!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtName.Focus();
             }
             else if (mkCPF.MaskCompleted && !ValidateCPF.validate(mkCPF.Text))
                 MessageBox.Show("CPF inválido!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            else if (mkCPF.MaskCompleted && person.FindByCPF(mkCPF.Text).Rows.Count == 1 && !isEditicion)
+            else if (mkCPF.MaskCompleted && person.FindByCPF(mkCPF.Text).Rows.Count == 1 && !isEdition)
                 MessageBox.Show("Não foi possível cadastrar. O CPF já está cadastrado!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            else if (mkCPF.MaskCompleted && person.FindByCpfForPerson(mkCPF.Text, person_id).Rows.Count == 1 && isEditicion)
+            else if (mkCPF.MaskCompleted && person.FindByCpfForPerson(mkCPF.Text, person_id).Rows.Count == 1 && isEdition)
                 MessageBox.Show("Não foi possível editar. O CPF que está tentando editar já está cadastrado no sistema", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             else
                 validated = true;
@@ -80,12 +81,12 @@ namespace Balance_Sheet
 
         private void FrmSavePerson_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.F1)
+            if (btnSave.Text == "Novo" &&  e.Control && e.KeyCode == Keys.N || btnSave.Text == "Salvar" && e.Control &&  e.KeyCode == Keys.S)
             {
-                btnsave_Click(sender, e);
+                btnSave_Click(sender, e);
             }
 
-            if (btnADD.Enabled && e.KeyCode == Keys.F2)
+            if (btnADD.Enabled && e.Control && e.Shift && e.KeyCode == Keys.A)
                 btnADD_Click(sender, e);
 
             if (btnPrint.Enabled && Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.P)
@@ -288,16 +289,16 @@ namespace Balance_Sheet
             return isDecimal;
         }
 
-        private void btnsave_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
             if (!ValidatedFields())
                 return;
 
-            if (btnsave.Text.ToLower() == "salvar - [f1]")
+            if (btnSave.Text.ToLower() == "salvar")
             {
                 SalvePerson();
 
-                if (!isEditicion)
+                if (!isEdition)
                     DisabledFieldsPerson();
 
             }
@@ -305,10 +306,13 @@ namespace Balance_Sheet
             {
                 ClearFieldsPerson();
                 EnabledFieldsPerson();
+                DisabledFieldsBenefit();
                 lblStatus.Text = "Status:";
+                txtName.Focus();
             }
 
-            btnsave.Text = btnsave.Text.ToLower() == "salvar - [f1]" && !isEditicion ? "Novo - [F1]" : "Salvar - [F1]";
+            toolTip.SetToolTip(btnSave, btnSave.Text.ToLower() == "salvar" && !isEdition ? "Novo - [CTRL + N]" : "Salvar - [CTRL + S]");
+            btnSave.Text = btnSave.Text.ToLower() == "salvar" && !isEdition ? "Novo" : "Salvar";
 
         }
 
@@ -390,6 +394,12 @@ namespace Balance_Sheet
             dtDateBenefits.Enabled = true;
         }
 
+        private void DisabledFieldsBenefit()
+        {
+            rtDescription.Enabled = false;
+            dtDateBenefits.Enabled = false;
+        }
+
         private void txtName_TextChanged(object sender, EventArgs e)
         {
             lblStatus.Text = "Status:";
@@ -435,7 +445,17 @@ namespace Balance_Sheet
             lblStatus.Text = "Status:";
         }
 
+        ToolTip toolTip = new ToolTip();
+
+        private void FrmSavePerson_Load(object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(btnPrint, "Imprimir - [CTRL + P]");
+            toolTip.SetToolTip(btnSave, "Salvar - [CTRL + S]");
+            toolTip.SetToolTip(btnADD, "Adicionar - [CTRL + SHIFT + A]");
+        }
+
         DataTable dtPerson;
+
         private void btnPrint_Click(object sender, EventArgs e)
         {
             try
@@ -455,6 +475,10 @@ namespace Balance_Sheet
             }
         }
 
+        private void dgvBenefitsReceived_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvBenefitsReceived.Cursor = e.ColumnIndex == 0 || e.ColumnIndex == 1 ? Cursors.Hand : Cursors.Arrow;
+        }
 
         private void ClearFieldBenefits()
         {

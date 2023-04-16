@@ -33,11 +33,11 @@ namespace Balance_Sheet
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBalanceSheet));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnSetting = new System.Windows.Forms.Button();
             this.btnBackupAndRestore = new System.Windows.Forms.Button();
             this.btnPerson = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -75,7 +75,7 @@ namespace Balance_Sheet
             this.btnSetting.TabIndex = 7;
             this.btnSetting.Text = "Configuração";
             this.btnSetting.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.toolTip1.SetToolTip(this.btnSetting, "Configuração");
+            this.toolTip1.SetToolTip(this.btnSetting, "Configuração - [CTRL + SHIFT + C");
             this.btnSetting.UseVisualStyleBackColor = false;
             this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
             // 
@@ -96,7 +96,7 @@ namespace Balance_Sheet
             this.btnBackupAndRestore.TabIndex = 6;
             this.btnBackupAndRestore.Text = "Backup ";
             this.btnBackupAndRestore.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.toolTip1.SetToolTip(this.btnBackupAndRestore, "Backup e Restauração");
+            this.toolTip1.SetToolTip(this.btnBackupAndRestore, "Backup e Restauração - [CTRL + B]");
             this.btnBackupAndRestore.UseVisualStyleBackColor = false;
             this.btnBackupAndRestore.Click += new System.EventHandler(this.btnBackupAndRestore_Click);
             // 
@@ -117,7 +117,7 @@ namespace Balance_Sheet
             this.btnPerson.TabIndex = 5;
             this.btnPerson.Text = "Cadastro";
             this.btnPerson.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.toolTip1.SetToolTip(this.btnPerson, "Cadastro");
+            this.toolTip1.SetToolTip(this.btnPerson, "Cadastro - [CTRL + C]");
             this.btnPerson.UseVisualStyleBackColor = false;
             this.btnPerson.Click += new System.EventHandler(this.btnPerson_Click);
             // 
@@ -138,7 +138,7 @@ namespace Balance_Sheet
             this.btnReport.TabIndex = 3;
             this.btnReport.Text = "Relatório";
             this.btnReport.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.toolTip1.SetToolTip(this.btnReport, "Relatório");
+            this.toolTip1.SetToolTip(this.btnReport, "Relatório - [CTRL + R]");
             this.btnReport.UseVisualStyleBackColor = false;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
@@ -158,7 +158,7 @@ namespace Balance_Sheet
             // 
             // FrmBalanceSheet
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1010, 531);
@@ -166,12 +166,14 @@ namespace Balance_Sheet
             this.Controls.Add(this.pictureBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FrmBalanceSheet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "System Balance Sheet";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmBalanceSheet_FormClosed);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmBalanceSheet_KeyDown);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

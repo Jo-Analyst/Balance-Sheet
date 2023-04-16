@@ -28,6 +28,8 @@ namespace Balance_Sheet
         private void FrmStudent_Load(object sender, EventArgs e)
         {
             LoadDataPerson();
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(btnNew, "Novo - [CTRL + N]");
         }
 
         private void LoadDataPerson()
@@ -157,10 +159,16 @@ namespace Balance_Sheet
 
         private void FrmPerson_KeyDown(object sender, KeyEventArgs e)
         {
-            if (Keys.F1 == e.KeyCode)
+            if (e.Control && Keys.N == e.KeyCode)
             {
                 btnNew_Click(sender, e);
             }
+        }
+
+        private void dgvPerson_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+                dgvPerson.Cursor = e.ColumnIndex == 0 || e.ColumnIndex == 1 ? Cursors.Hand : Cursors.Arrow;
+
         }
     }
 }

@@ -50,7 +50,7 @@
             this.btnBackup.Name = "btnBackup";
             this.btnBackup.Size = new System.Drawing.Size(157, 100);
             this.btnBackup.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.btnBackup, "Aluno");
+            this.toolTip1.SetToolTip(this.btnBackup, "Backup - [CTRL + SHIFT + B]");
             this.btnBackup.UseVisualStyleBackColor = false;
             this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
             // 
@@ -69,13 +69,13 @@
             this.btnRestore.Name = "btnRestore";
             this.btnRestore.Size = new System.Drawing.Size(157, 100);
             this.btnRestore.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.btnRestore, "Turma");
+            this.toolTip1.SetToolTip(this.btnRestore, "Restauração - [CTRL + SHIFT + R]");
             this.btnRestore.UseVisualStyleBackColor = false;
             this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
             // 
-            // FrmOpenBackupAndRestore
+            // FrmBackupAndRestore
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(514, 256);
@@ -85,13 +85,15 @@
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FrmOpenBackupAndRestore";
+            this.Name = "FrmBackupAndRestore";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Backup e Restauração";
             this.Load += new System.EventHandler(this.FrmReport_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmBackupAndRestore_KeyDown);
             this.ResumeLayout(false);
 
         }
