@@ -18,14 +18,21 @@ namespace Balance_Sheet
         {
             InitializeComponent();
         }
-        
+
         public FrmReportPerson(ReportDataSource rprtDTSource)
         {
             InitializeComponent();
             //reportBenefitsTableAdapter.Fill(dtReport.ReportBenefits, person_id);            
-            reportViewer1.LocalReport.DataSources.Clear();           
-            reportViewer1.LocalReport.DataSources.Add(rprtDTSource);
-            reportViewer1.RefreshReport();
+            try
+            {
+                reportViewer1.LocalReport.DataSources.Clear();
+                reportViewer1.LocalReport.DataSources.Add(rprtDTSource);
+                reportViewer1.RefreshReport();
+            }
+            catch
+            {
+                throw;
+            }
         }
 
         private void FrmReportPerson_Load(object sender, EventArgs e)

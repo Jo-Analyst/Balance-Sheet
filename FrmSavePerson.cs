@@ -437,23 +437,37 @@ namespace Balance_Sheet
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            DataTable bennefits = new BenefitsReceived().FindByPersonId(person_id);
-            ReportDataSource rprtDTSource = new ReportDataSource("dtBenefits", bennefits);
-          
-            if (!Convert.ToBoolean(Settings.Default["print_directory_direct"]))
-                new FrmReportPerson(rprtDTSource).ShowDialog();
-            else
-                printDirectyTheReport(rprtDTSource);
+            try
+            {
+                DataTable bennefits = new BenefitsReceived().FindByPersonId(person_id);
+                ReportDataSource rprtDTSource = new ReportDataSource("dtBenefits", bennefits);
+
+                if (!Convert.ToBoolean(Settings.Default["print_directory_direct"]))
+                    new FrmReportPerson(rprtDTSource).ShowDialog();
+                else
+                    printDirectyTheReport(rprtDTSource);
+            }
+            catch 
+            {
+                MessageBox.Show("Houve um erro ao imprimir.Tente novamente. Caso o erro persista contate o suporte", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void printDirectyTheReport(ReportDataSource rprtDTSource)
         {
-            LocalReport localReport = new LocalReport();
-            localReport.DataSources.Clear();
-            localReport.DataSources.Add(rprtDTSource);
-            //localReport.ReportPath = $"{Path.GetDirectoryName(Application.ExecutablePath)}\\ReportPerson.rdlc";
-            localReport.ReportPath = $"C:\\Users\\jojoc\\OneDrive\\Documentos\\Meus projetos\\balance-sheet\\ReportPerson.rdlc";
-            localReport.PrintToPrinter();
+            try
+            {
+                LocalReport localReport = new LocalReport();
+                localReport.DataSources.Clear();
+                localReport.DataSources.Add(rprtDTSource);
+                //localReport.ReportPath = $"{Path.GetDirectoryName(Application.ExecutablePath)}\\ReportPerson.rdlc";
+                localReport.ReportPath = $"C:\\Users\\jojoc\\OneDrive\\Documentos\\Meus projetos\\balance-sheet\\ReportPerson.rdlc";
+                localReport.PrintToPrinter();
+            }
+            catch
+            {
+                throw;
+            }
         }
 
         private void ClearFieldBenefits()
