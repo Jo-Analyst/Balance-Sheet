@@ -305,7 +305,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Responsável Familiar";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.FrmStudent_Load);
+            this.Load += new System.EventHandler(this.FrmPerson_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmPerson_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPerson)).EndInit();
             this.ResumeLayout(false);

@@ -71,7 +71,7 @@ namespace DataBase
         {
             using (SqlConnection connection = new SqlConnection(DbConnectionString.connectionStringMaster))
             {
-                string sql = "CREATE DATABASE dbCras";
+                string sql = "CREATE DATABASE dbCRAS";
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.CommandText = sql;
                 try

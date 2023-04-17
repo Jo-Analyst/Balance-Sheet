@@ -18,16 +18,7 @@ namespace Balance_Sheet
             ToFocus();
         }
 
-        private void btnNew_Click(object sender, EventArgs e)
-        {
-            var savePerson = new FrmSavePerson();
-            savePerson.ShowDialog();
-
-            if (savePerson.wasDataSaved)
-                LoadDataPersonAndBenefits();
-        }
-
-        private void FrmStudent_Load(object sender, EventArgs e)
+       private void FrmReportBalancete_Load(object sender, EventArgs e)
         {
             LoadDataPersonAndBenefits();
             btnPrint.Enabled =  dgvPerson.Rows.Count > 0;
@@ -117,7 +108,7 @@ namespace Balance_Sheet
 
         private void FrmReportBalancete_KeyDown(object sender, KeyEventArgs e)
         {
-            if( e.Control && e.KeyCode == Keys.P)
+            if(btnPrint.Enabled && e.Control && e.KeyCode == Keys.P)
                 btnPrint_Click(sender, e);
         }
     }

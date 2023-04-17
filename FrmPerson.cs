@@ -25,7 +25,7 @@ namespace Balance_Sheet
                 LoadDataPerson();
         }
 
-        private void FrmStudent_Load(object sender, EventArgs e)
+        private void FrmPerson_Load(object sender, EventArgs e)
         {
             LoadDataPerson();
             ToolTip toolTip = new ToolTip();

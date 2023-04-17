@@ -203,7 +203,7 @@ namespace DataBase
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
-                    string sql = $"SELECT persons.name, Persons.CPF, Persons.RG, Persons.address, Persons.number_address, Persons.phone, Persons.income, Persons.help, Persons.number_of_members, Benefits_Received.description, Convert(VARCHAR, Benefits_Received.date_benefit, 103) AS date_benefit , Benefits_Received.person_id FROM Benefits_Received INNER JOIN Persons ON Persons.id = Benefits_Received.person_id ORDER BY Persons.name ASC";
+                    string sql = $"SELECT persons.name, Persons.CPF, Persons.RG, Persons.address, Persons.number_address, Persons.phone, Persons.income, Persons.help, Persons.number_of_members, Benefits_Received.description, Convert(VARCHAR, Benefits_Received.date_benefit, 103) AS date_benefit , Benefits_Received.person_id FROM Benefits_Received INNER JOIN Persons ON Persons.id = Benefits_Received.person_id ORDER BY Persons.address, Persons.name, Benefits_Received.description DESC";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();
@@ -222,7 +222,7 @@ namespace DataBase
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
-                    string sql = $"SELECT persons.name, Persons.CPF, Persons.RG, Persons.address, Persons.number_address, Persons.phone, Persons.income, Persons.help, Persons.number_of_members, Benefits_Received.description, Convert(VARCHAR, Benefits_Received.date_benefit, 103) AS date_benefit , Benefits_Received.person_id FROM Benefits_Received INNER JOIN Persons ON Persons.id = Benefits_Received.person_id where {column} LIKE '%{data}%' ORDER BY Persons.name ASC";
+                    string sql = $"SELECT persons.name, Persons.CPF, Persons.RG, Persons.address, Persons.number_address, Persons.phone, Persons.income, Persons.help, Persons.number_of_members, Benefits_Received.description, Convert(VARCHAR, Benefits_Received.date_benefit, 103) AS date_benefit , Benefits_Received.person_id FROM Benefits_Received INNER JOIN Persons ON Persons.id = Benefits_Received.person_id where {column} LIKE '%{data}%' ORDER BY Persons.address, Persons.name, Benefits_Received.description DESC";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();

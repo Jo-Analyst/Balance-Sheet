@@ -303,7 +303,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Relatório";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.FrmStudent_Load);
+            this.Load += new System.EventHandler(this.FrmReportBalancete_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmReportBalancete_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPerson)).EndInit();
             this.ResumeLayout(false);
