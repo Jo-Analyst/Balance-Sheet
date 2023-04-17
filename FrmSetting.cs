@@ -43,5 +43,10 @@ namespace Balance_Sheet
             if (e.Control && e.KeyCode == Keys.O)
                 btnSelectFolder_Click((object)sender, e);
         }
+
+        private void lkSalveInstituition_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            new FrmSaveInstitution().ShowDialog();
+        }
     }
 }

@@ -30,23 +30,23 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSaveInstitution));
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.nupNumber = new System.Windows.Forms.NumericUpDown();
+            this.txtDistrito = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.mkbCEP = new System.Windows.Forms.MaskedTextBox();
+            this.txtState = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.mtbPhone = new System.Windows.Forms.MaskedTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupNumber)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -59,19 +59,19 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome";
             // 
-            // textBox1
+            // txtName
             // 
-            this.textBox1.Location = new System.Drawing.Point(24, 44);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(602, 26);
-            this.textBox1.TabIndex = 1;
+            this.txtName.Location = new System.Drawing.Point(24, 44);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(602, 26);
+            this.txtName.TabIndex = 1;
             // 
-            // textBox2
+            // txtAddress
             // 
-            this.textBox2.Location = new System.Drawing.Point(24, 102);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(245, 26);
-            this.textBox2.TabIndex = 3;
+            this.txtAddress.Location = new System.Drawing.Point(24, 102);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(245, 26);
+            this.txtAddress.TabIndex = 3;
             // 
             // label2
             // 
@@ -93,19 +93,20 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Número";
             // 
-            // numericUpDown1
+            // nupNumber
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(275, 102);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 26);
-            this.numericUpDown1.TabIndex = 5;
+            this.nupNumber.Location = new System.Drawing.Point(275, 102);
+            this.nupNumber.Name = "nupNumber";
+            this.nupNumber.Size = new System.Drawing.Size(120, 26);
+            this.nupNumber.TabIndex = 5;
+            this.nupNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBox3
+            // txtDistrito
             // 
-            this.textBox3.Location = new System.Drawing.Point(401, 102);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(225, 26);
-            this.textBox3.TabIndex = 7;
+            this.txtDistrito.Location = new System.Drawing.Point(401, 102);
+            this.txtDistrito.Name = "txtDistrito";
+            this.txtDistrito.Size = new System.Drawing.Size(225, 26);
+            this.txtDistrito.TabIndex = 7;
             // 
             // label4
             // 
@@ -127,20 +128,20 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "CEP";
             // 
-            // maskedTextBox1
+            // mkbCEP
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(24, 163);
-            this.maskedTextBox1.Mask = "00,000-000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(151, 26);
-            this.maskedTextBox1.TabIndex = 9;
+            this.mkbCEP.Location = new System.Drawing.Point(24, 163);
+            this.mkbCEP.Mask = "00,000-000";
+            this.mkbCEP.Name = "mkbCEP";
+            this.mkbCEP.Size = new System.Drawing.Size(151, 26);
+            this.mkbCEP.TabIndex = 9;
             // 
-            // textBox4
+            // txtState
             // 
-            this.textBox4.Location = new System.Drawing.Point(181, 163);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(245, 26);
-            this.textBox4.TabIndex = 11;
+            this.txtState.Location = new System.Drawing.Point(181, 163);
+            this.txtState.Name = "txtState";
+            this.txtState.Size = new System.Drawing.Size(245, 26);
+            this.txtState.TabIndex = 11;
             // 
             // label6
             // 
@@ -152,12 +153,12 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "Estado";
             // 
-            // textBox5
+            // txtEmail
             // 
-            this.textBox5.Location = new System.Drawing.Point(24, 225);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(602, 26);
-            this.textBox5.TabIndex = 13;
+            this.txtEmail.Location = new System.Drawing.Point(24, 225);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(602, 26);
+            this.txtEmail.TabIndex = 13;
             // 
             // label7
             // 
@@ -169,13 +170,13 @@
             this.label7.TabIndex = 12;
             this.label7.Text = "Email";
             // 
-            // maskedTextBox2
+            // mtbPhone
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(432, 163);
-            this.maskedTextBox2.Mask = "(00) 0 0000-0000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(151, 26);
-            this.maskedTextBox2.TabIndex = 15;
+            this.mtbPhone.Location = new System.Drawing.Point(432, 163);
+            this.mtbPhone.Mask = "(00) 0000-0000";
+            this.mtbPhone.Name = "mtbPhone";
+            this.mtbPhone.Size = new System.Drawing.Size(151, 26);
+            this.mtbPhone.TabIndex = 12;
             // 
             // label8
             // 
@@ -196,9 +197,10 @@
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(143, 47);
-            this.btnSave.TabIndex = 37;
+            this.btnSave.TabIndex = 0;
             this.btnSave.Text = "Salvar";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // FrmSaveInstitution
             // 
@@ -207,24 +209,25 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(638, 334);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.maskedTextBox2);
+            this.Controls.Add(this.mtbPhone);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtState);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.mkbCEP);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtDistrito);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.nupNumber);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -234,7 +237,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Instituição";
             this.Load += new System.EventHandler(this.FrmSaveInstitution_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupNumber)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,20 +246,20 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.NumericUpDown nupNumber;
+        private System.Windows.Forms.TextBox txtDistrito;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.MaskedTextBox mkbCEP;
+        private System.Windows.Forms.TextBox txtState;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.MaskedTextBox mtbPhone;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnSave;
     }

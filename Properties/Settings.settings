@@ -8,5 +8,29 @@
     <Setting Name="print_directory_direct" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="name" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Centro de Referência de Assistência Social - CRAS</Value>
+    </Setting>
+    <Setting Name="address" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Rua Feliciano Canuto, Felício dos Santos</Value>
+    </Setting>
+    <Setting Name="number" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">60</Value>
+    </Setting>
+    <Setting Name="district" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Centro</Value>
+    </Setting>
+    <Setting Name="cep" Type="System.String" Scope="User">
+      <Value Profile="(Default)">39.180-000</Value>
+    </Setting>
+    <Setting Name="state" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Minas Gerais</Value>
+    </Setting>
+    <Setting Name="phone" Type="System.String" Scope="User">
+      <Value Profile="(Default)">(38) 3523-1056</Value>
+    </Setting>
+    <Setting Name="email" Type="System.String" Scope="User">
+      <Value Profile="(Default)">crasfs2017@gmail.com</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

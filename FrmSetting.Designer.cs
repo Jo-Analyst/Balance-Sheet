@@ -40,6 +40,7 @@
             this.btnConfirm = new System.Windows.Forms.Button();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.lkSalveInstituition = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -138,12 +139,26 @@
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
+            // lkSalveInstituition
+            // 
+            this.lkSalveInstituition.ActiveLinkColor = System.Drawing.Color.Blue;
+            this.lkSalveInstituition.AutoSize = true;
+            this.lkSalveInstituition.LinkColor = System.Drawing.Color.White;
+            this.lkSalveInstituition.Location = new System.Drawing.Point(8, 222);
+            this.lkSalveInstituition.Name = "lkSalveInstituition";
+            this.lkSalveInstituition.Size = new System.Drawing.Size(156, 20);
+            this.lkSalveInstituition.TabIndex = 4;
+            this.lkSalveInstituition.TabStop = true;
+            this.lkSalveInstituition.Text = "Cadastrar Instituição";
+            this.lkSalveInstituition.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lkSalveInstituition_LinkClicked);
+            // 
             // FrmSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(617, 232);
+            this.ClientSize = new System.Drawing.Size(617, 251);
+            this.Controls.Add(this.lkSalveInstituition);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -164,6 +179,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -179,5 +195,6 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.LinkLabel lkSalveInstituition;
     }
 }
