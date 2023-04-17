@@ -32,13 +32,15 @@ namespace Balance_Sheet
             btnPrint.Enabled =  dgvPerson.Rows.Count > 0;
         }
 
+        DataTable dtPerson;
+
         private void LoadDataPersonAndBenefits()
         {
             try
             {
                 dgvPerson.Rows.Clear();
                 string columnTable = rbName.Checked ? "name" : "address";
-                DataTable dtPerson = string.IsNullOrWhiteSpace(txtField.Text)
+                dtPerson = string.IsNullOrWhiteSpace(txtField.Text)
                     ? person.FindAllPersonAndBenefits()
                     : person.FindAllPersonAndBenefitsByNameOrAddress(txtField.Text, columnTable);
 
@@ -97,10 +99,15 @@ namespace Balance_Sheet
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            DataTable dtPerson = new Person().FindAllPersonAndBenefits();
-
-            ReportDataSource rprtDTSource = new ReportDataSource("DataSet1", dtPerson);
-            PrintLocalReport.PrintReportDirectlyFromPrinter(rprtDTSource, dtPerson);
+            try
+            {
+                ReportDataSource rprtDTSource = new ReportDataSource("dtPersonAndBenefits", dtPerson);
+                PrintLocalReport.PrintReportDirectlyFromPrinter(rprtDTSource, dtPerson);
+            }
+            catch
+            {
+                MessageBox.Show("Houve um erro ao imprimir.Tente novamente. Caso o erro persista contate o suporte", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void FrmReportBalancete_KeyDown(object sender, KeyEventArgs e)
