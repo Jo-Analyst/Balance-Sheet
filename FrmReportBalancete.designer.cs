@@ -108,49 +108,55 @@
             this.ColName.MinimumWidth = 6;
             this.ColName.Name = "ColName";
             this.ColName.ReadOnly = true;
-            this.ColName.Width = 76;
+            this.ColName.Width = 93;
             // 
             // ColCPF
             // 
             this.ColCPF.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ColCPF.HeaderText = "CPF";
+            this.ColCPF.MinimumWidth = 6;
             this.ColCPF.Name = "ColCPF";
             this.ColCPF.ReadOnly = true;
             this.ColCPF.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColCPF.Width = 46;
+            this.ColCPF.Width = 58;
             // 
             // ColRG
             // 
             this.ColRG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ColRG.HeaderText = "RG";
+            this.ColRG.MinimumWidth = 6;
             this.ColRG.Name = "ColRG";
             this.ColRG.ReadOnly = true;
             this.ColRG.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColRG.Width = 40;
+            this.ColRG.Width = 46;
             // 
             // ColAddress
             // 
             this.ColAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ColAddress.HeaderText = "Endereço";
+            this.ColAddress.MinimumWidth = 6;
             this.ColAddress.Name = "ColAddress";
             this.ColAddress.ReadOnly = true;
-            this.ColAddress.Width = 103;
+            this.ColAddress.Width = 125;
             // 
             // ColNumberAddress
             // 
             this.ColNumberAddress.HeaderText = "Número";
+            this.ColNumberAddress.MinimumWidth = 6;
             this.ColNumberAddress.Name = "ColNumberAddress";
             this.ColNumberAddress.ReadOnly = true;
             this.ColNumberAddress.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColNumberAddress.Width = 125;
             // 
             // ColPhone
             // 
             this.ColPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ColPhone.HeaderText = "Tel/Cel";
+            this.ColPhone.MinimumWidth = 6;
             this.ColPhone.Name = "ColPhone";
             this.ColPhone.ReadOnly = true;
             this.ColPhone.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColPhone.Width = 63;
+            this.ColPhone.Width = 82;
             // 
             // ColIncome
             // 
@@ -159,10 +165,11 @@
             dataGridViewCellStyle2.NullValue = null;
             this.ColIncome.DefaultCellStyle = dataGridViewCellStyle2;
             this.ColIncome.HeaderText = "Renda";
+            this.ColIncome.MinimumWidth = 6;
             this.ColIncome.Name = "ColIncome";
             this.ColIncome.ReadOnly = true;
             this.ColIncome.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColIncome.Width = 63;
+            this.ColIncome.Width = 75;
             // 
             // ColHelp
             // 
@@ -171,19 +178,21 @@
             dataGridViewCellStyle3.NullValue = null;
             this.ColHelp.DefaultCellStyle = dataGridViewCellStyle3;
             this.ColHelp.HeaderText = "Bolsa Família";
+            this.ColHelp.MinimumWidth = 6;
             this.ColHelp.Name = "ColHelp";
             this.ColHelp.ReadOnly = true;
             this.ColHelp.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColHelp.Width = 109;
+            this.ColHelp.Width = 134;
             // 
             // ColNumberOfMembers
             // 
             this.ColNumberOfMembers.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ColNumberOfMembers.HeaderText = "Composição Familiar";
+            this.ColNumberOfMembers.MinimumWidth = 6;
             this.ColNumberOfMembers.Name = "ColNumberOfMembers";
             this.ColNumberOfMembers.ReadOnly = true;
             this.ColNumberOfMembers.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColNumberOfMembers.Width = 162;
+            this.ColNumberOfMembers.Width = 201;
             // 
             // ColDescription
             // 
@@ -194,7 +203,7 @@
             this.ColDescription.ReadOnly = true;
             this.ColDescription.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ColDescription.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColDescription.Width = 162;
+            this.ColDescription.Width = 198;
             // 
             // ColDateBenefits
             // 
@@ -205,31 +214,31 @@
             this.ColDateBenefits.ReadOnly = true;
             this.ColDateBenefits.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ColDateBenefits.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColDateBenefits.Width = 140;
+            this.ColDateBenefits.Width = 169;
             // 
             // rbAddress
             // 
             this.rbAddress.AutoSize = true;
+            this.rbAddress.Checked = true;
             this.rbAddress.ForeColor = System.Drawing.Color.White;
             this.rbAddress.Location = new System.Drawing.Point(252, 13);
             this.rbAddress.Margin = new System.Windows.Forms.Padding(4);
             this.rbAddress.Name = "rbAddress";
-            this.rbAddress.Size = new System.Drawing.Size(96, 24);
+            this.rbAddress.Size = new System.Drawing.Size(117, 29);
             this.rbAddress.TabIndex = 11;
+            this.rbAddress.TabStop = true;
             this.rbAddress.Text = "Endereço";
             this.rbAddress.UseVisualStyleBackColor = true;
             // 
             // rbName
             // 
             this.rbName.AutoSize = true;
-            this.rbName.Checked = true;
             this.rbName.ForeColor = System.Drawing.Color.White;
             this.rbName.Location = new System.Drawing.Point(156, 13);
             this.rbName.Margin = new System.Windows.Forms.Padding(4);
             this.rbName.Name = "rbName";
-            this.rbName.Size = new System.Drawing.Size(69, 24);
+            this.rbName.Size = new System.Drawing.Size(85, 29);
             this.rbName.TabIndex = 10;
-            this.rbName.TabStop = true;
             this.rbName.Text = "Nome";
             this.rbName.UseVisualStyleBackColor = true;
             // 
@@ -240,7 +249,7 @@
             this.label1.Location = new System.Drawing.Point(13, 13);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 20);
+            this.label1.Size = new System.Drawing.Size(130, 25);
             this.label1.TabIndex = 9;
             this.label1.Text = "Procurar por: ";
             // 
@@ -253,7 +262,7 @@
             this.txtField.Margin = new System.Windows.Forms.Padding(4);
             this.txtField.MaxLength = 100;
             this.txtField.Name = "txtField";
-            this.txtField.Size = new System.Drawing.Size(1046, 26);
+            this.txtField.Size = new System.Drawing.Size(1046, 30);
             this.txtField.TabIndex = 8;
             this.txtField.TextChanged += new System.EventHandler(this.txtField_TextChanged_1);
             // 
@@ -276,7 +285,7 @@
             // 
             // FrmReportBalancete
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1075, 530);
