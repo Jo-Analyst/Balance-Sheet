@@ -465,7 +465,7 @@ namespace Balance_Sheet
                 ReportDataSource rprtDTSource = new ReportDataSource("dtBenefits", dtPerson);
 
                 if (!Convert.ToBoolean(Settings.Default["print_directory_direct"]))
-                    new FrmReportPerson(rprtDTSource, dtPerson).ShowDialog();
+                    new FrmReportByPerson(rprtDTSource, dtPerson).ShowDialog();
                 else
                     PrintLocalReport.PrintReportDirectlyFromPrinter(rprtDTSource, dtPerson);
             }

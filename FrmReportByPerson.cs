@@ -4,14 +4,14 @@ using System.Windows.Forms;
 
 namespace Balance_Sheet
 {
-    public partial class FrmReportPerson : Form
+    public partial class FrmReportByPerson : Form
     {
-        public FrmReportPerson()
+        public FrmReportByPerson()
         {
             InitializeComponent();
         }
 
-        public FrmReportPerson(ReportDataSource rprtDTSource, System.Data.DataTable dtPerson)
+        public FrmReportByPerson(ReportDataSource rprtDTSource, System.Data.DataTable dtPerson)
         {
             InitializeComponent();
             //reportBenefitsTableAdapter.Fill(dtReport.ReportBenefits, person_id);            

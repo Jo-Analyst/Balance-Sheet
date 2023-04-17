@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Note-Memo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
@@ -79,6 +82,12 @@
     <Compile Include="FrmReportBalancete.designer.cs">
       <DependentUpon>FrmReportBalancete.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReportByPersonAndBenefits .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportByPersonAndBenefits .Designer.cs">
+      <DependentUpon>FrmReportByPersonAndBenefits .cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSetting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,11 +118,11 @@
     <Compile Include="FrmPerson.designer.cs">
       <DependentUpon>FrmPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmReportPerson.cs">
+    <Compile Include="FrmReportByPerson.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmReportPerson.Designer.cs">
-      <DependentUpon>FrmReportPerson.cs</DependentUpon>
+    <Compile Include="FrmReportByPerson.Designer.cs">
+      <DependentUpon>FrmReportByPerson.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmSavePerson.cs">
       <SubType>Form</SubType>
@@ -133,6 +142,9 @@
       <DependentUpon>FrmReportBalancete.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportByPersonAndBenefits .resx">
+      <DependentUpon>FrmReportByPersonAndBenefits .cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmSetting.resx">
       <DependentUpon>FrmSetting.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,8 +160,8 @@
     <EmbeddedResource Include="FrmPerson.resx">
       <DependentUpon>FrmPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmReportPerson.resx">
-      <DependentUpon>FrmReportPerson.cs</DependentUpon>
+    <EmbeddedResource Include="FrmReportByPerson.resx">
+      <DependentUpon>FrmReportByPerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSavePerson.resx">
       <DependentUpon>FrmSavePerson.cs</DependentUpon>
@@ -207,6 +219,7 @@
     <None Include="assets\trash-16.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Note-Memo.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

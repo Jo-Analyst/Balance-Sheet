@@ -1,4 +1,5 @@
-﻿using DataBase;
+﻿using Balance_Sheet.Properties;
+using DataBase;
 using Microsoft.Reporting.WinForms;
 using System;
 using System.Data;
@@ -102,7 +103,11 @@ namespace Balance_Sheet
             try
             {
                 ReportDataSource rprtDTSource = new ReportDataSource("dtPersonAndBenefits", dtPerson);
-                PrintLocalReport.PrintReportDirectlyFromPrinter(rprtDTSource, dtPerson);
+                
+                if (!Convert.ToBoolean(Settings.Default["print_directory_direct"]))
+                    new FrmReportByPersonAndBenefits(rprtDTSource, dtPerson).ShowDialog();
+                else
+                    PrintLocalReport.PrintReportDirectlyFromPrinter(rprtDTSource, dtPerson);
             }
             catch
             {
