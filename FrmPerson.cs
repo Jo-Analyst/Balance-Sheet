@@ -167,7 +167,7 @@ namespace Balance_Sheet
 
         private void dgvPerson_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
-                dgvPerson.Cursor = e.ColumnIndex == 0 || e.ColumnIndex == 1 ? Cursors.Hand : Cursors.Arrow;
+            dgvPerson.Cursor = e.ColumnIndex == 0 || e.ColumnIndex == 1 ? Cursors.Hand : Cursors.Arrow;
 
         }
     }

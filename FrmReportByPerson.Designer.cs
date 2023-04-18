@@ -30,29 +30,29 @@
         {
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReportByPerson));
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.rpvPerson = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
             // reportViewer1
             // 
-            this.reportViewer1.BackColor = System.Drawing.Color.Silver;
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rpvPerson.BackColor = System.Drawing.Color.Silver;
+            this.rpvPerson.Dock = System.Windows.Forms.DockStyle.Fill;
             reportDataSource2.Name = "dtBenefits";
             reportDataSource2.Value = null;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Balance_Sheet.ReportPerson.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(800, 450);
-            this.reportViewer1.TabIndex = 0;
+            this.rpvPerson.LocalReport.DataSources.Add(reportDataSource2);
+            this.rpvPerson.LocalReport.ReportEmbeddedResource = "Balance_Sheet.ReportPerson.rdlc";
+            this.rpvPerson.Location = new System.Drawing.Point(0, 0);
+            this.rpvPerson.Name = "reportViewer1";
+            this.rpvPerson.ServerReport.BearerToken = null;
+            this.rpvPerson.Size = new System.Drawing.Size(800, 450);
+            this.rpvPerson.TabIndex = 0;
             // 
             // FrmReportPerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.reportViewer1);
+            this.Controls.Add(this.rpvPerson);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -67,6 +67,6 @@
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private Microsoft.Reporting.WinForms.ReportViewer rpvPerson;
     }
 }

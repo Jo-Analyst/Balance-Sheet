@@ -61,18 +61,6 @@ namespace Balance_Sheet.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Rua Feliciano Canuto, Felício dos Santos")]
-        public string address {
-            get {
-                return ((string)(this["address"]));
-            }
-            set {
-                this["address"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("60")]
         public int number {
             get {
@@ -140,6 +128,30 @@ namespace Balance_Sheet.Properties {
             }
             set {
                 this["email"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Felício dos Santos")]
+        public string city {
+            get {
+                return ((string)(this["city"]));
+            }
+            set {
+                this["city"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Rua Feliciano Canuto")]
+        public string address {
+            get {
+                return ((string)(this["address"]));
+            }
+            set {
+                this["address"] = value;
             }
         }
     }

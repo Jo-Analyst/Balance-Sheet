@@ -1,21 +1,29 @@
-﻿using Microsoft.Reporting.WinForms;
+﻿using DataBase;
+using Microsoft.Reporting.WinForms;
 using System.Data;
 
 namespace Balance_Sheet
 {
     internal class PrintLocalReport
     {
-        static public void PrintReportDirectlyFromPrinter(ReportDataSource rprtDTSource, DataTable person )
+        static public void PrintReportDirectlyFromPrinter(DataTable dtPersonJoinBenefits, DataTable dtPerson = null, bool reportCompleted = false)
         {
             try
             {
                 LocalReport localReport = new LocalReport();
                 localReport.DataSources.Clear();
-                localReport.DataSources.Add(rprtDTSource);
+                localReport.DataSources.Add(new ReportDataSource("dtBenefitsByPersonId", dtPersonJoinBenefits));
+                if (dtPerson != null)
+                {
+                    localReport.DataSources.Add(new ReportDataSource("dtPersons", dtPerson));
+                }
                 //localReport.ReportPath = $"{Path.GetDirectoryName(Application.ExecutablePath)}\\ReportPerson.rdlc";
                 //localReport.ReportPath = $"C:\\Users\\jojoc\\OneDrive\\Documentos\\Meus projetos\\balance-sheet\\ReportPerson.rdlc";
-                localReport.ReportEmbeddedResource = $"Balance_Sheet.ReportPersonAndBenefits.rdlc";
-                //localReport.SetParameters(ReportParameters.SetParametersReport(person));
+                localReport.ReportEmbeddedResource = reportCompleted ? "Balance_Sheet.ReportPersonAndBenefits.rdlc" : "Balance_Sheet.ReportPerson.rdlc";
+
+                if (dtPerson != null)
+                    localReport.SetParameters(ReportParameters.SetParametersReport(dtPerson));
+                
                 localReport.PrintToPrinter();
             }
             catch

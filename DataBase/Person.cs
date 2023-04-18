@@ -78,7 +78,7 @@ namespace DataBase
             }
         }
 
-        public DataTable FindById()
+        static public DataTable FindById(int id)
         {
             try
             {
@@ -178,7 +178,7 @@ namespace DataBase
             }
         }
 
-        public DataTable FindByPersonId(int person_id)
+        static public DataTable FindByPersonJoinBenefitsId(int person_id)
         {
             try
             {
@@ -196,9 +196,10 @@ namespace DataBase
             {
                 throw;
             }
-        } 
-        
-        public DataTable FindAllPersonAndBenefits() { 
+        }
+
+        public DataTable FindAllPersonAndBenefits()
+        {
             try
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
@@ -216,8 +217,9 @@ namespace DataBase
                 throw;
             }
         }
-        
-        public DataTable FindAllPersonAndBenefitsByNameOrAddress(string data, string column) { 
+
+        public DataTable FindAllPersonAndBenefitsByNameOrAddress(string data, string column)
+        {
             try
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))

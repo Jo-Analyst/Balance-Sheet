@@ -19,7 +19,7 @@ namespace Balance_Sheet
             {
                 reportViewer1.LocalReport.DataSources.Clear();
                 reportViewer1.LocalReport.DataSources.Add(rprtDTSource);
-               
+
                 reportViewer1.RefreshReport();
             }
             catch

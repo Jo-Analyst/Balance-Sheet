@@ -83,7 +83,7 @@ namespace Balance_Sheet
             {
                 btnBackup_Click(sender, e);
             }
-            if(e.Control && e.Shift && e.KeyCode == Keys.R)
+            if (e.Control && e.Shift && e.KeyCode == Keys.R)
             {
                 btnRestore_Click(sender, e);
             }

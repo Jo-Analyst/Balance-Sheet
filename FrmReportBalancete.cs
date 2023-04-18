@@ -18,10 +18,10 @@ namespace Balance_Sheet
             ToFocus();
         }
 
-       private void FrmReportBalancete_Load(object sender, EventArgs e)
+        private void FrmReportBalancete_Load(object sender, EventArgs e)
         {
             LoadDataPersonAndBenefits();
-            btnPrint.Enabled =  dgvPerson.Rows.Count > 0;
+            btnPrint.Enabled = dgvPerson.Rows.Count > 0;
         }
 
         DataTable dtPerson;
@@ -94,11 +94,11 @@ namespace Balance_Sheet
             try
             {
                 ReportDataSource rprtDTSource = new ReportDataSource("dtPersonAndBenefits", dtPerson);
-                
+
                 if (!Convert.ToBoolean(Settings.Default["print_directory_direct"]))
                     new FrmReportByPersonAndBenefits(rprtDTSource, dtPerson).ShowDialog();
                 else
-                    PrintLocalReport.PrintReportDirectlyFromPrinter(rprtDTSource, dtPerson);
+                    PrintLocalReport.PrintReportDirectlyFromPrinter(dtPerson, null, true);
             }
             catch
             {
@@ -108,7 +108,7 @@ namespace Balance_Sheet
 
         private void FrmReportBalancete_KeyDown(object sender, KeyEventArgs e)
         {
-            if(btnPrint.Enabled && e.Control && e.KeyCode == Keys.P)
+            if (btnPrint.Enabled && e.Control && e.KeyCode == Keys.P)
                 btnPrint_Click(sender, e);
         }
     }

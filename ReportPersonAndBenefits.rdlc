@@ -1056,7 +1056,7 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>dtPersonAndBenefits</DataSetName>
+        <DataSetName>dtBenefitsByPersonId</DataSetName>
         <Top>0.6477cm</Top>
         <Height>1.2cm</Height>
         <Width>27.99833cm</Width>
@@ -1138,7 +1138,7 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="dtPersonAndBenefits">
+    <DataSet Name="dtBenefitsByPersonId">
       <Query>
         <DataSourceName>dtReport</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -1195,7 +1195,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>dtReport</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\jojoc\OneDrive\Documentos\Meus projetos\balance-sheet\dtReport.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\Aluno\Desktop\Proj\Balance-Sheet\dtReport.xsd</rd:SchemaPath>
         <rd:TableName>reportPersonAndBenefits</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

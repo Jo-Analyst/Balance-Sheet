@@ -54,14 +54,14 @@ namespace Balance_Sheet
         {
             if (Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.C)
             {
-                btnPerson_Click((object)sender, e);
+                btnPerson_Click(sender, e);
             }
             else if (Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.R)
-                btnReport_Click((object)sender, e);
+                btnReport_Click(sender, e);
             else if (Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.B)
-                btnBackupAndRestore_Click((object)sender, e);
+                btnBackupAndRestore_Click(sender, e);
             else if (e.Control && e.Shift && e.KeyCode == Keys.C)
-                btnSetting_Click((object)sender, e);
+                btnSetting_Click(sender, e);
         }
     }
 }

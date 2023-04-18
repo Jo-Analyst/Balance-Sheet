@@ -38,10 +38,10 @@ namespace Balance_Sheet
         private void FrmSetting_KeyDown(object sender, KeyEventArgs e)
         {
             if (Keys.Enter == e.KeyCode)
-                btnConfirm_Click((object)sender, e);
+                btnConfirm_Click(sender, e);
 
             if (e.Control && e.KeyCode == Keys.O)
-                btnSelectFolder_Click((object)sender, e);
+                btnSelectFolder_Click(sender, e);
         }
 
         private void lkSalveInstituition_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

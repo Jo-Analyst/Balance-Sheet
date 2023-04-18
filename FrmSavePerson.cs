@@ -81,7 +81,7 @@ namespace Balance_Sheet
 
         private void FrmSavePerson_KeyDown(object sender, KeyEventArgs e)
         {
-            if (btnSave.Text == "Novo" &&  e.Control && e.KeyCode == Keys.N || btnSave.Text == "Salvar" && e.Control &&  e.KeyCode == Keys.S)
+            if (btnSave.Text == "Novo" && e.Control && e.KeyCode == Keys.N || btnSave.Text == "Salvar" && e.Control && e.KeyCode == Keys.S)
             {
                 btnSave_Click(sender, e);
             }
@@ -454,20 +454,17 @@ namespace Balance_Sheet
             toolTip.SetToolTip(btnADD, "Adicionar - [CTRL + SHIFT + A]");
         }
 
-        DataTable dtPerson;
-
         private void btnPrint_Click(object sender, EventArgs e)
         {
             try
             {
-                dtPerson = new Person().FindByPersonId(person_id);
-
-                ReportDataSource rprtDTSource = new ReportDataSource("dtBenefits", dtPerson);
+                DataTable dtPersonJoinBenefits = Person.FindByPersonJoinBenefitsId(person_id);
+                DataTable dtPerson = Person.FindById(person_id);
 
                 if (!Convert.ToBoolean(Settings.Default["print_directory_direct"]))
-                    new FrmReportByPerson(rprtDTSource, dtPerson).ShowDialog();
+                    new FrmReportByPerson(dtPersonJoinBenefits, dtPerson).ShowDialog();
                 else
-                    PrintLocalReport.PrintReportDirectlyFromPrinter(rprtDTSource, dtPerson);
+                    PrintLocalReport.PrintReportDirectlyFromPrinter(dtPersonJoinBenefits, dtPerson);
             }
             catch
             {

@@ -11,9 +11,6 @@
     <Setting Name="name" Type="System.String" Scope="User">
       <Value Profile="(Default)">Centro de Referência de Assistência Social - CRAS</Value>
     </Setting>
-    <Setting Name="address" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Rua Feliciano Canuto, Felício dos Santos</Value>
-    </Setting>
     <Setting Name="number" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">60</Value>
     </Setting>
@@ -31,6 +28,12 @@
     </Setting>
     <Setting Name="email" Type="System.String" Scope="User">
       <Value Profile="(Default)">crasfs2017@gmail.com</Value>
+    </Setting>
+    <Setting Name="city" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Felício dos Santos</Value>
+    </Setting>
+    <Setting Name="address" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Rua Feliciano Canuto</Value>
     </Setting>
   </Settings>
 </SettingsFile>

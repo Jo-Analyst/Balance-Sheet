@@ -1,5 +1,6 @@
 ﻿using Microsoft.Reporting.WinForms;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace Balance_Sheet
@@ -11,16 +12,17 @@ namespace Balance_Sheet
             InitializeComponent();
         }
 
-        public FrmReportByPerson(ReportDataSource rprtDTSource, System.Data.DataTable dtPerson)
+        public FrmReportByPerson(DataTable dtPersonJoinBenefits, DataTable dtPerson)
         {
             InitializeComponent();
             //reportBenefitsTableAdapter.Fill(dtReport.ReportBenefits, person_id);            
             try
             {
-                reportViewer1.LocalReport.DataSources.Clear();
-                reportViewer1.LocalReport.DataSources.Add(rprtDTSource);
-                reportViewer1.LocalReport.SetParameters(ReportParameters.SetParametersReport(dtPerson));
-                reportViewer1.RefreshReport();
+                rpvPerson.LocalReport.DataSources.Clear();
+                rpvPerson.LocalReport.DataSources.Add(new ReportDataSource("dtPenefitsByPersonId", dtPersonJoinBenefits));
+                rpvPerson.LocalReport.DataSources.Add(new ReportDataSource("dtPersons", dtPerson));
+                rpvPerson.LocalReport.SetParameters(ReportParameters.SetParametersReport(dtPerson));
+                rpvPerson.RefreshReport();
             }
             catch
             {
@@ -30,7 +32,7 @@ namespace Balance_Sheet
 
         private void FrmReportPerson_Load(object sender, EventArgs e)
         {
-            this.reportViewer1.RefreshReport();
+            this.rpvPerson.RefreshReport();
         }
     }
 }
