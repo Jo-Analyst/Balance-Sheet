@@ -101,5 +101,11 @@ namespace Balance_Sheet
 
             return textFieldControls;
         }
+
+        private void FrmSaveInstitution_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter) 
+                btnSave_Click(sender, e);
+        }
     }
 }

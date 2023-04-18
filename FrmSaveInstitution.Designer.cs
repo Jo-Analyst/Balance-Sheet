@@ -258,6 +258,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Instituição";
             this.Load += new System.EventHandler(this.FrmSaveInstitution_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmSaveInstitution_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.nupNumber)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

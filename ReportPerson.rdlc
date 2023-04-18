@@ -140,6 +140,12 @@
                     </Style>
                   </TextRun>
                   <TextRun>
+                    <Value xml:space="preserve"> </Value>
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
                     <Value>=Parameters!number_institution.Value</Value>
                     <Style>
                       <FontSize>12pt</FontSize>
@@ -517,7 +523,7 @@
             <Top>10.63446cm</Top>
             <Left>1.5875cm</Left>
             <Height>1.2cm</Height>
-            <Width>13.92937cm</Width>
+            <Width>13.92938cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
