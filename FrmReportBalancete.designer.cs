@@ -52,6 +52,7 @@
             this.ColNumberOfMembers = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDateBenefits = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPerson)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,7 +85,8 @@
             this.ColHelp,
             this.ColNumberOfMembers,
             this.ColDescription,
-            this.ColDateBenefits});
+            this.ColDateBenefits,
+            this.Column1});
             this.dgvPerson.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.dgvPerson.EnableHeadersVisualStyles = false;
             this.dgvPerson.Location = new System.Drawing.Point(17, 79);
@@ -283,6 +285,12 @@
             this.ColDateBenefits.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.ColDateBenefits.Width = 140;
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "id";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
             // FrmReportBalancete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -330,5 +338,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColNumberOfMembers;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDateBenefits;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }

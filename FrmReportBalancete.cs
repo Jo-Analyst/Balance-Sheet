@@ -34,7 +34,7 @@ namespace Balance_Sheet
         }
 
         DataTable dtPerson;
-
+       
         private void LoadDataPersonAndBenefits()
         {
             try
@@ -59,6 +59,7 @@ namespace Balance_Sheet
                     dgvPerson.Rows[index].Cells[8].Value = dr["number_of_members"].ToString();
                     dgvPerson.Rows[index].Cells[9].Value = dr["description"].ToString();
                     dgvPerson.Rows[index].Cells[10].Value = dr["date_benefit"].ToString();
+                    dgvPerson.Rows[index].Cells[11].Value = dr["person_id"].ToString();
                     dgvPerson.Rows[index].Height = 35;
                 }
                 Count_Benefits();
@@ -82,8 +83,9 @@ namespace Balance_Sheet
 
         private void Count_Benefits()
         {
+            dtCountBenefits.Rows.Clear();
             int lastIdTraveled = 0;
-            
+
             try
             {
                 DataTable countBenefitsReceived;
@@ -101,7 +103,7 @@ namespace Balance_Sheet
 
                     lastIdTraveled = Convert.ToInt32(person["person_id"]);
                 }
-               
+
             }
             catch (Exception ex)
             {
@@ -139,7 +141,7 @@ namespace Balance_Sheet
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-           try
+            try
             {
 
                 if (!Convert.ToBoolean(Settings.Default["print_directory_direct"]))
