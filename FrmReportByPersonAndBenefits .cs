@@ -1,5 +1,6 @@
 ﻿using Microsoft.Reporting.WinForms;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace Balance_Sheet
@@ -11,15 +12,15 @@ namespace Balance_Sheet
             InitializeComponent();
         }
 
-        public FrmReportByPersonAndBenefits(ReportDataSource rprtDTSource, System.Data.DataTable dtPerson)
+        public FrmReportByPersonAndBenefits(DataTable dtPerson)
         {
             InitializeComponent();
 
             try
             {
                 reportViewer1.LocalReport.DataSources.Clear();
-                reportViewer1.LocalReport.DataSources.Add(rprtDTSource);
-
+                reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("dtBenefitsByPersonId", dtPerson));
+                reportViewer1.LocalReport.SetParameters(ReportParameters.SetParametersReportHeader());
                 reportViewer1.RefreshReport();
             }
             catch

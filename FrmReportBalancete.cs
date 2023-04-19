@@ -93,10 +93,9 @@ namespace Balance_Sheet
         {
             try
             {
-                ReportDataSource rprtDTSource = new ReportDataSource("dtPersonAndBenefits", dtPerson);
 
                 if (!Convert.ToBoolean(Settings.Default["print_directory_direct"]))
-                    new FrmReportByPersonAndBenefits(rprtDTSource, dtPerson).ShowDialog();
+                    new FrmReportByPersonAndBenefits(dtPerson).ShowDialog();
                 else
                     PrintLocalReport.PrintReportDirectlyFromPrinter(dtPerson, null, true);
             }

@@ -6,7 +6,7 @@ namespace Balance_Sheet
 {
     internal class PrintLocalReport
     {
-        static public void PrintReportDirectlyFromPrinter(DataTable dtPersonJoinBenefits, DataTable dtPerson = null, bool reportCompleted = false)
+        static public void PrintReportDirectlyFromPrinter(DataTable dtPersonJoinBenefits, DataTable dtPerson, bool reportCompleted = false)
         {
             try
             {
@@ -23,6 +23,8 @@ namespace Balance_Sheet
 
                 if (dtPerson != null)
                     localReport.SetParameters(ReportParameters.SetParametersReport(dtPerson));
+                    
+                localReport.SetParameters(ReportParameters.SetParametersReportHeader());
                 
                 localReport.PrintToPrinter();
             }
