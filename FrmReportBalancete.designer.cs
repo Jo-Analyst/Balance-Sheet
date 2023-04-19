@@ -52,8 +52,6 @@
             this.ColNumberOfMembers = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDateBenefits = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPersonId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.teste = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPerson)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,9 +84,7 @@
             this.ColHelp,
             this.ColNumberOfMembers,
             this.ColDescription,
-            this.ColDateBenefits,
-            this.colPersonId,
-            this.teste});
+            this.ColDateBenefits});
             this.dgvPerson.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.dgvPerson.EnableHeadersVisualStyles = false;
             this.dgvPerson.Location = new System.Drawing.Point(17, 79);
@@ -287,20 +283,6 @@
             this.ColDateBenefits.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.ColDateBenefits.Width = 140;
             // 
-            // colPersonId
-            // 
-            this.colPersonId.HeaderText = "ID";
-            this.colPersonId.Name = "colPersonId";
-            this.colPersonId.ReadOnly = true;
-            // 
-            // teste
-            // 
-            this.teste.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.teste.HeaderText = "teste";
-            this.teste.Name = "teste";
-            this.teste.ReadOnly = true;
-            this.teste.Width = 70;
-            // 
             // FrmReportBalancete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -348,7 +330,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColNumberOfMembers;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDateBenefits;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPersonId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn teste;
     }
 }

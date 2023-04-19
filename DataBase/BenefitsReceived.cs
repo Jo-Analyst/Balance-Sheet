@@ -85,7 +85,7 @@ namespace DataBase
             {
                 try
                 {
-                    string sql = $"SELECT COUNT(description) as count_Benefits, description  FROM Benefits_Received WHERE person_id = {person_id} GROUP BY description";
+                    string sql = $"SELECT COUNT(description) as count_Benefits, description, person_id  FROM Benefits_Received WHERE person_id = {person_id} GROUP BY description, person_id";
                     connection.Open();
                     SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;

@@ -21,6 +21,7 @@ namespace Balance_Sheet
 
         private void FrmReportBalancete_Load(object sender, EventArgs e)
         {
+            CreateColumnsDtCountBenefits();
             LoadDataPersonAndBenefits();
            
             btnPrint.Enabled = dgvPerson.Rows.Count > 0;
@@ -58,7 +59,6 @@ namespace Balance_Sheet
                     dgvPerson.Rows[index].Cells[8].Value = dr["number_of_members"].ToString();
                     dgvPerson.Rows[index].Cells[9].Value = dr["description"].ToString();
                     dgvPerson.Rows[index].Cells[10].Value = dr["date_benefit"].ToString();
-                    dgvPerson.Rows[index].Cells[11].Value = dr["person_id"].ToString();
                     dgvPerson.Rows[index].Height = 35;
                 }
                 Count_Benefits();
@@ -70,26 +70,38 @@ namespace Balance_Sheet
             }
         }
 
-        int lastId = 0;
+        DataTable dtCountBenefits;
+        
+        private void CreateColumnsDtCountBenefits()
+        {
+            dtCountBenefits = new DataTable();
+            dtCountBenefits.Columns.Add("count_benefits", typeof(int));
+            dtCountBenefits.Columns.Add("description", typeof(string));
+            dtCountBenefits.Columns.Add("person_id", typeof(int));
+        }
 
         private void Count_Benefits()
         {
+            int lastIdTraveled = 0;
+            
             try
             {
-                int index = 0;
-                DataTable dt;
+                DataTable countBenefitsReceived;
 
-                foreach (DataGridViewRow row in dgvPerson.Rows)
+                foreach (DataRow person in dtPerson.Rows)
                 {
-                    dt = BenefitsReceived.CountBenefitsByPersonId(Convert.ToInt32(row.Cells["ColPersonId"].Value));
-                    int indexCountBenefits = 0; 
-                    foreach(DataRow row2 in dt.Rows)
+                    if (lastIdTraveled != Convert.ToInt32(person["person_id"]))
                     {
-                        dgvPerson.Rows[index].Cells["teste"].Value = row2["count_Benefits"].ToString();
-                        indexCountBenefits++;
+                        countBenefitsReceived = BenefitsReceived.CountBenefitsByPersonId(Convert.ToInt32(person["person_id"]));
+                        foreach (DataRow countBR in countBenefitsReceived.Rows)
+                        {
+                            dtCountBenefits.Rows.Add(Convert.ToInt32(countBR["count_Benefits"]), countBR["description"].ToString(), countBR["person_id"].ToString());
+                        }
                     }
-                    index++;
+
+                    lastIdTraveled = Convert.ToInt32(person["person_id"]);
                 }
+               
             }
             catch (Exception ex)
             {
@@ -127,11 +139,11 @@ namespace Balance_Sheet
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            try
+           try
             {
 
                 if (!Convert.ToBoolean(Settings.Default["print_directory_direct"]))
-                    new FrmReportByPersonAndBenefits(dtPerson).ShowDialog();
+                    new FrmReportByPersonAndBenefits(dtPerson, dtCountBenefits).ShowDialog();
                 else
                     PrintLocalReport.PrintReportDirectlyFromPrinter(dtPerson, null, true);
             }
