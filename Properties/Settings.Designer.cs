@@ -61,18 +61,6 @@ namespace Balance_Sheet.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("60")]
-        public int number {
-            get {
-                return ((int)(this["number"]));
-            }
-            set {
-                this["number"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Centro")]
         public string district {
             get {
@@ -152,6 +140,18 @@ namespace Balance_Sheet.Properties {
             }
             set {
                 this["address"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("64")]
+        public int number {
+            get {
+                return ((int)(this["number"]));
+            }
+            set {
+                this["number"] = value;
             }
         }
     }

@@ -3,6 +3,7 @@ using DataBase;
 using Microsoft.Reporting.WinForms;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Balance_Sheet
@@ -21,7 +22,14 @@ namespace Balance_Sheet
         private void FrmReportBalancete_Load(object sender, EventArgs e)
         {
             LoadDataPersonAndBenefits();
+           
             btnPrint.Enabled = dgvPerson.Rows.Count > 0;
+            if (!bool.Parse(Settings.Default["print_directory_direct"].ToString()))
+            {
+                btnPrint.Text = "Visualizar e imprimir";
+                btnPrint.Size = new Size(186, 50);
+
+            }
         }
 
         DataTable dtPerson;
@@ -50,14 +58,42 @@ namespace Balance_Sheet
                     dgvPerson.Rows[index].Cells[8].Value = dr["number_of_members"].ToString();
                     dgvPerson.Rows[index].Cells[9].Value = dr["description"].ToString();
                     dgvPerson.Rows[index].Cells[10].Value = dr["date_benefit"].ToString();
+                    dgvPerson.Rows[index].Cells[11].Value = dr["person_id"].ToString();
                     dgvPerson.Rows[index].Height = 35;
                 }
-
+                Count_Benefits();
                 dgvPerson.ClearSelection();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        int lastId = 0;
+
+        private void Count_Benefits()
+        {
+            try
+            {
+                int index = 0;
+                DataTable dt;
+
+                foreach (DataGridViewRow row in dgvPerson.Rows)
+                {
+                    dt = BenefitsReceived.CountBenefitsByPersonId(Convert.ToInt32(row.Cells["ColPersonId"].Value));
+                    int indexCountBenefits = 0; 
+                    foreach(DataRow row2 in dt.Rows)
+                    {
+                        dgvPerson.Rows[index].Cells["teste"].Value = row2["count_Benefits"].ToString();
+                        indexCountBenefits++;
+                    }
+                    index++;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 

@@ -78,5 +78,26 @@ namespace DataBase
                 }
             }
         }
+
+        static public DataTable CountBenefitsByPersonId(int person_id)
+        {
+            using (SqlConnection connection = new SqlConnection(DbConnectionString.connectionString))
+            {
+                try
+                {
+                    string sql = $"SELECT COUNT(description) as count_Benefits, description  FROM Benefits_Received WHERE person_id = {person_id} GROUP BY description";
+                    connection.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+                    adapter.SelectCommand.CommandText = sql;
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    return dt;
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
     }
 }

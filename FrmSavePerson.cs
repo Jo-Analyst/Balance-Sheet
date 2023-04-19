@@ -3,6 +3,7 @@ using DataBase;
 using Microsoft.Reporting.WinForms;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Balance_Sheet
@@ -117,6 +118,7 @@ namespace Balance_Sheet
 
                 rtDescription.Clear();
                 benefits_id = 0;
+                btnADD.Text = "Adicionar";
                 btnPrint.Enabled = true;
             }
             catch
@@ -192,6 +194,7 @@ namespace Balance_Sheet
             {
                 EditBenefits();
                 btnADD.Enabled = true;
+                btnADD.Text = "Alterar";
                 indexRowPress = e.RowIndex;
             }
             else if (dgvBenefitsReceived.CurrentCell.ColumnIndex == 1)
@@ -214,6 +217,8 @@ namespace Balance_Sheet
 
                     if (dgvBenefitsReceived.Rows.Count == 0)
                         btnPrint.Enabled = false;
+
+                    btnADD.Text = "Adicionar";
                 }
 
                 dgvBenefitsReceived.ClearSelection();
@@ -449,6 +454,11 @@ namespace Balance_Sheet
 
         private void FrmSavePerson_Load(object sender, EventArgs e)
         {
+            if (!bool.Parse(Settings.Default["print_directory_direct"].ToString()))
+            { 
+                btnPrint.Text = "Visualizar e imprimir";
+            }
+
             toolTip.SetToolTip(btnPrint, "Imprimir - [CTRL + P]");
             toolTip.SetToolTip(btnSave, "Salvar - [CTRL + S]");
             toolTip.SetToolTip(btnADD, "Adicionar - [CTRL + SHIFT + A]");
