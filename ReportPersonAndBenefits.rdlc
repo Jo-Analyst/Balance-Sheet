@@ -81,10 +81,6 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="count_Benefits">
-          <DataField>count_Benefits</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="description">
           <DataField>description</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -92,6 +88,14 @@
         <Field Name="person_id">
           <DataField>person_id</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="count_benefits">
+          <DataField>count_benefits</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="name">
+          <DataField>name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
@@ -1562,21 +1566,21 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="count_Benefits">
+                        <Textbox Name="count_benefits">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!count_Benefits.Value</Value>
+                                  <Value>=Fields!count_benefits.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>count_Benefits</rd:DefaultName>
+                          <rd:DefaultName>count_benefits</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>

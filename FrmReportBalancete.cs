@@ -143,11 +143,10 @@ namespace Balance_Sheet
         {
             try
             {
-
                 if (!Convert.ToBoolean(Settings.Default["print_directory_direct"]))
-                    new FrmReportByPersonAndBenefits(dtPerson, dtCountBenefits).ShowDialog();
+                    new FrmReportByPersonAndBenefits(dtPerson, dtCountBenefits).Show();
                 else
-                    PrintLocalReport.PrintReportDirectlyFromPrinter(dtPerson, null, true);
+                    PrintLocalReport.PrintReportDirectlyFromPrinter(dtPerson, dtCountBenefits, true);
             }
             catch
             {

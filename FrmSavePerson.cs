@@ -70,7 +70,7 @@ namespace Balance_Sheet
             }
             else if (mkCPF.MaskCompleted && !ValidateCPF.validate(mkCPF.Text))
                 MessageBox.Show("CPF inválido!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            else if (mkCPF.MaskCompleted && person.FindByCPF(mkCPF.Text).Rows.Count == 1 && !isEdition)
+            else if (btnSave.Text == "Salvar" && mkCPF.MaskCompleted && person.FindByCPF(mkCPF.Text).Rows.Count == 1 && !isEdition)
                 MessageBox.Show("Não foi possível cadastrar. O CPF já está cadastrado!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             else if (mkCPF.MaskCompleted && person.FindByCpfForPerson(mkCPF.Text, person_id).Rows.Count == 1 && isEdition)
                 MessageBox.Show("Não foi possível editar. O CPF que está tentando editar já está cadastrado no sistema", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
