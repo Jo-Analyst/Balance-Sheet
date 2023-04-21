@@ -22,6 +22,7 @@ namespace Balance_Sheet
         private void FrmReportBalancete_Load(object sender, EventArgs e)
         {
             CreateColumnsDtCountBenefits();
+            createColumnsdtPersons();
             LoadDataPersonAndBenefits();
            
             btnPrint.Enabled = dgvPerson.Rows.Count > 0;
@@ -33,7 +34,7 @@ namespace Balance_Sheet
             }
         }
 
-        DataTable dtPerson;
+        DataTable dtPersons;
        
         private void LoadDataPersonAndBenefits()
         {
@@ -41,11 +42,11 @@ namespace Balance_Sheet
             {
                 dgvPerson.Rows.Clear();
                 string columnTable = rbName.Checked ? "name" : "address";
-                dtPerson = string.IsNullOrWhiteSpace(txtField.Text)
+                dtPersons = string.IsNullOrWhiteSpace(txtField.Text)
                     ? person.FindAllPersonAndBenefits()
                     : person.FindAllPersonAndBenefitsByNameOrAddress(txtField.Text, columnTable);
 
-                foreach (DataRow dr in dtPerson.Rows)
+                foreach (DataRow dr in dtPersons.Rows)
                 {
                     int index = dgvPerson.Rows.Add();
                     dgvPerson.Rows[index].Cells[0].Value = dr["name"].ToString();
@@ -62,7 +63,8 @@ namespace Balance_Sheet
                     dgvPerson.Rows[index].Cells[11].Value = dr["person_id"].ToString();
                     dgvPerson.Rows[index].Height = 35;
                 }
-                Count_Benefits();
+                //Count_Benefits();
+                FillDtPersonsFiltered();
                 dgvPerson.ClearSelection();
             }
             catch (Exception ex)
@@ -81,24 +83,65 @@ namespace Balance_Sheet
             dtCountBenefits.Columns.Add("person_id", typeof(int));
         }
 
-        private void Count_Benefits()
+        DataTable dtPersonsFiltered;
+        private void createColumnsdtPersons()
         {
-            dtCountBenefits.Rows.Clear();
+            dtPersonsFiltered = new DataTable();
+            dtPersonsFiltered.Columns.Add("name", typeof(string));
+            dtPersonsFiltered.Columns.Add("CPF", typeof(string));
+            dtPersonsFiltered.Columns.Add("RG", typeof(string));
+            dtPersonsFiltered.Columns.Add("address", typeof(string));
+            dtPersonsFiltered.Columns.Add("number_address", typeof(string));
+            dtPersonsFiltered.Columns.Add("phone", typeof(string));
+            dtPersonsFiltered.Columns.Add("income", typeof(decimal));
+            dtPersonsFiltered.Columns.Add("help", typeof(decimal));
+            dtPersonsFiltered.Columns.Add("number_of_members", typeof(string));
+        }
+
+        //private void Count_Benefits()
+        //{
+        //    dtCountBenefits.Rows.Clear();
+        //    int lastIdTraveled = 0;
+
+        //    try
+        //    {
+        //        DataTable countBenefitsReceived;
+
+        //        foreach (DataRow person in dtPersons.Rows)
+        //        {
+        //            if (lastIdTraveled != Convert.ToInt32(person["person_id"]))
+        //            {
+        //                countBenefitsReceived = BenefitsReceived.CountBenefitsByPersonId(Convert.ToInt32(person["person_id"]));
+        //                foreach (DataRow countBR in countBenefitsReceived.Rows)
+        //                {
+        //                    dtCountBenefits.Rows.Add(Convert.ToInt32(countBR["count_Benefits"]), countBR["description"].ToString(), countBR["person_id"].ToString());
+        //                }
+        //            }
+
+        //            lastIdTraveled = Convert.ToInt32(person["person_id"]);
+        //        }
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
+        
+        private void FillDtPersonsFiltered()
+        {
+            dtPersonsFiltered.Rows.Clear();
             int lastIdTraveled = 0;
 
             try
             {
-                DataTable countBenefitsReceived;
+                DataTable dt;
 
-                foreach (DataRow person in dtPerson.Rows)
+                foreach (DataRow person in dtPersons.Rows)
                 {
                     if (lastIdTraveled != Convert.ToInt32(person["person_id"]))
                     {
-                        countBenefitsReceived = BenefitsReceived.CountBenefitsByPersonId(Convert.ToInt32(person["person_id"]));
-                        foreach (DataRow countBR in countBenefitsReceived.Rows)
-                        {
-                            dtCountBenefits.Rows.Add(Convert.ToInt32(countBR["count_Benefits"]), countBR["description"].ToString(), countBR["person_id"].ToString());
-                        }
+                        dtPersonsFiltered.Rows.Add(person["name"].ToString(), person["CPF"].ToString(), person["RG"].ToString(),person["address"].ToString(),person["number_address"].ToString(),person["phone"].ToString(),person["income"].ToString(),person["help"].ToString(),person["number_of_members"].ToString());
                     }
 
                     lastIdTraveled = Convert.ToInt32(person["person_id"]);
@@ -134,19 +177,14 @@ namespace Balance_Sheet
             ToFocus();
         }
 
-        private void txtField_TextChanged_1(object sender, EventArgs e)
-        {
-            LoadDataPersonAndBenefits();
-        }
-
         private void btnPrint_Click(object sender, EventArgs e)
         {
             try
             {
                 if (!Convert.ToBoolean(Settings.Default["print_directory_direct"]))
-                    new FrmReportByPersonAndBenefits(dtPerson, dtCountBenefits).Show();
+                    new FrmReportByPersonAndBenefits(dtPersonsFiltered, dtCountBenefits).ShowDialog();
                 else
-                    PrintLocalReport.PrintReportDirectlyFromPrinter(dtPerson, dtCountBenefits, true);
+                    PrintLocalReport.PrintReportDirectlyFromPrinter(dtPersons, dtCountBenefits, true);
             }
             catch
             {

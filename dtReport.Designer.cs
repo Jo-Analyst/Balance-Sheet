@@ -28,9 +28,9 @@ namespace Balance_Sheet {
         
         private reportPersonAndBenefitsDataTable tablereportPersonAndBenefits;
         
-        private PersonsDataTable tablePersons;
+        private PersonDataTable tablePerson;
         
-        private Benefits_ReceivedDataTable tableBenefits_Received;
+        private CountBenefitsDataTable tableCountBenefits;
         
         private global::System.Data.DataRelation relationFK__Benefits___perso__145C0A3F;
         
@@ -72,11 +72,11 @@ namespace Balance_Sheet {
                 if ((ds.Tables["reportPersonAndBenefits"] != null)) {
                     base.Tables.Add(new reportPersonAndBenefitsDataTable(ds.Tables["reportPersonAndBenefits"]));
                 }
-                if ((ds.Tables["Persons"] != null)) {
-                    base.Tables.Add(new PersonsDataTable(ds.Tables["Persons"]));
+                if ((ds.Tables["Person"] != null)) {
+                    base.Tables.Add(new PersonDataTable(ds.Tables["Person"]));
                 }
-                if ((ds.Tables["Benefits_Received"] != null)) {
-                    base.Tables.Add(new Benefits_ReceivedDataTable(ds.Tables["Benefits_Received"]));
+                if ((ds.Tables["CountBenefits"] != null)) {
+                    base.Tables.Add(new CountBenefitsDataTable(ds.Tables["CountBenefits"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -120,9 +120,9 @@ namespace Balance_Sheet {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public PersonsDataTable Persons {
+        public PersonDataTable Person {
             get {
-                return this.tablePersons;
+                return this.tablePerson;
             }
         }
         
@@ -130,9 +130,9 @@ namespace Balance_Sheet {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public Benefits_ReceivedDataTable Benefits_Received {
+        public CountBenefitsDataTable CountBenefits {
             get {
-                return this.tableBenefits_Received;
+                return this.tableCountBenefits;
             }
         }
         
@@ -209,11 +209,11 @@ namespace Balance_Sheet {
                 if ((ds.Tables["reportPersonAndBenefits"] != null)) {
                     base.Tables.Add(new reportPersonAndBenefitsDataTable(ds.Tables["reportPersonAndBenefits"]));
                 }
-                if ((ds.Tables["Persons"] != null)) {
-                    base.Tables.Add(new PersonsDataTable(ds.Tables["Persons"]));
+                if ((ds.Tables["Person"] != null)) {
+                    base.Tables.Add(new PersonDataTable(ds.Tables["Person"]));
                 }
-                if ((ds.Tables["Benefits_Received"] != null)) {
-                    base.Tables.Add(new Benefits_ReceivedDataTable(ds.Tables["Benefits_Received"]));
+                if ((ds.Tables["CountBenefits"] != null)) {
+                    base.Tables.Add(new CountBenefitsDataTable(ds.Tables["CountBenefits"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -260,16 +260,16 @@ namespace Balance_Sheet {
                     this.tablereportPersonAndBenefits.InitVars();
                 }
             }
-            this.tablePersons = ((PersonsDataTable)(base.Tables["Persons"]));
+            this.tablePerson = ((PersonDataTable)(base.Tables["Person"]));
             if ((initTable == true)) {
-                if ((this.tablePersons != null)) {
-                    this.tablePersons.InitVars();
+                if ((this.tablePerson != null)) {
+                    this.tablePerson.InitVars();
                 }
             }
-            this.tableBenefits_Received = ((Benefits_ReceivedDataTable)(base.Tables["Benefits_Received"]));
+            this.tableCountBenefits = ((CountBenefitsDataTable)(base.Tables["CountBenefits"]));
             if ((initTable == true)) {
-                if ((this.tableBenefits_Received != null)) {
-                    this.tableBenefits_Received.InitVars();
+                if ((this.tableCountBenefits != null)) {
+                    this.tableCountBenefits.InitVars();
                 }
             }
             this.relationFK__Benefits___perso__145C0A3F = this.Relations["FK__Benefits___perso__145C0A3F"];
@@ -289,20 +289,20 @@ namespace Balance_Sheet {
             base.Tables.Add(this.tableReportBenefitsByPerson_Id);
             this.tablereportPersonAndBenefits = new reportPersonAndBenefitsDataTable();
             base.Tables.Add(this.tablereportPersonAndBenefits);
-            this.tablePersons = new PersonsDataTable();
-            base.Tables.Add(this.tablePersons);
-            this.tableBenefits_Received = new Benefits_ReceivedDataTable();
-            base.Tables.Add(this.tableBenefits_Received);
+            this.tablePerson = new PersonDataTable();
+            base.Tables.Add(this.tablePerson);
+            this.tableCountBenefits = new CountBenefitsDataTable();
+            base.Tables.Add(this.tableCountBenefits);
             this.relationFK__Benefits___perso__145C0A3F = new global::System.Data.DataRelation("FK__Benefits___perso__145C0A3F", new global::System.Data.DataColumn[] {
-                        this.tablePersons.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tablePerson.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableReportBenefitsByPerson_Id.person_idColumn}, false);
             this.Relations.Add(this.relationFK__Benefits___perso__145C0A3F);
             this.relationFK__Benefits___perso__145C0A3F1 = new global::System.Data.DataRelation("FK__Benefits___perso__145C0A3F1", new global::System.Data.DataColumn[] {
-                        this.tablePersons.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableBenefits_Received.person_idColumn}, false);
+                        this.tablePerson.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCountBenefits.person_idColumn}, false);
             this.Relations.Add(this.relationFK__Benefits___perso__145C0A3F1);
             this.relationFK__Benefits___perso__145C0A3F2 = new global::System.Data.DataRelation("FK__Benefits___perso__145C0A3F2", new global::System.Data.DataColumn[] {
-                        this.tablePersons.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tablePerson.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tablereportPersonAndBenefits.person_idColumn}, false);
             this.Relations.Add(this.relationFK__Benefits___perso__145C0A3F2);
         }
@@ -321,13 +321,13 @@ namespace Balance_Sheet {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializePersons() {
+        private bool ShouldSerializePerson() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeBenefits_Received() {
+        private bool ShouldSerializeCountBenefits() {
             return false;
         }
         
@@ -393,10 +393,10 @@ namespace Balance_Sheet {
         public delegate void reportPersonAndBenefitsRowChangeEventHandler(object sender, reportPersonAndBenefitsRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void PersonsRowChangeEventHandler(object sender, PersonsRowChangeEvent e);
+        public delegate void PersonRowChangeEventHandler(object sender, PersonRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void Benefits_ReceivedRowChangeEventHandler(object sender, Benefits_ReceivedRowChangeEvent e);
+        public delegate void CountBenefitsRowChangeEventHandler(object sender, CountBenefitsRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -505,14 +505,14 @@ namespace Balance_Sheet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ReportBenefitsByPerson_IdRow AddReportBenefitsByPerson_IdRow(string description, string date_benefit, PersonsRow parentPersonsRowByFK__Benefits___perso__145C0A3F) {
+            public ReportBenefitsByPerson_IdRow AddReportBenefitsByPerson_IdRow(string description, string date_benefit, PersonRow parentPersonRowByFK__Benefits___perso__145C0A3F) {
                 ReportBenefitsByPerson_IdRow rowReportBenefitsByPerson_IdRow = ((ReportBenefitsByPerson_IdRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         description,
                         date_benefit,
                         null};
-                if ((parentPersonsRowByFK__Benefits___perso__145C0A3F != null)) {
-                    columnValuesArray[2] = parentPersonsRowByFK__Benefits___perso__145C0A3F[0];
+                if ((parentPersonRowByFK__Benefits___perso__145C0A3F != null)) {
+                    columnValuesArray[2] = parentPersonRowByFK__Benefits___perso__145C0A3F[0];
                 }
                 rowReportBenefitsByPerson_IdRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowReportBenefitsByPerson_IdRow);
@@ -877,7 +877,7 @@ namespace Balance_Sheet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public reportPersonAndBenefitsRow AddreportPersonAndBenefitsRow(string name, string CPF, string RG, string address, string number_address, string phone, decimal income, decimal help, int number_of_members, string description, string date_benefit, PersonsRow parentPersonsRowByFK__Benefits___perso__145C0A3F2) {
+            public reportPersonAndBenefitsRow AddreportPersonAndBenefitsRow(string name, string CPF, string RG, string address, string number_address, string phone, decimal income, decimal help, int number_of_members, string description, string date_benefit, PersonRow parentPersonRowByFK__Benefits___perso__145C0A3F2) {
                 reportPersonAndBenefitsRow rowreportPersonAndBenefitsRow = ((reportPersonAndBenefitsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         name,
@@ -892,8 +892,8 @@ namespace Balance_Sheet {
                         description,
                         date_benefit,
                         null};
-                if ((parentPersonsRowByFK__Benefits___perso__145C0A3F2 != null)) {
-                    columnValuesArray[11] = parentPersonsRowByFK__Benefits___perso__145C0A3F2[0];
+                if ((parentPersonRowByFK__Benefits___perso__145C0A3F2 != null)) {
+                    columnValuesArray[11] = parentPersonRowByFK__Benefits___perso__145C0A3F2[0];
                 }
                 rowreportPersonAndBenefitsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowreportPersonAndBenefitsRow);
@@ -1099,7 +1099,7 @@ namespace Balance_Sheet {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class PersonsDataTable : global::System.Data.TypedTableBase<PersonsRow> {
+        public partial class PersonDataTable : global::System.Data.TypedTableBase<PersonRow> {
             
             private global::System.Data.DataColumn columnId;
             
@@ -1123,8 +1123,8 @@ namespace Balance_Sheet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PersonsDataTable() {
-                this.TableName = "Persons";
+            public PersonDataTable() {
+                this.TableName = "Person";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -1132,7 +1132,7 @@ namespace Balance_Sheet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal PersonsDataTable(global::System.Data.DataTable table) {
+            internal PersonDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -1149,7 +1149,7 @@ namespace Balance_Sheet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected PersonsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected PersonDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -1245,34 +1245,34 @@ namespace Balance_Sheet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PersonsRow this[int index] {
+            public PersonRow this[int index] {
                 get {
-                    return ((PersonsRow)(this.Rows[index]));
+                    return ((PersonRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event PersonsRowChangeEventHandler PersonsRowChanging;
+            public event PersonRowChangeEventHandler PersonRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event PersonsRowChangeEventHandler PersonsRowChanged;
+            public event PersonRowChangeEventHandler PersonRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event PersonsRowChangeEventHandler PersonsRowDeleting;
+            public event PersonRowChangeEventHandler PersonRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event PersonsRowChangeEventHandler PersonsRowDeleted;
+            public event PersonRowChangeEventHandler PersonRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddPersonsRow(PersonsRow row) {
+            public void AddPersonRow(PersonRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PersonsRow AddPersonsRow(string name, string CPF, string RG, string address, string number_address, string phone, decimal income, decimal help, int number_of_members) {
-                PersonsRow rowPersonsRow = ((PersonsRow)(this.NewRow()));
+            public PersonRow AddPersonRow(string name, string CPF, string RG, string address, string number_address, string phone, decimal income, decimal help, int number_of_members) {
+                PersonRow rowPersonRow = ((PersonRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         name,
@@ -1284,22 +1284,22 @@ namespace Balance_Sheet {
                         income,
                         help,
                         number_of_members};
-                rowPersonsRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowPersonsRow);
-                return rowPersonsRow;
+                rowPersonRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowPersonRow);
+                return rowPersonRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PersonsRow FindById(int Id) {
-                return ((PersonsRow)(this.Rows.Find(new object[] {
+            public PersonRow FindById(int Id) {
+                return ((PersonRow)(this.Rows.Find(new object[] {
                             Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                PersonsDataTable cln = ((PersonsDataTable)(base.Clone()));
+                PersonDataTable cln = ((PersonDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -1307,7 +1307,7 @@ namespace Balance_Sheet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new PersonsDataTable();
+                return new PersonDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1366,28 +1366,28 @@ namespace Balance_Sheet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PersonsRow NewPersonsRow() {
-                return ((PersonsRow)(this.NewRow()));
+            public PersonRow NewPersonRow() {
+                return ((PersonRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new PersonsRow(builder);
+                return new PersonRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(PersonsRow);
+                return typeof(PersonRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.PersonsRowChanged != null)) {
-                    this.PersonsRowChanged(this, new PersonsRowChangeEvent(((PersonsRow)(e.Row)), e.Action));
+                if ((this.PersonRowChanged != null)) {
+                    this.PersonRowChanged(this, new PersonRowChangeEvent(((PersonRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1395,8 +1395,8 @@ namespace Balance_Sheet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.PersonsRowChanging != null)) {
-                    this.PersonsRowChanging(this, new PersonsRowChangeEvent(((PersonsRow)(e.Row)), e.Action));
+                if ((this.PersonRowChanging != null)) {
+                    this.PersonRowChanging(this, new PersonRowChangeEvent(((PersonRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1404,8 +1404,8 @@ namespace Balance_Sheet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.PersonsRowDeleted != null)) {
-                    this.PersonsRowDeleted(this, new PersonsRowChangeEvent(((PersonsRow)(e.Row)), e.Action));
+                if ((this.PersonRowDeleted != null)) {
+                    this.PersonRowDeleted(this, new PersonRowChangeEvent(((PersonRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1413,14 +1413,14 @@ namespace Balance_Sheet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.PersonsRowDeleting != null)) {
-                    this.PersonsRowDeleting(this, new PersonsRowChangeEvent(((PersonsRow)(e.Row)), e.Action));
+                if ((this.PersonRowDeleting != null)) {
+                    this.PersonRowDeleting(this, new PersonRowChangeEvent(((PersonRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemovePersonsRow(PersonsRow row) {
+            public void RemovePersonRow(PersonRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -1447,7 +1447,7 @@ namespace Balance_Sheet {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "PersonsDataTable";
+                attribute2.FixedValue = "PersonDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1493,7 +1493,7 @@ namespace Balance_Sheet {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class Benefits_ReceivedDataTable : global::System.Data.TypedTableBase<Benefits_ReceivedRow> {
+        public partial class CountBenefitsDataTable : global::System.Data.TypedTableBase<CountBenefitsRow> {
             
             private global::System.Data.DataColumn columndescription;
             
@@ -1505,8 +1505,8 @@ namespace Balance_Sheet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Benefits_ReceivedDataTable() {
-                this.TableName = "Benefits_Received";
+            public CountBenefitsDataTable() {
+                this.TableName = "CountBenefits";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -1514,7 +1514,7 @@ namespace Balance_Sheet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal Benefits_ReceivedDataTable(global::System.Data.DataTable table) {
+            internal CountBenefitsDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -1531,7 +1531,7 @@ namespace Balance_Sheet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected Benefits_ReceivedDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected CountBenefitsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -1579,51 +1579,51 @@ namespace Balance_Sheet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Benefits_ReceivedRow this[int index] {
+            public CountBenefitsRow this[int index] {
                 get {
-                    return ((Benefits_ReceivedRow)(this.Rows[index]));
+                    return ((CountBenefitsRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event Benefits_ReceivedRowChangeEventHandler Benefits_ReceivedRowChanging;
+            public event CountBenefitsRowChangeEventHandler CountBenefitsRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event Benefits_ReceivedRowChangeEventHandler Benefits_ReceivedRowChanged;
+            public event CountBenefitsRowChangeEventHandler CountBenefitsRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event Benefits_ReceivedRowChangeEventHandler Benefits_ReceivedRowDeleting;
+            public event CountBenefitsRowChangeEventHandler CountBenefitsRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event Benefits_ReceivedRowChangeEventHandler Benefits_ReceivedRowDeleted;
+            public event CountBenefitsRowChangeEventHandler CountBenefitsRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddBenefits_ReceivedRow(Benefits_ReceivedRow row) {
+            public void AddCountBenefitsRow(CountBenefitsRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Benefits_ReceivedRow AddBenefits_ReceivedRow(string description, PersonsRow parentPersonsRowByFK__Benefits___perso__145C0A3F1, int count_benefits, string name) {
-                Benefits_ReceivedRow rowBenefits_ReceivedRow = ((Benefits_ReceivedRow)(this.NewRow()));
+            public CountBenefitsRow AddCountBenefitsRow(string description, PersonRow parentPersonRowByFK__Benefits___perso__145C0A3F1, int count_benefits, string name) {
+                CountBenefitsRow rowCountBenefitsRow = ((CountBenefitsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         description,
                         null,
                         count_benefits,
                         name};
-                if ((parentPersonsRowByFK__Benefits___perso__145C0A3F1 != null)) {
-                    columnValuesArray[1] = parentPersonsRowByFK__Benefits___perso__145C0A3F1[0];
+                if ((parentPersonRowByFK__Benefits___perso__145C0A3F1 != null)) {
+                    columnValuesArray[1] = parentPersonRowByFK__Benefits___perso__145C0A3F1[0];
                 }
-                rowBenefits_ReceivedRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowBenefits_ReceivedRow);
-                return rowBenefits_ReceivedRow;
+                rowCountBenefitsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowCountBenefitsRow);
+                return rowCountBenefitsRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                Benefits_ReceivedDataTable cln = ((Benefits_ReceivedDataTable)(base.Clone()));
+                CountBenefitsDataTable cln = ((CountBenefitsDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -1631,7 +1631,7 @@ namespace Balance_Sheet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new Benefits_ReceivedDataTable();
+                return new CountBenefitsDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1662,28 +1662,28 @@ namespace Balance_Sheet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Benefits_ReceivedRow NewBenefits_ReceivedRow() {
-                return ((Benefits_ReceivedRow)(this.NewRow()));
+            public CountBenefitsRow NewCountBenefitsRow() {
+                return ((CountBenefitsRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new Benefits_ReceivedRow(builder);
+                return new CountBenefitsRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(Benefits_ReceivedRow);
+                return typeof(CountBenefitsRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.Benefits_ReceivedRowChanged != null)) {
-                    this.Benefits_ReceivedRowChanged(this, new Benefits_ReceivedRowChangeEvent(((Benefits_ReceivedRow)(e.Row)), e.Action));
+                if ((this.CountBenefitsRowChanged != null)) {
+                    this.CountBenefitsRowChanged(this, new CountBenefitsRowChangeEvent(((CountBenefitsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1691,8 +1691,8 @@ namespace Balance_Sheet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.Benefits_ReceivedRowChanging != null)) {
-                    this.Benefits_ReceivedRowChanging(this, new Benefits_ReceivedRowChangeEvent(((Benefits_ReceivedRow)(e.Row)), e.Action));
+                if ((this.CountBenefitsRowChanging != null)) {
+                    this.CountBenefitsRowChanging(this, new CountBenefitsRowChangeEvent(((CountBenefitsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1700,8 +1700,8 @@ namespace Balance_Sheet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.Benefits_ReceivedRowDeleted != null)) {
-                    this.Benefits_ReceivedRowDeleted(this, new Benefits_ReceivedRowChangeEvent(((Benefits_ReceivedRow)(e.Row)), e.Action));
+                if ((this.CountBenefitsRowDeleted != null)) {
+                    this.CountBenefitsRowDeleted(this, new CountBenefitsRowChangeEvent(((CountBenefitsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1709,14 +1709,14 @@ namespace Balance_Sheet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.Benefits_ReceivedRowDeleting != null)) {
-                    this.Benefits_ReceivedRowDeleting(this, new Benefits_ReceivedRowChangeEvent(((Benefits_ReceivedRow)(e.Row)), e.Action));
+                if ((this.CountBenefitsRowDeleting != null)) {
+                    this.CountBenefitsRowDeleting(this, new CountBenefitsRowChangeEvent(((CountBenefitsRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveBenefits_ReceivedRow(Benefits_ReceivedRow row) {
+            public void RemoveCountBenefitsRow(CountBenefitsRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -1743,7 +1743,7 @@ namespace Balance_Sheet {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "Benefits_ReceivedDataTable";
+                attribute2.FixedValue = "CountBenefitsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1843,9 +1843,9 @@ namespace Balance_Sheet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PersonsRow PersonsRow {
+            public PersonRow PersonRow {
                 get {
-                    return ((PersonsRow)(this.GetParentRow(this.Table.ParentRelations["FK__Benefits___perso__145C0A3F"])));
+                    return ((PersonRow)(this.GetParentRow(this.Table.ParentRelations["FK__Benefits___perso__145C0A3F"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK__Benefits___perso__145C0A3F"]);
@@ -2081,9 +2081,9 @@ namespace Balance_Sheet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PersonsRow PersonsRow {
+            public PersonRow PersonRow {
                 get {
-                    return ((PersonsRow)(this.GetParentRow(this.Table.ParentRelations["FK__Benefits___perso__145C0A3F2"])));
+                    return ((PersonRow)(this.GetParentRow(this.Table.ParentRelations["FK__Benefits___perso__145C0A3F2"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK__Benefits___perso__145C0A3F2"]);
@@ -2226,25 +2226,25 @@ namespace Balance_Sheet {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class PersonsRow : global::System.Data.DataRow {
+        public partial class PersonRow : global::System.Data.DataRow {
             
-            private PersonsDataTable tablePersons;
+            private PersonDataTable tablePerson;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal PersonsRow(global::System.Data.DataRowBuilder rb) : 
+            internal PersonRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablePersons = ((PersonsDataTable)(this.Table));
+                this.tablePerson = ((PersonDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int Id {
                 get {
-                    return ((int)(this[this.tablePersons.IdColumn]));
+                    return ((int)(this[this.tablePerson.IdColumn]));
                 }
                 set {
-                    this[this.tablePersons.IdColumn] = value;
+                    this[this.tablePerson.IdColumn] = value;
                 }
             }
             
@@ -2253,14 +2253,14 @@ namespace Balance_Sheet {
             public string name {
                 get {
                     try {
-                        return ((string)(this[this.tablePersons.nameColumn]));
+                        return ((string)(this[this.tablePerson.nameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'name\' na tabela \'Persons\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'name\' na tabela \'Person\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePersons.nameColumn] = value;
+                    this[this.tablePerson.nameColumn] = value;
                 }
             }
             
@@ -2269,14 +2269,14 @@ namespace Balance_Sheet {
             public string CPF {
                 get {
                     try {
-                        return ((string)(this[this.tablePersons.CPFColumn]));
+                        return ((string)(this[this.tablePerson.CPFColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'CPF\' na tabela \'Persons\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'CPF\' na tabela \'Person\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePersons.CPFColumn] = value;
+                    this[this.tablePerson.CPFColumn] = value;
                 }
             }
             
@@ -2285,14 +2285,14 @@ namespace Balance_Sheet {
             public string RG {
                 get {
                     try {
-                        return ((string)(this[this.tablePersons.RGColumn]));
+                        return ((string)(this[this.tablePerson.RGColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'RG\' na tabela \'Persons\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'RG\' na tabela \'Person\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePersons.RGColumn] = value;
+                    this[this.tablePerson.RGColumn] = value;
                 }
             }
             
@@ -2301,14 +2301,14 @@ namespace Balance_Sheet {
             public string address {
                 get {
                     try {
-                        return ((string)(this[this.tablePersons.addressColumn]));
+                        return ((string)(this[this.tablePerson.addressColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'address\' na tabela \'Persons\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'address\' na tabela \'Person\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePersons.addressColumn] = value;
+                    this[this.tablePerson.addressColumn] = value;
                 }
             }
             
@@ -2317,14 +2317,14 @@ namespace Balance_Sheet {
             public string number_address {
                 get {
                     try {
-                        return ((string)(this[this.tablePersons.number_addressColumn]));
+                        return ((string)(this[this.tablePerson.number_addressColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'number_address\' na tabela \'Persons\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'number_address\' na tabela \'Person\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePersons.number_addressColumn] = value;
+                    this[this.tablePerson.number_addressColumn] = value;
                 }
             }
             
@@ -2333,14 +2333,14 @@ namespace Balance_Sheet {
             public string phone {
                 get {
                     try {
-                        return ((string)(this[this.tablePersons.phoneColumn]));
+                        return ((string)(this[this.tablePerson.phoneColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'phone\' na tabela \'Persons\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'phone\' na tabela \'Person\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePersons.phoneColumn] = value;
+                    this[this.tablePerson.phoneColumn] = value;
                 }
             }
             
@@ -2349,14 +2349,14 @@ namespace Balance_Sheet {
             public decimal income {
                 get {
                     try {
-                        return ((decimal)(this[this.tablePersons.incomeColumn]));
+                        return ((decimal)(this[this.tablePerson.incomeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'income\' na tabela \'Persons\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'income\' na tabela \'Person\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePersons.incomeColumn] = value;
+                    this[this.tablePerson.incomeColumn] = value;
                 }
             }
             
@@ -2365,14 +2365,14 @@ namespace Balance_Sheet {
             public decimal help {
                 get {
                     try {
-                        return ((decimal)(this[this.tablePersons.helpColumn]));
+                        return ((decimal)(this[this.tablePerson.helpColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'help\' na tabela \'Persons\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'help\' na tabela \'Person\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePersons.helpColumn] = value;
+                    this[this.tablePerson.helpColumn] = value;
                 }
             }
             
@@ -2381,123 +2381,123 @@ namespace Balance_Sheet {
             public int number_of_members {
                 get {
                     try {
-                        return ((int)(this[this.tablePersons.number_of_membersColumn]));
+                        return ((int)(this[this.tablePerson.number_of_membersColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'number_of_members\' na tabela \'Persons\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'number_of_members\' na tabela \'Person\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePersons.number_of_membersColumn] = value;
+                    this[this.tablePerson.number_of_membersColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsnameNull() {
-                return this.IsNull(this.tablePersons.nameColumn);
+                return this.IsNull(this.tablePerson.nameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetnameNull() {
-                this[this.tablePersons.nameColumn] = global::System.Convert.DBNull;
+                this[this.tablePerson.nameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsCPFNull() {
-                return this.IsNull(this.tablePersons.CPFColumn);
+                return this.IsNull(this.tablePerson.CPFColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetCPFNull() {
-                this[this.tablePersons.CPFColumn] = global::System.Convert.DBNull;
+                this[this.tablePerson.CPFColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsRGNull() {
-                return this.IsNull(this.tablePersons.RGColumn);
+                return this.IsNull(this.tablePerson.RGColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetRGNull() {
-                this[this.tablePersons.RGColumn] = global::System.Convert.DBNull;
+                this[this.tablePerson.RGColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsaddressNull() {
-                return this.IsNull(this.tablePersons.addressColumn);
+                return this.IsNull(this.tablePerson.addressColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetaddressNull() {
-                this[this.tablePersons.addressColumn] = global::System.Convert.DBNull;
+                this[this.tablePerson.addressColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isnumber_addressNull() {
-                return this.IsNull(this.tablePersons.number_addressColumn);
+                return this.IsNull(this.tablePerson.number_addressColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setnumber_addressNull() {
-                this[this.tablePersons.number_addressColumn] = global::System.Convert.DBNull;
+                this[this.tablePerson.number_addressColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsphoneNull() {
-                return this.IsNull(this.tablePersons.phoneColumn);
+                return this.IsNull(this.tablePerson.phoneColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetphoneNull() {
-                this[this.tablePersons.phoneColumn] = global::System.Convert.DBNull;
+                this[this.tablePerson.phoneColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsincomeNull() {
-                return this.IsNull(this.tablePersons.incomeColumn);
+                return this.IsNull(this.tablePerson.incomeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetincomeNull() {
-                this[this.tablePersons.incomeColumn] = global::System.Convert.DBNull;
+                this[this.tablePerson.incomeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IshelpNull() {
-                return this.IsNull(this.tablePersons.helpColumn);
+                return this.IsNull(this.tablePerson.helpColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SethelpNull() {
-                this[this.tablePersons.helpColumn] = global::System.Convert.DBNull;
+                this[this.tablePerson.helpColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isnumber_of_membersNull() {
-                return this.IsNull(this.tablePersons.number_of_membersColumn);
+                return this.IsNull(this.tablePerson.number_of_membersColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setnumber_of_membersNull() {
-                this[this.tablePersons.number_of_membersColumn] = global::System.Convert.DBNull;
+                this[this.tablePerson.number_of_membersColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2513,12 +2513,12 @@ namespace Balance_Sheet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Benefits_ReceivedRow[] GetBenefits_ReceivedRows() {
+            public CountBenefitsRow[] GetCountBenefitsRows() {
                 if ((this.Table.ChildRelations["FK__Benefits___perso__145C0A3F1"] == null)) {
-                    return new Benefits_ReceivedRow[0];
+                    return new CountBenefitsRow[0];
                 }
                 else {
-                    return ((Benefits_ReceivedRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Benefits___perso__145C0A3F1"])));
+                    return ((CountBenefitsRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Benefits___perso__145C0A3F1"])));
                 }
             }
             
@@ -2537,15 +2537,15 @@ namespace Balance_Sheet {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class Benefits_ReceivedRow : global::System.Data.DataRow {
+        public partial class CountBenefitsRow : global::System.Data.DataRow {
             
-            private Benefits_ReceivedDataTable tableBenefits_Received;
+            private CountBenefitsDataTable tableCountBenefits;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal Benefits_ReceivedRow(global::System.Data.DataRowBuilder rb) : 
+            internal CountBenefitsRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableBenefits_Received = ((Benefits_ReceivedDataTable)(this.Table));
+                this.tableCountBenefits = ((CountBenefitsDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2553,14 +2553,14 @@ namespace Balance_Sheet {
             public string description {
                 get {
                     try {
-                        return ((string)(this[this.tableBenefits_Received.descriptionColumn]));
+                        return ((string)(this[this.tableCountBenefits.descriptionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'description\' na tabela \'Benefits_Received\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'description\' na tabela \'CountBenefits\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBenefits_Received.descriptionColumn] = value;
+                    this[this.tableCountBenefits.descriptionColumn] = value;
                 }
             }
             
@@ -2568,10 +2568,10 @@ namespace Balance_Sheet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int person_id {
                 get {
-                    return ((int)(this[this.tableBenefits_Received.person_idColumn]));
+                    return ((int)(this[this.tableCountBenefits.person_idColumn]));
                 }
                 set {
-                    this[this.tableBenefits_Received.person_idColumn] = value;
+                    this[this.tableCountBenefits.person_idColumn] = value;
                 }
             }
             
@@ -2580,14 +2580,14 @@ namespace Balance_Sheet {
             public int count_benefits {
                 get {
                     try {
-                        return ((int)(this[this.tableBenefits_Received.count_benefitsColumn]));
+                        return ((int)(this[this.tableCountBenefits.count_benefitsColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'count_benefits\' na tabela \'Benefits_Received\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'count_benefits\' na tabela \'CountBenefits\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBenefits_Received.count_benefitsColumn] = value;
+                    this[this.tableCountBenefits.count_benefitsColumn] = value;
                 }
             }
             
@@ -2596,22 +2596,22 @@ namespace Balance_Sheet {
             public string name {
                 get {
                     try {
-                        return ((string)(this[this.tableBenefits_Received.nameColumn]));
+                        return ((string)(this[this.tableCountBenefits.nameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'name\' na tabela \'Benefits_Received\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'name\' na tabela \'CountBenefits\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBenefits_Received.nameColumn] = value;
+                    this[this.tableCountBenefits.nameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PersonsRow PersonsRow {
+            public PersonRow PersonsRow {
                 get {
-                    return ((PersonsRow)(this.GetParentRow(this.Table.ParentRelations["FK__Benefits___perso__145C0A3F1"])));
+                    return ((PersonRow)(this.GetParentRow(this.Table.ParentRelations["FK__Benefits___perso__145C0A3F1"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK__Benefits___perso__145C0A3F1"]);
@@ -2621,37 +2621,37 @@ namespace Balance_Sheet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsdescriptionNull() {
-                return this.IsNull(this.tableBenefits_Received.descriptionColumn);
+                return this.IsNull(this.tableCountBenefits.descriptionColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetdescriptionNull() {
-                this[this.tableBenefits_Received.descriptionColumn] = global::System.Convert.DBNull;
+                this[this.tableCountBenefits.descriptionColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Iscount_benefitsNull() {
-                return this.IsNull(this.tableBenefits_Received.count_benefitsColumn);
+                return this.IsNull(this.tableCountBenefits.count_benefitsColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setcount_benefitsNull() {
-                this[this.tableBenefits_Received.count_benefitsColumn] = global::System.Convert.DBNull;
+                this[this.tableCountBenefits.count_benefitsColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsnameNull() {
-                return this.IsNull(this.tableBenefits_Received.nameColumn);
+                return this.IsNull(this.tableCountBenefits.nameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetnameNull() {
-                this[this.tableBenefits_Received.nameColumn] = global::System.Convert.DBNull;
+                this[this.tableCountBenefits.nameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2727,22 +2727,22 @@ namespace Balance_Sheet {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class PersonsRowChangeEvent : global::System.EventArgs {
+        public class PersonRowChangeEvent : global::System.EventArgs {
             
-            private PersonsRow eventRow;
+            private PersonRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PersonsRowChangeEvent(PersonsRow row, global::System.Data.DataRowAction action) {
+            public PersonRowChangeEvent(PersonRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PersonsRow Row {
+            public PersonRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -2761,22 +2761,22 @@ namespace Balance_Sheet {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class Benefits_ReceivedRowChangeEvent : global::System.EventArgs {
+        public class CountBenefitsRowChangeEvent : global::System.EventArgs {
             
-            private Benefits_ReceivedRow eventRow;
+            private CountBenefitsRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Benefits_ReceivedRowChangeEvent(Benefits_ReceivedRow row, global::System.Data.DataRowAction action) {
+            public CountBenefitsRowChangeEvent(CountBenefitsRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Benefits_ReceivedRow Row {
+            public CountBenefitsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3159,7 +3159,7 @@ ORDER BY Persons.address, Persons.name, Benefits_Received.description";
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class PersonsTableAdapter : global::System.ComponentModel.Component {
+    public partial class PersonTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -3173,7 +3173,7 @@ ORDER BY Persons.address, Persons.name, Benefits_Received.description";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public PersonsTableAdapter() {
+        public PersonTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -3270,7 +3270,7 @@ ORDER BY Persons.address, Persons.name, Benefits_Received.description";
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Persons";
+            tableMapping.DataSetTable = "Person";
             tableMapping.ColumnMappings.Add("Id", "Id");
             tableMapping.ColumnMappings.Add("name", "name");
             tableMapping.ColumnMappings.Add("CPF", "CPF");
@@ -3374,7 +3374,7 @@ SELECT Id, name, CPF, RG, address, number_address, phone, income, help, number_o
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(dtReport.PersonsDataTable dataTable, int id) {
+        public virtual int Fill(dtReport.PersonDataTable dataTable, int id) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id));
             if ((this.ClearBeforeFill == true)) {
@@ -3388,10 +3388,10 @@ SELECT Id, name, CPF, RG, address, number_address, phone, income, help, number_o
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual dtReport.PersonsDataTable GetData(int id) {
+        public virtual dtReport.PersonDataTable GetData(int id) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id));
-            dtReport.PersonsDataTable dataTable = new dtReport.PersonsDataTable();
+            dtReport.PersonDataTable dataTable = new dtReport.PersonDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3399,7 +3399,7 @@ SELECT Id, name, CPF, RG, address, number_address, phone, income, help, number_o
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(dtReport.PersonsDataTable dataTable) {
+        public virtual int Update(dtReport.PersonDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -3407,7 +3407,7 @@ SELECT Id, name, CPF, RG, address, number_address, phone, income, help, number_o
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(dtReport dataSet) {
-            return this.Adapter.Update(dataSet, "Persons");
+            return this.Adapter.Update(dataSet, "Person");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3782,7 +3782,7 @@ SELECT Id, name, CPF, RG, address, number_address, phone, income, help, number_o
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class Benefits_ReceivedTableAdapter : global::System.ComponentModel.Component {
+    public partial class CountBenefitsTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -3796,7 +3796,7 @@ SELECT Id, name, CPF, RG, address, number_address, phone, income, help, number_o
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public Benefits_ReceivedTableAdapter() {
+        public CountBenefitsTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -3893,7 +3893,7 @@ SELECT Id, name, CPF, RG, address, number_address, phone, income, help, number_o
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Benefits_Received";
+            tableMapping.DataSetTable = "CountBenefits";
             tableMapping.ColumnMappings.Add("description", "description");
             tableMapping.ColumnMappings.Add("person_id", "person_id");
             tableMapping.ColumnMappings.Add("count_benefits", "count_benefits");
@@ -3927,7 +3927,7 @@ ORDER BY Persons.name, Benefits_Received.description";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(dtReport.Benefits_ReceivedDataTable dataTable) {
+        public virtual int Fill(dtReport.CountBenefitsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -3940,9 +3940,9 @@ ORDER BY Persons.name, Benefits_Received.description";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual dtReport.Benefits_ReceivedDataTable GetData() {
+        public virtual dtReport.CountBenefitsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            dtReport.Benefits_ReceivedDataTable dataTable = new dtReport.Benefits_ReceivedDataTable();
+            dtReport.CountBenefitsDataTable dataTable = new dtReport.CountBenefitsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3960,7 +3960,7 @@ ORDER BY Persons.name, Benefits_Received.description";
         
         private UpdateOrderOption _updateOrder;
         
-        private PersonsTableAdapter _personsTableAdapter;
+        private PersonTableAdapter _personTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -3982,12 +3982,12 @@ ORDER BY Persons.name, Benefits_Received.description";
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public PersonsTableAdapter PersonsTableAdapter {
+        public PersonTableAdapter PersonTableAdapter {
             get {
-                return this._personsTableAdapter;
+                return this._personTableAdapter;
             }
             set {
-                this._personsTableAdapter = value;
+                this._personTableAdapter = value;
             }
         }
         
@@ -4010,9 +4010,9 @@ ORDER BY Persons.name, Benefits_Received.description";
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._personsTableAdapter != null) 
-                            && (this._personsTableAdapter.Connection != null))) {
-                    return this._personsTableAdapter.Connection;
+                if (((this._personTableAdapter != null) 
+                            && (this._personTableAdapter.Connection != null))) {
+                    return this._personTableAdapter.Connection;
                 }
                 return null;
             }
@@ -4027,7 +4027,7 @@ ORDER BY Persons.name, Benefits_Received.description";
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._personsTableAdapter != null)) {
+                if ((this._personTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -4041,12 +4041,12 @@ ORDER BY Persons.name, Benefits_Received.description";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateUpdatedRows(dtReport dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._personsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Persons.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._personTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Person.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._personsTableAdapter.Update(updatedRows));
+                    result = (result + this._personTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -4060,11 +4060,11 @@ ORDER BY Persons.name, Benefits_Received.description";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateInsertedRows(dtReport dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._personsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Persons.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._personTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Person.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._personsTableAdapter.Update(addedRows));
+                    result = (result + this._personTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -4078,11 +4078,11 @@ ORDER BY Persons.name, Benefits_Received.description";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateDeletedRows(dtReport dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._personsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Persons.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._personTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Person.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._personsTableAdapter.Update(deletedRows));
+                    result = (result + this._personTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -4125,8 +4125,8 @@ ORDER BY Persons.name, Benefits_Received.description";
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._personsTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._personsTableAdapter.Connection) == false))) {
+            if (((this._personTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._personTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Todos os TableAdapters gerenciados por um TableAdapterManager devem usar a mesma " +
                         "cadeia de conexão.");
             }
@@ -4162,13 +4162,13 @@ ORDER BY Persons.name, Benefits_Received.description";
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._personsTableAdapter != null)) {
-                    revertConnections.Add(this._personsTableAdapter, this._personsTableAdapter.Connection);
-                    this._personsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._personsTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._personsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._personsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._personsTableAdapter.Adapter);
+                if ((this._personTableAdapter != null)) {
+                    revertConnections.Add(this._personTableAdapter, this._personTableAdapter.Connection);
+                    this._personTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._personTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._personTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._personTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._personTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -4229,9 +4229,9 @@ ORDER BY Persons.name, Benefits_Received.description";
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._personsTableAdapter != null)) {
-                    this._personsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._personsTableAdapter]));
-                    this._personsTableAdapter.Transaction = null;
+                if ((this._personTableAdapter != null)) {
+                    this._personTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._personTableAdapter]));
+                    this._personTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

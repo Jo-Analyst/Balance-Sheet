@@ -12,15 +12,15 @@ namespace Balance_Sheet
             InitializeComponent();
         }
 
-        public FrmReportByPersonAndBenefits(DataTable dtPerson, DataTable dtCountBenefits)
+        public FrmReportByPersonAndBenefits(DataTable dtPersons, DataTable dtCountBenefits)
         {
             InitializeComponent();
 
             try
             {
                 reportViewer1.LocalReport.DataSources.Clear();
-                reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("dtBenefitsByPersonId", dtPerson)); 
-                reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("dtBenefitsReceived", dtCountBenefits));
+                reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("dtPersons", dtPersons)); 
+                //reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("dtBenefitsReceived", dtCountBenefits));
                 reportViewer1.LocalReport.SetParameters(ReportParameters.SetParametersReportHeader());
                 reportViewer1.RefreshReport();
             }

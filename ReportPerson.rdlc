@@ -60,11 +60,11 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>dtReport</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Aluno\Desktop\Proj\Balance-Sheet\dtReport.xsd</rd:SchemaPath>
-        <rd:TableName>Persons</rd:TableName>
+        <rd:SchemaPath>C:\Users\jojoc\OneDrive\Documentos\Meus projetos\balance-sheet\dtReport.xsd</rd:SchemaPath>
+        <rd:TableName>Person</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>PersonsTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>PersonTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
     <DataSet Name="dtBenefitsByPersonId">

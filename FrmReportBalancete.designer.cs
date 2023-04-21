@@ -150,7 +150,7 @@
             this.txtField.Name = "txtField";
             this.txtField.Size = new System.Drawing.Size(1046, 26);
             this.txtField.TabIndex = 8;
-            this.txtField.TextChanged += new System.EventHandler(this.txtField_TextChanged_1);
+            this.txtField.TextChanged += new System.EventHandler(this.txtField_TextChanged);
             // 
             // btnPrint
             // 

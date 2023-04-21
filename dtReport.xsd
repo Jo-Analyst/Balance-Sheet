@@ -60,7 +60,7 @@ ORDER BY Persons.address, Persons.name, Benefits_Received.description</CommandTe
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PersonsTableAdapter" GeneratorDataComponentClassName="PersonsTableAdapter" Name="Persons" UserDataComponentName="PersonsTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PersonTableAdapter" GeneratorDataComponentClassName="PersonTableAdapter" Name="Person" UserDataComponentName="PersonTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="jo-analyst\las.dbCRAS.dbo" DbObjectName="dbCRAS.dbo.Persons" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
@@ -165,7 +165,7 @@ SELECT Id, name, CPF, RG, address, number_address, phone, income, help, number_o
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Benefits_ReceivedTableAdapter" GeneratorDataComponentClassName="Benefits_ReceivedTableAdapter" Name="Benefits_Received" UserDataComponentName="Benefits_ReceivedTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CountBenefitsTableAdapter" GeneratorDataComponentClassName="CountBenefitsTableAdapter" Name="CountBenefits" UserDataComponentName="CountBenefitsTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="jo-analyst\las.dbCRAS.dbo" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
@@ -284,7 +284,7 @@ ORDER BY Persons.name, Benefits_Received.description</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Persons" msprop:Generator_RowEvHandlerName="PersonsRowChangeEventHandler" msprop:Generator_RowDeletedName="PersonsRowDeleted" msprop:Generator_RowDeletingName="PersonsRowDeleting" msprop:Generator_RowEvArgName="PersonsRowChangeEvent" msprop:Generator_TablePropName="Persons" msprop:Generator_RowChangedName="PersonsRowChanged" msprop:Generator_UserTableName="Persons" msprop:Generator_RowChangingName="PersonsRowChanging" msprop:Generator_RowClassName="PersonsRow" msprop:Generator_TableClassName="PersonsDataTable" msprop:Generator_TableVarName="tablePersons">
+        <xs:element name="Person" msprop:Generator_RowEvHandlerName="PersonRowChangeEventHandler" msprop:Generator_RowDeletedName="PersonRowDeleted" msprop:Generator_RowDeletingName="PersonRowDeleting" msprop:Generator_RowEvArgName="PersonRowChangeEvent" msprop:Generator_TablePropName="Person" msprop:Generator_RowChangedName="PersonRowChanged" msprop:Generator_UserTableName="Person" msprop:Generator_RowChangingName="PersonRowChanging" msprop:Generator_RowClassName="PersonRow" msprop:Generator_TableClassName="PersonDataTable" msprop:Generator_TableVarName="tablePerson">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_UserColumnName="Id" msprop:Generator_ColumnVarNameInTable="columnId" type="xs:int" />
@@ -336,19 +336,19 @@ ORDER BY Persons.name, Benefits_Received.description</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Benefits_Received" msprop:Generator_RowClassName="Benefits_ReceivedRow" msprop:Generator_RowEvHandlerName="Benefits_ReceivedRowChangeEventHandler" msprop:Generator_RowDeletedName="Benefits_ReceivedRowDeleted" msprop:Generator_RowDeletingName="Benefits_ReceivedRowDeleting" msprop:Generator_RowEvArgName="Benefits_ReceivedRowChangeEvent" msprop:Generator_TablePropName="Benefits_Received" msprop:Generator_RowChangedName="Benefits_ReceivedRowChanged" msprop:Generator_UserTableName="Benefits_Received" msprop:Generator_RowChangingName="Benefits_ReceivedRowChanging" msprop:Generator_TableClassName="Benefits_ReceivedDataTable" msprop:Generator_TableVarName="tableBenefits_Received">
+        <xs:element name="CountBenefits" msprop:Generator_RowEvHandlerName="CountBenefitsRowChangeEventHandler" msprop:Generator_RowDeletedName="CountBenefitsRowDeleted" msprop:Generator_RowDeletingName="CountBenefitsRowDeleting" msprop:Generator_RowEvArgName="CountBenefitsRowChangeEvent" msprop:Generator_TablePropName="CountBenefits" msprop:Generator_RowChangedName="CountBenefitsRowChanged" msprop:Generator_UserTableName="CountBenefits" msprop:Generator_RowChangingName="CountBenefitsRowChanging" msprop:Generator_RowClassName="CountBenefitsRow" msprop:Generator_TableClassName="CountBenefitsDataTable" msprop:Generator_TableVarName="tableCountBenefits">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="description" msprop:Generator_UserColumnName="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnVarNameInTable="columndescription" minOccurs="0">
+              <xs:element name="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_UserColumnName="description" msprop:Generator_ColumnVarNameInTable="columndescription" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="person_id" msprop:Generator_UserColumnName="person_id" msprop:Generator_ColumnPropNameInTable="person_idColumn" msprop:Generator_ColumnPropNameInRow="person_id" msprop:Generator_ColumnVarNameInTable="columnperson_id" type="xs:int" />
-              <xs:element name="count_benefits" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="count_benefits" msprop:Generator_ColumnPropNameInTable="count_benefitsColumn" msprop:Generator_ColumnVarNameInTable="columncount_benefits" msprop:Generator_UserColumnName="count_benefits" type="xs:int" minOccurs="0" />
-              <xs:element name="name" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_UserColumnName="name" minOccurs="0">
+              <xs:element name="person_id" msprop:Generator_ColumnPropNameInTable="person_idColumn" msprop:Generator_ColumnPropNameInRow="person_id" msprop:Generator_UserColumnName="person_id" msprop:Generator_ColumnVarNameInTable="columnperson_id" type="xs:int" />
+              <xs:element name="count_benefits" msdata:ReadOnly="true" msprop:Generator_UserColumnName="count_benefits" msprop:Generator_ColumnPropNameInTable="count_benefitsColumn" msprop:Generator_ColumnPropNameInRow="count_benefits" msprop:Generator_ColumnVarNameInTable="columncount_benefits" type="xs:int" minOccurs="0" />
+              <xs:element name="name" msprop:Generator_UserColumnName="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnVarNameInTable="columnname" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />
@@ -361,15 +361,15 @@ ORDER BY Persons.name, Benefits_Received.description</CommandText>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:Persons" />
+      <xs:selector xpath=".//mstns:Person" />
       <xs:field xpath="mstns:Id" />
     </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK__Benefits___perso__145C0A3F" msdata:parent="Persons" msdata:child="ReportBenefitsByPerson_Id" msdata:parentkey="Id" msdata:childkey="person_id" msprop:Generator_UserParentTable="Persons" msprop:Generator_UserChildTable="ReportBenefitsByPerson_Id" msprop:Generator_RelationVarName="relationFK__Benefits___perso__145C0A3F" msprop:Generator_ChildPropName="GetReportBenefitsByPerson_IdRows" msprop:Generator_UserRelationName="FK__Benefits___perso__145C0A3F" msprop:Generator_ParentPropName="PersonsRow" />
-      <msdata:Relationship name="FK__Benefits___perso__145C0A3F1" msdata:parent="Persons" msdata:child="Benefits_Received" msdata:parentkey="Id" msdata:childkey="person_id" msprop:Generator_UserParentTable="Persons" msprop:Generator_UserChildTable="Benefits_Received" msprop:Generator_RelationVarName="relationFK__Benefits___perso__145C0A3F1" msprop:Generator_ChildPropName="GetBenefits_ReceivedRows" msprop:Generator_UserRelationName="FK__Benefits___perso__145C0A3F1" msprop:Generator_ParentPropName="PersonsRow" />
-      <msdata:Relationship name="FK__Benefits___perso__145C0A3F2" msdata:parent="Persons" msdata:child="reportPersonAndBenefits" msdata:parentkey="Id" msdata:childkey="person_id" msprop:Generator_UserParentTable="Persons" msprop:Generator_UserChildTable="reportPersonAndBenefits" msprop:Generator_RelationVarName="relationFK__Benefits___perso__145C0A3F2" msprop:Generator_UserRelationName="FK__Benefits___perso__145C0A3F2" msprop:Generator_ChildPropName="GetreportPersonAndBenefitsRows" msprop:Generator_ParentPropName="PersonsRow" />
+      <msdata:Relationship name="FK__Benefits___perso__145C0A3F" msdata:parent="Person" msdata:child="ReportBenefitsByPerson_Id" msdata:parentkey="Id" msdata:childkey="person_id" msprop:Generator_UserParentTable="Person" msprop:Generator_UserChildTable="ReportBenefitsByPerson_Id" msprop:Generator_RelationVarName="relationFK__Benefits___perso__145C0A3F" msprop:Generator_ChildPropName="GetReportBenefitsByPerson_IdRows" msprop:Generator_ParentPropName="PersonRow" msprop:Generator_UserRelationName="FK__Benefits___perso__145C0A3F" />
+      <msdata:Relationship name="FK__Benefits___perso__145C0A3F1" msdata:parent="Person" msdata:child="CountBenefits" msdata:parentkey="Id" msdata:childkey="person_id" msprop:Generator_UserParentTable="Person" msprop:Generator_UserChildTable="CountBenefits" msprop:Generator_RelationVarName="relationFK__Benefits___perso__145C0A3F1" msprop:Generator_ChildPropName="GetCountBenefitsRows" msprop:Generator_ParentPropName="PersonsRow" msprop:Generator_UserRelationName="FK__Benefits___perso__145C0A3F1" />
+      <msdata:Relationship name="FK__Benefits___perso__145C0A3F2" msdata:parent="Person" msdata:child="reportPersonAndBenefits" msdata:parentkey="Id" msdata:childkey="person_id" msprop:Generator_UserParentTable="Person" msprop:Generator_UserChildTable="reportPersonAndBenefits" msprop:Generator_RelationVarName="relationFK__Benefits___perso__145C0A3F2" msprop:Generator_ChildPropName="GetreportPersonAndBenefitsRows" msprop:Generator_ParentPropName="PersonRow" msprop:Generator_UserRelationName="FK__Benefits___perso__145C0A3F2" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
