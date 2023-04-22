@@ -140,6 +140,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Utils\FormatterFields.cs" />
+    <Compile Include="Utils\LocalReportSubReport.cs" />
     <Compile Include="Utils\PrintLocalReport.cs" />
     <Compile Include="Utils\PrintRDLC.cs" />
     <Compile Include="Utils\ReportParameters.cs" />
@@ -189,6 +190,7 @@
     <EmbeddedResource Include="ReportCountBenefitsByDescription.rdlc" />
     <EmbeddedResource Include="ReportPerson.rdlc" />
     <EmbeddedResource Include="ReportPersonAndBenefits.rdlc" />
+    <EmbeddedResource Include="ReportTotalBenefits.rdlc" />
     <None Include="dtReport.xsc">
       <DependentUpon>dtReport.xsd</DependentUpon>
     </None>

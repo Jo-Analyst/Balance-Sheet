@@ -13,21 +13,6 @@ namespace Balance_Sheet
             InitializeComponent();
         }
 
-        void LocalReportSubReportProcessing(object sender, SubreportProcessingEventArgs e)
-        {
-            if(e.ReportPath == "ReportBenefits")
-            {
-                e.DataSources.Clear();
-                e.DataSources.Add(new ReportDataSource("dtBenefits", BenefitsReceived.FindByPersonId(int.Parse(e.Parameters["person_id"].Values[0]))));
-            }
-
-            if(e.ReportPath == "ReportCountBenefitsByDescription")
-            {
-                e.DataSources.Clear();
-                e.DataSources.Add(new ReportDataSource("dtCountBenefits", BenefitsReceived.CountBenefitsByPersonId(int.Parse(e.Parameters["person_id"].Values[0]))));
-            }
-        }
-
         DataTable dtPersons;
         public FrmReportByPersonAndBenefits(DataTable dtPersons)
         {
@@ -41,7 +26,7 @@ namespace Balance_Sheet
             try
             {
                 reportViewer1.LocalReport.DataSources.Clear();
-                reportViewer1.LocalReport.SubreportProcessing += new SubreportProcessingEventHandler(LocalReportSubReportProcessing);
+                reportViewer1.LocalReport.SubreportProcessing += new SubreportProcessingEventHandler(LocalReportSubReport.Processing);
                 reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("dtPersons", dtPersons));
                 //reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("dtBenefitsReceived", dtCountBenefits));
                 reportViewer1.LocalReport.SetParameters(ReportParameters.SetParametersReportHeader());
@@ -51,6 +36,7 @@ namespace Balance_Sheet
             {
                 throw;
             }
+
             this.reportViewer1.RefreshReport();
         }
     }

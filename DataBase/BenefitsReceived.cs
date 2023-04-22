@@ -88,12 +88,34 @@ namespace DataBase
             {
                 try
                 {
-                    //string sql = $"SELECT COUNT(description) as count_Benefits, description, person_id  FROM Benefits_Received WHERE person_id = {person_id} GROUP BY description, person_id ORDER BY description ASC";
                     string sql = "SELECT COUNT(Benefits_Received.description) AS count_benefits, Persons.name, Benefits_Received.description, Benefits_Received.person_id " +
                         "FROM Benefits_Received INNER JOIN Persons ON Persons.Id = Benefits_Received.person_id " +
                         $"WHERE(Benefits_Received.person_id = {person_id}) " +
                         "GROUP BY Persons.name, Benefits_Received.description, Benefits_Received.person_id " +
                         "ORDER BY Persons.name, Benefits_Received.description";
+                    connection.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+                    adapter.SelectCommand.CommandText = sql;
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    return dt;
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
+        
+        static public DataTable ShowTotalBenefits(int person_id)
+        {
+            using (SqlConnection connection = new SqlConnection(DbConnectionString.connectionString))
+            {
+                try
+                {
+                    string sql = $"SELECT COUNT(person_id) AS total_benefits, person_id FROM Benefits_Received " +
+                        $"WHERE person_id = {person_id}" +
+                        $"GROUP BY person_id";
                     connection.Open();
                     SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;

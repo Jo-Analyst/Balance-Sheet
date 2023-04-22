@@ -7,20 +7,6 @@ namespace Balance_Sheet
     internal class PrintLocalReport
     {
 
-        static private void LocalSubReportProcessing(object sender, SubreportProcessingEventArgs e)
-        {
-            if(e.ReportPath == "ReportBenefits")
-            {
-                e.DataSources.Clear();
-                e.DataSources.Add(new ReportDataSource("dtBenefits", BenefitsReceived.FindByPersonId(int.Parse(e.Parameters["person_id"].Values[0]))));
-            }
-            else if(e.ReportPath == "ReportCountBenefitsByDescription")
-            {
-                e.DataSources.Clear();
-                e.DataSources.Add(new ReportDataSource("dtCountBenefits", BenefitsReceived.CountBenefitsByPersonId(int.Parse(e.Parameters["person_id"].Values[0]))));
-            }
-        }
-
         static public void PrintReportDirectlyFromPrinter(DataTable dtPersonJoinBenefits , DataTable dt = null) 
         {            
             try
@@ -39,7 +25,7 @@ namespace Balance_Sheet
                     localReport.DataSources.Add(new ReportDataSource("dtBenefitsByPersonId", dtPersonJoinBenefits));
                 }
 
-                localReport.SubreportProcessing += new SubreportProcessingEventHandler(LocalSubReportProcessing);
+                localReport.SubreportProcessing += new SubreportProcessingEventHandler(LocalReportSubReport.Processing);
 
                 localReport.SetParameters(ReportParameters.SetParametersReportHeader());
 

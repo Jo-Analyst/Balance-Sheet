@@ -714,7 +714,7 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>[CPF]</Value>
+                                  <Value>=Fields!CPF.Value</Value>
                                   <Style>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Normal</FontWeight>
@@ -768,12 +768,14 @@
                                 <TextRun>
                                   <Value>RG: </Value>
                                   <Style>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
                                   <Value>=Fields!RG.Value</Value>
                                   <Style>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Normal</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -1073,12 +1075,14 @@
                                 <TextRun>
                                   <Value>B. Família: </Value>
                                   <Style>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
                                   <Value>=Fields!help.Value</Value>
                                   <Style>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Normal</FontWeight>
                                   </Style>
                                 </TextRun>

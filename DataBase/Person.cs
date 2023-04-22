@@ -144,7 +144,7 @@ namespace DataBase
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
-                    string sql = "SELECT * FROM Persons";
+                    string sql = "SELECT * FROM Persons ORDER BY name";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();
@@ -164,7 +164,7 @@ namespace DataBase
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
-                    string sql = $"SELECT * FROM Persons WHERE {column} LIKE '%{data}%'";
+                    string sql = $"SELECT * FROM Persons WHERE {column} LIKE '%{data}%'  ORDER BY name";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();
