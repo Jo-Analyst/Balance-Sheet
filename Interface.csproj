@@ -186,6 +186,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="ReportBenefits.rdlc" />
+    <EmbeddedResource Include="ReportCountBenefitsByDescription.rdlc" />
     <EmbeddedResource Include="ReportPerson.rdlc" />
     <EmbeddedResource Include="ReportPersonAndBenefits.rdlc" />
     <None Include="dtReport.xsc">

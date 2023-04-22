@@ -20,6 +20,12 @@ namespace Balance_Sheet
                 e.DataSources.Clear();
                 e.DataSources.Add(new ReportDataSource("dtBenefits", BenefitsReceived.FindByPersonId(int.Parse(e.Parameters["person_id"].Values[0]))));
             }
+
+            if(e.ReportPath == "ReportCountBenefitsByDescription")
+            {
+                e.DataSources.Clear();
+                e.DataSources.Add(new ReportDataSource("dtCountBenefits", BenefitsReceived.CountBenefitsByPersonId(int.Parse(e.Parameters["person_id"].Values[0]))));
+            }
         }
 
         DataTable dtPersons;
