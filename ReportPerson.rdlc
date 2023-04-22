@@ -276,10 +276,10 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>10.60917cm</Width>
+                  <Width>9.3233cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.32021cm</Width>
+                  <Width>5.24108cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -297,7 +297,9 @@
                                 <TextRun>
                                   <Value>Benefícios recebidos</Value>
                                   <Style>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
+                                    <Color>="White"</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -310,27 +312,29 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>1.5pt</Width>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>1pt</Width>
+                              <Width>1.5pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>1pt</Width>
+                              <Width>1.5pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>1pt</Width>
+                              <Width>1.5pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>1pt</Width>
+                              <Width>1.5pt</Width>
                             </RightBorder>
+                            <BackgroundColor>Green</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -350,7 +354,9 @@
                                 <TextRun>
                                   <Value>Data do benefício</Value>
                                   <Style>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
+                                    <Color>="White"</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -363,27 +369,29 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>1.5pt</Width>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>1pt</Width>
+                              <Width>1.5pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>1pt</Width>
+                              <Width>1.5pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>1pt</Width>
+                              <Width>1.5pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>1pt</Width>
+                              <Width>1.5pt</Width>
                             </RightBorder>
+                            <BackgroundColor>Green</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -407,7 +415,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!description.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontSize>12pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -419,26 +429,27 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>1.5pt</Width>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>1pt</Width>
+                              <Width>1.5pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>1pt</Width>
+                              <Width>1.5pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>1pt</Width>
+                              <Width>1.5pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>1pt</Width>
+                              <Width>1.5pt</Width>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -458,7 +469,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!date_benefit.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontSize>12pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -470,26 +483,27 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>1.5pt</Width>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>1pt</Width>
+                              <Width>1.5pt</Width>
                             </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>1pt</Width>
+                              <Width>1.5pt</Width>
                             </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>1pt</Width>
+                              <Width>1.5pt</Width>
                             </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
-                              <Width>1pt</Width>
+                              <Width>1.5pt</Width>
                             </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -520,10 +534,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>dtBenefitsByPersonId</DataSetName>
-            <Top>10.63446cm</Top>
-            <Left>1.5875cm</Left>
+            <Top>10.92578cm</Top>
+            <Left>1.58749cm</Left>
             <Height>1.2cm</Height>
-            <Width>13.92938cm</Width>
+            <Width>14.56438cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -535,13 +549,13 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>3.95521cm</Width>
+                  <Width>4.33621cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>4.98708cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.98708cm</Width>
+                  <Width>5.24108cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -559,7 +573,9 @@
                                 <TextRun>
                                   <Value>Dados do responsável</Value>
                                   <Style>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
+                                    <Color>="White"</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -593,7 +609,7 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
-                            <BackgroundColor>LightBlue</BackgroundColor>
+                            <BackgroundColor>Black</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -621,16 +637,21 @@
                                 <TextRun>
                                   <Value>Nome:</Value>
                                   <Style>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
                                   <Value xml:space="preserve"> </Value>
-                                  <Style />
+                                  <Style>
+                                    <FontSize>12pt</FontSize>
+                                  </Style>
                                 </TextRun>
                                 <TextRun>
                                   <Value>=Fields!name.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontSize>12pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -688,12 +709,14 @@
                                 <TextRun>
                                   <Value>CPF: </Value>
                                   <Style>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=Fields!CPF.Value</Value>
+                                  <Value>[CPF]</Value>
                                   <Style>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Normal</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -802,12 +825,14 @@
                                 <TextRun>
                                   <Value>Tel/Cel: </Value>
                                   <Style>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
                                   <Value>=Fields!phone.Value</Value>
                                   <Style>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Normal</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -864,12 +889,14 @@
                                 <TextRun>
                                   <Value>Endereço: </Value>
                                   <Style>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
                                   <Value>=Fields!address.Value</Value>
                                   <Style>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Normal</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -923,12 +950,14 @@
                                 <TextRun>
                                   <Value>Número: </Value>
                                   <Style>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
                                   <Value>=Fields!number_address.Value</Value>
                                   <Style>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Normal</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -985,12 +1014,14 @@
                                 <TextRun>
                                   <Value>Renda: </Value>
                                   <Style>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
                                   <Value>=Fields!income.Value</Value>
                                   <Style>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Normal</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -1099,12 +1130,14 @@
                                 <TextRun>
                                   <Value>N° Membros: </Value>
                                   <Style>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
                                   <Value>=Fields!number_of_members.Value</Value>
                                   <Style>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Normal</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -1147,6 +1180,66 @@
                     </TablixCell>
                   </TablixCells>
                 </TablixRow>
+                <TablixRow>
+                  <Height>0.6cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox5">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox5</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <ColSpan>3</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell />
+                    <TablixCell />
+                  </TablixCells>
+                </TablixRow>
               </TablixRows>
             </TablixBody>
             <TablixColumnHierarchy>
@@ -1168,6 +1261,7 @@
                     <TablixMember />
                     <TablixMember />
                     <TablixMember />
+                    <TablixMember />
                   </TablixMembers>
                 </TablixMember>
               </TablixMembers>
@@ -1175,8 +1269,8 @@
             <DataSetName>dtPersons</DataSetName>
             <Top>6.77016cm</Top>
             <Left>1.5875cm</Left>
-            <Height>3.55562cm</Height>
-            <Width>13.92937cm</Width>
+            <Height>4.15562cm</Height>
+            <Width>14.56437cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -1222,55 +1316,6 @@
     </ReportSection>
   </ReportSections>
   <ReportParameters>
-    <ReportParameter Name="name">
-      <DataType>String</DataType>
-      <Prompt>ReportParameter1</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="CPF">
-      <DataType>String</DataType>
-      <Nullable>true</Nullable>
-      <AllowBlank>true</AllowBlank>
-      <Prompt>ReportParameter1</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="RG">
-      <DataType>String</DataType>
-      <Nullable>true</Nullable>
-      <AllowBlank>true</AllowBlank>
-      <Prompt>ReportParameter1</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="address">
-      <DataType>String</DataType>
-      <Nullable>true</Nullable>
-      <AllowBlank>true</AllowBlank>
-      <Prompt>ReportParameter1</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="number">
-      <DataType>String</DataType>
-      <Nullable>true</Nullable>
-      <AllowBlank>true</AllowBlank>
-      <Prompt>ReportParameter1</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="phone">
-      <DataType>String</DataType>
-      <Nullable>true</Nullable>
-      <AllowBlank>true</AllowBlank>
-      <Prompt>ReportParameter1</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="income">
-      <DataType>Float</DataType>
-      <Nullable>true</Nullable>
-      <Prompt>ReportParameter1</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="help">
-      <DataType>Float</DataType>
-      <Nullable>true</Nullable>
-      <Prompt>ReportParameter1</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="number_of_members">
-      <DataType>Integer</DataType>
-      <Nullable>true</Nullable>
-      <Prompt>ReportParameter1</Prompt>
-    </ReportParameter>
     <ReportParameter Name="name_institution">
       <DataType>String</DataType>
       <Nullable>true</Nullable>
@@ -1329,51 +1374,6 @@
       <NumberOfColumns>4</NumberOfColumns>
       <NumberOfRows>5</NumberOfRows>
       <CellDefinitions>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>0</RowIndex>
-          <ParameterName>name</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
-          <RowIndex>0</RowIndex>
-          <ParameterName>CPF</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>2</ColumnIndex>
-          <RowIndex>0</RowIndex>
-          <ParameterName>RG</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>3</ColumnIndex>
-          <RowIndex>0</RowIndex>
-          <ParameterName>address</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>1</RowIndex>
-          <ParameterName>number</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
-          <RowIndex>1</RowIndex>
-          <ParameterName>phone</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>2</ColumnIndex>
-          <RowIndex>1</RowIndex>
-          <ParameterName>income</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>3</ColumnIndex>
-          <RowIndex>1</RowIndex>
-          <ParameterName>help</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>2</RowIndex>
-          <ParameterName>number_of_members</ParameterName>
-        </CellDefinition>
         <CellDefinition>
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>2</RowIndex>

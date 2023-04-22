@@ -365,6 +365,7 @@
                                   <Style>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
+                                    <Color>="White"</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -378,6 +379,7 @@
                             <Border>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>Black</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -878,6 +880,7 @@
                                   <Style>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
+                                    <Color>="White"</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -900,6 +903,7 @@
                             <RightBorder>
                               <Style>Solid</Style>
                             </RightBorder>
+                            <BackgroundColor>Green</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -924,6 +928,7 @@
                                   <Style>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
+                                    <Color>="White"</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -952,6 +957,7 @@
                               <Color>Black</Color>
                               <Width>1pt</Width>
                             </RightBorder>
+                            <BackgroundColor>Green</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1176,10 +1182,11 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>QUANTIDADE DOS BENFICÍOS RECEBIDOS</Value>
+                                  <Value>QUANTIDADE DE BENFICÍOS RECEBIDOS</Value>
                                   <Style>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
+                                    <Color>="White"</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1213,6 +1220,7 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
+                            <BackgroundColor>Green</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>

@@ -21,7 +21,6 @@ namespace Balance_Sheet
                 rpvPerson.LocalReport.DataSources.Clear();
                 rpvPerson.LocalReport.DataSources.Add(new ReportDataSource("dtBenefitsByPersonId", dtPersonJoinBenefits));
                 rpvPerson.LocalReport.DataSources.Add(new ReportDataSource("dtPersons", dtPerson));
-                rpvPerson.LocalReport.SetParameters(ReportParameters.SetParametersReport(dtPerson));
                 rpvPerson.LocalReport.SetParameters(ReportParameters.SetParametersReportHeader());
                 rpvPerson.RefreshReport();
             }

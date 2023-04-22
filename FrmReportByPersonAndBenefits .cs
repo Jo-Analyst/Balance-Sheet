@@ -29,7 +29,7 @@ namespace Balance_Sheet
         }
 
         DataTable dtPersons;
-        public FrmReportByPersonAndBenefits(DataTable dtPersons, DataTable dtCountBenefits)
+        public FrmReportByPersonAndBenefits(DataTable dtPersons)
         {
             InitializeComponent();
             this.dtPersons = dtPersons;

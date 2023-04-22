@@ -183,9 +183,9 @@ namespace Balance_Sheet
             try
             {
                 if (!Convert.ToBoolean(Settings.Default["print_directory_direct"]))
-                    new FrmReportByPersonAndBenefits(dtPersonsFiltered, dtCountBenefits).ShowDialog();
+                    new FrmReportByPersonAndBenefits(dtPersonsFiltered).ShowDialog();
                 else
-                    PrintLocalReport.PrintReportDirectlyFromPrinter(dtPersons, dtCountBenefits, true);
+                    PrintLocalReport.PrintReportDirectlyFromPrinter(dtPersonsFiltered);
             }
             catch
             {
