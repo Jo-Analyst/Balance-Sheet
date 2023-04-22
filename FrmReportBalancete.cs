@@ -22,7 +22,7 @@ namespace Balance_Sheet
         private void FrmReportBalancete_Load(object sender, EventArgs e)
         {
             CreateColumnsDtCountBenefits();
-            createColumnsdtPersons();
+            createColumnsdtPersonsFiltered();
             LoadDataPersonAndBenefits();
            
             btnPrint.Enabled = dgvPerson.Rows.Count > 0;
@@ -60,7 +60,7 @@ namespace Balance_Sheet
                     dgvPerson.Rows[index].Cells[8].Value = dr["number_of_members"].ToString();
                     dgvPerson.Rows[index].Cells[9].Value = dr["description"].ToString();
                     dgvPerson.Rows[index].Cells[10].Value = dr["date_benefit"].ToString();
-                    dgvPerson.Rows[index].Cells[11].Value = dr["person_id"].ToString();
+                    dgvPerson.Rows[index].Cells[11].Value = dr["Person_id"].ToString();
                     dgvPerson.Rows[index].Height = 35;
                 }
                 //Count_Benefits();
@@ -84,9 +84,10 @@ namespace Balance_Sheet
         }
 
         DataTable dtPersonsFiltered;
-        private void createColumnsdtPersons()
+        private void createColumnsdtPersonsFiltered()
         {
             dtPersonsFiltered = new DataTable();
+            dtPersonsFiltered.Columns.Add("id", typeof(int));
             dtPersonsFiltered.Columns.Add("name", typeof(string));
             dtPersonsFiltered.Columns.Add("CPF", typeof(string));
             dtPersonsFiltered.Columns.Add("RG", typeof(string));
@@ -127,7 +128,7 @@ namespace Balance_Sheet
         //        MessageBox.Show(ex.Message);
         //    }
         //}
-        
+
         private void FillDtPersonsFiltered()
         {
             dtPersonsFiltered.Rows.Clear();
@@ -141,7 +142,7 @@ namespace Balance_Sheet
                 {
                     if (lastIdTraveled != Convert.ToInt32(person["person_id"]))
                     {
-                        dtPersonsFiltered.Rows.Add(person["name"].ToString(), person["CPF"].ToString(), person["RG"].ToString(),person["address"].ToString(),person["number_address"].ToString(),person["phone"].ToString(),person["income"].ToString(),person["help"].ToString(),person["number_of_members"].ToString());
+                        dtPersonsFiltered.Rows.Add(person["person_id"].ToString(), person["name"].ToString(), person["CPF"].ToString(), person["RG"].ToString(), person["address"].ToString(), person["number_address"].ToString(), person["phone"].ToString(), person["income"].ToString(), person["help"].ToString(), person["number_of_members"].ToString());
                     }
 
                     lastIdTraveled = Convert.ToInt32(person["person_id"]);

@@ -39,13 +39,13 @@ namespace DataBase
             }
         }
 
-        public DataTable FindByPersonId(int person_id)
+        static public DataTable FindByPersonId(int person_id)
         {
             try
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
-                    string sql = $"SELECT * FROM Benefits_Received WHERE person_id = {person_id}";
+                    string sql = $"SELECT id, description, CONVERT(VARCHAR, date_benefit, 103) AS date_benefit, person_id FROM Benefits_Received WHERE person_id = {person_id}";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();

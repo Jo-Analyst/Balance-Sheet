@@ -45,7 +45,7 @@ namespace Balance_Sheet
 
         private void LoadBenefitsReceived()
         {
-            DataTable dtBenefitsReceived = benefitsReceived.FindByPersonId(person_id);
+            DataTable dtBenefitsReceived = BenefitsReceived.FindByPersonId(person_id);
             foreach (DataRow rowBenefitsReceived in dtBenefitsReceived.Rows)
             {
                 int index = dgvBenefitsReceived.Rows.Add();

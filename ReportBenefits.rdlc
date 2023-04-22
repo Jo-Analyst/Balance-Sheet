@@ -48,7 +48,7 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>3.41017cm</Width>
+                  <Width>5.89795cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -65,7 +65,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!date_benefit.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontSize>12pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -127,7 +129,7 @@
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>8.088cm</Size>
+                    <Size>10.73757cm</Size>
                     <CellContents>
                       <Textbox Name="description1">
                         <CanGrow>true</CanGrow>
@@ -137,7 +139,9 @@
                             <TextRuns>
                               <TextRun>
                                 <Value>=Fields!description.Value</Value>
-                                <Style />
+                                <Style>
+                                  <FontSize>12pt</FontSize>
+                                </Style>
                               </TextRun>
                             </TextRuns>
                             <Style />
@@ -174,6 +178,7 @@
                           <PaddingBottom>2pt</PaddingBottom>
                         </Style>
                       </Textbox>
+                      <rd:Selected>true</rd:Selected>
                     </CellContents>
                   </TablixHeader>
                   <TablixMembers>
@@ -196,7 +201,7 @@
             </TablixRowHierarchy>
             <DataSetName>dtBenefits</DataSetName>
             <Height>0.6cm</Height>
-            <Width>11.49817cm</Width>
+            <Width>16.63552cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -207,7 +212,7 @@
         <Height>0.23622in</Height>
         <Style />
       </Body>
-      <Width>4.52684in</Width>
+      <Width>6.54942in</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
