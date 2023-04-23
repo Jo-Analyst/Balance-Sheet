@@ -44,7 +44,10 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>4.83962cm</Width>
+                  <Width>16.50484cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>5.39219cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -53,7 +56,7 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="total_benefits">
+                        <Textbox Name="Textbox2">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -64,49 +67,44 @@
                                   <Style>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <Color>="White"</Color>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value xml:space="preserve"> </Value>
-                                  <Style>
-                                    <FontSize>12pt</FontSize>
-                                    <Color>="White"</Color>
                                   </Style>
                                 </TextRun>
                                 <TextRun>
                                   <Value>=Fields!total_benefits.Value</Value>
                                   <Style>
-                                    <FontSize>14pt</FontSize>
-                                    <FontWeight>Normal</FontWeight>
-                                    <Color>="White"</Color>
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>total_benefits</rd:DefaultName>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <BackgroundColor>CornflowerBlue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingRight>70pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <ColSpan>2</ColSpan>
                         <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell />
                   </TablixCells>
                 </TablixRow>
               </TablixRows>
             </TablixBody>
             <TablixColumnHierarchy>
               <TablixMembers>
+                <TablixMember />
                 <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
@@ -129,7 +127,7 @@
             </TablixRowHierarchy>
             <DataSetName>dtTotalBenefits</DataSetName>
             <Height>0.6cm</Height>
-            <Width>4.83962cm</Width>
+            <Width>21.89703cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -140,10 +138,10 @@
         <Height>0.23622in</Height>
         <Style />
       </Body>
-      <Width>1.90536in</Width>
+      <Width>8.62088in</Width>
       <Page>
-        <PageHeight>29.7cm</PageHeight>
-        <PageWidth>21cm</PageWidth>
+        <PageHeight>21cm</PageHeight>
+        <PageWidth>29.7cm</PageWidth>
         <LeftMargin>2cm</LeftMargin>
         <RightMargin>2cm</RightMargin>
         <TopMargin>2cm</TopMargin>
