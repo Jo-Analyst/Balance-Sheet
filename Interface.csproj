@@ -7,7 +7,7 @@
     <ProjectGuid>{983F7051-57CA-4B1D-A5DD-CBA37E601E77}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Balance_Sheet</RootNamespace>
-    <AssemblyName>Balance-Sheet</AssemblyName>
+    <AssemblyName>Balance_Sheet</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

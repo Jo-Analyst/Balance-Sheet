@@ -3,7 +3,7 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 
-namespace Possible_Benefits
+namespace Balance_Sheet
 {
     public partial class FrmPerson : Form
     {

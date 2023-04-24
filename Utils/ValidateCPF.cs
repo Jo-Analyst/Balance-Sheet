@@ -1,4 +1,4 @@
-﻿namespace Possible_Benefits
+﻿namespace Balance_Sheet
 {
     internal class ValidateCPF
     {

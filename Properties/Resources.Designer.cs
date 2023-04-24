@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Possible_Benefits.Properties {
+namespace Balance_Sheet.Properties {
     using System;
     
     

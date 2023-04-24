@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Possible_Benefits
+namespace Balance_Sheet
 {
     internal static class Program
     {

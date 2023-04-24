@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace Possible_Benefits {
+namespace Balance_Sheet {
     
     
     /// <summary>
@@ -3210,7 +3210,7 @@ namespace Possible_Benefits {
         }
     }
 }
-namespace Possible_Benefits.dtReportTableAdapters {
+namespace Balance_Sheet.dtReportTableAdapters {
     
     
     /// <summary>

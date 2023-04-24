@@ -1,7 +1,7 @@
 ﻿using Microsoft.Reporting.WinForms;
 using System.Data;
 
-namespace Possible_Benefits
+namespace Balance_Sheet
 {
     internal class PrintLocalReport
     {

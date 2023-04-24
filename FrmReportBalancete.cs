@@ -1,11 +1,11 @@
 ﻿using DataBase;
-using Possible_Benefits.Properties;
+using Balance_Sheet.Properties;
 using System;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Possible_Benefits
+namespace Balance_Sheet
 {
     public partial class FrmReportBalancete : Form
     {
