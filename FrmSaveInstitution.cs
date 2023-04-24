@@ -1,8 +1,8 @@
-﻿using Balance_Sheet.Properties;
+﻿using Possible_Benefits.Properties;
 using System;
 using System.Windows.Forms;
 
-namespace Balance_Sheet
+namespace Possible_Benefits
 {
     public partial class FrmSaveInstitution : Form
     {
@@ -104,7 +104,7 @@ namespace Balance_Sheet
 
         private void FrmSaveInstitution_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter) 
+            if (e.KeyCode == Keys.Enter)
                 btnSave_Click(sender, e);
         }
     }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Balance_Sheet.Properties {
+namespace Possible_Benefits.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

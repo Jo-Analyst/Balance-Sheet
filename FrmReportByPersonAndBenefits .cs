@@ -1,10 +1,9 @@
-﻿using DataBase;
-using Microsoft.Reporting.WinForms;
+﻿using Microsoft.Reporting.WinForms;
 using System;
 using System.Data;
 using System.Windows.Forms;
 
-namespace Balance_Sheet
+namespace Possible_Benefits
 {
     public partial class FrmReportByPersonAndBenefits : Form
     {
@@ -18,7 +17,7 @@ namespace Balance_Sheet
         {
             InitializeComponent();
             this.dtPersons = dtPersons;
-            
+
         }
 
         private void FrmReportByPersonAndBenefits_Load(object sender, EventArgs e)

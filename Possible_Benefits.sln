@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interface", "Interface.cspr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBase", "DataBase\DataBase.csproj", "{0796EDB6-DD52-43DD-8F18-E18372081871}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Possible_Benefits", "..\Possible_Benefits\Possible_Benefits.vdproj", "{6530F159-59A9-4FCF-B029-81F7743C4BC5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,12 @@ Global
 		{0796EDB6-DD52-43DD-8F18-E18372081871}.Release|x64.Build.0 = Release|Any CPU
 		{0796EDB6-DD52-43DD-8F18-E18372081871}.Release|x86.ActiveCfg = Release|Any CPU
 		{0796EDB6-DD52-43DD-8F18-E18372081871}.Release|x86.Build.0 = Release|Any CPU
+		{6530F159-59A9-4FCF-B029-81F7743C4BC5}.Debug|Any CPU.ActiveCfg = Debug
+		{6530F159-59A9-4FCF-B029-81F7743C4BC5}.Debug|x64.ActiveCfg = Debug
+		{6530F159-59A9-4FCF-B029-81F7743C4BC5}.Debug|x86.ActiveCfg = Debug
+		{6530F159-59A9-4FCF-B029-81F7743C4BC5}.Release|Any CPU.ActiveCfg = Release
+		{6530F159-59A9-4FCF-B029-81F7743C4BC5}.Release|x64.ActiveCfg = Release
+		{6530F159-59A9-4FCF-B029-81F7743C4BC5}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

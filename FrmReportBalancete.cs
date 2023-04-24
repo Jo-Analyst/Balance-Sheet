@@ -1,12 +1,11 @@
-﻿using Balance_Sheet.Properties;
-using DataBase;
-using Microsoft.Reporting.WinForms;
+﻿using DataBase;
+using Possible_Benefits.Properties;
 using System;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Balance_Sheet
+namespace Possible_Benefits
 {
     public partial class FrmReportBalancete : Form
     {
@@ -24,7 +23,7 @@ namespace Balance_Sheet
             CreateColumnsDtCountBenefits();
             createColumnsdtPersonsFiltered();
             LoadDataPersonAndBenefits();
-           
+
             btnPrint.Enabled = dgvPerson.Rows.Count > 0;
             if (!bool.Parse(Settings.Default["print_directory_direct"].ToString()))
             {
@@ -35,7 +34,7 @@ namespace Balance_Sheet
         }
 
         DataTable dtPersons;
-       
+
         private void LoadDataPersonAndBenefits()
         {
             try
@@ -74,7 +73,7 @@ namespace Balance_Sheet
         }
 
         DataTable dtCountBenefits;
-        
+
         private void CreateColumnsDtCountBenefits()
         {
             dtCountBenefits = new DataTable();
@@ -136,8 +135,6 @@ namespace Balance_Sheet
 
             try
             {
-                DataTable dt;
-
                 foreach (DataRow person in dtPersons.Rows)
                 {
                     if (lastIdTraveled != Convert.ToInt32(person["person_id"]))

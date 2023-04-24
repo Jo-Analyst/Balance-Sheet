@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace Balance_Sheet
+namespace Possible_Benefits
 {
     partial class FrmBalanceSheet
     {

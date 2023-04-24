@@ -1,8 +1,7 @@
 ﻿using Microsoft.Reporting.WinForms;
-using System.Data;
-using Balance_Sheet.Properties;
+using Possible_Benefits.Properties;
 
-namespace Balance_Sheet
+namespace Possible_Benefits
 {
     public class ReportParameters
     {

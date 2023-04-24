@@ -1,8 +1,8 @@
-﻿using Balance_Sheet.Properties;
+﻿using Possible_Benefits.Properties;
 using System;
 using System.Windows.Forms;
 
-namespace Balance_Sheet
+namespace Possible_Benefits
 {
     public partial class FrmSetting : Form
     {

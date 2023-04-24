@@ -1,12 +1,10 @@
-﻿using Balance_Sheet.Properties;
-using DataBase;
-using Microsoft.Reporting.WinForms;
+﻿using DataBase;
+using Possible_Benefits.Properties;
 using System;
 using System.Data;
-using System.Drawing;
 using System.Windows.Forms;
 
-namespace Balance_Sheet
+namespace Possible_Benefits
 {
     public partial class FrmSavePerson : Form
     {
@@ -455,7 +453,7 @@ namespace Balance_Sheet
         private void FrmSavePerson_Load(object sender, EventArgs e)
         {
             if (!bool.Parse(Settings.Default["print_directory_direct"].ToString()))
-            { 
+            {
                 btnPrint.Text = "Visualizar e imprimir";
             }
 

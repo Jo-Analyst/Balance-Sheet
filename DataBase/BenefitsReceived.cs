@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Reflection;
-using System.Text.RegularExpressions;
-using System.Xml.Linq;
 
 namespace DataBase
 {
@@ -106,7 +103,7 @@ namespace DataBase
                 }
             }
         }
-        
+
         static public DataTable ShowTotalBenefits(int person_id)
         {
             using (SqlConnection connection = new SqlConnection(DbConnectionString.connectionString))

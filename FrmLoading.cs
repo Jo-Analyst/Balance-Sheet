@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace Balance_Sheet
+namespace Possible_Benefits
 {
     public partial class FrmLoading : Form
     {
