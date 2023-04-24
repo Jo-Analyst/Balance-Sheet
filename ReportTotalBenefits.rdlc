@@ -60,30 +60,16 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Total B.:</Value>
-                                  <Style>
-                                    <FontSize>12pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Color>="White"</Color>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value xml:space="preserve"> </Value>
-                                  <Style>
-                                    <FontSize>12pt</FontSize>
-                                    <Color>="White"</Color>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
                                   <Value>=Fields!total_benefits.Value</Value>
                                   <Style>
                                     <FontSize>14pt</FontSize>
                                     <FontWeight>Normal</FontWeight>
-                                    <Color>="White"</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>total_benefits</rd:DefaultName>
@@ -91,14 +77,12 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <BackgroundColor>CornflowerBlue</BackgroundColor>
-                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingLeft>74pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>

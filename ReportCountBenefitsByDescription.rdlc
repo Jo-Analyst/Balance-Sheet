@@ -52,10 +52,10 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>4.83962cm</Width>
+                  <Width>16.57202cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>19.17553cm</Width>
+                  <Width>7.44313cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -64,14 +64,14 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="count_benefits">
+                        <Textbox Name="description1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!count_benefits.Value</Value>
+                                  <Value>=Fields!description.Value</Value>
                                   <Style>
                                     <FontSize>12pt</FontSize>
                                   </Style>
@@ -82,7 +82,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>count_benefits</rd:DefaultName>
+                          <rd:DefaultName>description1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -117,14 +117,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="description">
+                        <Textbox Name="count_benefits">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!description.Value</Value>
+                                  <Value>=Fields!count_benefits.Value</Value>
                                   <Style>
                                     <FontSize>12pt</FontSize>
                                   </Style>
@@ -135,7 +135,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>description</rd:DefaultName>
+                          <rd:DefaultName>count_benefits</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -149,7 +149,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
