@@ -1250,7 +1250,7 @@
             </TablixRowHierarchy>
             <DataSetName>dtPersons</DataSetName>
             <Top>6.85688cm</Top>
-            <Left>1.00441cm</Left>
+            <Left>0.30767cm</Left>
             <Height>8.48467cm</Height>
             <Width>15.59482cm</Width>
             <ZIndex>1</ZIndex>
@@ -1265,7 +1265,7 @@
             <Value>lOGOMARCACRAS</Value>
             <Sizing>Fit</Sizing>
             <Top>0.75171cm</Top>
-            <Left>6.57456cm</Left>
+            <Left>6.57457cm</Left>
             <Height>2.16146cm</Height>
             <Width>3.06104cm</Width>
             <ZIndex>2</ZIndex>
