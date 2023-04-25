@@ -48,7 +48,7 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>6.91395cm</Width>
+                  <Width>6.15195cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -131,7 +131,7 @@
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>9.2559cm</Size>
+                    <Size>10.07082cm</Size>
                     <CellContents>
                       <Textbox Name="description1">
                         <CanGrow>true</CanGrow>
@@ -204,7 +204,7 @@
             </TablixRowHierarchy>
             <DataSetName>dtBenefits</DataSetName>
             <Height>0.6cm</Height>
-            <Width>16.16985cm</Width>
+            <Width>16.22277cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -215,7 +215,7 @@
         <Height>0.23622in</Height>
         <Style />
       </Body>
-      <Width>6.36608in</Width>
+      <Width>6.38692in</Width>
       <Page>
         <PageHeight>21cm</PageHeight>
         <PageWidth>29.7cm</PageWidth>

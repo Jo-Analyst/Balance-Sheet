@@ -44,7 +44,7 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>4.92428cm</Width>
+                  <Width>6.15195cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -77,7 +77,7 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <PaddingLeft>58pt</PaddingLeft>
+                            <PaddingLeft>3pt</PaddingLeft>
                             <PaddingRight>3pt</PaddingRight>
                             <PaddingTop>3pt</PaddingTop>
                             <PaddingBottom>3pt</PaddingBottom>
@@ -113,7 +113,7 @@
             </TablixRowHierarchy>
             <DataSetName>dtTotalBenefits</DataSetName>
             <Height>0.6cm</Height>
-            <Width>4.92428cm</Width>
+            <Width>6.15195cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -124,7 +124,7 @@
         <Height>0.23622in</Height>
         <Style />
       </Body>
-      <Width>1.93869in</Width>
+      <Width>2.42203in</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
