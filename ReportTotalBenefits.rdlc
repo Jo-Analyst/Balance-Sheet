@@ -44,7 +44,7 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>4.83962cm</Width>
+                  <Width>4.92428cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -62,7 +62,7 @@
                                 <TextRun>
                                   <Value>=Fields!total_benefits.Value</Value>
                                   <Style>
-                                    <FontSize>14pt</FontSize>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Normal</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -77,10 +77,10 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <PaddingLeft>74pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>4pt</PaddingTop>
-                            <PaddingBottom>4pt</PaddingBottom>
+                            <PaddingLeft>58pt</PaddingLeft>
+                            <PaddingRight>3pt</PaddingRight>
+                            <PaddingTop>3pt</PaddingTop>
+                            <PaddingBottom>3pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -113,7 +113,7 @@
             </TablixRowHierarchy>
             <DataSetName>dtTotalBenefits</DataSetName>
             <Height>0.6cm</Height>
-            <Width>4.83962cm</Width>
+            <Width>4.92428cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -124,7 +124,7 @@
         <Height>0.23622in</Height>
         <Style />
       </Body>
-      <Width>1.90536in</Width>
+      <Width>1.93869in</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>

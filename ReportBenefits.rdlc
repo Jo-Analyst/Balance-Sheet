@@ -48,7 +48,7 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>7.46428cm</Width>
+                  <Width>6.91395cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -100,10 +100,10 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
-                            <PaddingLeft>6pt</PaddingLeft>
-                            <PaddingRight>6pt</PaddingRight>
-                            <PaddingTop>6pt</PaddingTop>
-                            <PaddingBottom>6pt</PaddingBottom>
+                            <PaddingLeft>3pt</PaddingLeft>
+                            <PaddingRight>3pt</PaddingRight>
+                            <PaddingTop>3pt</PaddingTop>
+                            <PaddingBottom>3pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -131,7 +131,7 @@
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>16.5584cm</Size>
+                    <Size>9.2559cm</Size>
                     <CellContents>
                       <Textbox Name="description1">
                         <CanGrow>true</CanGrow>
@@ -176,13 +176,12 @@
                             <Style>Solid</Style>
                             <Width>1pt</Width>
                           </RightBorder>
-                          <PaddingLeft>4pt</PaddingLeft>
-                          <PaddingRight>4pt</PaddingRight>
-                          <PaddingTop>4pt</PaddingTop>
-                          <PaddingBottom>4pt</PaddingBottom>
+                          <PaddingLeft>3pt</PaddingLeft>
+                          <PaddingRight>3pt</PaddingRight>
+                          <PaddingTop>3pt</PaddingTop>
+                          <PaddingBottom>3pt</PaddingBottom>
                         </Style>
                       </Textbox>
-                      <rd:Selected>true</rd:Selected>
                     </CellContents>
                   </TablixHeader>
                   <TablixMembers>
@@ -205,7 +204,7 @@
             </TablixRowHierarchy>
             <DataSetName>dtBenefits</DataSetName>
             <Height>0.6cm</Height>
-            <Width>24.02268cm</Width>
+            <Width>16.16985cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -216,7 +215,7 @@
         <Height>0.23622in</Height>
         <Style />
       </Body>
-      <Width>9.45775in</Width>
+      <Width>6.36608in</Width>
       <Page>
         <PageHeight>21cm</PageHeight>
         <PageWidth>29.7cm</PageWidth>

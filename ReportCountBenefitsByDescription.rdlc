@@ -52,10 +52,10 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>16.57202cm</Width>
+                  <Width>9.1924cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>7.44313cm</Width>
+                  <Width>6.93513cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -107,10 +107,10 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
-                            <PaddingLeft>4pt</PaddingLeft>
-                            <PaddingRight>4pt</PaddingRight>
-                            <PaddingTop>4pt</PaddingTop>
-                            <PaddingBottom>4pt</PaddingBottom>
+                            <PaddingLeft>3pt</PaddingLeft>
+                            <PaddingRight>3pt</PaddingRight>
+                            <PaddingTop>3pt</PaddingTop>
+                            <PaddingBottom>3pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -143,10 +143,10 @@
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
-                            <PaddingLeft>4pt</PaddingLeft>
-                            <PaddingRight>4pt</PaddingRight>
-                            <PaddingTop>4pt</PaddingTop>
-                            <PaddingBottom>4pt</PaddingBottom>
+                            <PaddingLeft>3pt</PaddingLeft>
+                            <PaddingRight>3pt</PaddingRight>
+                            <PaddingTop>3pt</PaddingTop>
+                            <PaddingBottom>3pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -180,7 +180,7 @@
             </TablixRowHierarchy>
             <DataSetName>dtCountBenefits</DataSetName>
             <Height>0.6cm</Height>
-            <Width>24.01515cm</Width>
+            <Width>16.12753cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -191,7 +191,7 @@
         <Height>0.23622in</Height>
         <Style />
       </Body>
-      <Width>9.45478in</Width>
+      <Width>6.34942in</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
