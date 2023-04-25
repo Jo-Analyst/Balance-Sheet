@@ -3344,7 +3344,7 @@ namespace Balance_Sheet.dtReportTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=LOCALHOST\\LAS;Initial Catalog=dbCRAS;Integrated Security=True";
+            this._connection.ConnectionString = "Data Source=LOCALHOST\\SQLEXPRESS;Initial Catalog=dbCRAS;Integrated Security=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3526,7 +3526,7 @@ namespace Balance_Sheet.dtReportTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=LOCALHOST\\LAS;Initial Catalog=dbCRAS;Integrated Security=True";
+            this._connection.ConnectionString = "Data Source=LOCALHOST\\SQLEXPRESS;Initial Catalog=dbCRAS;Integrated Security=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3773,7 +3773,7 @@ SELECT Id, name, CPF, RG, address, number_address, phone, income, help, number_o
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=LOCALHOST\\LAS;Initial Catalog=dbCRAS;Integrated Security=True";
+            this._connection.ConnectionString = "Data Source=LOCALHOST\\SQLEXPRESS;Initial Catalog=dbCRAS;Integrated Security=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4323,7 +4323,7 @@ SELECT Id, name, CPF, RG, address, number_address, phone, income, help, number_o
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=LOCALHOST\\LAS;Initial Catalog=dbCRAS;Integrated Security=True";
+            this._connection.ConnectionString = "Data Source=LOCALHOST\\SQLEXPRESS;Initial Catalog=dbCRAS;Integrated Security=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4496,7 +4496,7 @@ ORDER BY Persons.name, Benefits_Received.description";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=LOCALHOST\\LAS;Initial Catalog=dbCRAS;Integrated Security=True";
+            this._connection.ConnectionString = "Data Source=LOCALHOST\\SQLEXPRESS;Initial Catalog=dbCRAS;Integrated Security=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

@@ -10,7 +10,7 @@ namespace DataBase
 
             using (SqlConnection connection = new SqlConnection(DbConnectionString.connectionStringMaster))
             {
-                SqlCommand comando = new SqlCommand("Select * from Sys.Databases where name = 'dbCRAS'", connection);
+                SqlCommand comando = new SqlCommand("SELECT * FROM Sys.Databases WHERE name = 'dbCRAS'", connection);
                 try
                 {
                     connection.Open();
