@@ -6,7 +6,7 @@ namespace DataBase
     {
         public void GenerateBackup(string path)
         {
-            using (SqlConnection connection = new SqlConnection(DbConnectionString.connectionString))
+            using (SqlConnection connection = new SqlConnection(DbConnectionString.connectionStringMaster))
             {
                 string sql = $"BACKUP DATABASE dbCras TO DISK = '{path}'";
                 SqlCommand command = new SqlCommand(sql, connection);

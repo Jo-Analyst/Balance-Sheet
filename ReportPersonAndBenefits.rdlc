@@ -732,6 +732,13 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
+                                  <Value>R$ </Value>
+                                  <Style>
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
                                   <Value>=Fields!help.Value</Value>
                                   <Style>
                                     <FontSize>12pt</FontSize>
