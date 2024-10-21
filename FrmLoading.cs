@@ -31,8 +31,9 @@ namespace Balance_Sheet
 
                     new FrmBalanceSheet().ShowDialog();
                 }
-                catch
+                catch(Exception ex)
                 {
+                    MessageBox.Show(ex.ToString());
                     MessageBox.Show("Houve um problema no servidor. Tente novamente. Caso o erro persista contate o suporte.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Application.Exit();
                 }

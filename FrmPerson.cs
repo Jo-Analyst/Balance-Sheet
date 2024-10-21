@@ -47,16 +47,17 @@ namespace Balance_Sheet
                     int index = dgvPerson.Rows.Add();
                     dgvPerson.Rows[index].Cells[0].Value = Properties.Resources.Custom_Icon_Design_Flatastic_1_Edit_24;
                     dgvPerson.Rows[index].Cells[1].Value = Properties.Resources.trash_24_icon;
-                    dgvPerson.Rows[index].Cells[2].Value = dr["id"].ToString();
-                    dgvPerson.Rows[index].Cells[3].Value = dr["name"].ToString();
-                    dgvPerson.Rows[index].Cells[4].Value = dr["CPF"].ToString();
-                    dgvPerson.Rows[index].Cells[5].Value = dr["RG"].ToString();
-                    dgvPerson.Rows[index].Cells[6].Value = dr["address"].ToString();
-                    dgvPerson.Rows[index].Cells[7].Value = dr["number_address"].ToString();
-                    dgvPerson.Rows[index].Cells[8].Value = dr["phone"].ToString();
-                    dgvPerson.Rows[index].Cells[9].Value = $"R$ {dr["income"]}";
-                    dgvPerson.Rows[index].Cells[10].Value = $"R$ {dr["help"]}";
-                    dgvPerson.Rows[index].Cells[11].Value = dr["number_of_members"].ToString();
+                    dgvPerson.Rows[index].Cells["ColId"].Value = dr["id"].ToString();
+                    dgvPerson.Rows[index].Cells["ColName"].Value = dr["name"].ToString();
+                    dgvPerson.Rows[index].Cells["ColCPF"].Value = dr["CPF"].ToString();
+                    dgvPerson.Rows[index].Cells["ColRG"].Value = dr["RG"].ToString();
+                    dgvPerson.Rows[index].Cells["ColAddress"].Value = dr["address"].ToString();
+                    dgvPerson.Rows[index].Cells["ColNumberAddress"].Value = dr["number_address"].ToString();
+                    dgvPerson.Rows[index].Cells["ColPhone"].Value = dr["phone"].ToString();
+                    dgvPerson.Rows[index].Cells["ColIncome"].Value = $"R$ {dr["income"]}";
+                    dgvPerson.Rows[index].Cells["ColHelp"].Value = $"R$ {dr["help"]}";
+                    dgvPerson.Rows[index].Cells["ColNumberOfMembers"].Value = dr["number_of_members"].ToString();
+                    dgvPerson.Rows[index].Cells["ColBirth"].Value = dr["birth"].ToString();
                     dgvPerson.Rows[index].Height = 35;
                 }
 
@@ -70,7 +71,16 @@ namespace Balance_Sheet
 
         private void EditPerson()
         {
-            var savePerson = new FrmSavePerson(int.Parse(dgvPerson.CurrentRow.Cells[2].Value.ToString()), dgvPerson.CurrentRow.Cells[3].Value.ToString(), dgvPerson.CurrentRow.Cells[4].Value.ToString(), dgvPerson.CurrentRow.Cells[5].Value.ToString(), dgvPerson.CurrentRow.Cells[6].Value.ToString(), dgvPerson.CurrentRow.Cells[7].Value.ToString(), dgvPerson.CurrentRow.Cells[8].Value.ToString(), decimal.Parse(dgvPerson.CurrentRow.Cells[9].Value.ToString().Substring(2)), decimal.Parse(dgvPerson.CurrentRow.Cells[10].Value.ToString().Substring(2)), int.Parse(dgvPerson.CurrentRow.Cells[11].Value.ToString()));
+            var savePerson = new FrmSavePerson(int.Parse(dgvPerson.CurrentRow.Cells["ColId"].Value.ToString()),
+             dgvPerson.CurrentRow.Cells["ColName"].Value.ToString(),
+             dgvPerson.CurrentRow.Cells["ColCPF"].Value.ToString(),
+             dgvPerson.CurrentRow.Cells["ColRG"].Value.ToString(),
+             dgvPerson.CurrentRow.Cells["ColAddress"].Value.ToString(),
+             dgvPerson.CurrentRow.Cells["ColNumberAddress"].Value.ToString(),
+             dgvPerson.CurrentRow.Cells["ColPhone"].Value.ToString(),
+            decimal.Parse(dgvPerson.CurrentRow.Cells["ColIncome"].Value.ToString().Substring(2)),
+             decimal.Parse(dgvPerson.CurrentRow.Cells["ColHelp"].Value.ToString().Substring(2)),
+            int.Parse(dgvPerson.CurrentRow.Cells["ColNumberOfMembers"].Value.ToString()), dgvPerson.CurrentRow.Cells["ColBirth"].Value.ToString());
             savePerson.ShowDialog();
 
             personId = 0;

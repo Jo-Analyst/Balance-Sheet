@@ -20,7 +20,7 @@ namespace Balance_Sheet
         {
             InitializeComponent();
         }
-        public FrmSavePerson(int id, string name, string CPF, string RG, string address, string number_adress, string phone, decimal income, decimal help, int number_of_members, bool isEditicion = true)
+        public FrmSavePerson(int id, string name, string CPF, string RG, string address, string number_adress, string phone, decimal income, decimal help, int number_of_members, String birth, bool isEditicion = true)
         {
             InitializeComponent();
 
@@ -33,6 +33,7 @@ namespace Balance_Sheet
             mkPhone.Text = phone;
             txtIncome.Text = income.ToString();
             txtHelp.Text = help.ToString();
+            dtBirth.Text = birth.ToString();
             ndNumberOfMembers.Value = number_of_members;
             this.isEdition = isEditicion;
             LoadBenefitsReceived();
@@ -372,6 +373,7 @@ namespace Balance_Sheet
                 person.RG = txtRG.Text.Trim();
                 person.address = txtAddress.Text.Trim();
                 person.numberOfMembers = int.Parse(ndNumberOfMembers.Value.ToString());
+                person.birth = dtBirth.Text;
                 person.phone = mkPhone.MaskCompleted ? mkPhone.Text.Trim() : string.Empty;
                 person.income = string.IsNullOrWhiteSpace(txtIncome.Text) ? 0 : decimal.Parse(txtIncome.Text.Trim());
                 person.help = string.IsNullOrWhiteSpace(txtHelp.Text) ? 0 : decimal.Parse(txtHelp.Text.Trim());

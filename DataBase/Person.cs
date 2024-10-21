@@ -10,6 +10,7 @@ namespace DataBase
         public string name { get; set; }
         public string CPF { get; set; }
         public string RG { get; set; }
+        public string birth { get; set; }
         public string address { get; set; }
         public string numberAddress { get; set; }
         public string phone { get; set; }
@@ -24,8 +25,8 @@ namespace DataBase
                 using (SqlConnection connection = new SqlConnection(DbConnectionString.connectionString))
                 {
                     string sql = id == 0
-                        ? "INSERT INTO Persons (name, CPF, RG, address, number_address, phone, income, help, number_of_members) VALUES (@name, @CPF, @RG, @address, @number_address, @phone, @income, @help, @number_of_members); SELECT @@identity"
-                        : "UPDATE Persons SET name = @name, CPF = @CPF, RG = @RG, address = @address, number_address = @number_address, phone = @phone, income = @income, help = @help, number_of_members = @number_of_members WHERE id = @id";
+                        ? "INSERT INTO Persons (name, CPF, RG, address, number_address, phone, income, help, number_of_members, birth) VALUES (@name, @CPF, @RG, @address, @number_address, @phone, @income, @help, @number_of_members, @birth); SELECT @@identity"
+                        : "UPDATE Persons SET name = @name, CPF = @CPF, RG = @RG, address = @address, number_address = @number_address, phone = @phone, income = @income, help = @help, number_of_members = @number_of_members, birth = @birth WHERE id = @id";
 
                     connection.Open();
                     SqlCommand command = new SqlCommand(sql, connection);
@@ -33,6 +34,7 @@ namespace DataBase
                     command.Parameters.AddWithValue("@name", name);
                     command.Parameters.AddWithValue("@CPF", CPF);
                     command.Parameters.AddWithValue("@RG", RG);
+                    command.Parameters.AddWithValue("@birth", birth);
                     command.Parameters.AddWithValue("@address", address);
                     command.Parameters.AddWithValue("@number_address", numberAddress);
                     command.Parameters.AddWithValue("@phone", phone);
@@ -184,7 +186,7 @@ namespace DataBase
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
-                    string sql = $"SELECT persons.name, Persons.CPF, Persons.RG, Persons.address, Persons.number_address, Persons.phone, Persons.income, Persons.help, Persons.number_of_members, Benefits_Received.description, Convert(VARCHAR, Benefits_Received.date_benefit, 103) AS date_benefit , Benefits_Received.person_id FROM Benefits_Received INNER JOIN Persons ON Persons.id = Benefits_Received.person_id WHERE Benefits_Received.person_id = {person_id}";
+                    string sql = $"SELECT persons.name, Persons.CPF, Persons.RG, Persons.birth, Persons.address, Persons.number_address, Persons.phone, Persons.income, Persons.help, Persons.number_of_members, Benefits_Received.description, Convert(VARCHAR, Benefits_Received.date_benefit, 103) AS date_benefit , Benefits_Received.person_id FROM Benefits_Received INNER JOIN Persons ON Persons.id = Benefits_Received.person_id WHERE Benefits_Received.person_id = {person_id}";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();
@@ -204,7 +206,7 @@ namespace DataBase
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
-                    string sql = $"SELECT persons.name, Persons.CPF, Persons.RG, Persons.address, Persons.number_address, Persons.phone, Persons.income, Persons.help, Persons.number_of_members, Benefits_Received.description, Convert(VARCHAR, Benefits_Received.date_benefit, 103) AS date_benefit , Benefits_Received.person_id FROM Benefits_Received INNER JOIN Persons ON Persons.id = Benefits_Received.person_id ORDER BY Persons.name, Benefits_Received.description ASC";
+                    string sql = $"SELECT persons.name, Persons.CPF, Persons.RG, Persons.birth, Persons.address, Persons.number_address, Persons.phone, Persons.income, Persons.help, Persons.number_of_members, Benefits_Received.description, Convert(VARCHAR, Benefits_Received.date_benefit, 103) AS date_benefit , Benefits_Received.person_id FROM Benefits_Received INNER JOIN Persons ON Persons.id = Benefits_Received.person_id ORDER BY Persons.name, Benefits_Received.description ASC";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();
@@ -224,7 +226,7 @@ namespace DataBase
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
-                    string sql = $"SELECT persons.name, Persons.CPF, Persons.RG, Persons.address, Persons.number_address, Persons.phone, Persons.income, Persons.help, Persons.number_of_members, Benefits_Received.description, Convert(VARCHAR, Benefits_Received.date_benefit, 103) AS date_benefit , Benefits_Received.person_id FROM Benefits_Received INNER JOIN Persons ON Persons.id = Benefits_Received.person_id where {column} LIKE '%{data}%' ORDER BY Persons.name, Benefits_Received.description ASC";
+                    string sql = $"SELECT persons.name, Persons.CPF, Persons.RG, Persons.birth, Persons.address, Persons.number_address, Persons.phone, Persons.income, Persons.help, Persons.number_of_members, Benefits_Received.description, Convert(VARCHAR, Benefits_Received.date_benefit, 103) AS date_benefit , Benefits_Received.person_id FROM Benefits_Received INNER JOIN Persons ON Persons.id = Benefits_Received.person_id where {column} LIKE '%{data}%' ORDER BY Persons.name, Benefits_Received.description ASC";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();

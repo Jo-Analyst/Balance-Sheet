@@ -30,9 +30,9 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPerson));
             this.btnNew = new System.Windows.Forms.Button();
             this.txtField = new System.Windows.Forms.TextBox();
@@ -40,18 +40,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.rbName = new System.Windows.Forms.RadioButton();
             this.rbAddress = new System.Windows.Forms.RadioButton();
-            this.ColNumberOfMembers = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColHelp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColNumberAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColRG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColCPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColTrash = new System.Windows.Forms.DataGridViewImageColumn();
             this.ColEdit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ColTrash = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColRG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColNumberAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColHelp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColNumberOfMembers = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPerson)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,6 +108,7 @@
             this.ColName,
             this.ColCPF,
             this.ColRG,
+            this.ColBirth,
             this.ColAddress,
             this.ColNumberAddress,
             this.ColPhone,
@@ -169,90 +171,23 @@
             this.rbAddress.UseVisualStyleBackColor = true;
             this.rbAddress.CheckedChanged += new System.EventHandler(this.rbAddress_CheckedChanged);
             // 
-            // ColNumberOfMembers
+            // ColEdit
             // 
-            this.ColNumberOfMembers.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColNumberOfMembers.HeaderText = "Composição Familiar";
-            this.ColNumberOfMembers.Name = "ColNumberOfMembers";
-            this.ColNumberOfMembers.ReadOnly = true;
-            this.ColNumberOfMembers.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColNumberOfMembers.Width = 162;
+            this.ColEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColEdit.HeaderText = "Editar";
+            this.ColEdit.MinimumWidth = 45;
+            this.ColEdit.Name = "ColEdit";
+            this.ColEdit.ReadOnly = true;
+            this.ColEdit.Width = 57;
             // 
-            // ColHelp
+            // ColTrash
             // 
-            this.ColHelp.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.ColHelp.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ColHelp.HeaderText = "Bolsa Família";
-            this.ColHelp.Name = "ColHelp";
-            this.ColHelp.ReadOnly = true;
-            this.ColHelp.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColHelp.Width = 109;
-            // 
-            // ColIncome
-            // 
-            this.ColIncome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.ColIncome.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ColIncome.HeaderText = "Renda";
-            this.ColIncome.Name = "ColIncome";
-            this.ColIncome.ReadOnly = true;
-            this.ColIncome.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColIncome.Width = 63;
-            // 
-            // ColPhone
-            // 
-            this.ColPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColPhone.HeaderText = "Tel/Cel";
-            this.ColPhone.Name = "ColPhone";
-            this.ColPhone.ReadOnly = true;
-            this.ColPhone.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColPhone.Width = 63;
-            // 
-            // ColNumberAddress
-            // 
-            this.ColNumberAddress.HeaderText = "Número";
-            this.ColNumberAddress.Name = "ColNumberAddress";
-            this.ColNumberAddress.ReadOnly = true;
-            this.ColNumberAddress.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // ColAddress
-            // 
-            this.ColAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColAddress.HeaderText = "Endereço";
-            this.ColAddress.Name = "ColAddress";
-            this.ColAddress.ReadOnly = true;
-            this.ColAddress.Width = 103;
-            // 
-            // ColRG
-            // 
-            this.ColRG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColRG.HeaderText = "RG";
-            this.ColRG.Name = "ColRG";
-            this.ColRG.ReadOnly = true;
-            this.ColRG.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColRG.Width = 40;
-            // 
-            // ColCPF
-            // 
-            this.ColCPF.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColCPF.HeaderText = "CPF";
-            this.ColCPF.Name = "ColCPF";
-            this.ColCPF.ReadOnly = true;
-            this.ColCPF.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColCPF.Width = 46;
-            // 
-            // ColName
-            // 
-            this.ColName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColName.DataPropertyName = "name";
-            this.ColName.HeaderText = "Nome";
-            this.ColName.MinimumWidth = 6;
-            this.ColName.Name = "ColName";
-            this.ColName.ReadOnly = true;
-            this.ColName.Width = 76;
+            this.ColTrash.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColTrash.HeaderText = "Excluir";
+            this.ColTrash.MinimumWidth = 45;
+            this.ColTrash.Name = "ColTrash";
+            this.ColTrash.ReadOnly = true;
+            this.ColTrash.Width = 61;
             // 
             // ColId
             // 
@@ -267,23 +202,100 @@
             this.ColId.Visible = false;
             this.ColId.Width = 32;
             // 
-            // ColTrash
+            // ColName
             // 
-            this.ColTrash.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColTrash.HeaderText = "Excluir";
-            this.ColTrash.MinimumWidth = 45;
-            this.ColTrash.Name = "ColTrash";
-            this.ColTrash.ReadOnly = true;
-            this.ColTrash.Width = 61;
+            this.ColName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColName.DataPropertyName = "ColName";
+            this.ColName.HeaderText = "Nome";
+            this.ColName.MinimumWidth = 6;
+            this.ColName.Name = "ColName";
+            this.ColName.ReadOnly = true;
+            this.ColName.Width = 76;
             // 
-            // ColEdit
+            // ColCPF
             // 
-            this.ColEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColEdit.HeaderText = "Editar";
-            this.ColEdit.MinimumWidth = 45;
-            this.ColEdit.Name = "ColEdit";
-            this.ColEdit.ReadOnly = true;
-            this.ColEdit.Width = 57;
+            this.ColCPF.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColCPF.HeaderText = "CPF";
+            this.ColCPF.Name = "ColCPF";
+            this.ColCPF.ReadOnly = true;
+            this.ColCPF.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColCPF.Width = 46;
+            // 
+            // ColRG
+            // 
+            this.ColRG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColRG.HeaderText = "RG";
+            this.ColRG.Name = "ColRG";
+            this.ColRG.ReadOnly = true;
+            this.ColRG.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColRG.Width = 40;
+            // 
+            // ColBirth
+            // 
+            this.ColBirth.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColBirth.HeaderText = "Data de nascimento";
+            this.ColBirth.Name = "ColBirth";
+            this.ColBirth.ReadOnly = true;
+            this.ColBirth.Width = 177;
+            // 
+            // ColAddress
+            // 
+            this.ColAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColAddress.HeaderText = "Endereço";
+            this.ColAddress.Name = "ColAddress";
+            this.ColAddress.ReadOnly = true;
+            this.ColAddress.Width = 103;
+            // 
+            // ColNumberAddress
+            // 
+            this.ColNumberAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColNumberAddress.HeaderText = "Número";
+            this.ColNumberAddress.Name = "ColNumberAddress";
+            this.ColNumberAddress.ReadOnly = true;
+            this.ColNumberAddress.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColNumberAddress.Width = 71;
+            // 
+            // ColPhone
+            // 
+            this.ColPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColPhone.HeaderText = "Tel/Cel";
+            this.ColPhone.Name = "ColPhone";
+            this.ColPhone.ReadOnly = true;
+            this.ColPhone.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColPhone.Width = 63;
+            // 
+            // ColIncome
+            // 
+            this.ColIncome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.ColIncome.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ColIncome.HeaderText = "Renda";
+            this.ColIncome.Name = "ColIncome";
+            this.ColIncome.ReadOnly = true;
+            this.ColIncome.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColIncome.Width = 63;
+            // 
+            // ColHelp
+            // 
+            this.ColHelp.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.ColHelp.DefaultCellStyle = dataGridViewCellStyle4;
+            this.ColHelp.HeaderText = "Bolsa Família";
+            this.ColHelp.Name = "ColHelp";
+            this.ColHelp.ReadOnly = true;
+            this.ColHelp.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColHelp.Width = 109;
+            // 
+            // ColNumberOfMembers
+            // 
+            this.ColNumberOfMembers.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColNumberOfMembers.HeaderText = "Composição Familiar";
+            this.ColNumberOfMembers.Name = "ColNumberOfMembers";
+            this.ColNumberOfMembers.ReadOnly = true;
+            this.ColNumberOfMembers.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColNumberOfMembers.Width = 162;
             // 
             // FrmPerson
             // 
@@ -327,6 +339,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCPF;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColRG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColBirth;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColNumberAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColPhone;

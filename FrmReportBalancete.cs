@@ -51,15 +51,16 @@ namespace Balance_Sheet
                     dgvPerson.Rows[index].Cells[0].Value = dr["name"].ToString();
                     dgvPerson.Rows[index].Cells[1].Value = dr["CPF"].ToString();
                     dgvPerson.Rows[index].Cells[2].Value = dr["RG"].ToString();
-                    dgvPerson.Rows[index].Cells[3].Value = dr["address"].ToString();
-                    dgvPerson.Rows[index].Cells[4].Value = dr["number_address"].ToString();
-                    dgvPerson.Rows[index].Cells[5].Value = dr["phone"].ToString();
-                    dgvPerson.Rows[index].Cells[6].Value = $"R$ {dr["income"]}";
-                    dgvPerson.Rows[index].Cells[7].Value = $"R$ {dr["help"]}";
-                    dgvPerson.Rows[index].Cells[8].Value = dr["number_of_members"].ToString();
-                    dgvPerson.Rows[index].Cells[9].Value = dr["description"].ToString();
-                    dgvPerson.Rows[index].Cells[10].Value = dr["date_benefit"].ToString();
-                    dgvPerson.Rows[index].Cells[11].Value = dr["Person_id"].ToString();
+                    dgvPerson.Rows[index].Cells[3].Value = dr["birth"].ToString();
+                    dgvPerson.Rows[index].Cells[4].Value = dr["address"].ToString();
+                    dgvPerson.Rows[index].Cells[5].Value = dr["number_address"].ToString();
+                    dgvPerson.Rows[index].Cells[6].Value = dr["phone"].ToString();
+                    dgvPerson.Rows[index].Cells[7].Value = $"R$ {dr["income"]}";
+                    dgvPerson.Rows[index].Cells[8].Value = $"R$ {dr["help"]}";
+                    dgvPerson.Rows[index].Cells[9].Value = dr["number_of_members"].ToString();
+                    dgvPerson.Rows[index].Cells[10].Value = dr["description"].ToString();
+                    dgvPerson.Rows[index].Cells[11].Value = dr["date_benefit"].ToString();
+                    dgvPerson.Rows[index].Cells[12].Value = dr["Person_id"].ToString();
                     dgvPerson.Rows[index].Height = 35;
                 }
                 //Count_Benefits();
@@ -90,6 +91,7 @@ namespace Balance_Sheet
             dtPersonsFiltered.Columns.Add("name", typeof(string));
             dtPersonsFiltered.Columns.Add("CPF", typeof(string));
             dtPersonsFiltered.Columns.Add("RG", typeof(string));
+            dtPersonsFiltered.Columns.Add("birth", typeof(string));
             dtPersonsFiltered.Columns.Add("address", typeof(string));
             dtPersonsFiltered.Columns.Add("number_address", typeof(string));
             dtPersonsFiltered.Columns.Add("phone", typeof(string));
@@ -139,7 +141,7 @@ namespace Balance_Sheet
                 {
                     if (lastIdTraveled != Convert.ToInt32(person["person_id"]))
                     {
-                        dtPersonsFiltered.Rows.Add(person["person_id"].ToString(), person["name"].ToString(), person["CPF"].ToString(), person["RG"].ToString(), person["address"].ToString(), person["number_address"].ToString(), person["phone"].ToString(), person["income"].ToString(), person["help"].ToString(), person["number_of_members"].ToString());
+                        dtPersonsFiltered.Rows.Add(person["person_id"].ToString(), person["name"].ToString(), person["CPF"].ToString(), person["RG"].ToString(), person["birth"].ToString(), person["address"].ToString(), person["number_address"].ToString(), person["phone"].ToString(), person["income"].ToString(), person["help"].ToString(), person["number_of_members"].ToString());
                     }
 
                     lastIdTraveled = Convert.ToInt32(person["person_id"]);

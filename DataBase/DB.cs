@@ -40,6 +40,7 @@ namespace DataBase
                 "    [name] VARCHAR(200) NULL, " +
                 "    [CPF] VARCHAR(14) NULL, " +
                 "    [RG] VARCHAR(20) NULL, " +
+                "    [birth]             VARCHAR (10)    NULL," +
                 "    [address] VARCHAR(200) NULL," +
                 "    [number_address] VARCHAR(MAX) NULL," +
                 "    [phone] VARCHAR(20) NULL, " +
@@ -47,9 +48,21 @@ namespace DataBase
                 "    [help] DECIMAL(18, 2)  DEFAULT ((0)) NULL," +
                 "    [number_of_members] INT NULL);" +
 
+                "CREATE TABLE [dbo].[Members] (" +
+                "    [Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), " +
+                "    [name] VARCHAR(200) NULL, " +
+                "    [CPF] VARCHAR(14) NULL, " +
+                "    [birth]             VARCHAR (10)    NULL," +
+                "    [address] VARCHAR(200) NULL," +
+                "    [number_address] VARCHAR(MAX) NULL," +
+                "    [phone] VARCHAR(20) NULL, " +
+                "    [person_id] INT NOT NULL," +
+                "    FOREIGN KEY ([person_id]) REFERENCES [dbo].[persons](id) ON DELETE CASCADE );" +
+
                 "CREATE TABLE [dbo].[Benefits_Received] (" +
                 "    [Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), " +
                 "    [description] VARCHAR(MAX) NULL, " +
+                "    [reason_for_attendance] VARCHAR(MAX) NULL, " +
                 "    [date_benefit] Date NULL," +
                 "    [person_id] INT NOT NULL," +
                 "    FOREIGN KEY ([person_id]) REFERENCES [dbo].[persons](id) ON DELETE CASCADE );";
