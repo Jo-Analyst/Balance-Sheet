@@ -3,6 +3,9 @@ using Balance_Sheet.Properties;
 using System;
 using System.Data;
 using System.Windows.Forms;
+using Microsoft.Reporting.Map.WebForms.BingMaps;
+using System.Reflection;
+using System.Xml.Linq;
 
 namespace Balance_Sheet
 {
@@ -12,8 +15,7 @@ namespace Balance_Sheet
         public bool wasDataSaved { get; set; }
         Member member = new Member();
 
-        int memberId, benefits_id, personId;
-        bool isEdition;
+        int memberId, personId, indexRowPress;
 
         public FrmSaveMember(int personId, string responsible)
         {
@@ -45,9 +47,9 @@ namespace Balance_Sheet
             }
             else if (mkCPF.MaskCompleted && !ValidateCPF.validate(mkCPF.Text))
                 MessageBox.Show("CPF inválido!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            else if (btnSave.Text == "Salvar" && mkCPF.MaskCompleted && member.FindByCPF(mkCPF.Text).Rows.Count == 1 && !isEdition)
+            else if (mkCPF.MaskCompleted && member.FindByCPF(mkCPF.Text).Rows.Count == 1 && memberId == 0)
                 MessageBox.Show("Não foi possível cadastrar. O CPF já está cadastrado!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            else if (mkCPF.MaskCompleted && member.FindByCpfForMember(mkCPF.Text, memberId).Rows.Count == 1 && isEdition)
+            else if (mkCPF.MaskCompleted && member.FindByCpfForMember(mkCPF.Text, memberId).Rows.Count == 1 && memberId > 0)
                 MessageBox.Show("Não foi possível editar. O CPF que está tentando editar já está cadastrado no sistema", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             else
                 validated = true;
@@ -94,8 +96,6 @@ namespace Balance_Sheet
             }
         }
 
-        int indexRowPress;
-
         private void dgvMembers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -107,16 +107,16 @@ namespace Balance_Sheet
 
             if (dgvMembers.CurrentCell.ColumnIndex == 0)
             {
-                EditBenefits();
+                EditMember();
                 indexRowPress = e.RowIndex;
             }
             else if (dgvMembers.CurrentCell.ColumnIndex == 1)
-                DeleteMembers();
+                DeleteMember();
 
             clearSelection(e);
 }
 
-        private void DeleteMembers()
+        private void DeleteMember()
         {
             try
             {
@@ -137,9 +137,15 @@ namespace Balance_Sheet
             }
         }
 
-        private void EditBenefits()
+        private void EditMember()
         {
-            benefits_id = int.Parse(dgvMembers.CurrentRow.Cells[2].Value.ToString());
+            memberId = int.Parse(dgvMembers.CurrentRow.Cells["ColId"].Value.ToString());
+            txtName.Text = dgvMembers.CurrentRow.Cells["ColName"].Value.ToString();
+            mkCPF.Text = dgvMembers.CurrentRow.Cells["ColCPF"].Value.ToString();
+            dtBirth.Text = dgvMembers.CurrentRow.Cells["ColBirth"].Value.ToString();
+            mkPhone.Text = dgvMembers.CurrentRow.Cells["ColPhone"].Value.ToString();
+            txtAddress.Text = dgvMembers.CurrentRow.Cells["ColAddress"].Value.ToString();
+            txtNumberAddress.Text = dgvMembers.CurrentRow.Cells["ColNumber"].Value.ToString();
         }
 
         private void clearSelection(DataGridViewCellEventArgs e)
@@ -174,23 +180,9 @@ namespace Balance_Sheet
             if (!ValidatedFields())
                 return;
 
-            if (btnSave.Text.ToLower() == "salvar")
-            {
-                SalveMember();
-
-            }
-            else
-            {
-                ClearFieldsMember();
-                EnabledFieldsMember();
-                txtName.Focus();
-            }
-
-            toolTip.SetToolTip(btnSave, "Salvar - [CTRL + S]");
-            btnSave.Text = "Salvar";
-
+            SalveMember();
+            txtName.Focus();
         }
-
         private void ClearFieldsMember()
         {
             txtName.Clear();
@@ -199,24 +191,6 @@ namespace Balance_Sheet
             txtAddress.Clear();
             txtNumberAddress.Clear();
             memberId = 0;
-        }
-
-        private void EnabledFieldsMember()
-        {
-            txtName.Enabled = true;
-            mkCPF.Enabled = true;
-            mkPhone.Enabled = true;
-            txtAddress.Enabled = true;
-            txtNumberAddress.Enabled = true;
-        }
-
-        private void DisabledFieldsMember()
-        {
-            txtName.Enabled = false;
-            mkCPF.Enabled = false;
-            mkPhone.Enabled = false;
-            txtAddress.Enabled = false;
-            txtNumberAddress.Enabled = false;
         }
 
         private void SalveMember()
@@ -233,7 +207,11 @@ namespace Balance_Sheet
                 member.personId = personId;
 
                 member.Save();
-                addDgvMember(txtName.Text, mkCPF.Text, dtBirth.Value.ToShortDateString(), mkPhone.Text, txtAddress.Text, txtNumberAddress.Text, personId);
+                if (memberId == 0)
+                    addDgvMember(txtName.Text, mkCPF.Text, dtBirth.Value.ToShortDateString(), mkPhone.Text, txtAddress.Text, txtNumberAddress.Text, personId);
+                else
+                    editRowDgv();
+                
                 mkCPF.Text = member.CPF;
                 memberId = member.id;
                 wasDataSaved = true;
@@ -243,6 +221,16 @@ namespace Balance_Sheet
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void editRowDgv()
+        {
+            dgvMembers.Rows[indexRowPress].Cells["ColName"].Value = txtName.Text.Trim();
+            dgvMembers.Rows[indexRowPress].Cells["ColCPF"].Value = mkCPF.Text;
+            dgvMembers.Rows[indexRowPress].Cells["ColBirth"].Value = dtBirth.Text;
+            dgvMembers.Rows[indexRowPress].Cells["ColPhone"].Value = mkPhone.Text;
+            dgvMembers.Rows[indexRowPress].Cells["ColAddress"].Value = txtAddress.Text.Trim();
+            dgvMembers.Rows[indexRowPress].Cells["ColNumber"].Value = txtNumberAddress.Text.Trim();
         }
 
         private void addDgvMember(string name, string cpf, string birth, string phone, string address, string number, int memberId)

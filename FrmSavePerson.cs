@@ -97,7 +97,7 @@ namespace Balance_Sheet
             if (btnPrint.Enabled && Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.P)
                 btnPrint_Click(sender, e);
 
-            if (Control.ModifierKeys == Keys.Control && Control.ModifierKeys == Keys.Shift && e.KeyCode == Keys.S)
+            if (Control.ModifierKeys == Keys.Shift && e.KeyCode == Keys.S)
             {
                 btnVizAdd_Click(sender, e);
             }
@@ -473,7 +473,7 @@ namespace Balance_Sheet
             toolTip.SetToolTip(btnPrint, "Imprimir - [CTRL + P]");
             toolTip.SetToolTip(btnSave, "Salvar - [CTRL + S]");
             toolTip.SetToolTip(btnADD, "Adicionar - [CTRL + SHIFT + A]");
-            toolTip.SetToolTip(btnVizAdd, "Visualizar | Adicionar Membros - [CTRL + SHIFT + S]");
+            toolTip.SetToolTip(btnVizAdd, "Visualizar | Adicionar Membros - [SHIFT + S]");
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
