@@ -114,6 +114,12 @@
     <Compile Include="FrmSaveInstitution.Designer.cs">
       <DependentUpon>FrmSaveInstitution.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSaveMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSaveMember.designer.cs">
+      <DependentUpon>FrmSaveMember.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSetting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSaveInstitution.resx">
       <DependentUpon>FrmSaveInstitution.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSaveMember.resx">
+      <DependentUpon>FrmSaveMember.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSetting.resx">
       <DependentUpon>FrmSetting.cs</DependentUpon>

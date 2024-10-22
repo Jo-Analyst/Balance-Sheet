@@ -40,6 +40,11 @@ namespace Balance_Sheet
             EnabledFieldBenefits();
             if (dgvBenefitsReceived.Rows.Count > 0)
                 btnPrint.Enabled = true;
+
+          if(  isEditicion)
+            {
+                btnVizAdd.Visible = ndNumberOfMembers.Value > 0;
+            }
         }
 
         private void LoadBenefitsReceived()
@@ -91,6 +96,11 @@ namespace Balance_Sheet
 
             if (btnPrint.Enabled && Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.P)
                 btnPrint_Click(sender, e);
+
+            if (Control.ModifierKeys == Keys.Control && Control.ModifierKeys == Keys.Shift && e.KeyCode == Keys.S)
+            {
+                btnVizAdd_Click(sender, e);
+            }
         }
 
         private void btnADD_Click(object sender, EventArgs e)
@@ -385,6 +395,7 @@ namespace Balance_Sheet
                 person_id = person.id;
                 EnabledFieldBenefits();
                 wasDataSaved = true;
+                btnVizAdd.Visible = ndNumberOfMembers.Value > 0;
             }
             catch (Exception ex)
             {
@@ -462,6 +473,7 @@ namespace Balance_Sheet
             toolTip.SetToolTip(btnPrint, "Imprimir - [CTRL + P]");
             toolTip.SetToolTip(btnSave, "Salvar - [CTRL + S]");
             toolTip.SetToolTip(btnADD, "Adicionar - [CTRL + SHIFT + A]");
+            toolTip.SetToolTip(btnVizAdd, "Visualizar | Adicionar Membros - [CTRL + SHIFT + S]");
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
@@ -485,6 +497,11 @@ namespace Balance_Sheet
         private void dgvBenefitsReceived_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
             dgvBenefitsReceived.Cursor = e.ColumnIndex == 0 || e.ColumnIndex == 1 ? Cursors.Hand : Cursors.Arrow;
+        }
+
+        private void btnVizAdd_Click(object sender, EventArgs e)
+        {
+            new FrmSaveMember(person_id, txtName.Text.Trim()).ShowDialog();
         }
 
         private void ClearFieldBenefits()

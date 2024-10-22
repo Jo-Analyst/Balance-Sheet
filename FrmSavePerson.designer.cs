@@ -33,6 +33,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSavePerson));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnVizAdd = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.dtBirth = new System.Windows.Forms.DateTimePicker();
             this.lblStatus = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.ndNumberOfMembers = new System.Windows.Forms.NumericUpDown();
@@ -66,8 +69,6 @@
             this.ColDescripition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnPrint = new System.Windows.Forms.Button();
-            this.dtBirth = new System.Windows.Forms.DateTimePicker();
-            this.label12 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ndNumberOfMembers)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -76,6 +77,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnVizAdd);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.dtBirth);
             this.groupBox1.Controls.Add(this.lblStatus);
@@ -101,16 +103,51 @@
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(473, 336);
+            this.groupBox1.Size = new System.Drawing.Size(473, 356);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados pessoais";
+            // 
+            // btnVizAdd
+            // 
+            this.btnVizAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVizAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVizAdd.ForeColor = System.Drawing.Color.White;
+            this.btnVizAdd.Location = new System.Drawing.Point(170, 299);
+            this.btnVizAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.btnVizAdd.Name = "btnVizAdd";
+            this.btnVizAdd.Size = new System.Drawing.Size(275, 47);
+            this.btnVizAdd.TabIndex = 40;
+            this.btnVizAdd.TabStop = false;
+            this.btnVizAdd.Text = "Visualizar | Adicionar Membros";
+            this.btnVizAdd.UseVisualStyleBackColor = true;
+            this.btnVizAdd.Visible = false;
+            this.btnVizAdd.Click += new System.EventHandler(this.btnVizAdd_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(309, 77);
+            this.label12.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(152, 20);
+            this.label12.TabIndex = 39;
+            this.label12.Text = "Data de nascimento";
+            // 
+            // dtBirth
+            // 
+            this.dtBirth.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtBirth.Location = new System.Drawing.Point(313, 100);
+            this.dtBirth.Name = "dtBirth";
+            this.dtBirth.Size = new System.Drawing.Size(132, 26);
+            this.dtBirth.TabIndex = 3;
             // 
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
             this.lblStatus.ForeColor = System.Drawing.Color.White;
-            this.lblStatus.Location = new System.Drawing.Point(18, 295);
+            this.lblStatus.Location = new System.Drawing.Point(166, 268);
             this.lblStatus.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(64, 20);
@@ -122,11 +159,12 @@
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(302, 282);
+            this.btnSave.Location = new System.Drawing.Point(17, 299);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(143, 47);
             this.btnSave.TabIndex = 36;
+            this.btnSave.TabStop = false;
             this.btnSave.Text = "Salvar";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -136,7 +174,7 @@
             this.ndNumberOfMembers.Location = new System.Drawing.Point(17, 266);
             this.ndNumberOfMembers.Name = "ndNumberOfMembers";
             this.ndNumberOfMembers.Size = new System.Drawing.Size(127, 26);
-            this.ndNumberOfMembers.TabIndex = 8;
+            this.ndNumberOfMembers.TabIndex = 9;
             this.ndNumberOfMembers.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ndNumberOfMembers.ValueChanged += new System.EventHandler(this.ndNumberOfMembers_ValueChanged);
             this.ndNumberOfMembers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ndNumberOfMembers_KeyPress);
@@ -159,7 +197,7 @@
             this.txtHelp.MaxLength = 100;
             this.txtHelp.Name = "txtHelp";
             this.txtHelp.Size = new System.Drawing.Size(143, 26);
-            this.txtHelp.TabIndex = 7;
+            this.txtHelp.TabIndex = 8;
             this.txtHelp.TextChanged += new System.EventHandler(this.txtHelp_TextChanged);
             this.txtHelp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHelp_KeyPress);
             this.txtHelp.Leave += new System.EventHandler(this.txtHelp_Leave);
@@ -182,7 +220,7 @@
             this.txtIncome.MaxLength = 100;
             this.txtIncome.Name = "txtIncome";
             this.txtIncome.Size = new System.Drawing.Size(138, 26);
-            this.txtIncome.TabIndex = 6;
+            this.txtIncome.TabIndex = 7;
             this.txtIncome.TextChanged += new System.EventHandler(this.txtIncome_TextChanged);
             this.txtIncome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIncome_KeyPress);
             this.txtIncome.Leave += new System.EventHandler(this.txtIncome_Leave);
@@ -204,7 +242,7 @@
             this.mkPhone.Mask = "(00) 0 0000-0000";
             this.mkPhone.Name = "mkPhone";
             this.mkPhone.Size = new System.Drawing.Size(132, 26);
-            this.mkPhone.TabIndex = 3;
+            this.mkPhone.TabIndex = 6;
             this.mkPhone.TextChanged += new System.EventHandler(this.mkPhone_TextChanged);
             // 
             // label6
@@ -333,9 +371,9 @@
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.rtDescription);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(13, 355);
+            this.groupBox2.Location = new System.Drawing.Point(13, 375);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(473, 193);
+            this.groupBox2.Size = new System.Drawing.Size(473, 204);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Beneficios recebido";
@@ -347,7 +385,7 @@
             this.btnADD.Enabled = false;
             this.btnADD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnADD.ForeColor = System.Drawing.Color.White;
-            this.btnADD.Location = new System.Drawing.Point(313, 134);
+            this.btnADD.Location = new System.Drawing.Point(313, 145);
             this.btnADD.Margin = new System.Windows.Forms.Padding(4);
             this.btnADD.Name = "btnADD";
             this.btnADD.Size = new System.Drawing.Size(132, 50);
@@ -361,7 +399,7 @@
             this.dtDateBenefits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dtDateBenefits.Enabled = false;
             this.dtDateBenefits.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtDateBenefits.Location = new System.Drawing.Point(22, 158);
+            this.dtDateBenefits.Location = new System.Drawing.Point(22, 169);
             this.dtDateBenefits.Name = "dtDateBenefits";
             this.dtDateBenefits.Size = new System.Drawing.Size(103, 26);
             this.dtDateBenefits.TabIndex = 10;
@@ -371,7 +409,7 @@
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label11.AutoSize = true;
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(18, 134);
+            this.label11.Location = new System.Drawing.Point(18, 145);
             this.label11.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(158, 20);
@@ -394,9 +432,9 @@
             this.rtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.rtDescription.Enabled = false;
-            this.rtDescription.Location = new System.Drawing.Point(22, 46);
+            this.rtDescription.Location = new System.Drawing.Point(22, 48);
             this.rtDescription.Name = "rtDescription";
-            this.rtDescription.Size = new System.Drawing.Size(423, 80);
+            this.rtDescription.Size = new System.Drawing.Size(423, 85);
             this.rtDescription.TabIndex = 9;
             this.rtDescription.Text = "";
             this.rtDescription.TextChanged += new System.EventHandler(this.rtDescription_TextChanged);
@@ -443,7 +481,7 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvBenefitsReceived.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvBenefitsReceived.Size = new System.Drawing.Size(395, 473);
+            this.dgvBenefitsReceived.Size = new System.Drawing.Size(395, 504);
             this.dgvBenefitsReceived.TabIndex = 5;
             this.dgvBenefitsReceived.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBenefitsReceived_CellClick);
             this.dgvBenefitsReceived.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBenefitsReceived_CellDoubleClick);
@@ -501,7 +539,7 @@
             this.btnPrint.Enabled = false;
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrint.ForeColor = System.Drawing.Color.White;
-            this.btnPrint.Location = new System.Drawing.Point(701, 503);
+            this.btnPrint.Location = new System.Drawing.Point(701, 534);
             this.btnPrint.Margin = new System.Windows.Forms.Padding(4);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(186, 50);
@@ -510,31 +548,12 @@
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
-            // dtBirth
-            // 
-            this.dtBirth.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtBirth.Location = new System.Drawing.Point(313, 100);
-            this.dtBirth.Name = "dtBirth";
-            this.dtBirth.Size = new System.Drawing.Size(132, 26);
-            this.dtBirth.TabIndex = 38;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(309, 77);
-            this.label12.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(152, 20);
-            this.label12.TabIndex = 39;
-            this.label12.Text = "Data de nascimento";
-            // 
             // FrmSavePerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(900, 560);
+            this.ClientSize = new System.Drawing.Size(900, 591);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.dgvBenefitsReceived);
             this.Controls.Add(this.groupBox2);
@@ -596,5 +615,6 @@
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.DateTimePicker dtBirth;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btnVizAdd;
     }
 }
