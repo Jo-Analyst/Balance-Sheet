@@ -62,10 +62,17 @@ namespace DataBase
                 "CREATE TABLE [dbo].[Benefits_Received] (" +
                 "    [Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), " +
                 "    [description] VARCHAR(MAX) NULL, " +
-                "    [reason_for_attendance] VARCHAR(MAX) NULL, " +
                 "    [date_benefit] Date NULL," +
                 "    [person_id] INT NOT NULL," +
+                "    FOREIGN KEY ([person_id]) REFERENCES [dbo].[persons](id) ON DELETE CASCADE );" +
+
+               "CREATE TABLE [dbo].[Services] (" +
+                "    [Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), " +
+                "    [description] VARCHAR(MAX) NULL, " +
+                "    [date_service] Date NULL," +
+                "    [person_id] INT NOT NULL," +
                 "    FOREIGN KEY ([person_id]) REFERENCES [dbo].[persons](id) ON DELETE CASCADE );";
+
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.CommandText = sql;
                 try

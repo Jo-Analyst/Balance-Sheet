@@ -13,7 +13,7 @@ namespace Balance_Sheet
         Person person = new Person();
         BenefitsReceived benefitsReceived = new BenefitsReceived();
 
-        int person_id, benefits_id;
+        int personId, benefits_id;
         bool isEdition;
 
         public FrmSavePerson()
@@ -24,7 +24,7 @@ namespace Balance_Sheet
         {
             InitializeComponent();
 
-            person_id = id;
+            personId = id;
             txtName.Text = name;
             mkCPF.Text = CPF;
             txtRG.Text = RG;
@@ -36,8 +36,10 @@ namespace Balance_Sheet
             dtBirth.Text = birth.ToString();
             ndNumberOfMembers.Value = number_of_members;
             this.isEdition = isEditicion;
+            btnSave.Focus();
             LoadBenefitsReceived();
-            EnabledFieldBenefits();
+            LoadServices();
+            EnabledFieldBenefitsAndService();
             if (dgvBenefitsReceived.Rows.Count > 0)
                 btnPrint.Enabled = true;
 
@@ -47,9 +49,18 @@ namespace Balance_Sheet
             }
         }
 
+        private void LoadServices()
+        {
+            DataTable dtServices = Service.FindByPersonId(personId);
+            foreach (DataRow data in dtServices.Rows)
+            {
+                AddDgvService(int.Parse(data["id"].ToString()), data["description"].ToString(), DateTime.Parse(data["date_service"].ToString()));
+            }
+        }
+
         private void LoadBenefitsReceived()
         {
-            DataTable dtBenefitsReceived = BenefitsReceived.FindByPersonId(person_id);
+            DataTable dtBenefitsReceived = BenefitsReceived.FindByPersonId(personId);
             foreach (DataRow rowBenefitsReceived in dtBenefitsReceived.Rows)
             {
                 int index = dgvBenefitsReceived.Rows.Add();
@@ -76,7 +87,7 @@ namespace Balance_Sheet
                 MessageBox.Show("CPF inválido!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             else if (btnSave.Text == "Salvar" && mkCPF.MaskCompleted && person.FindByCPF(mkCPF.Text).Rows.Count == 1 && !isEdition)
                 MessageBox.Show("Não foi possível cadastrar. O CPF já está cadastrado!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            else if (mkCPF.MaskCompleted && person.FindByCpfForPerson(mkCPF.Text, person_id).Rows.Count == 1 && isEdition)
+            else if (mkCPF.MaskCompleted && person.FindByCpfForPerson(mkCPF.Text, personId).Rows.Count == 1 && isEdition)
                 MessageBox.Show("Não foi possível editar. O CPF que está tentando editar já está cadastrado no sistema", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             else
                 validated = true;
@@ -97,7 +108,7 @@ namespace Balance_Sheet
             if (btnPrint.Enabled && Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.P)
                 btnPrint_Click(sender, e);
 
-            if (Control.ModifierKeys == Keys.Shift && e.KeyCode == Keys.S)
+            if (btnAddService.Enabled && e.Control && e.Shift && e.KeyCode == Keys.S)
             {
                 btnVizAdd_Click(sender, e);
             }
@@ -110,7 +121,7 @@ namespace Balance_Sheet
                 benefitsReceived.id = benefits_id;
                 benefitsReceived.description = rtDescription.Text.Trim();
                 benefitsReceived.dateBenefits = dtDateBenefits.Value;
-                benefitsReceived.person_id = person_id;
+                benefitsReceived.person_id = personId;
                 benefitsReceived.Save();
 
                 if (benefits_id == 0)
@@ -209,7 +220,7 @@ namespace Balance_Sheet
             else if (dgvBenefitsReceived.CurrentCell.ColumnIndex == 1)
                 DeleteBenefits();
 
-            clearSelection(e);
+            ClearSelection(e);
         }
 
         private void DeleteBenefits()
@@ -252,17 +263,20 @@ namespace Balance_Sheet
             dtDateBenefits.Value = Convert.ToDateTime(dgvBenefitsReceived.CurrentRow.Cells[4].Value.ToString());
         }
 
-        private void clearSelection(DataGridViewCellEventArgs e)
+        private void ClearSelection(DataGridViewCellEventArgs e, bool isService = false)
         {
             if (e.RowIndex > -1)
             {
-                dgvBenefitsReceived.ClearSelection();
+                if (isService) 
+                    dgvService.ClearSelection();
+                else 
+                    dgvBenefitsReceived.ClearSelection();
             }
         }
 
         private void dgvBenefitsReceived_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            clearSelection(e);
+            ClearSelection(e);
         }
 
         private void txtIncome_Leave(object sender, EventArgs e)
@@ -343,7 +357,7 @@ namespace Balance_Sheet
             ndNumberOfMembers.Value = 0;
             ClearFieldBenefits();
             dgvBenefitsReceived.Rows.Clear();
-            person_id = 0;
+            personId = 0;
         }
 
         private void EnabledFieldsPerson()
@@ -377,7 +391,7 @@ namespace Balance_Sheet
             try
             {
                 lblStatus.Text = "Status: Salvando...";
-                person.id = person_id;
+                person.id = personId;
                 person.name = txtName.Text.Trim();
                 person.CPF = mkCPF.MaskCompleted ? mkCPF.Text.Trim() : string.Empty;
                 person.RG = txtRG.Text.Trim();
@@ -392,8 +406,8 @@ namespace Balance_Sheet
                 person.Save();
                 mkCPF.Text = person.CPF;
                 lblStatus.Text = "Status: Salvo";
-                person_id = person.id;
-                EnabledFieldBenefits();
+                personId = person.id;
+                EnabledFieldBenefitsAndService();
                 wasDataSaved = true;
                 btnVizAdd.Visible = ndNumberOfMembers.Value > 0;
             }
@@ -404,16 +418,18 @@ namespace Balance_Sheet
             }
         }
 
-        private void EnabledFieldBenefits()
+        private void EnabledFieldBenefitsAndService()
         {
             rtDescription.Enabled = true;
             dtDateBenefits.Enabled = true;
+            btnAddService.Enabled = true;
         }
 
         private void DisabledFieldsBenefit()
         {
             rtDescription.Enabled = false;
             dtDateBenefits.Enabled = false;
+            btnAddService.Enabled = false;
         }
 
         private void txtName_TextChanged(object sender, EventArgs e)
@@ -473,15 +489,17 @@ namespace Balance_Sheet
             toolTip.SetToolTip(btnPrint, "Imprimir - [CTRL + P]");
             toolTip.SetToolTip(btnSave, "Salvar - [CTRL + S]");
             toolTip.SetToolTip(btnADD, "Adicionar - [CTRL + SHIFT + A]");
-            toolTip.SetToolTip(btnVizAdd, "Visualizar | Adicionar Membros - [SHIFT + S]");
+            toolTip.SetToolTip(btnVizAdd, "Visualizar | Adicionar Membros - [CTRL + SHIFT + S]");
+            dtDateBenefits.MaxDate= DateTime.Now;
+            dtBirth.MaxDate= DateTime.Now;
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
             try
             {
-                DataTable dtPersonJoinBenefits = Person.FindByPersonJoinBenefitsId(person_id);
-                DataTable dtPerson = Person.FindById(person_id);
+                DataTable dtPersonJoinBenefits = Person.FindByPersonJoinBenefitsId(personId);
+                DataTable dtPerson = Person.FindById(personId);
 
                 if (!Convert.ToBoolean(Settings.Default["print_directory_direct"]))
                     new FrmReportByPerson(dtPersonJoinBenefits, dtPerson).ShowDialog();
@@ -501,7 +519,101 @@ namespace Balance_Sheet
 
         private void btnVizAdd_Click(object sender, EventArgs e)
         {
-            new FrmSaveMember(person_id, txtName.Text.Trim()).ShowDialog();
+            new FrmSaveMember(personId, txtName.Text.Trim()).ShowDialog();
+        }
+
+        private void btnAddService_Click(object sender, EventArgs e)
+        {
+           FrmService service = new FrmService(personId);
+            service.ShowDialog();
+
+            if (service.id > 0)
+            {
+                AddDgvService(service.id, service.description, service.dateService);
+            }
+        }
+
+        private void AddDgvService(int id, string description, DateTime dateService)
+        {
+            int index = dgvService.Rows.Add();
+            dgvService.Rows[index].Cells["ColEditService"].Value = Resources.Custom_Icon_Design_Flatastic_1_Edit_24;
+            dgvService.Rows[index].Cells["ColDeleteService"].Value = Resources.trash_24_icon;
+            dgvService.Rows[index].Cells["ColIdService"].Value = id.ToString();
+            dgvService.Rows[index].Cells["ColDescriptionService"].Value = description;
+            dgvService.Rows[index].Cells["ColDateService"].Value = dateService.ToShortDateString();
+            dgvService.Rows[index].Height = 35;
+        }
+
+        private void dgvService_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1)
+            {
+                ClearSelection(e, true);
+                return;
+            }
+
+            if (dgvService.CurrentCell.ColumnIndex == 0)
+            {
+                EditService();
+                indexRowPress = e.RowIndex;
+            }
+            else if (dgvService.CurrentCell.ColumnIndex == 1)
+                DeleteService(e);
+
+            ClearSelection(e, true);
+        }
+
+        private void DeleteService(DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                DialogResult dr = MessageBox.Show($"Deseja mesmo excluir o atendimento da base de dados?", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (dr == DialogResult.Yes)
+                {
+                    Service.Delete(int.Parse(dgvService.CurrentRow.Cells["ColIdService"].Value.ToString()));
+                    
+                    dgvService.Rows.Remove(dgvService.CurrentRow);
+                  
+
+                    //if (dgvService.Rows.Count == 0)
+                    //    btnPrint.Enabled = false;
+
+                }
+
+                ClearSelection(e, true);
+
+            }
+            catch
+            {
+                MessageBox.Show("Houve um erro ao excluir. Feche o aplicativo e tente novamente. Caso o erro persista entre em contato com o suporte", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void EditService()
+        {
+            int id = int.Parse(dgvService.CurrentRow.Cells["ColIdService"].Value.ToString());
+            string description = dgvService.CurrentRow.Cells["ColDescriptionService"].Value.ToString();
+            DateTime dateService = DateTime.Parse(dgvService.CurrentRow.Cells["ColDateService"].Value.ToString());
+
+            FrmService service = new FrmService(id, description, dateService, personId);
+            service.ShowDialog();
+
+            if (service.thereWasEdition)
+            {
+                dgvService.Rows[indexRowPress].Cells["ColDescriptionService"].Value = service.description;
+                dgvService.Rows[indexRowPress].Cells["ColDateService"].Value = service.dateService.ToShortDateString();
+            }
+        }
+
+        private void dgvService_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ClearSelection(e, true);
+        }
+
+        private void dgvService_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvService.Cursor = e.ColumnIndex == 0 || e.ColumnIndex == 1 ? Cursors.Hand : Cursors.Arrow;
         }
 
         private void ClearFieldBenefits()

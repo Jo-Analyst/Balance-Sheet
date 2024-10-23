@@ -120,6 +120,12 @@
     <Compile Include="FrmSaveMember.designer.cs">
       <DependentUpon>FrmSaveMember.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmService.Designer.cs">
+      <DependentUpon>FrmService.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSetting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSaveMember.resx">
       <DependentUpon>FrmSaveMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmService.resx">
+      <DependentUpon>FrmService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSetting.resx">
       <DependentUpon>FrmSetting.cs</DependentUpon>
