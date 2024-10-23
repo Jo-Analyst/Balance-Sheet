@@ -11,35 +11,7 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="dtBenefitsByPersonId">
-      <Query>
-        <DataSourceName>dtReport</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="description">
-          <DataField>description</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="date_benefit">
-          <DataField>date_benefit</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="person_id">
-          <DataField>person_id</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>dtReport</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Aluno\Desktop\Proj\Balance-Sheet\dtReport.xsd</rd:SchemaPath>
-        <rd:TableName>ReportBenefitsByPerson_Id</rd:TableName>
-        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
-        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>ReportBenefitsByPerson_IdTableAdapter</rd:TableAdapterName>
-      </rd:DataSetInfo>
-    </DataSet>
-    <DataSet Name="dsReport">
+    <DataSet Name="dtPersons">
       <Query>
         <DataSourceName>dtReport</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -92,11 +64,39 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>dtReport</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Aluno\Desktop\Balance-Sheet\dtReport.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\jojoc\OneDrive\Documentos\Projetos\Meus projetos\oficial\balance-sheet\dtReport.xsd</rd:SchemaPath>
         <rd:TableName>Person</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
         <rd:TableAdapterName>PersonTableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="dtBenefitsByPersonId">
+      <Query>
+        <DataSourceName>dtReport</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="description">
+          <DataField>description</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="date_benefit">
+          <DataField>date_benefit</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="person_id">
+          <DataField>person_id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>dtReport</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\Aluno\Desktop\Proj\Balance-Sheet\dtReport.xsd</rd:SchemaPath>
+        <rd:TableName>ReportBenefitsByPerson_Id</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>ReportBenefitsByPerson_IdTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -273,7 +273,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.6cm</Height>
+                  <Height>0.727cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -392,7 +392,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.6cm</Height>
+                  <Height>0.81167cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -523,9 +523,9 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>dtBenefitsByPersonId</DataSetName>
-            <Top>10.92578cm</Top>
-            <Left>1.58749cm</Left>
-            <Height>1.2cm</Height>
+            <Top>11.78711cm</Top>
+            <Left>1.58751cm</Left>
+            <Height>1.53867cm</Height>
             <Width>15.38459cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
@@ -549,7 +549,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.75346cm</Height>
+                  <Height>0.8099cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -613,7 +613,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.70054cm</Height>
+                  <Height>0.75698cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -685,7 +685,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.70054cm</Height>
+                  <Height>0.75698cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -814,7 +814,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Data Nasc.: </Value>
+                                  <Value>Data de Nasc.: </Value>
                                   <Style>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -867,7 +867,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.70054cm</Height>
+                  <Height>0.75698cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -992,7 +992,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.70054cm</Height>
+                  <Height>0.75698cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1174,11 +1174,11 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.6cm</Height>
+                  <Height>0.65644cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox12">
+                        <Textbox Name="Textbox5">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -1202,7 +1202,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox12</rd:DefaultName>
+                          <rd:DefaultName>Textbox5</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -1237,7 +1237,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox13">
+                        <Textbox Name="Textbox9">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -1254,7 +1254,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox13</rd:DefaultName>
+                          <rd:DefaultName>Textbox9</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -1289,7 +1289,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox14">
+                        <Textbox Name="Textbox10">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -1306,7 +1306,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox14</rd:DefaultName>
+                          <rd:DefaultName>Textbox10</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -1346,7 +1346,7 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox5">
+                        <Textbox Name="Textbox18">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -1363,7 +1363,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox5</rd:DefaultName>
+                          <rd:DefaultName>Textbox18</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -1429,9 +1429,9 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>dtPersons</DataSetName>
-            <Top>6.77016cm</Top>
-            <Left>1.5875cm</Left>
-            <Height>4.75562cm</Height>
+            <Top>6.76366cm</Top>
+            <Left>1.58751cm</Left>
+            <Height>5.09429cm</Height>
             <Width>15.38458cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
@@ -1476,7 +1476,7 @@
             </Style>
           </Image>
         </ReportItems>
-        <Height>5.09952in</Height>
+        <Height>5.89119in</Height>
         <Style />
       </Body>
       <Width>6.82677in</Width>

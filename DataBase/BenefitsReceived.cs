@@ -8,7 +8,6 @@ namespace DataBase
     {
         public int id { get; set; }
         public string description { get; set; }
-        public string reasonForAttendance { get; set; }
         public DateTime dateBenefits { get; set; }
         public int person_id { get; set; }
 
@@ -18,12 +17,11 @@ namespace DataBase
             {
                 connection.Open();
                 string sql = id == 0
-                ? "INSERT INTO Benefits_Received (description, date_benefit, person_id, reason_for_attendance) VALUES (@description, @date_benefit, @person_id, @reason_for_attendance); SELECT @@identity"
-                : "UPDATE Benefits_Received SET description = @description, date_benefit = @date_benefit, person_id = @person_id, reason_for_attendance = @reason_for_attendance WHERE id = @id";
+                ? "INSERT INTO Benefits_Received (description, date_benefit, person_id) VALUES (@description, @date_benefit, @person_id); SELECT @@identity"
+                : "UPDATE Benefits_Received SET description = @description, date_benefit = @date_benefit, person_id = @person_idWHERE id = @id";
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.Parameters.AddWithValue("@id", id);
                 command.Parameters.AddWithValue("@description", description);
-                command.Parameters.AddWithValue("@reason_for_attendance", reasonForAttendance);
                 command.Parameters.AddWithValue("@date_benefit", dateBenefits);
                 command.Parameters.AddWithValue("@person_id", person_id);
                 command.CommandText = sql;
