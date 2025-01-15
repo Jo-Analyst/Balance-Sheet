@@ -37,9 +37,6 @@
             this.btnNew = new System.Windows.Forms.Button();
             this.txtField = new System.Windows.Forms.TextBox();
             this.dgvPerson = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.rbName = new System.Windows.Forms.RadioButton();
-            this.rbAddress = new System.Windows.Forms.RadioButton();
             this.ColEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.ColTrash = new System.Windows.Forms.DataGridViewImageColumn();
             this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,7 +50,15 @@
             this.ColIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColHelp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNumberOfMembers = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.rbName = new System.Windows.Forms.RadioButton();
+            this.rbAddress = new System.Windows.Forms.RadioButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ndPage = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbRows = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPerson)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ndPage)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNew
@@ -127,49 +132,10 @@
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvPerson.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvPerson.Size = new System.Drawing.Size(1028, 337);
+            this.dgvPerson.Size = new System.Drawing.Size(1028, 310);
             this.dgvPerson.TabIndex = 2;
             this.dgvPerson.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPerson_CellClick);
             this.dgvPerson.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPerson_CellMouseEnter);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(29, 112);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 20);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Procurar por: ";
-            // 
-            // rbName
-            // 
-            this.rbName.AutoSize = true;
-            this.rbName.Checked = true;
-            this.rbName.ForeColor = System.Drawing.Color.White;
-            this.rbName.Location = new System.Drawing.Point(172, 112);
-            this.rbName.Margin = new System.Windows.Forms.Padding(4);
-            this.rbName.Name = "rbName";
-            this.rbName.Size = new System.Drawing.Size(69, 24);
-            this.rbName.TabIndex = 6;
-            this.rbName.TabStop = true;
-            this.rbName.Text = "Nome";
-            this.rbName.UseVisualStyleBackColor = true;
-            this.rbName.CheckedChanged += new System.EventHandler(this.rbName_CheckedChanged);
-            // 
-            // rbAddress
-            // 
-            this.rbAddress.AutoSize = true;
-            this.rbAddress.ForeColor = System.Drawing.Color.White;
-            this.rbAddress.Location = new System.Drawing.Point(268, 112);
-            this.rbAddress.Margin = new System.Windows.Forms.Padding(4);
-            this.rbAddress.Name = "rbAddress";
-            this.rbAddress.Size = new System.Drawing.Size(96, 24);
-            this.rbAddress.TabIndex = 7;
-            this.rbAddress.Text = "Endereço";
-            this.rbAddress.UseVisualStyleBackColor = true;
-            this.rbAddress.CheckedChanged += new System.EventHandler(this.rbAddress_CheckedChanged);
             // 
             // ColEdit
             // 
@@ -297,12 +263,127 @@
             this.ColNumberOfMembers.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.ColNumberOfMembers.Width = 162;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(29, 112);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(104, 20);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Procurar por: ";
+            // 
+            // rbName
+            // 
+            this.rbName.AutoSize = true;
+            this.rbName.Checked = true;
+            this.rbName.ForeColor = System.Drawing.Color.White;
+            this.rbName.Location = new System.Drawing.Point(172, 112);
+            this.rbName.Margin = new System.Windows.Forms.Padding(4);
+            this.rbName.Name = "rbName";
+            this.rbName.Size = new System.Drawing.Size(69, 24);
+            this.rbName.TabIndex = 6;
+            this.rbName.TabStop = true;
+            this.rbName.Text = "Nome";
+            this.rbName.UseVisualStyleBackColor = true;
+            this.rbName.CheckedChanged += new System.EventHandler(this.rbName_CheckedChanged);
+            // 
+            // rbAddress
+            // 
+            this.rbAddress.AutoSize = true;
+            this.rbAddress.ForeColor = System.Drawing.Color.White;
+            this.rbAddress.Location = new System.Drawing.Point(268, 112);
+            this.rbAddress.Margin = new System.Windows.Forms.Padding(4);
+            this.rbAddress.Name = "rbAddress";
+            this.rbAddress.Size = new System.Drawing.Size(96, 24);
+            this.rbAddress.TabIndex = 7;
+            this.rbAddress.Text = "Endereço";
+            this.rbAddress.UseVisualStyleBackColor = true;
+            this.rbAddress.CheckedChanged += new System.EventHandler(this.rbAddress_CheckedChanged);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(405, 505);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 20);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Página";
+            // 
+            // ndPage
+            // 
+            this.ndPage.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.ndPage.Location = new System.Drawing.Point(409, 529);
+            this.ndPage.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.ndPage.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.ndPage.Name = "ndPage";
+            this.ndPage.ReadOnly = true;
+            this.ndPage.Size = new System.Drawing.Size(84, 26);
+            this.ndPage.TabIndex = 9;
+            this.ndPage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ndPage.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.ndPage.ValueChanged += new System.EventHandler(this.ndPage_ValueChanged);
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(545, 505);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 20);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Linhas";
+            // 
+            // cbRows
+            // 
+            this.cbRows.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.cbRows.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRows.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbRows.Items.AddRange(new object[] {
+            "5",
+            "10",
+            "15",
+            "20",
+            "25",
+            "30",
+            "35",
+            "40",
+            "50"});
+            this.cbRows.Location = new System.Drawing.Point(549, 527);
+            this.cbRows.Name = "cbRows";
+            this.cbRows.Size = new System.Drawing.Size(121, 28);
+            this.cbRows.TabIndex = 0;
+            this.cbRows.TabStop = false;
+            this.cbRows.SelectedIndexChanged += new System.EventHandler(this.cbRows_SelectedIndexChanged);
+            // 
             // FrmPerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1075, 530);
+            this.ClientSize = new System.Drawing.Size(1075, 573);
+            this.Controls.Add(this.cbRows);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.ndPage);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.rbAddress);
             this.Controls.Add(this.rbName);
             this.Controls.Add(this.label1);
@@ -320,6 +401,7 @@
             this.Load += new System.EventHandler(this.FrmPerson_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmPerson_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPerson)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ndPage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -346,5 +428,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColIncome;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColHelp;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColNumberOfMembers;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown ndPage;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbRows;
     }
 }

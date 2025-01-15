@@ -80,6 +80,46 @@ namespace DataBase
             }
         }
 
+        static public int CountQuantityPersons()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(DbConnectionString.connectionString))
+                {
+                    connection.Open();
+                    string sql = $"SELECT COUNT(id) AS quantityPersons FROM Persons ";
+                    var command = new SqlCommand(sql, connection);
+                    command.CommandText = sql;
+
+                    return Convert.ToInt32(command.ExecuteScalar());
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        
+        static public int CountQuantityPersonsByNameOrAddress(string text, string column)
+        {
+            try
+            {
+                using (var connection = new SqlConnection(DbConnectionString.connectionString))
+                {
+                    connection.Open();
+                    string sql = $"SELECT COUNT(id) AS quantityPersons FROM Persons WHERE {column} LIKE '%{text}%' ";
+                    var command = new SqlCommand(sql, connection);
+                    command.CommandText = sql;
+
+                    return Convert.ToInt32(command.ExecuteScalar());
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
         static public DataTable FindById(int id)
         {
             try
@@ -140,13 +180,13 @@ namespace DataBase
             }
         }
 
-        public DataTable FindAll()
+        public DataTable FindAll(int page = 0, double quantRows = 15)
         {
             try
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
-                    string sql = "SELECT * FROM Persons ORDER BY name";
+                    string sql = $"SELECT * FROM Persons ORDER BY name OFFSET {page} ROWS FETCH  NEXT {quantRows} ROWS ONLY";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();
@@ -160,13 +200,13 @@ namespace DataBase
             }
         }
 
-        public DataTable FindByNameOrAddress(string data, string column)
+        public DataTable FindByNameOrAddress(string text, string column, int page = 0, double quantRows = 15)
         {
             try
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
-                    string sql = $"SELECT * FROM Persons WHERE {column} LIKE '%{data}%'  ORDER BY name";
+                    string sql = $"SELECT * FROM Persons WHERE {column} LIKE '%{text}%' ORDER BY name OFFSET {page} ROWS FETCH  NEXT {quantRows} ROWS ONLY";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();

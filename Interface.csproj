@@ -173,6 +173,7 @@
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Utils\FormatterFields.cs" />
     <Compile Include="Utils\LocalReportSubReport.cs" />
+    <Compile Include="Utils\Page.cs" />
     <Compile Include="Utils\PrintLocalReport.cs" />
     <Compile Include="Utils\PrintRDLC.cs" />
     <Compile Include="Utils\ReportParameters.cs" />
