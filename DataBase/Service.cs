@@ -39,13 +39,13 @@ namespace DataBase
             }
         }
 
-        static public DataTable FindByPersonId(int person_id)
+        static public DataTable FindByPersonId(int person_id, int page = 0, double quantRows = 15)
         {
             try
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
-                    string sql = $"SELECT id, description, CONVERT(VARCHAR, date_service, 103) AS date_service, person_id FROM Services WHERE person_id = {person_id}";
+                    string sql = $"SELECT id, description, CONVERT(VARCHAR, date_service, 103) AS date_service, person_id FROM Services WHERE person_id = {person_id} ORDER BY id DESC OFFSET {page} ROWS FETCH  NEXT {quantRows} ROWS ONLY";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();

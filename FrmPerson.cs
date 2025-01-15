@@ -29,34 +29,28 @@ namespace Balance_Sheet
         private void FrmPerson_Load(object sender, EventArgs e)
         {
             cbRows.SelectedIndex = 2;
-            //LoadDataPerson();
             ToolTip toolTip = new ToolTip();
             toolTip.SetToolTip(btnNew, "Novo - [CTRL + N]");
         }
 
-        Page page = new Page();
 
         private void LoadDataPerson()
         {
             try
             {
-                page.quantityRowsSelected = int.Parse(cbRows.SelectedItem.ToString());
+                PageData.quantityRowsSelected = int.Parse(cbRows.SelectedItem.ToString());
                 dgvPerson.Rows.Clear();
                
                 string field = rbName.Checked ? "name" : "address";
-                // Obtendo a quantidade máxima de páginas com base no campo de texto
-                int maximumPage = string.IsNullOrWhiteSpace(txtField.Text) ? 1 : page.SetPageQuantityByNameOrAddress(txtField.Text, field);
+                int maximumPage = string.IsNullOrWhiteSpace(txtField.Text) ? 1 : PageData.SetPageQuantityByNameOrAddressPersons(txtField.Text, field);
 
-                // Definindo o valor máximo do controle de páginas
-                ndPage.Maximum = string.IsNullOrWhiteSpace(txtField.Text) ? page.SetPageQuantity() : Math.Max(maximumPage, 1);
+                ndPage.Maximum = string.IsNullOrWhiteSpace(txtField.Text) ? PageData.SetPageQuantityPersons() : Math.Max(maximumPage, 1);
 
-                // Calculando a página selecionada
-                int pageSelected = (int)((Math.Max(1, int.Parse(ndPage.Value.ToString())) - 1) * page.quantityRowsSelected);
+                int pageSelected = (int)((Math.Max(1, int.Parse(ndPage.Value.ToString())) - 1) * PageData.quantityRowsSelected);
 
-                // Obtendo os dados da pessoa com base no campo de texto
                 DataTable dtPerson = string.IsNullOrWhiteSpace(txtField.Text)
-                    ? person.FindAll(pageSelected, page.quantityRowsSelected)
-                    : person.FindByNameOrAddress(txtField.Text, field, pageSelected, page.quantityRowsSelected);
+                    ? person.FindAll(pageSelected, PageData.quantityRowsSelected)
+                    : person.FindByNameOrAddress(txtField.Text, field, pageSelected, PageData.quantityRowsSelected);
 
 
                 foreach (DataRow dr in dtPerson.Rows)

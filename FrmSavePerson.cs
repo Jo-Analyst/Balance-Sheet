@@ -3,6 +3,7 @@ using Balance_Sheet.Properties;
 using System;
 using System.Data;
 using System.Windows.Forms;
+using Balance_Sheet.Utils;
 
 namespace Balance_Sheet
 {
@@ -24,6 +25,7 @@ namespace Balance_Sheet
         {
             InitializeComponent();
 
+            cbRows.SelectedIndex = 1;
             personId = id;
             txtName.Text = name;
             mkCPF.Text = CPF;
@@ -60,7 +62,17 @@ namespace Balance_Sheet
 
         private void LoadBenefitsReceived()
         {
-            DataTable dtBenefitsReceived = BenefitsReceived.FindByPersonId(personId);
+
+            PageData.quantityRowsSelected = int.Parse(cbRows.SelectedItem.ToString());
+
+            ndPage.Maximum = PageData.SetPageQuantityBenefitsReceived();
+
+            int pageSelected = (int)((Math.Max(1, int.Parse(ndPage.Value.ToString())) - 1) * PageData.quantityRowsSelected);
+
+            dgvBenefitsReceived.Rows.Clear();
+
+            DataTable dtBenefitsReceived = BenefitsReceived.FindByPersonId(personId, pageSelected, PageData.quantityRowsSelected);
+
             foreach (DataRow rowBenefitsReceived in dtBenefitsReceived.Rows)
             {
                 int index = dgvBenefitsReceived.Rows.Add();
@@ -614,6 +626,16 @@ namespace Balance_Sheet
         private void dgvService_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
             dgvService.Cursor = e.ColumnIndex == 0 || e.ColumnIndex == 1 ? Cursors.Hand : Cursors.Arrow;
+        }
+
+        private void cbRows_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadBenefitsReceived();
+        }
+
+        private void ndPage_ValueChanged(object sender, EventArgs e)
+        {
+            LoadBenefitsReceived();
         }
 
         private void ClearFieldBenefits()

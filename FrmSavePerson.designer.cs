@@ -79,11 +79,16 @@
             this.ColIdService = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDescriptionService = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDateService = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbRows = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.ndPage = new System.Windows.Forms.NumericUpDown();
+            this.label14 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ndNumberOfMembers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBenefitsReceived)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvService)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ndPage)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -414,7 +419,7 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvBenefitsReceived.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvBenefitsReceived.Size = new System.Drawing.Size(395, 282);
+            this.dgvBenefitsReceived.Size = new System.Drawing.Size(533, 230);
             this.dgvBenefitsReceived.TabIndex = 5;
             this.dgvBenefitsReceived.TabStop = false;
             this.dgvBenefitsReceived.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBenefitsReceived_CellClick);
@@ -473,7 +478,7 @@
             this.btnPrint.Enabled = false;
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrint.ForeColor = System.Drawing.Color.White;
-            this.btnPrint.Location = new System.Drawing.Point(701, 598);
+            this.btnPrint.Location = new System.Drawing.Point(839, 598);
             this.btnPrint.Margin = new System.Windows.Forms.Padding(4);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(186, 50);
@@ -601,7 +606,7 @@
             this.ColDateService});
             this.dgvService.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.dgvService.EnableHeadersVisualStyles = false;
-            this.dgvService.Location = new System.Drawing.Point(493, 312);
+            this.dgvService.Location = new System.Drawing.Point(493, 259);
             this.dgvService.Name = "dgvService";
             this.dgvService.ReadOnly = true;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -618,7 +623,7 @@
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvService.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvService.Size = new System.Drawing.Size(395, 282);
+            this.dgvService.Size = new System.Drawing.Size(533, 330);
             this.dgvService.TabIndex = 36;
             this.dgvService.TabStop = false;
             this.dgvService.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvService_CellClick);
@@ -670,12 +675,88 @@
             this.ColDateService.ReadOnly = true;
             this.ColDateService.Width = 184;
             // 
+            // cbRows
+            // 
+            this.cbRows.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.cbRows.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRows.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbRows.Items.AddRange(new object[] {
+            "5",
+            "10",
+            "15",
+            "20",
+            "25",
+            "30",
+            "35",
+            "40",
+            "50"});
+            this.cbRows.Location = new System.Drawing.Point(706, 616);
+            this.cbRows.Name = "cbRows";
+            this.cbRows.Size = new System.Drawing.Size(121, 28);
+            this.cbRows.TabIndex = 37;
+            this.cbRows.TabStop = false;
+            this.cbRows.SelectedIndexChanged += new System.EventHandler(this.cbRows_SelectedIndexChanged);
+            // 
+            // label13
+            // 
+            this.label13.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(702, 593);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(56, 20);
+            this.label13.TabIndex = 40;
+            this.label13.Text = "Linhas";
+            // 
+            // ndPage
+            // 
+            this.ndPage.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.ndPage.Location = new System.Drawing.Point(566, 616);
+            this.ndPage.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.ndPage.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.ndPage.Name = "ndPage";
+            this.ndPage.ReadOnly = true;
+            this.ndPage.Size = new System.Drawing.Size(84, 26);
+            this.ndPage.TabIndex = 39;
+            this.ndPage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ndPage.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.ndPage.ValueChanged += new System.EventHandler(this.ndPage_ValueChanged);
+            // 
+            // label14
+            // 
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(562, 592);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(58, 20);
+            this.label14.TabIndex = 38;
+            this.label14.Text = "Página";
+            // 
             // FrmSavePerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(900, 655);
+            this.ClientSize = new System.Drawing.Size(1038, 655);
+            this.Controls.Add(this.cbRows);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.ndPage);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.dgvService);
             this.Controls.Add(this.btnAddService);
             this.Controls.Add(this.btnPrint);
@@ -699,7 +780,9 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvService)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ndPage)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -748,5 +831,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColIdService;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDescriptionService;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDateService;
+        private System.Windows.Forms.ComboBox cbRows;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.NumericUpDown ndPage;
+        private System.Windows.Forms.Label label14;
     }
 }

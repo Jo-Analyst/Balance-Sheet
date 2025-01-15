@@ -5,29 +5,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Balance_Sheet.Utils
 {
-    internal class Page
+    internal class PageData
     {
-        public double quantityRowsSelected {  get; set; }
+        static public double quantityRowsSelected { get; set; }
 
-        private double quantityPersons;
+        static private double quantityPersons;
 
-        public int SetPageQuantity()
+        static public int SetPageQuantityPersons()
         {
             quantityPersons = Person.CountQuantityPersons();
             return CalculacalculateNumberOfPage();
         } 
         
-        public int SetPageQuantityByNameOrAddress(string text, string column)
+        static public int SetPageQuantityBenefitsReceived()
+        {
+            quantityPersons = BenefitsReceived.CountQuantityPersonsBenefitsReceived();
+            return CalculacalculateNumberOfPage();
+        }
+
+        static public int SetPageQuantityByNameOrAddressPersons(string text, string column)
         {
             quantityPersons = Person.CountQuantityPersonsByNameOrAddress(text, column);
             return CalculacalculateNumberOfPage();
         }
 
-        private int CalculacalculateNumberOfPage()
+        static private int CalculacalculateNumberOfPage()
         {
             double result = quantityPersons / quantityRowsSelected;
             return (int)Math.Ceiling(result);

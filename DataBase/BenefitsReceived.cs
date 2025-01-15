@@ -39,18 +39,38 @@ namespace DataBase
             }
         }
 
-        static public DataTable FindByPersonId(int person_id)
+        static public DataTable FindByPersonId(int person_id, int page = 0, double quantRows = 15)
         {
             try
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
-                    string sql = $"SELECT id, description, CONVERT(VARCHAR, date_benefit, 103) AS date_benefit, person_id FROM Benefits_Received WHERE person_id = {person_id}";
+                    string sql = $"SELECT id, description, CONVERT(VARCHAR, date_benefit, 103) AS date_benefit, person_id FROM Benefits_Received WHERE person_id = {person_id} ORDER BY id DESC OFFSET {page} ROWS FETCH  NEXT {quantRows} ROWS ONLY";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);
                     return dataTable;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        static public int CountQuantityPersonsBenefitsReceived()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(DbConnectionString.connectionString))
+                {
+                    connection.Open();
+                    string sql = $"SELECT COUNT(id) AS quantity FROM Benefits_Received";
+                    var command = new SqlCommand(sql, connection);
+                    command.CommandText = sql;
+
+                    return Convert.ToInt32(command.ExecuteScalar());
                 }
             }
             catch
