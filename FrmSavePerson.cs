@@ -21,11 +21,13 @@ namespace Balance_Sheet
         {
             InitializeComponent();
         }
+
         public FrmSavePerson(int id, string name, string CPF, string RG, string address, string number_adress, string phone, decimal income, decimal help, int number_of_members, String birth, bool isEditicion = true)
         {
             InitializeComponent();
 
-            cbRows.SelectedIndex = 1;
+            cbRowsBenefits.SelectedIndex = 1;
+            cbRowsService.SelectedIndex = 1;
             personId = id;
             txtName.Text = name;
             mkCPF.Text = CPF;
@@ -45,7 +47,7 @@ namespace Balance_Sheet
             if (dgvBenefitsReceived.Rows.Count > 0)
                 btnPrint.Enabled = true;
 
-          if(  isEditicion)
+            if (isEditicion)
             {
                 btnVizAdd.Visible = ndNumberOfMembers.Value > 0;
             }
@@ -53,7 +55,17 @@ namespace Balance_Sheet
 
         private void LoadServices()
         {
-            DataTable dtServices = Service.FindByPersonId(personId);
+
+            PageData.quantityRowsSelected = int.Parse(cbRowsService.SelectedItem.ToString());
+
+            ndPageService.Maximum = PageData.SetPageQuantityServices();
+
+            int pageSelected = (int)((Math.Max(1, int.Parse(ndPageService.Value.ToString())) - 1) * PageData.quantityRowsSelected);
+
+            dgvService.Rows.Clear();
+
+            DataTable dtServices = Service.FindByPersonId(personId, pageSelected, PageData.quantityRowsSelected);
+
             foreach (DataRow data in dtServices.Rows)
             {
                 AddDgvService(int.Parse(data["id"].ToString()), data["description"].ToString(), DateTime.Parse(data["date_service"].ToString()));
@@ -63,11 +75,11 @@ namespace Balance_Sheet
         private void LoadBenefitsReceived()
         {
 
-            PageData.quantityRowsSelected = int.Parse(cbRows.SelectedItem.ToString());
+            PageData.quantityRowsSelected = int.Parse(cbRowsBenefits.SelectedItem.ToString());
 
-            ndPage.Maximum = PageData.SetPageQuantityBenefitsReceived();
+            ndPageBenefits.Maximum = PageData.SetPageQuantityBenefitsReceived();
 
-            int pageSelected = (int)((Math.Max(1, int.Parse(ndPage.Value.ToString())) - 1) * PageData.quantityRowsSelected);
+            int pageSelected = (int)((Math.Max(1, int.Parse(ndPageBenefits.Value.ToString())) - 1) * PageData.quantityRowsSelected);
 
             dgvBenefitsReceived.Rows.Clear();
 
@@ -279,9 +291,9 @@ namespace Balance_Sheet
         {
             if (e.RowIndex > -1)
             {
-                if (isService) 
+                if (isService)
                     dgvService.ClearSelection();
-                else 
+                else
                     dgvBenefitsReceived.ClearSelection();
             }
         }
@@ -502,8 +514,8 @@ namespace Balance_Sheet
             toolTip.SetToolTip(btnSave, "Salvar - [CTRL + S]");
             toolTip.SetToolTip(btnADD, "Adicionar - [CTRL + SHIFT + A]");
             toolTip.SetToolTip(btnVizAdd, "Visualizar | Adicionar Membros - [CTRL + SHIFT + S]");
-            dtDateBenefits.MaxDate= DateTime.Now;
-            dtBirth.MaxDate= DateTime.Now;
+            dtDateBenefits.MaxDate = DateTime.Now;
+            dtBirth.MaxDate = DateTime.Now;
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
@@ -536,7 +548,7 @@ namespace Balance_Sheet
 
         private void btnAddService_Click(object sender, EventArgs e)
         {
-           FrmService service = new FrmService(personId);
+            FrmService service = new FrmService(personId);
             service.ShowDialog();
 
             if (service.id > 0)
@@ -584,13 +596,8 @@ namespace Balance_Sheet
                 if (dr == DialogResult.Yes)
                 {
                     Service.Delete(int.Parse(dgvService.CurrentRow.Cells["ColIdService"].Value.ToString()));
-                    
+
                     dgvService.Rows.Remove(dgvService.CurrentRow);
-                  
-
-                    //if (dgvService.Rows.Count == 0)
-                    //    btnPrint.Enabled = false;
-
                 }
 
                 ClearSelection(e, true);
@@ -628,14 +635,24 @@ namespace Balance_Sheet
             dgvService.Cursor = e.ColumnIndex == 0 || e.ColumnIndex == 1 ? Cursors.Hand : Cursors.Arrow;
         }
 
-        private void cbRows_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbRowsBenefits_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadBenefitsReceived();
         }
 
-        private void ndPage_ValueChanged(object sender, EventArgs e)
+        private void ndPageBenefits_ValueChanged(object sender, EventArgs e)
         {
             LoadBenefitsReceived();
+        }
+
+        private void ndPageService_ValueChanged(object sender, EventArgs e)
+        {
+            LoadServices();
+        }
+
+        private void cbPageService_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadServices();
         }
 
         private void ClearFieldBenefits()

@@ -307,7 +307,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(405, 505);
+            this.label2.Location = new System.Drawing.Point(428, 505);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 20);
@@ -317,7 +317,7 @@
             // ndPage
             // 
             this.ndPage.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.ndPage.Location = new System.Drawing.Point(409, 529);
+            this.ndPage.Location = new System.Drawing.Point(432, 529);
             this.ndPage.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -345,7 +345,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(545, 505);
+            this.label3.Location = new System.Drawing.Point(522, 505);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 20);
@@ -367,7 +367,7 @@
             "35",
             "40",
             "50"});
-            this.cbRows.Location = new System.Drawing.Point(549, 527);
+            this.cbRows.Location = new System.Drawing.Point(526, 527);
             this.cbRows.Name = "cbRows";
             this.cbRows.Size = new System.Drawing.Size(121, 28);
             this.cbRows.TabIndex = 0;

@@ -12,29 +12,35 @@ namespace Balance_Sheet.Utils
     {
         static public double quantityRowsSelected { get; set; }
 
-        static private double quantityPersons;
+        static private double quantity;
 
         static public int SetPageQuantityPersons()
         {
-            quantityPersons = Person.CountQuantityPersons();
+            quantity = Person.CountQuantityPersons();
             return CalculacalculateNumberOfPage();
         } 
         
         static public int SetPageQuantityBenefitsReceived()
         {
-            quantityPersons = BenefitsReceived.CountQuantityPersonsBenefitsReceived();
+            quantity = BenefitsReceived.CountQuantityBenefitsReceived();
+            return CalculacalculateNumberOfPage();
+        }
+        
+        static public int SetPageQuantityServices()
+        {
+            quantity = Service.CountQuantityServices();
             return CalculacalculateNumberOfPage();
         }
 
         static public int SetPageQuantityByNameOrAddressPersons(string text, string column)
         {
-            quantityPersons = Person.CountQuantityPersonsByNameOrAddress(text, column);
+            quantity = Person.CountQuantityPersonsByNameOrAddress(text, column);
             return CalculacalculateNumberOfPage();
         }
 
         static private int CalculacalculateNumberOfPage()
         {
-            double result = quantityPersons / quantityRowsSelected;
+            double result = quantity / quantityRowsSelected;
             return (int)Math.Ceiling(result);
         }
     }

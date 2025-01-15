@@ -34,6 +34,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSavePerson));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnVizAdd = new System.Windows.Forms.Button();
@@ -59,12 +61,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvBenefitsReceived = new System.Windows.Forms.DataGridView();
-            this.ColEdit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ColDelete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColDescripition = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnPrint = new System.Windows.Forms.Button();
             this.rtDescription = new System.Windows.Forms.RichTextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -73,22 +69,37 @@
             this.btnADD = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnAddService = new System.Windows.Forms.Button();
+            this.cbRowsBenefits = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.ndPageBenefits = new System.Windows.Forms.NumericUpDown();
+            this.label14 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dgvBenefitsReceived = new System.Windows.Forms.DataGridView();
+            this.ColEdit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ColDelete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDescripition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cbRowsService = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.ndPageService = new System.Windows.Forms.NumericUpDown();
             this.dgvService = new System.Windows.Forms.DataGridView();
             this.ColEditService = new System.Windows.Forms.DataGridViewImageColumn();
             this.ColDeleteService = new System.Windows.Forms.DataGridViewImageColumn();
             this.ColIdService = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDescriptionService = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDateService = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbRows = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.ndPage = new System.Windows.Forms.NumericUpDown();
-            this.label14 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ndNumberOfMembers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBenefitsReceived)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ndPageBenefits)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBenefitsReceived)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ndPageService)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvService)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ndPage)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -377,100 +388,6 @@
             this.label1.TabIndex = 19;
             this.label1.Text = "Nome";
             // 
-            // dgvBenefitsReceived
-            // 
-            this.dgvBenefitsReceived.AllowUserToAddRows = false;
-            this.dgvBenefitsReceived.AllowUserToDeleteRows = false;
-            this.dgvBenefitsReceived.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBenefitsReceived.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvBenefitsReceived.ColumnHeadersHeight = 40;
-            this.dgvBenefitsReceived.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvBenefitsReceived.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColEdit,
-            this.ColDelete,
-            this.ColumnID,
-            this.ColDescripition,
-            this.ColDate});
-            this.dgvBenefitsReceived.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.dgvBenefitsReceived.EnableHeadersVisualStyles = false;
-            this.dgvBenefitsReceived.Location = new System.Drawing.Point(493, 23);
-            this.dgvBenefitsReceived.Name = "dgvBenefitsReceived";
-            this.dgvBenefitsReceived.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBenefitsReceived.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvBenefitsReceived.RowHeadersVisible = false;
-            this.dgvBenefitsReceived.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvBenefitsReceived.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvBenefitsReceived.Size = new System.Drawing.Size(533, 230);
-            this.dgvBenefitsReceived.TabIndex = 5;
-            this.dgvBenefitsReceived.TabStop = false;
-            this.dgvBenefitsReceived.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBenefitsReceived_CellClick);
-            this.dgvBenefitsReceived.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBenefitsReceived_CellDoubleClick);
-            this.dgvBenefitsReceived.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBenefitsReceived_CellMouseEnter);
-            // 
-            // ColEdit
-            // 
-            this.ColEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColEdit.HeaderText = "Editar";
-            this.ColEdit.MinimumWidth = 45;
-            this.ColEdit.Name = "ColEdit";
-            this.ColEdit.ReadOnly = true;
-            this.ColEdit.Width = 57;
-            // 
-            // ColDelete
-            // 
-            this.ColDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColDelete.HeaderText = "Excluir";
-            this.ColDelete.MinimumWidth = 6;
-            this.ColDelete.Name = "ColDelete";
-            this.ColDelete.ReadOnly = true;
-            this.ColDelete.Width = 61;
-            // 
-            // ColumnID
-            // 
-            this.ColumnID.HeaderText = "ID";
-            this.ColumnID.MinimumWidth = 6;
-            this.ColumnID.Name = "ColumnID";
-            this.ColumnID.ReadOnly = true;
-            this.ColumnID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColumnID.Visible = false;
-            this.ColumnID.Width = 125;
-            // 
-            // ColDescripition
-            // 
-            this.ColDescripition.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColDescripition.HeaderText = "Descrição";
-            this.ColDescripition.MinimumWidth = 6;
-            this.ColDescripition.Name = "ColDescripition";
-            this.ColDescripition.ReadOnly = true;
-            // 
-            // ColDate
-            // 
-            this.ColDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColDate.HeaderText = "Data do recebimento";
-            this.ColDate.MinimumWidth = 6;
-            this.ColDate.Name = "ColDate";
-            this.ColDate.ReadOnly = true;
-            this.ColDate.Width = 183;
-            // 
             // btnPrint
             // 
             this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -478,7 +395,7 @@
             this.btnPrint.Enabled = false;
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrint.ForeColor = System.Drawing.Color.White;
-            this.btnPrint.Location = new System.Drawing.Point(839, 598);
+            this.btnPrint.Location = new System.Drawing.Point(920, 598);
             this.btnPrint.Margin = new System.Windows.Forms.Padding(4);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(186, 50);
@@ -582,20 +499,303 @@
             this.btnAddService.UseVisualStyleBackColor = true;
             this.btnAddService.Click += new System.EventHandler(this.btnAddService_Click);
             // 
+            // cbRowsBenefits
+            // 
+            this.cbRowsBenefits.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.cbRowsBenefits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRowsBenefits.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbRowsBenefits.Items.AddRange(new object[] {
+            "5",
+            "10",
+            "15",
+            "20",
+            "25",
+            "30",
+            "35",
+            "40",
+            "50"});
+            this.cbRowsBenefits.Location = new System.Drawing.Point(508, 120);
+            this.cbRowsBenefits.Name = "cbRowsBenefits";
+            this.cbRowsBenefits.Size = new System.Drawing.Size(84, 28);
+            this.cbRowsBenefits.TabIndex = 37;
+            this.cbRowsBenefits.TabStop = false;
+            this.cbRowsBenefits.SelectedIndexChanged += new System.EventHandler(this.cbRowsBenefits_SelectedIndexChanged);
+            // 
+            // label13
+            // 
+            this.label13.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(504, 97);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(56, 20);
+            this.label13.TabIndex = 40;
+            this.label13.Text = "Linhas";
+            // 
+            // ndPageBenefits
+            // 
+            this.ndPageBenefits.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.ndPageBenefits.Location = new System.Drawing.Point(508, 65);
+            this.ndPageBenefits.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.ndPageBenefits.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.ndPageBenefits.Name = "ndPageBenefits";
+            this.ndPageBenefits.ReadOnly = true;
+            this.ndPageBenefits.Size = new System.Drawing.Size(84, 26);
+            this.ndPageBenefits.TabIndex = 39;
+            this.ndPageBenefits.TabStop = false;
+            this.ndPageBenefits.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ndPageBenefits.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.ndPageBenefits.ValueChanged += new System.EventHandler(this.ndPageBenefits_ValueChanged);
+            // 
+            // label14
+            // 
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(504, 41);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(58, 20);
+            this.label14.TabIndex = 38;
+            this.label14.Text = "Página";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.dgvBenefitsReceived);
+            this.groupBox3.Controls.Add(this.cbRowsBenefits);
+            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.label14);
+            this.groupBox3.Controls.Add(this.ndPageBenefits);
+            this.groupBox3.ForeColor = System.Drawing.Color.White;
+            this.groupBox3.Location = new System.Drawing.Point(493, 26);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(613, 227);
+            this.groupBox3.TabIndex = 41;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Benefícios";
+            // 
+            // dgvBenefitsReceived
+            // 
+            this.dgvBenefitsReceived.AllowUserToAddRows = false;
+            this.dgvBenefitsReceived.AllowUserToDeleteRows = false;
+            this.dgvBenefitsReceived.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBenefitsReceived.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvBenefitsReceived.ColumnHeadersHeight = 40;
+            this.dgvBenefitsReceived.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvBenefitsReceived.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColEdit,
+            this.ColDelete,
+            this.ColumnID,
+            this.ColDescripition,
+            this.ColDate});
+            this.dgvBenefitsReceived.Cursor = System.Windows.Forms.Cursors.Arrow;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBenefitsReceived.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvBenefitsReceived.EnableHeadersVisualStyles = false;
+            this.dgvBenefitsReceived.Location = new System.Drawing.Point(6, 25);
+            this.dgvBenefitsReceived.Name = "dgvBenefitsReceived";
+            this.dgvBenefitsReceived.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBenefitsReceived.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvBenefitsReceived.RowHeadersVisible = false;
+            this.dgvBenefitsReceived.RowHeadersWidth = 51;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvBenefitsReceived.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvBenefitsReceived.Size = new System.Drawing.Size(491, 196);
+            this.dgvBenefitsReceived.TabIndex = 6;
+            this.dgvBenefitsReceived.TabStop = false;
+            this.dgvBenefitsReceived.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBenefitsReceived_CellClick);
+            this.dgvBenefitsReceived.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBenefitsReceived_CellDoubleClick);
+            this.dgvBenefitsReceived.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBenefitsReceived_CellMouseEnter);
+            // 
+            // ColEdit
+            // 
+            this.ColEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColEdit.HeaderText = "Editar";
+            this.ColEdit.MinimumWidth = 45;
+            this.ColEdit.Name = "ColEdit";
+            this.ColEdit.ReadOnly = true;
+            this.ColEdit.Width = 57;
+            // 
+            // ColDelete
+            // 
+            this.ColDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColDelete.HeaderText = "Excluir";
+            this.ColDelete.MinimumWidth = 6;
+            this.ColDelete.Name = "ColDelete";
+            this.ColDelete.ReadOnly = true;
+            this.ColDelete.Width = 61;
+            // 
+            // ColumnID
+            // 
+            this.ColumnID.HeaderText = "ID";
+            this.ColumnID.MinimumWidth = 6;
+            this.ColumnID.Name = "ColumnID";
+            this.ColumnID.ReadOnly = true;
+            this.ColumnID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColumnID.Visible = false;
+            this.ColumnID.Width = 125;
+            // 
+            // ColDescripition
+            // 
+            this.ColDescripition.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColDescripition.HeaderText = "Descrição";
+            this.ColDescripition.MinimumWidth = 6;
+            this.ColDescripition.Name = "ColDescripition";
+            this.ColDescripition.ReadOnly = true;
+            // 
+            // ColDate
+            // 
+            this.ColDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColDate.HeaderText = "Data do recebimento";
+            this.ColDate.MinimumWidth = 6;
+            this.ColDate.Name = "ColDate";
+            this.ColDate.ReadOnly = true;
+            this.ColDate.Width = 183;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Controls.Add(this.cbRowsService);
+            this.groupBox4.Controls.Add(this.label15);
+            this.groupBox4.Controls.Add(this.label16);
+            this.groupBox4.Controls.Add(this.ndPageService);
+            this.groupBox4.Controls.Add(this.dgvService);
+            this.groupBox4.ForeColor = System.Drawing.Color.White;
+            this.groupBox4.Location = new System.Drawing.Point(493, 260);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(614, 330);
+            this.groupBox4.TabIndex = 42;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Atendimentos";
+            // 
+            // cbRowsService
+            // 
+            this.cbRowsService.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.cbRowsService.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRowsService.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbRowsService.Items.AddRange(new object[] {
+            "5",
+            "10",
+            "15",
+            "20",
+            "25",
+            "30",
+            "35",
+            "40",
+            "50"});
+            this.cbRowsService.Location = new System.Drawing.Point(508, 170);
+            this.cbRowsService.Name = "cbRowsService";
+            this.cbRowsService.Size = new System.Drawing.Size(84, 28);
+            this.cbRowsService.TabIndex = 41;
+            this.cbRowsService.TabStop = false;
+            this.cbRowsService.SelectedIndexChanged += new System.EventHandler(this.cbPageService_SelectedIndexChanged);
+            // 
+            // label15
+            // 
+            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label15.AutoSize = true;
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(504, 147);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(56, 20);
+            this.label15.TabIndex = 44;
+            this.label15.Text = "Linhas";
+            // 
+            // label16
+            // 
+            this.label16.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label16.AutoSize = true;
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(504, 91);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(58, 20);
+            this.label16.TabIndex = 42;
+            this.label16.Text = "Página";
+            // 
+            // ndPageService
+            // 
+            this.ndPageService.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.ndPageService.Location = new System.Drawing.Point(508, 115);
+            this.ndPageService.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.ndPageService.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.ndPageService.Name = "ndPageService";
+            this.ndPageService.ReadOnly = true;
+            this.ndPageService.Size = new System.Drawing.Size(84, 26);
+            this.ndPageService.TabIndex = 43;
+            this.ndPageService.TabStop = false;
+            this.ndPageService.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ndPageService.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.ndPageService.ValueChanged += new System.EventHandler(this.ndPageService_ValueChanged);
+            // 
             // dgvService
             // 
             this.dgvService.AllowUserToAddRows = false;
             this.dgvService.AllowUserToDeleteRows = false;
             this.dgvService.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvService.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvService.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvService.ColumnHeadersHeight = 40;
             this.dgvService.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvService.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -605,26 +805,34 @@
             this.ColDescriptionService,
             this.ColDateService});
             this.dgvService.Cursor = System.Windows.Forms.Cursors.Arrow;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvService.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvService.EnableHeadersVisualStyles = false;
-            this.dgvService.Location = new System.Drawing.Point(493, 259);
+            this.dgvService.Location = new System.Drawing.Point(6, 25);
             this.dgvService.Name = "dgvService";
             this.dgvService.ReadOnly = true;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvService.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvService.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvService.RowHeadersVisible = false;
             this.dgvService.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvService.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvService.Size = new System.Drawing.Size(533, 330);
-            this.dgvService.TabIndex = 36;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvService.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvService.Size = new System.Drawing.Size(491, 299);
+            this.dgvService.TabIndex = 37;
             this.dgvService.TabStop = false;
             this.dgvService.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvService_CellClick);
             this.dgvService.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvService_CellDoubleClick);
@@ -675,92 +883,16 @@
             this.ColDateService.ReadOnly = true;
             this.ColDateService.Width = 184;
             // 
-            // cbRows
-            // 
-            this.cbRows.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.cbRows.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbRows.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbRows.Items.AddRange(new object[] {
-            "5",
-            "10",
-            "15",
-            "20",
-            "25",
-            "30",
-            "35",
-            "40",
-            "50"});
-            this.cbRows.Location = new System.Drawing.Point(706, 616);
-            this.cbRows.Name = "cbRows";
-            this.cbRows.Size = new System.Drawing.Size(121, 28);
-            this.cbRows.TabIndex = 37;
-            this.cbRows.TabStop = false;
-            this.cbRows.SelectedIndexChanged += new System.EventHandler(this.cbRows_SelectedIndexChanged);
-            // 
-            // label13
-            // 
-            this.label13.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label13.AutoSize = true;
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(702, 593);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(56, 20);
-            this.label13.TabIndex = 40;
-            this.label13.Text = "Linhas";
-            // 
-            // ndPage
-            // 
-            this.ndPage.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.ndPage.Location = new System.Drawing.Point(566, 616);
-            this.ndPage.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.ndPage.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.ndPage.Name = "ndPage";
-            this.ndPage.ReadOnly = true;
-            this.ndPage.Size = new System.Drawing.Size(84, 26);
-            this.ndPage.TabIndex = 39;
-            this.ndPage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.ndPage.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.ndPage.ValueChanged += new System.EventHandler(this.ndPage_ValueChanged);
-            // 
-            // label14
-            // 
-            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label14.AutoSize = true;
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(562, 592);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(58, 20);
-            this.label14.TabIndex = 38;
-            this.label14.Text = "Página";
-            // 
             // FrmSavePerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1038, 655);
-            this.Controls.Add(this.cbRows);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.ndPage);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.dgvService);
+            this.ClientSize = new System.Drawing.Size(1119, 655);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnAddService);
             this.Controls.Add(this.btnPrint);
-            this.Controls.Add(this.dgvBenefitsReceived);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -776,13 +908,17 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ndNumberOfMembers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBenefitsReceived)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ndPageBenefits)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBenefitsReceived)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ndPageService)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvService)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ndPage)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -805,15 +941,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvBenefitsReceived;
         private System.Windows.Forms.NumericUpDown ndNumberOfMembers;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lblStatus;
-        private System.Windows.Forms.DataGridViewImageColumn ColEdit;
-        private System.Windows.Forms.DataGridViewImageColumn ColDelete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColDescripition;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColDate;
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.DateTimePicker dtBirth;
         private System.Windows.Forms.Label label12;
@@ -825,15 +955,27 @@
         private System.Windows.Forms.Button btnADD;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnAddService;
+        private System.Windows.Forms.ComboBox cbRowsBenefits;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.NumericUpDown ndPageBenefits;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DataGridView dgvBenefitsReceived;
+        private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView dgvService;
         private System.Windows.Forms.DataGridViewImageColumn ColEditService;
         private System.Windows.Forms.DataGridViewImageColumn ColDeleteService;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColIdService;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDescriptionService;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDateService;
-        private System.Windows.Forms.ComboBox cbRows;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.NumericUpDown ndPage;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox cbRowsService;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.NumericUpDown ndPageService;
+        private System.Windows.Forms.DataGridViewImageColumn ColEdit;
+        private System.Windows.Forms.DataGridViewImageColumn ColDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColDescripition;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColDate;
     }
 }

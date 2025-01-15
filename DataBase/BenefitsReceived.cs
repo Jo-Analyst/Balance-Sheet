@@ -59,7 +59,7 @@ namespace DataBase
             }
         }
 
-        static public int CountQuantityPersonsBenefitsReceived()
+        static public int CountQuantityBenefitsReceived()
         {
             try
             {

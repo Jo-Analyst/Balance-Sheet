@@ -59,7 +59,27 @@ namespace DataBase
             }
         }
 
-       static public void Delete(int id)
+        static public int CountQuantityServices()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(DbConnectionString.connectionString))
+                {
+                    connection.Open();
+                    string sql = $"SELECT COUNT(id) AS quantity FROM Services";
+                    var command = new SqlCommand(sql, connection);
+                    command.CommandText = sql;
+
+                    return Convert.ToInt32(command.ExecuteScalar());
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        static public void Delete(int id)
         {
             using (SqlConnection connection = new SqlConnection(DbConnectionString.connectionString))
             {
