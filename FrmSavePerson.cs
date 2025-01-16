@@ -149,10 +149,8 @@ namespace Balance_Sheet
                 benefitsReceived.Save();
 
                 if (benefits_id == 0)
-                {
-                    dgvBenefitsReceived.Rows.Add(Properties.Resources.Custom_Icon_Design_Flatastic_1_Edit_24, Properties.Resources.trash_24_icon, benefitsReceived.id, rtDescription.Text.Trim(), dtDateBenefits.Value.ToShortDateString());
-                    dgvBenefitsReceived.Rows[dgvBenefitsReceived.Rows.Count - 1].Height = 35;
-                    dgvBenefitsReceived.ClearSelection();
+                {                    
+                    LoadBenefitsReceived();
                 }
                 else
                 {
@@ -258,6 +256,7 @@ namespace Balance_Sheet
                     benefitsReceived.Delete(int.Parse(dgvBenefitsReceived.CurrentRow.Cells[2].Value.ToString()));
                     ClearFielsBenefits();
                     dgvBenefitsReceived.Rows.Remove(dgvBenefitsReceived.CurrentRow);
+                    LoadBenefitsReceived();
 
                     if (dgvBenefitsReceived.Rows.Count == 0)
                         btnPrint.Enabled = false;
@@ -553,7 +552,7 @@ namespace Balance_Sheet
 
             if (service.id > 0)
             {
-                AddDgvService(service.id, service.description, service.dateService);
+                LoadServices();
             }
         }
 
@@ -596,8 +595,9 @@ namespace Balance_Sheet
                 if (dr == DialogResult.Yes)
                 {
                     Service.Delete(int.Parse(dgvService.CurrentRow.Cells["ColIdService"].Value.ToString()));
+                    LoadServices();
 
-                    dgvService.Rows.Remove(dgvService.CurrentRow);
+                    //dgvService.Rows.Remove(dgvService.CurrentRow);
                 }
 
                 ClearSelection(e, true);

@@ -74,13 +74,13 @@ namespace DataBase
             }
         }
 
-        static public DataTable FindByPersonId(int personId)
+        static public DataTable FindByPersonId(int personId, int page, double quantRows)
         {
             try
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
-                    string sql = $"SELECT * FROM Members WHERE Members.person_id = {personId}";
+                    string sql = $"SELECT * FROM Members WHERE Members.person_id = {personId} ORDER BY name OFFSET {page} ROWS FETCH  NEXT {quantRows} ROWS ONLY";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();
@@ -106,6 +106,26 @@ namespace DataBase
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);
                     return dataTable;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        static public int CountQuantityMember()
+        {
+            try
+            {
+                using (var connection = new SqlConnection(DbConnectionString.connectionString))
+                {
+                    connection.Open();
+                    string sql = $"SELECT COUNT(id) AS quantity FROM Members";
+                    var command = new SqlCommand(sql, connection);
+                    command.CommandText = sql;
+
+                    return Convert.ToInt32(command.ExecuteScalar());
                 }
             }
             catch

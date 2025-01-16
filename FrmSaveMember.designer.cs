@@ -47,8 +47,6 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvMembers = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblResponsible = new System.Windows.Forms.Label();
             this.ColEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.ColDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.ColId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,10 +56,13 @@
             this.ColPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblResponsible = new System.Windows.Forms.Label();
             this.cbRows = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.ndPage = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMembers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ndPage)).BeginInit();
@@ -71,6 +72,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Controls.Add(this.lblStatus);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.dtBirth);
             this.groupBox1.Controls.Add(this.btnSave);
@@ -110,6 +112,7 @@
             this.dtBirth.Name = "dtBirth";
             this.dtBirth.Size = new System.Drawing.Size(132, 26);
             this.dtBirth.TabIndex = 38;
+            this.dtBirth.ValueChanged += new System.EventHandler(this.dtBirth_ValueChanged);
             // 
             // btnSave
             // 
@@ -132,6 +135,7 @@
             this.mkPhone.Name = "mkPhone";
             this.mkPhone.Size = new System.Drawing.Size(132, 26);
             this.mkPhone.TabIndex = 3;
+            this.mkPhone.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mkPhone_MaskInputRejected);
             // 
             // label6
             // 
@@ -152,6 +156,7 @@
             this.txtNumberAddress.Name = "txtNumberAddress";
             this.txtNumberAddress.Size = new System.Drawing.Size(112, 26);
             this.txtNumberAddress.TabIndex = 5;
+            this.txtNumberAddress.TextChanged += new System.EventHandler(this.txtNumberAddress_TextChanged);
             // 
             // label5
             // 
@@ -172,6 +177,7 @@
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(288, 26);
             this.txtAddress.TabIndex = 4;
+            this.txtAddress.TextChanged += new System.EventHandler(this.txtAddress_TextChanged);
             // 
             // label4
             // 
@@ -191,6 +197,7 @@
             this.mkCPF.Name = "mkCPF";
             this.mkCPF.Size = new System.Drawing.Size(120, 26);
             this.mkCPF.TabIndex = 1;
+            this.mkCPF.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mkCPF_MaskInputRejected);
             // 
             // label2
             // 
@@ -211,6 +218,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(408, 26);
             this.txtName.TabIndex = 0;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
             // 
             // label1
@@ -275,28 +283,6 @@
             this.dgvMembers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMembers_CellClick);
             this.dgvMembers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMembers_CellDoubleClick);
             this.dgvMembers.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMembers_CellMouseEnter);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(14, 31);
-            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(117, 20);
-            this.label3.TabIndex = 40;
-            this.label3.Text = "Responsavel:";
-            // 
-            // lblResponsible
-            // 
-            this.lblResponsible.AutoSize = true;
-            this.lblResponsible.ForeColor = System.Drawing.Color.White;
-            this.lblResponsible.Location = new System.Drawing.Point(132, 31);
-            this.lblResponsible.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.lblResponsible.Name = "lblResponsible";
-            this.lblResponsible.Size = new System.Drawing.Size(0, 20);
-            this.lblResponsible.TabIndex = 41;
             // 
             // ColEdit
             // 
@@ -372,6 +358,28 @@
             this.ColNumber.ReadOnly = true;
             this.ColNumber.Width = 90;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(14, 31);
+            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(117, 20);
+            this.label3.TabIndex = 40;
+            this.label3.Text = "Responsavel:";
+            // 
+            // lblResponsible
+            // 
+            this.lblResponsible.AutoSize = true;
+            this.lblResponsible.ForeColor = System.Drawing.Color.White;
+            this.lblResponsible.Location = new System.Drawing.Point(132, 31);
+            this.lblResponsible.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblResponsible.Name = "lblResponsible";
+            this.lblResponsible.Size = new System.Drawing.Size(0, 20);
+            this.lblResponsible.TabIndex = 41;
+            // 
             // cbRows
             // 
             this.cbRows.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -392,6 +400,7 @@
             this.cbRows.Size = new System.Drawing.Size(121, 28);
             this.cbRows.TabIndex = 44;
             this.cbRows.TabStop = false;
+            this.cbRows.SelectedIndexChanged += new System.EventHandler(this.cbRows_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -429,6 +438,7 @@
             0,
             0,
             0});
+            this.ndPage.ValueChanged += new System.EventHandler(this.ndPage_ValueChanged);
             // 
             // label8
             // 
@@ -441,6 +451,16 @@
             this.label8.Size = new System.Drawing.Size(58, 20);
             this.label8.TabIndex = 45;
             this.label8.Text = "Página";
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.ForeColor = System.Drawing.Color.White;
+            this.lblStatus.Location = new System.Drawing.Point(13, 252);
+            this.lblStatus.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(0, 20);
+            this.lblStatus.TabIndex = 40;
             // 
             // FrmSaveMember
             // 
@@ -506,5 +526,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown ndPage;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblStatus;
     }
 }

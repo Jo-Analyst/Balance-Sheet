@@ -31,6 +31,12 @@ namespace Balance_Sheet.Utils
             quantity = Service.CountQuantityServices();
             return CalculacalculateNumberOfPage();
         }
+        
+        static public int SetPageQuantityMembers()
+        {
+            quantity = Member.CountQuantityMember();
+            return CalculacalculateNumberOfPage();
+        }
 
         static public int SetPageQuantityByNameOrAddressPersons(string text, string column)
         {

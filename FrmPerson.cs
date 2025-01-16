@@ -10,6 +10,8 @@ namespace Balance_Sheet
     {
         int personId;
         Person person = new Person();
+        DataTable dtPerson = new DataTable();
+        bool isDelete = false;
 
         public FrmPerson()
         {
@@ -28,7 +30,7 @@ namespace Balance_Sheet
 
         private void FrmPerson_Load(object sender, EventArgs e)
         {
-            cbRows.SelectedIndex = 2;
+            cbRows.SelectedIndex = 1;
             ToolTip toolTip = new ToolTip();
             toolTip.SetToolTip(btnNew, "Novo - [CTRL + N]");
         }
@@ -40,7 +42,13 @@ namespace Balance_Sheet
             {
                 PageData.quantityRowsSelected = int.Parse(cbRows.SelectedItem.ToString());
                 dgvPerson.Rows.Clear();
-               
+             
+                if(dtPerson.Rows.Count > 0)
+                {
+                    dtPerson.Rows.Clear();
+                }
+
+
                 string field = rbName.Checked ? "name" : "address";
                 int maximumPage = string.IsNullOrWhiteSpace(txtField.Text) ? 1 : PageData.SetPageQuantityByNameOrAddressPersons(txtField.Text, field);
 
@@ -48,7 +56,7 @@ namespace Balance_Sheet
 
                 int pageSelected = (int)((Math.Max(1, int.Parse(ndPage.Value.ToString())) - 1) * PageData.quantityRowsSelected);
 
-                DataTable dtPerson = string.IsNullOrWhiteSpace(txtField.Text)
+                dtPerson = string.IsNullOrWhiteSpace(txtField.Text)
                     ? person.FindAll(pageSelected, PageData.quantityRowsSelected)
                     : person.FindByNameOrAddress(txtField.Text, field, pageSelected, PageData.quantityRowsSelected);
 
@@ -148,10 +156,14 @@ namespace Balance_Sheet
 
                 if (dr == DialogResult.Yes)
                 {
+                    isDelete = true;
                     person.id = personId;
                     person.Delete();
-                    dgvPerson.Rows.Remove(dgvPerson.CurrentRow);
-                    if (dgvPerson.Rows.Count == 0)
+                    LoadDataPerson();
+
+                    isDelete = false;
+
+                    if (dtPerson.Rows.Count == 0)
                     {
                         this.Visible = false;
                         FrmSavePerson savePerson = new FrmSavePerson();
@@ -160,7 +172,6 @@ namespace Balance_Sheet
                         if (savePerson.wasDataSaved)
                         {
                             this.Visible = true;
-                            LoadDataPerson();
                         }
                         else
                             this.Close();
@@ -199,7 +210,8 @@ namespace Balance_Sheet
 
         private void ndPage_ValueChanged(object sender, EventArgs e)
         {
-            LoadDataPerson();
+            if (!isDelete)
+                LoadDataPerson();
         }
     }
 }

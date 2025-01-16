@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Microsoft.Reporting.Map.WebForms.BingMaps;
 using System.Reflection;
 using System.Xml.Linq;
+using Balance_Sheet.Utils;
 
 namespace Balance_Sheet
 {
@@ -23,12 +24,22 @@ namespace Balance_Sheet
 
             this.personId = personId;
             lblResponsible.Text = responsible;
+            cbRows.SelectedIndex = 1;
             LoadMembers();
         }
 
         private void LoadMembers()
         {
-           DataTable dtMembers = Member.FindByPersonId(personId);
+
+            PageData.quantityRowsSelected = int.Parse(cbRows.SelectedItem.ToString());
+
+            ndPage.Maximum = PageData.SetPageQuantityMembers();
+
+            int pageSelected = (int)((Math.Max(1, int.Parse(ndPage.Value.ToString())) - 1) * PageData.quantityRowsSelected);
+
+            dgvMembers.Rows.Clear();
+
+            DataTable dtMembers = Member.FindByPersonId(personId, pageSelected, PageData.quantityRowsSelected);
 
             foreach (DataRow row in dtMembers.Rows)
             {
@@ -126,6 +137,7 @@ namespace Balance_Sheet
                 {
                     Member.Delete(int.Parse(dgvMembers.CurrentRow.Cells["ColId"].Value.ToString()));
                     dgvMembers.Rows.Remove(dgvMembers.CurrentRow);
+                    LoadMembers();
                 }
 
                 dgvMembers.ClearSelection();
@@ -207,18 +219,21 @@ namespace Balance_Sheet
                 member.personId = personId;
 
                 member.Save();
-                if (memberId == 0)
-                    addDgvMember(txtName.Text, mkCPF.Text, dtBirth.Value.ToShortDateString(), mkPhone.Text, txtAddress.Text, txtNumberAddress.Text, personId);
-                else
+                LoadMembers();
+                if (memberId > 0)
+                    //addDgvMember(txtName.Text, mkCPF.Text, dtBirth.Value.ToShortDateString(), mkPhone.Text, txtAddress.Text, txtNumberAddress.Text, personId);
+                //else
                     editRowDgv();
-                
+
                 mkCPF.Text = member.CPF;
                 memberId = member.id;
                 wasDataSaved = true;
                 ClearFieldsMember();
+                lblStatus.Text = "Salvo com sucesso.";
             }
             catch (Exception ex)
             {
+                lblStatus.Text = "";
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -250,6 +265,46 @@ namespace Balance_Sheet
         }
 
         ToolTip toolTip = new ToolTip();
+
+        private void ndPage_ValueChanged(object sender, EventArgs e)
+        {
+            LoadMembers();
+        }
+
+        private void cbRows_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadMembers();
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            lblStatus.Text = "";
+        }
+
+        private void mkCPF_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            lblStatus.Text = "";
+        }
+
+        private void dtBirth_ValueChanged(object sender, EventArgs e)
+        {
+            lblStatus.Text = "";
+        }
+
+        private void mkPhone_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            lblStatus.Text = "";
+        }
+
+        private void txtAddress_TextChanged(object sender, EventArgs e)
+        {
+            lblStatus.Text = "";
+        }
+
+        private void txtNumberAddress_TextChanged(object sender, EventArgs e)
+        {
+            lblStatus.Text = "";
+        }
 
         private void FrmSavePerson_Load(object sender, EventArgs e)
         {
