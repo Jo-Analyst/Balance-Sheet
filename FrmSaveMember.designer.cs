@@ -58,8 +58,13 @@
             this.ColPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbRows = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.ndPage = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMembers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ndPage)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -82,7 +87,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(13, 66);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(441, 258);
+            this.groupBox1.Size = new System.Drawing.Size(441, 294);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados pessoais";
@@ -265,7 +270,7 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvMembers.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvMembers.Size = new System.Drawing.Size(427, 302);
+            this.dgvMembers.Size = new System.Drawing.Size(427, 391);
             this.dgvMembers.TabIndex = 5;
             this.dgvMembers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMembers_CellClick);
             this.dgvMembers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMembers_CellDoubleClick);
@@ -323,11 +328,10 @@
             // 
             // ColName
             // 
-            this.ColName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ColName.HeaderText = "Nome";
             this.ColName.Name = "ColName";
             this.ColName.ReadOnly = true;
-            this.ColName.Width = 76;
             // 
             // ColCPF
             // 
@@ -355,11 +359,10 @@
             // 
             // ColAddress
             // 
-            this.ColAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ColAddress.HeaderText = "Endereço";
             this.ColAddress.Name = "ColAddress";
             this.ColAddress.ReadOnly = true;
-            this.ColAddress.Width = 103;
             // 
             // ColNumber
             // 
@@ -369,16 +372,90 @@
             this.ColNumber.ReadOnly = true;
             this.ColNumber.Width = 90;
             // 
+            // cbRows
+            // 
+            this.cbRows.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cbRows.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRows.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbRows.Items.AddRange(new object[] {
+            "5",
+            "10",
+            "15",
+            "20",
+            "25",
+            "30",
+            "35",
+            "40",
+            "50"});
+            this.cbRows.Location = new System.Drawing.Point(212, 385);
+            this.cbRows.Name = "cbRows";
+            this.cbRows.Size = new System.Drawing.Size(121, 28);
+            this.cbRows.TabIndex = 44;
+            this.cbRows.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(208, 363);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(56, 20);
+            this.label7.TabIndex = 47;
+            this.label7.Text = "Linhas";
+            // 
+            // ndPage
+            // 
+            this.ndPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ndPage.Location = new System.Drawing.Point(118, 387);
+            this.ndPage.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.ndPage.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.ndPage.Name = "ndPage";
+            this.ndPage.ReadOnly = true;
+            this.ndPage.Size = new System.Drawing.Size(84, 26);
+            this.ndPage.TabIndex = 46;
+            this.ndPage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ndPage.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(114, 363);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(58, 20);
+            this.label8.TabIndex = 45;
+            this.label8.Text = "Página";
+            // 
             // FrmSaveMember
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(900, 336);
+            this.ClientSize = new System.Drawing.Size(900, 425);
+            this.Controls.Add(this.cbRows);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.lblResponsible);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.ndPage);
             this.Controls.Add(this.dgvMembers);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.label8);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
@@ -392,6 +469,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMembers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ndPage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -424,5 +502,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColPhone;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColNumber;
+        private System.Windows.Forms.ComboBox cbRows;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.NumericUpDown ndPage;
+        private System.Windows.Forms.Label label8;
     }
 }

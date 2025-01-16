@@ -39,7 +39,7 @@ namespace DataBase
             }
         }
 
-        static public DataTable FindByPersonId(int person_id, int page = 0, double quantRows = 15)
+        static public DataTable FindByPersonId(int person_id, int page, double quantRows)
         {
             try
             {

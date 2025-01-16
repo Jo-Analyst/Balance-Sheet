@@ -75,11 +75,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvBenefitsReceived = new System.Windows.Forms.DataGridView();
-            this.ColEdit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ColDelete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColDescripition = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.cbRowsService = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -91,6 +86,11 @@
             this.ColIdService = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDescriptionService = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColDateService = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDescripition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDelete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ColEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ndNumberOfMembers)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -514,7 +514,7 @@
             "35",
             "40",
             "50"});
-            this.cbRowsBenefits.Location = new System.Drawing.Point(508, 120);
+            this.cbRowsBenefits.Location = new System.Drawing.Point(508, 139);
             this.cbRowsBenefits.Name = "cbRowsBenefits";
             this.cbRowsBenefits.Size = new System.Drawing.Size(84, 28);
             this.cbRowsBenefits.TabIndex = 37;
@@ -526,7 +526,7 @@
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(504, 97);
+            this.label13.Location = new System.Drawing.Point(504, 116);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(56, 20);
@@ -536,7 +536,7 @@
             // ndPageBenefits
             // 
             this.ndPageBenefits.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.ndPageBenefits.Location = new System.Drawing.Point(508, 65);
+            this.ndPageBenefits.Location = new System.Drawing.Point(508, 84);
             this.ndPageBenefits.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -565,7 +565,7 @@
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(504, 41);
+            this.label14.Location = new System.Drawing.Point(504, 60);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(58, 20);
@@ -647,51 +647,6 @@
             this.dgvBenefitsReceived.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBenefitsReceived_CellDoubleClick);
             this.dgvBenefitsReceived.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBenefitsReceived_CellMouseEnter);
             // 
-            // ColEdit
-            // 
-            this.ColEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColEdit.HeaderText = "Editar";
-            this.ColEdit.MinimumWidth = 45;
-            this.ColEdit.Name = "ColEdit";
-            this.ColEdit.ReadOnly = true;
-            this.ColEdit.Width = 57;
-            // 
-            // ColDelete
-            // 
-            this.ColDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColDelete.HeaderText = "Excluir";
-            this.ColDelete.MinimumWidth = 6;
-            this.ColDelete.Name = "ColDelete";
-            this.ColDelete.ReadOnly = true;
-            this.ColDelete.Width = 61;
-            // 
-            // ColumnID
-            // 
-            this.ColumnID.HeaderText = "ID";
-            this.ColumnID.MinimumWidth = 6;
-            this.ColumnID.Name = "ColumnID";
-            this.ColumnID.ReadOnly = true;
-            this.ColumnID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColumnID.Visible = false;
-            this.ColumnID.Width = 125;
-            // 
-            // ColDescripition
-            // 
-            this.ColDescripition.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColDescripition.HeaderText = "Descrição";
-            this.ColDescripition.MinimumWidth = 6;
-            this.ColDescripition.Name = "ColDescripition";
-            this.ColDescripition.ReadOnly = true;
-            // 
-            // ColDate
-            // 
-            this.ColDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColDate.HeaderText = "Data do recebimento";
-            this.ColDate.MinimumWidth = 6;
-            this.ColDate.Name = "ColDate";
-            this.ColDate.ReadOnly = true;
-            this.ColDate.Width = 183;
-            // 
             // groupBox4
             // 
             this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -724,7 +679,7 @@
             "35",
             "40",
             "50"});
-            this.cbRowsService.Location = new System.Drawing.Point(508, 170);
+            this.cbRowsService.Location = new System.Drawing.Point(508, 191);
             this.cbRowsService.Name = "cbRowsService";
             this.cbRowsService.Size = new System.Drawing.Size(84, 28);
             this.cbRowsService.TabIndex = 41;
@@ -736,7 +691,7 @@
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label15.AutoSize = true;
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(504, 147);
+            this.label15.Location = new System.Drawing.Point(504, 168);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(56, 20);
@@ -748,7 +703,7 @@
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label16.AutoSize = true;
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(504, 91);
+            this.label16.Location = new System.Drawing.Point(504, 112);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(58, 20);
@@ -758,7 +713,7 @@
             // ndPageService
             // 
             this.ndPageService.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.ndPageService.Location = new System.Drawing.Point(508, 115);
+            this.ndPageService.Location = new System.Drawing.Point(508, 136);
             this.ndPageService.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -883,16 +838,61 @@
             this.ColDateService.ReadOnly = true;
             this.ColDateService.Width = 184;
             // 
+            // ColDate
+            // 
+            this.ColDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColDate.HeaderText = "Data do recebimento";
+            this.ColDate.MinimumWidth = 6;
+            this.ColDate.Name = "ColDate";
+            this.ColDate.ReadOnly = true;
+            this.ColDate.Width = 183;
+            // 
+            // ColDescripition
+            // 
+            this.ColDescripition.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColDescripition.HeaderText = "Descrição";
+            this.ColDescripition.MinimumWidth = 6;
+            this.ColDescripition.Name = "ColDescripition";
+            this.ColDescripition.ReadOnly = true;
+            // 
+            // ColumnID
+            // 
+            this.ColumnID.HeaderText = "ID";
+            this.ColumnID.MinimumWidth = 6;
+            this.ColumnID.Name = "ColumnID";
+            this.ColumnID.ReadOnly = true;
+            this.ColumnID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColumnID.Visible = false;
+            this.ColumnID.Width = 125;
+            // 
+            // ColDelete
+            // 
+            this.ColDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColDelete.HeaderText = "Excluir";
+            this.ColDelete.MinimumWidth = 6;
+            this.ColDelete.Name = "ColDelete";
+            this.ColDelete.ReadOnly = true;
+            this.ColDelete.Width = 61;
+            // 
+            // ColEdit
+            // 
+            this.ColEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColEdit.HeaderText = "Editar";
+            this.ColEdit.MinimumWidth = 45;
+            this.ColEdit.Name = "ColEdit";
+            this.ColEdit.ReadOnly = true;
+            this.ColEdit.Width = 57;
+            // 
             // FrmSavePerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1119, 655);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnAddService);
-            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
