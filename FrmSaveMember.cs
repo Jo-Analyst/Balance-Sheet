@@ -70,7 +70,7 @@ namespace Balance_Sheet
 
         private void FrmSaveMember_KeyDown(object sender, KeyEventArgs e)
         {
-            if (btnSave.Text == "Novo" && e.Control && e.KeyCode == Keys.N || btnSave.Text == "Salvar" && e.Control && e.KeyCode == Keys.S)
+            if (btnSave.Text == "Salvar" && e.Control && e.KeyCode == Keys.S)
             {
                 btnSave_Click(sender, e);
             }
