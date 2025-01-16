@@ -54,7 +54,12 @@
             this.txtField = new System.Windows.Forms.TextBox();
             this.btnPrint = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.cbRows = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ndPage = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPerson)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ndPage)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvPerson
@@ -306,12 +311,86 @@
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
+            // cbRows
+            // 
+            this.cbRows.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.cbRows.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRows.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbRows.Items.AddRange(new object[] {
+            "5",
+            "10",
+            "15",
+            "20",
+            "25",
+            "30",
+            "35",
+            "40",
+            "50"});
+            this.cbRows.Location = new System.Drawing.Point(532, 494);
+            this.cbRows.Name = "cbRows";
+            this.cbRows.Size = new System.Drawing.Size(121, 28);
+            this.cbRows.TabIndex = 36;
+            this.cbRows.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(528, 472);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 20);
+            this.label3.TabIndex = 39;
+            this.label3.Text = "Linhas";
+            // 
+            // ndPage
+            // 
+            this.ndPage.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.ndPage.Location = new System.Drawing.Point(438, 496);
+            this.ndPage.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.ndPage.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.ndPage.Name = "ndPage";
+            this.ndPage.ReadOnly = true;
+            this.ndPage.Size = new System.Drawing.Size(84, 26);
+            this.ndPage.TabIndex = 38;
+            this.ndPage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ndPage.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(434, 472);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 20);
+            this.label2.TabIndex = 37;
+            this.label2.Text = "Página";
+            // 
             // FrmReportBalancete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1075, 530);
+            this.Controls.Add(this.cbRows);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.ndPage);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.rbAddress);
             this.Controls.Add(this.rbName);
@@ -329,6 +408,7 @@
             this.Load += new System.EventHandler(this.FrmReportBalancete_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmReportBalancete_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPerson)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ndPage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -355,5 +435,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDateBenefits;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.ComboBox cbRows;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown ndPage;
+        private System.Windows.Forms.Label label2;
     }
 }

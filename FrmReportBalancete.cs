@@ -20,6 +20,7 @@ namespace Balance_Sheet
 
         private void FrmReportBalancete_Load(object sender, EventArgs e)
         {
+            cbRows.SelectedIndex = 1;
             CreateColumnsDtCountBenefits();
             createColumnsdtPersonsFiltered();
             LoadDataPersonAndBenefits();
