@@ -4,6 +4,7 @@ using System;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using Balance_Sheet.Utils;
 
 namespace Balance_Sheet
 {
@@ -23,7 +24,6 @@ namespace Balance_Sheet
             cbRows.SelectedIndex = 1;
             CreateColumnsDtCountBenefits();
             createColumnsdtPersonsFiltered();
-            LoadDataPersonAndBenefits();
 
             btnPrint.Enabled = dgvPerson.Rows.Count > 0;
             if (!bool.Parse(Settings.Default["print_directory_direct"].ToString()))
@@ -40,11 +40,25 @@ namespace Balance_Sheet
         {
             try
             {
+                PageData.quantityRowsSelected = int.Parse(cbRows.SelectedItem.ToString());
+
                 dgvPerson.Rows.Clear();
+
+                DataTable dtPersons = null;
+                
                 string columnTable = rbName.Checked ? "name" : "address";
+
+                int maximumPage = string.IsNullOrWhiteSpace(txtField.Text) ? 1 : PageData.SetPageQuantityByNameOrAddressPersonWithBenefits(txtField.Text, columnTable);
+
+                ndPage.Maximum = string.IsNullOrWhiteSpace(txtField.Text) ? PageData.SetPageQuantityPersonWithBenefits() : Math.Max(maximumPage, 1);
+
+                int pageSelected = (int)((Math.Max(1, int.Parse(ndPage.Value.ToString())) - 1) * PageData.quantityRowsSelected);
+
                 dtPersons = string.IsNullOrWhiteSpace(txtField.Text)
-                    ? person.FindAllPersonAndBenefits()
-                    : person.FindAllPersonAndBenefitsByNameOrAddress(txtField.Text, columnTable);
+                      ? person.FindAllPersonAndBenefits(pageSelected, PageData.quantityRowsSelected)
+                      : person.FindAllPersonAndBenefitsByNameOrAddress(txtField.Text, columnTable);
+
+                this.dtPersons = dtPersons;
 
                 foreach (DataRow dr in dtPersons.Rows)
                 {
@@ -59,13 +73,12 @@ namespace Balance_Sheet
                     dgvPerson.Rows[index].Cells[7].Value = $"R$ {dr["income"]}";
                     dgvPerson.Rows[index].Cells[8].Value = $"R$ {dr["help"]}";
                     dgvPerson.Rows[index].Cells[9].Value = dr["number_of_members"].ToString();
-                    dgvPerson.Rows[index].Cells[10].Value = dr["description"].ToString();
-                    dgvPerson.Rows[index].Cells[11].Value = dr["date_benefit"].ToString();
-                    dgvPerson.Rows[index].Cells[12].Value = dr["Person_id"].ToString();
+                    dgvPerson.Rows[index].Cells[10].Value = dr["quantity_benefits"].ToString();
+                    dgvPerson.Rows[index].Cells[11].Value = dr["person_id"].ToString();
                     dgvPerson.Rows[index].Height = 35;
                 }
                 //Count_Benefits();
-                FillDtPersonsFiltered();
+                //FillDtPersonsFiltered();
                 dgvPerson.ClearSelection();
             }
             catch (Exception ex)
@@ -197,6 +210,16 @@ namespace Balance_Sheet
         {
             if (btnPrint.Enabled && e.Control && e.KeyCode == Keys.P)
                 btnPrint_Click(sender, e);
+        }
+
+        private void cbRows_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadDataPersonAndBenefits();
+        }
+
+        private void ndPage_ValueChanged(object sender, EventArgs e)
+        {
+            LoadDataPersonAndBenefits();
         }
     }
 }

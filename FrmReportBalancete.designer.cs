@@ -35,19 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReportBalancete));
             this.dgvPerson = new System.Windows.Forms.DataGridView();
-            this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColCPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColRG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColNumberAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColHelp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColNumberOfMembers = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColDateBenefits = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rbAddress = new System.Windows.Forms.RadioButton();
             this.rbName = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
@@ -58,6 +45,18 @@
             this.label3 = new System.Windows.Forms.Label();
             this.ndPage = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
+            this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColRG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColNumberAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColIncome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColHelp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColNumberOfMembers = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColQuantityBenefits = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPerson)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ndPage)).BeginInit();
             this.SuspendLayout();
@@ -91,8 +90,7 @@
             this.ColIncome,
             this.ColHelp,
             this.ColNumberOfMembers,
-            this.ColDescription,
-            this.ColDateBenefits,
+            this.ColQuantityBenefits,
             this.Column1});
             this.dgvPerson.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.dgvPerson.EnableHeadersVisualStyles = false;
@@ -108,6 +106,147 @@
             this.dgvPerson.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvPerson.Size = new System.Drawing.Size(1049, 385);
             this.dgvPerson.TabIndex = 2;
+            // 
+            // rbAddress
+            // 
+            this.rbAddress.AutoSize = true;
+            this.rbAddress.ForeColor = System.Drawing.Color.White;
+            this.rbAddress.Location = new System.Drawing.Point(252, 13);
+            this.rbAddress.Margin = new System.Windows.Forms.Padding(4);
+            this.rbAddress.Name = "rbAddress";
+            this.rbAddress.Size = new System.Drawing.Size(96, 24);
+            this.rbAddress.TabIndex = 11;
+            this.rbAddress.Text = "Endereço";
+            this.rbAddress.UseVisualStyleBackColor = true;
+            this.rbAddress.CheckedChanged += new System.EventHandler(this.rbAddress_CheckedChanged);
+            // 
+            // rbName
+            // 
+            this.rbName.AutoSize = true;
+            this.rbName.Checked = true;
+            this.rbName.ForeColor = System.Drawing.Color.White;
+            this.rbName.Location = new System.Drawing.Point(156, 13);
+            this.rbName.Margin = new System.Windows.Forms.Padding(4);
+            this.rbName.Name = "rbName";
+            this.rbName.Size = new System.Drawing.Size(69, 24);
+            this.rbName.TabIndex = 10;
+            this.rbName.TabStop = true;
+            this.rbName.Text = "Nome";
+            this.rbName.UseVisualStyleBackColor = true;
+            this.rbName.CheckedChanged += new System.EventHandler(this.rbName_CheckedChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(104, 20);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Procurar por: ";
+            // 
+            // txtField
+            // 
+            this.txtField.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtField.Location = new System.Drawing.Point(16, 45);
+            this.txtField.Margin = new System.Windows.Forms.Padding(4);
+            this.txtField.MaxLength = 100;
+            this.txtField.Name = "txtField";
+            this.txtField.Size = new System.Drawing.Size(1046, 26);
+            this.txtField.TabIndex = 8;
+            this.txtField.TextChanged += new System.EventHandler(this.txtField_TextChanged);
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrint.Enabled = false;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.ForeColor = System.Drawing.Color.White;
+            this.btnPrint.Location = new System.Drawing.Point(880, 472);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(186, 50);
+            this.btnPrint.TabIndex = 35;
+            this.btnPrint.Text = "Imprimir";
+            this.toolTip.SetToolTip(this.btnPrint, "Imprimir - [CTRL + P]");
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // cbRows
+            // 
+            this.cbRows.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.cbRows.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRows.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbRows.Items.AddRange(new object[] {
+            "5",
+            "10",
+            "15",
+            "20",
+            "25",
+            "30",
+            "35",
+            "40",
+            "50"});
+            this.cbRows.Location = new System.Drawing.Point(532, 494);
+            this.cbRows.Name = "cbRows";
+            this.cbRows.Size = new System.Drawing.Size(121, 28);
+            this.cbRows.TabIndex = 36;
+            this.cbRows.TabStop = false;
+            this.cbRows.SelectedIndexChanged += new System.EventHandler(this.cbRows_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(528, 472);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 20);
+            this.label3.TabIndex = 39;
+            this.label3.Text = "Linhas";
+            // 
+            // ndPage
+            // 
+            this.ndPage.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.ndPage.Location = new System.Drawing.Point(438, 496);
+            this.ndPage.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.ndPage.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.ndPage.Name = "ndPage";
+            this.ndPage.ReadOnly = true;
+            this.ndPage.Size = new System.Drawing.Size(84, 26);
+            this.ndPage.TabIndex = 38;
+            this.ndPage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ndPage.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.ndPage.ValueChanged += new System.EventHandler(this.ndPage_ValueChanged);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(434, 472);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 20);
+            this.label2.TabIndex = 37;
+            this.label2.Text = "Página";
             // 
             // ColName
             // 
@@ -211,27 +350,16 @@
             this.ColNumberOfMembers.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.ColNumberOfMembers.Width = 162;
             // 
-            // ColDescription
+            // ColQuantityBenefits
             // 
-            this.ColDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColDescription.HeaderText = "Benefícios recebidos";
-            this.ColDescription.MinimumWidth = 45;
-            this.ColDescription.Name = "ColDescription";
-            this.ColDescription.ReadOnly = true;
-            this.ColDescription.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColDescription.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColDescription.Width = 162;
-            // 
-            // ColDateBenefits
-            // 
-            this.ColDateBenefits.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColDateBenefits.HeaderText = "Data do benefício";
-            this.ColDateBenefits.MinimumWidth = 45;
-            this.ColDateBenefits.Name = "ColDateBenefits";
-            this.ColDateBenefits.ReadOnly = true;
-            this.ColDateBenefits.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColDateBenefits.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColDateBenefits.Width = 140;
+            this.ColQuantityBenefits.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColQuantityBenefits.HeaderText = "Quantidade de Benefícios";
+            this.ColQuantityBenefits.MinimumWidth = 45;
+            this.ColQuantityBenefits.Name = "ColQuantityBenefits";
+            this.ColQuantityBenefits.ReadOnly = true;
+            this.ColQuantityBenefits.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColQuantityBenefits.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColQuantityBenefits.Width = 198;
             // 
             // Column1
             // 
@@ -241,145 +369,6 @@
             this.Column1.ReadOnly = true;
             this.Column1.Visible = false;
             this.Column1.Width = 125;
-            // 
-            // rbAddress
-            // 
-            this.rbAddress.AutoSize = true;
-            this.rbAddress.ForeColor = System.Drawing.Color.White;
-            this.rbAddress.Location = new System.Drawing.Point(252, 13);
-            this.rbAddress.Margin = new System.Windows.Forms.Padding(4);
-            this.rbAddress.Name = "rbAddress";
-            this.rbAddress.Size = new System.Drawing.Size(96, 24);
-            this.rbAddress.TabIndex = 11;
-            this.rbAddress.Text = "Endereço";
-            this.rbAddress.UseVisualStyleBackColor = true;
-            this.rbAddress.CheckedChanged += new System.EventHandler(this.rbAddress_CheckedChanged);
-            // 
-            // rbName
-            // 
-            this.rbName.AutoSize = true;
-            this.rbName.Checked = true;
-            this.rbName.ForeColor = System.Drawing.Color.White;
-            this.rbName.Location = new System.Drawing.Point(156, 13);
-            this.rbName.Margin = new System.Windows.Forms.Padding(4);
-            this.rbName.Name = "rbName";
-            this.rbName.Size = new System.Drawing.Size(69, 24);
-            this.rbName.TabIndex = 10;
-            this.rbName.TabStop = true;
-            this.rbName.Text = "Nome";
-            this.rbName.UseVisualStyleBackColor = true;
-            this.rbName.CheckedChanged += new System.EventHandler(this.rbName_CheckedChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(13, 13);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 20);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Procurar por: ";
-            // 
-            // txtField
-            // 
-            this.txtField.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtField.Location = new System.Drawing.Point(16, 45);
-            this.txtField.Margin = new System.Windows.Forms.Padding(4);
-            this.txtField.MaxLength = 100;
-            this.txtField.Name = "txtField";
-            this.txtField.Size = new System.Drawing.Size(1046, 26);
-            this.txtField.TabIndex = 8;
-            this.txtField.TextChanged += new System.EventHandler(this.txtField_TextChanged);
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPrint.Enabled = false;
-            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrint.ForeColor = System.Drawing.Color.White;
-            this.btnPrint.Location = new System.Drawing.Point(880, 472);
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(186, 50);
-            this.btnPrint.TabIndex = 35;
-            this.btnPrint.Text = "Imprimir";
-            this.toolTip.SetToolTip(this.btnPrint, "Imprimir - [CTRL + P]");
-            this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
-            // cbRows
-            // 
-            this.cbRows.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.cbRows.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbRows.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbRows.Items.AddRange(new object[] {
-            "5",
-            "10",
-            "15",
-            "20",
-            "25",
-            "30",
-            "35",
-            "40",
-            "50"});
-            this.cbRows.Location = new System.Drawing.Point(532, 494);
-            this.cbRows.Name = "cbRows";
-            this.cbRows.Size = new System.Drawing.Size(121, 28);
-            this.cbRows.TabIndex = 36;
-            this.cbRows.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(528, 472);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 20);
-            this.label3.TabIndex = 39;
-            this.label3.Text = "Linhas";
-            // 
-            // ndPage
-            // 
-            this.ndPage.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.ndPage.Location = new System.Drawing.Point(438, 496);
-            this.ndPage.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.ndPage.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.ndPage.Name = "ndPage";
-            this.ndPage.ReadOnly = true;
-            this.ndPage.Size = new System.Drawing.Size(84, 26);
-            this.ndPage.TabIndex = 38;
-            this.ndPage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.ndPage.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(434, 472);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 20);
-            this.label2.TabIndex = 37;
-            this.label2.Text = "Página";
             // 
             // FrmReportBalancete
             // 
@@ -422,6 +411,10 @@
         private System.Windows.Forms.TextBox txtField;
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.ComboBox cbRows;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown ndPage;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCPF;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColRG;
@@ -432,12 +425,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColIncome;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColHelp;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColNumberOfMembers;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColDescription;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColDateBenefits;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColQuantityBenefits;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.ComboBox cbRows;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown ndPage;
-        private System.Windows.Forms.Label label2;
     }
 }

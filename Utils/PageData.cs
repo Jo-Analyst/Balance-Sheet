@@ -37,6 +37,18 @@ namespace Balance_Sheet.Utils
             quantity = Member.CountQuantityMember();
             return CalculacalculateNumberOfPage();
         }
+        
+        static public int SetPageQuantityPersonWithBenefits()
+        {
+            quantity = Person.CountQuantityPersonWithBenefits();
+            return CalculacalculateNumberOfPage();
+        }
+        
+        static public int SetPageQuantityByNameOrAddressPersonWithBenefits(string text, string column)
+        {
+            quantity = Person.CountQuantityByNameOrAddressPersonWithBenefits(text, column);
+            return CalculacalculateNumberOfPage();
+        }
 
         static public int SetPageQuantityByNameOrAddressPersons(string text, string column)
         {
