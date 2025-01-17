@@ -20,15 +20,15 @@ namespace Balance_Sheet.Utils
             return CalculacalculateNumberOfPage();
         } 
         
-        static public int SetPageQuantityBenefitsReceived()
+        static public int SetPageQuantityBenefitsReceived(int personId)
         {
-            quantity = BenefitsReceived.CountQuantityBenefitsReceived();
+            quantity = BenefitsReceived.CountQuantityBenefitsReceived(personId);
             return CalculacalculateNumberOfPage();
         }
         
-        static public int SetPageQuantityServices()
+        static public int SetPageQuantityServices(int personId)
         {
-            quantity = Service.CountQuantityServices();
+            quantity = Service.CountQuantityServices(personId);
             return CalculacalculateNumberOfPage();
         }
         

@@ -59,14 +59,14 @@ namespace DataBase
             }
         }
 
-        static public int CountQuantityBenefitsReceived()
+        static public int CountQuantityBenefitsReceived(int personId)
         {
             try
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
                     connection.Open();
-                    string sql = $"SELECT COUNT(id) AS quantity FROM Benefits_Received";
+                    string sql = $"SELECT COUNT(id) AS quantity FROM Benefits_Received WHERE person_id = {personId}";
                     var command = new SqlCommand(sql, connection);
                     command.CommandText = sql;
 

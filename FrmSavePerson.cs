@@ -58,7 +58,9 @@ namespace Balance_Sheet
 
             PageData.quantityRowsSelected = int.Parse(cbRowsService.SelectedItem.ToString());
 
-            ndPageService.Maximum = PageData.SetPageQuantityServices();
+            int maximumPage = PageData.SetPageQuantityServices(personId);
+
+            ndPageService.Maximum = maximumPage > 0 ? maximumPage : 1;
 
             int pageSelected = (int)((Math.Max(1, int.Parse(ndPageService.Value.ToString())) - 1) * PageData.quantityRowsSelected);
 
@@ -77,7 +79,9 @@ namespace Balance_Sheet
 
             PageData.quantityRowsSelected = int.Parse(cbRowsBenefits.SelectedItem.ToString());
 
-            ndPageBenefits.Maximum = PageData.SetPageQuantityBenefitsReceived();
+            int maximunPage = PageData.SetPageQuantityBenefitsReceived(personId);
+
+            ndPageBenefits.Maximum = maximunPage > 0 ? maximunPage : 1;
 
             int pageSelected = (int)((Math.Max(1, int.Parse(ndPageBenefits.Value.ToString())) - 1) * PageData.quantityRowsSelected);
 

@@ -59,14 +59,14 @@ namespace DataBase
             }
         }
 
-        static public int CountQuantityServices()
+        static public int CountQuantityServices(int personId)
         {
             try
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
                     connection.Open();
-                    string sql = $"SELECT COUNT(id) AS quantity FROM Services";
+                    string sql = $"SELECT COUNT(id) AS quantity FROM Services WHERE person_id = {personId}";
                     var command = new SqlCommand(sql, connection);
                     command.CommandText = sql;
 
