@@ -22,8 +22,7 @@ namespace Balance_Sheet
         private void FrmReportBalancete_Load(object sender, EventArgs e)
         {
             cbRows.SelectedIndex = 1;
-            CreateColumnsDtCountBenefits();
-            createColumnsdtPersonsFiltered();
+            
 
             btnPrint.Enabled = dgvPerson.Rows.Count > 0;
             if (!bool.Parse(Settings.Default["print_directory_direct"].ToString()))
@@ -56,9 +55,8 @@ namespace Balance_Sheet
 
                 dtPersons = string.IsNullOrWhiteSpace(txtField.Text)
                       ? person.FindAllPersonAndBenefits(pageSelected, PageData.quantityRowsSelected)
-                      : person.FindAllPersonAndBenefitsByNameOrAddress(txtField.Text, columnTable);
+                      : person.FindAllPersonAndBenefitsByNameOrAddress(txtField.Text, columnTable, pageSelected, PageData.quantityRowsSelected);
 
-                this.dtPersons = dtPersons;
 
                 foreach (DataRow dr in dtPersons.Rows)
                 {
@@ -77,24 +75,20 @@ namespace Balance_Sheet
                     dgvPerson.Rows[index].Cells[11].Value = dr["person_id"].ToString();
                     dgvPerson.Rows[index].Height = 35;
                 }
-                //Count_Benefits();
-                //FillDtPersonsFiltered();
+               
+                this.dtPersons = string.IsNullOrWhiteSpace(txtField.Text)
+                      ? person.FindAllPersonAndBenefits(pageSelected, PageData.quantityRowsSelected)
+                      : person.FindAllPersonAndBenefitsByNameOrAddress(txtField.Text, columnTable);
+                              
+                createColumnsdtPersonsFiltered();
+                FillDtPersonsFiltered();
                 dgvPerson.ClearSelection();
+                btnPrint.Enabled = dgvPerson.Rows.Count > 0;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        DataTable dtCountBenefits;
-
-        private void CreateColumnsDtCountBenefits()
-        {
-            dtCountBenefits = new DataTable();
-            dtCountBenefits.Columns.Add("count_benefits", typeof(int));
-            dtCountBenefits.Columns.Add("description", typeof(string));
-            dtCountBenefits.Columns.Add("person_id", typeof(int));
         }
 
         DataTable dtPersonsFiltered;
@@ -113,36 +107,6 @@ namespace Balance_Sheet
             dtPersonsFiltered.Columns.Add("help", typeof(decimal));
             dtPersonsFiltered.Columns.Add("number_of_members", typeof(string));
         }
-
-        //private void Count_Benefits()
-        //{
-        //    dtCountBenefits.Rows.Clear();
-        //    int lastIdTraveled = 0;
-
-        //    try
-        //    {
-        //        DataTable countBenefitsReceived;
-
-        //        foreach (DataRow person in dtPersons.Rows)
-        //        {
-        //            if (lastIdTraveled != Convert.ToInt32(person["person_id"]))
-        //            {
-        //                countBenefitsReceived = BenefitsReceived.CountBenefitsByPersonId(Convert.ToInt32(person["person_id"]));
-        //                foreach (DataRow countBR in countBenefitsReceived.Rows)
-        //                {
-        //                    dtCountBenefits.Rows.Add(Convert.ToInt32(countBR["count_Benefits"]), countBR["description"].ToString(), countBR["person_id"].ToString());
-        //                }
-        //            }
-
-        //            lastIdTraveled = Convert.ToInt32(person["person_id"]);
-        //        }
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
 
         private void FillDtPersonsFiltered()
         {
@@ -214,7 +178,7 @@ namespace Balance_Sheet
 
         private void cbRows_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LoadDataPersonAndBenefits();
+            LoadDataPersonAndBenefits();           
         }
 
         private void ndPage_ValueChanged(object sender, EventArgs e)

@@ -100,7 +100,7 @@ namespace DataBase
                 throw;
             }
         }
-        
+
         static public int CountQuantityPersonsByNameOrAddress(string text, string column)
         {
             try
@@ -258,16 +258,16 @@ namespace DataBase
             {
                 throw;
             }
-        }  
+        }
 
-         static public int CountQuantityByNameOrAddressPersonWithBenefits(string text, string column)
+        static public int CountQuantityByNameOrAddressPersonWithBenefits(string text, string column)
         {
             try
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
                     connection.Open();
-                    string sql = $"SELECT COUNT(*) as total_rows FROM (SELECT BR.person_id FROM Persons P LEFT JOIN Benefits_Received BR ON P.Id = BR.person_id  WHERE {text} LIKE '%{text}%' GROUP BY BR.person_id, P.name, P.CPF, P.RG, P.birth, P.address, P.number_address, P.phone, P.income, P.help, P.number_of_members HAVING Count(BR.person_id) > 0) as Subquery;";
+                    string sql = $"SELECT COUNT(*) as total_rows FROM (SELECT BR.person_id FROM Persons P LEFT JOIN Benefits_Received BR ON P.Id = BR.person_id  WHERE {column} LIKE '%{text}%' GROUP BY BR.person_id, P.name, P.CPF, P.RG, P.birth, P.address, P.number_address, P.phone, P.income, P.help, P.number_of_members HAVING Count(BR.person_id) > 0) as Subquery;";
                     var command = new SqlCommand(sql, connection);
                     command.CommandText = sql;
                     return Convert.ToInt32(command.ExecuteScalar());
@@ -277,9 +277,9 @@ namespace DataBase
             {
                 throw;
             }
-        }  
-        
-        public DataTable FindAllPersonAndBenefits(int page = 0, double quantRows = 10)
+        }
+
+        public DataTable FindAllPersonAndBenefits(int page, double quantRows)
         {
             try
             {
@@ -299,14 +299,53 @@ namespace DataBase
             }
         }
 
-        public DataTable FindAllPersonAndBenefitsByNameOrAddress(string text, string column, int page = 0, double quantRows = 10)
+        public DataTable FindAllPersonAndBenefitsByNameOrAddress(string text, string column, int page, double quantRows)
+        {
+            try
+            {
+                using (var connection = new SqlConnection(DbConnectionString.connectionString))
+                {                    
+                    string sql = $"SELECT Count(BR.person_id) as quantity_benefits, BR.person_id, P.name, P.CPF, P.RG, P.birth, P.address, P.number_address, P.income, P.phone, P.help, P.number_of_members FROM Persons P LEFT JOIN Benefits_Received BR ON P.Id = BR.person_id WHERE {column} LIKE '%{text}%' GROUP BY BR.person_id, P.name, P.CPF, P.RG, P.birth, P.address, P.number_address, P.phone, P.income, P.help, P.number_of_members HAVING Count(BR.person_id) > 0 ORDER BY   P.name OFFSET {page} ROWS FETCH NEXT {quantRows} ROWS ONLY;";
+                    var adapter = new SqlDataAdapter(sql, connection);
+                    adapter.SelectCommand.CommandText = sql;
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public DataTable FindAllPersonAndBenefits()
         {
             try
             {
                 using (var connection = new SqlConnection(DbConnectionString.connectionString))
                 {
-                    //string sql = $"SELECT persons.name, Persons.CPF, Persons.RG, Persons.birth, Persons.address, Persons.number_address, Persons.phone, Persons.income, Persons.help, Persons.number_of_members, Benefits_Received.description, Convert(VARCHAR, Benefits_Received.date_benefit, 103) AS date_benefit , Benefits_Received.person_id FROM Benefits_Received INNER JOIN Persons ON Persons.id = Benefits_Received.person_id WHERE {column} LIKE '%{text}%' ORDER BY Persons.name, Benefits_Received.description ASC";
-                    string sql = $"SELECT Count(BR.person_id) as quantity_benefits, BR.person_id, P.name, P.CPF, P.RG, P.birth, P.address, P.number_address, P.income, P.phone, P.help, P.number_of_members FROM Persons P LEFT JOIN Benefits_Received BR ON P.Id = BR.person_id WHERE {column} LIKE '%{text}%' GROUP BY BR.person_id, P.name, P.CPF, P.RG, P.birth, P.address, P.number_address, P.phone, P.income, P.help, P.number_of_members HAVING Count(BR.person_id) > 0 ORDER BY   P.name OFFSET {page} ROWS FETCH NEXT {quantRows} ROWS ONLY;";
+                    string sql = $"SELECT persons.name, Persons.CPF, Persons.RG, Persons.birth, Persons.address, Persons.number_address, Persons.phone, Persons.income, Persons.help, Persons.number_of_members, Benefits_Received.description, Convert(VARCHAR, Benefits_Received.date_benefit, 103) AS date_benefit , Benefits_Received.person_id FROM Benefits_Received INNER JOIN Persons ON Persons.id = Benefits_Received.person_id ORDER BY Persons.name, Benefits_Received.description ASC";
+                    var adapter = new SqlDataAdapter(sql, connection);
+                    adapter.SelectCommand.CommandText = sql;
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public DataTable FindAllPersonAndBenefitsByNameOrAddress(string data, string column)
+        {
+            try
+            {
+                using (var connection = new SqlConnection(DbConnectionString.connectionString))
+                {
+                    string sql = $"SELECT persons.name, Persons.CPF, Persons.RG, Persons.birth, Persons.address, Persons.number_address, Persons.phone, Persons.income, Persons.help, Persons.number_of_members, Benefits_Received.description, Convert(VARCHAR, Benefits_Received.date_benefit, 103) AS date_benefit , Benefits_Received.person_id FROM Benefits_Received INNER JOIN Persons ON Persons.id = Benefits_Received.person_id where {column} LIKE '%{data}%' ORDER BY Persons.name, Benefits_Received.description ASC";
                     var adapter = new SqlDataAdapter(sql, connection);
                     adapter.SelectCommand.CommandText = sql;
                     DataTable dataTable = new DataTable();
